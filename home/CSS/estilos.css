@@ -26,7 +26,7 @@ body{
 
 /*----------------*/
 
-.header{
+/*.header{
   height: 10%;
   background-color:#FE945E;
   padding: 20px;
@@ -34,7 +34,7 @@ body{
   text-align: center; 
   font-family: 'DK-brush' , sans-serif  ;
   font-size: 15px;
-}
+}*/
 
 img .imgitem .post1{
   width: 25px;
@@ -153,3 +153,73 @@ img .imgitem .post1{
 }
 
 /*--------*/
+
+
+header{
+  /*margin:50px auto;*/
+  width:100%;
+  height:50px;
+  background-color: black;
+  font-family: 'DK-brush' , sans-serif;
+}
+
+.menu{
+  width: 100%;
+}
+
+div.contenedor{
+  width: 16.66666%;
+  height: 103px;
+  float: left;
+  -webkit-transition:height 0.4s;
+}
+
+div#uno{
+  background-color: rgb(252, 120, 55);
+}
+div#dos{
+  background-color: rgb(252, 120, 55);
+}
+div#tres{
+  background-color: rgb(252, 120, 55);
+}
+div#cuatro{
+  background-color: rgb(252, 120, 55);
+}
+div#cinco{
+  background-color: rgb(252, 120, 55);
+}
+div#seis{
+  background-color: rgb(252, 120, 55);
+}
+
+img.icon{
+  display: block;
+  margin: 10px auto;
+  background-color: rgba(255,255,255,0.15);
+  width: 20px;
+  padding: 20px;
+  -webkit-border-radius: 45%;
+  -webkit-box-shadow:0px 0px 0px 30px rgba(255,255,255,0);
+  -webkit-transition: box-shadow 0.4s;
+}
+p.texto{
+  font-size: 1.2em;
+  color: beige;
+  text-align: center;
+  padding-top: 0px;
+  opacity: 0.6;
+  -webkit-transition: padding-top 0.4s;
+
+}
+div.contenedor:hover{
+  height: 120px;
+}
+div.contenedor:hover p.texto{
+  padding-top: 18px;
+  opacity: 1;
+}
+
+div.contenedor:hover img.icon{
+  -webkit-box-shadow:0px 0px 0px 0px rgba(255,255,255,0.6);
+}
