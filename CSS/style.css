@@ -1,7 +1,6 @@
 *{
     margin: 0;
     padding: 0;
-
   }
 
 #fullpage{
@@ -39,17 +38,17 @@
 /*----CAJA 1-----*/
 
   .bg{
-    background-image: url(../media/bg.jpg); 
+    background-image: url(../media/bg1.jpg); 
     background-size: 100%; 
   }
 
   .main .titulo{
     margin: 0px;
     padding: 0px;
-    background-color: rgba(220, 132, 43, 0.42);
+    background-color: rgba(41, 41, 41, 0.555);
     display: flex;
     float: right;
-    width: 45%;
+    width: 100%;
     height: 100vh;
   }
 
@@ -60,8 +59,19 @@
       align-items: center;
       justify-content: center; 
       min-height: 100px;
-      font-family: 'DK-brush' , sans-serif  ;
+      font-family: 'free' , sans-serif  ;
       font-size: 50px;
+  }
+
+  #VtastySnack{
+    color: rgb(245, 174, 104);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    min-height: 100px;
+    font-family: 'free' , sans-serif  ;
+    font-size: 50px;
   }
 
  /*------------------*/
@@ -69,27 +79,32 @@
  /*-----CAJA 2-------*/
  
  .bg1{
-    background-image: url(../media/bg1.jpg); 
+    background-image: url(../media/bg.jpg); 
     background-size: 100%;
     height: 110vh;
  }
 
  .tgfa {
-    margin: 0px;
+    margin: 0px auto;
     padding: 0px;
     background-color: rgba(0, 0, 0, 0.42);
     display: grid;
     float: left;
-    width: 45%;
+    width: 100%;
     height: 100vh;
+    text-align: justify;
     grid-template-areas: "foodApp foodApp"
-                         "Intruccion";
+                         "Intruccion"
+                         "button button";
+    
   }
 
 
  .titulo1{
-    color: #fff;
-    text-align: left;
+    color :rgb(245, 174, 104);
+    margin: 10px;
+    margin-bottom: 20px;
+    text-align: right;
     display: grid;
     min-height: 10px;
     font-family: 'free' , sans-serif  ;
@@ -98,11 +113,11 @@
 }
 
 .intruduccion{
+  margin: 80px;
+  margin-right: 20px;
     color: #fff;
-    text-align: left;
+    text-align: right;
     display: grid;
-    align-items: center;
-    min-height: 10px;
     font-family: 'free' , sans-serif  ;
     font-size: 40px;
     grid-area: introduccion;
@@ -114,9 +129,10 @@
     background-color: rgb(65, 154, 160);
     border-radius: 15px;
     display: grid;
-    position: relative;
-    right: 20px;
-    height: 10px;
-    
-
+    height: 20px;
+    width: 100px; 
+    margin: 10px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    grid-area: button;
 }
