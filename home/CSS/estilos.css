@@ -5,7 +5,7 @@
 }
 
 body{
-  background-color: #E8DCDC;
+  background-color: rgb(238, 236, 236);
 
 }
 /*---FUENTES---*/
@@ -17,7 +17,6 @@ body{
   src: url(../media/fonts/DK-brush.otf);
 }
 
-
 @font-face {
   
   font-family: free;
@@ -27,6 +26,13 @@ body{
 }
 
 /*----------------*/
+
+/*Contenido de los post Pcontenido */
+
+.Pcontenido{
+  display: grid;
+  width: 100%;
+}
 
 
 .destacado{
@@ -47,59 +53,44 @@ body{
 
 /*----------------*/
 
-/*.header{
-  height: 10%;
-  background-color:#FE945E;
-  padding: 20px;
-  color: #fff;
-  text-align: center; 
-  font-family: 'DK-brush' , sans-serif  ;
-  font-size: 15px;
-}*/
-
-img .imgitem .post1{
-  width: 25px;
-  height: 50px;
-
-}
-
-.post1 ,.post2 ,.post3 ,.post3, .post4, .post5 ,.post6 ,.post7{
+.post1 ,.post2 ,.post3 ,.post3, .post4, .post5 ,.post6 ,.post7, .post8, .post9 ,.post10{
   background-color: rgb(255, 255, 255);
-  display: grid;
   width: 200px;
   height: 351px;
   border-radius: 15px;
-  margin: 10px;
-  grid
+  margin: auto;
+  align-items: center;
+
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* -----ASIGNACION DE LOS GRID AREAS----*/
 .post1 {
   grid-area: item1;
 }
-
 .post2 {
   grid-area: item2;
 }
-
 .post3 {
   grid-area: item3;
 }
-
 .post4 {
   grid-area: item4;
 }
-
 .post5{
   grid-area: item5;
 }
-
 .post6{
   grid-area: item6;
 }
-
 .post7{
   grid-area: item7;
+}
+.post8{
+  grid-area: item8;
+}
+.post9{
+  grid-area: item9;
 }
 
 .descripcion{
@@ -110,7 +101,6 @@ img .imgitem .post1{
 /***************************************/
 
 .imgitem1{
-  display: grid;
   width: 200px;
   height: 281px;
   border-radius: 15px;
@@ -169,9 +159,10 @@ img .imgitem .post1{
 /*---------ESPACIO DE LOS POST------*/
 .posts{
   display: grid;
-
-  grid-template-areas: "item1 item2 item3 item4"
-                       "item5 item6 item7 item8";
+  grid-gap: 50px;
+  margin: 20px auto;
+  grid-template-areas: "item1 item2 item3 item4 item5"
+                       "item6 item7 item8 item9 item10";
 }
 
 /*----------------------------------*/
@@ -216,22 +207,7 @@ div.contenedor{
   -webkit-transition:height 0.4s;
 }
 
-div#uno{
-  background-color: rgb(252, 120, 55);
-}
-div#dos{
-  background-color: rgb(252, 120, 55);
-}
-div#tres{
-  background-color: rgb(252, 120, 55);
-}
-div#cuatro{
-  background-color: rgb(252, 120, 55);
-}
-div#cinco{
-  background-color: rgb(252, 120, 55);
-}
-div#seis{
+div#uno, #dos, #tres, #cuatro, #cinco,#seis{
   background-color: rgb(252, 120, 55);
 }
 
