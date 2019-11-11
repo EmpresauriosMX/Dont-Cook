@@ -1,0 +1,138 @@
+*{
+    margin: 0;
+    padding: 0;
+  }
+
+#fullpage{
+    height: 100vh;
+    overflow: hidden;
+}
+
+  #box1,#box2{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+
+}
+
+/*---FUENTES---*/
+
+@font-face {
+    font-family: DK-brush;
+    font-style: normal;
+    font-weight: normal;
+    src: url(../media/fonts/DK-brush.otf);
+ }
+
+ 
+ @font-face {
+    font-family: free;
+    font-style: normal;
+    font-weight: normal;
+    src: url(../media/fonts/free.TTF);
+ }
+
+ /*----------------*/
+
+
+/*----CAJA 1-----*/
+
+  .bg{
+    background-image: url(../media/bg1.jpg); 
+    background-size: 100%; 
+  }
+
+  .main .titulo{
+    margin: 0px;
+    padding: 0px;
+    background-color: rgba(41, 41, 41, 0.555);
+    display: flex;
+    float: right;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .titulo{
+      color: #fff;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center; 
+      min-height: 100px;
+      font-family: 'free' , sans-serif  ;
+      font-size: 50px;
+  }
+
+  #VtastySnack{
+    color: rgb(245, 174, 104);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    min-height: 100px;
+    font-family: 'free' , sans-serif  ;
+    font-size: 50px;
+  }
+
+ /*------------------*/
+
+ /*-----CAJA 2-------*/
+ 
+ .bg1{
+    background-image: url(../media/bg.jpg); 
+    background-size: 100%;
+    height: 110vh;
+ }
+
+ .tgfa {
+    margin: 0px auto;
+    padding: 0px;
+    background-color: rgba(0, 0, 0, 0.42);
+    display: grid;
+    float: left;
+    width: 100%;
+    height: 100vh;
+    text-align: justify;
+    grid-template-areas: "foodApp foodApp"
+                         "Intruccion"
+                         "button button";
+    
+  }
+
+
+ .titulo1{
+    color :rgb(245, 174, 104);
+    margin: 10px;
+    margin-bottom: 20px;
+    text-align: right;
+    display: grid;
+    min-height: 10px;
+    font-family: 'free' , sans-serif  ;
+    font-size: 60px;
+    grid-area: foodApp;
+}
+
+.intruduccion{
+  margin: 80px;
+  margin-right: 20px;
+    color: #fff;
+    text-align: right;
+    display: grid;
+    font-family: 'free' , sans-serif  ;
+    font-size: 40px;
+    grid-area: introduccion;
+}
+
+/*-------------------*/
+
+.button{
+    background-color: rgb(65, 154, 160);
+    border-radius: 15px;
+    display: grid;
+    height: 20px;
+    width: 100px; 
+    margin: 10px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    grid-area: button;
+}
