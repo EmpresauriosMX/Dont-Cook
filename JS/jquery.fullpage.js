@@ -1,6 +1,3 @@
-/*
- *	created by zhangkai on 2016/10/10 
- */
 ;(function(global,$){
 	'use strict';
 	var Fullpage = (function(){

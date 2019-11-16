@@ -1,0 +1,31 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-color: rgb(243, 124, 26);
+  
+  }
+
+/*---FUENTES---*/
+@font-face {
+    font-family: DK-brush;
+    font-style: normal;
+    font-weight: normal;
+    src: url(../media/fonts/DK-brush.otf);
+  }
+  
+  
+  @font-face {
+    
+    font-family: free;
+    font-style: normal;
+    font-weight: normal;
+    src: url(../media/fonts/free.TTF);
+  }
+  /*----------------*/
+  
+.Imagenpizza{
+    
+}
