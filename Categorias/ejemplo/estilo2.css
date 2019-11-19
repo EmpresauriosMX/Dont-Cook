@@ -28,11 +28,10 @@ body{
 
 .tittle{
     text-align: center;
-    font-size: 60px;
-    color:#d3570f;
-    margin-top: 100px;
+    font-size: 40px;
+    color:#363636;
     font-weight: 100;
-    font-family: 'free', sans-serif;
+    font-family: 'HELVETICA', sans-serif;
 }
 
 .contenedor2{
@@ -48,12 +47,12 @@ body{
 
 .contenedor2 .card{
     background-color:#ff9e2f;
-    width: 250px;
+    width: 220px;
     height: 270px;
-    border-radius: 8px;
+    border-radius: 25px;
     box-shadow: 0 2px 2px rgba(0,0,0,0.2);
     overflow: hidden;
-    margin: 40px;
+    margin: 10px;
     text-align: center;
     transition: all 0.25s;
 }
@@ -69,7 +68,7 @@ body{
 
 
 .contenedor2 .card img{
-    width: 250px;
+    width: 100%;
     height: 220px;
 }
 
@@ -85,55 +84,73 @@ body{
     font-size: 16px;
     font-weight: 300;
 }
-
 /*--------------------- MENU--------------I-------*/
 header{
-    /*margin:50px auto;*/
-    width:100%;
-    height:50px;
-    /*background-color: black;*/
-    font-family: "free" ,sans-serif;
-    font-size: 30px;
-    }
-  .menu{
-    width: 100%;
-  }
-  div.contenedor{
-    width: 16.66666%;
-    height: 103px;
-    float: left;
-    -webkit-transition:height 0.4s;
-  }
-  
-  div#uno, #dos, #tres, #cuatro, #cinco,#seis{
-    background-color: rgba(255, 255, 255, 0);
-  }
+  /*margin:50px auto;*/
+  width: 100%;
+  background-color: #FE945E;
+  height:65px;
+  margin-inline: auto;
+  font-family: "helvetica" ,sans-serif;
+  font-size: 15px;
 
-  p.texto{
-    font-size: 1.2em;
-    color: rgb(36, 36, 36);
-    text-align: center;
-    padding: 10px;
-    align-items: center;
-    opacity: 0.6;
-    -webkit-transition: padding-top 0.4s;
+  
+
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  z-index: 1030;
   
   }
-  div.contenedor:hover{
-    height: 120px;
-  }
-  div.contenedor:hover p.texto{
-    padding-top: 18px;
-    opacity: 1;
-  }
-  div.contenedor:hover img.icon{
-    -webkit-box-shadow:0px 0px 0px 0px rgba(255, 255, 255, 0.884);
-  }
+.menu{
+  width: 100%;
+
+
+}
+div.contenedor {
+  width: 20%;
+  height: 65px;
+  -webkit-transition:25px 0.4s;
+  float: left;
   
-  .icon{
-    width: 100px;
-    height: 50px;
-    margin: 15px;
-  
-  }
-  /*--------------------- MENU-----------------F----*/
+}
+
+div #uno, #dos, #tres, #cuatro, #cinco,#seis{
+  background-color: #fff;
+
+}
+
+img.icon{
+  display: block;
+  margin: 10px auto;
+}
+
+p.texto{
+  font-size: 1.2em;
+  color: rgb(36, 36, 36);
+  text-align: center;
+  padding: 10px;
+  align-items: center;
+  margin-top: 10px;
+  opacity: 0.6;
+  -webkit-transition: padding-top 0.4s;
+
+}
+div.contenedor:hover{
+  height: 70px;
+}
+div.contenedor:hover p.texto{
+  padding-top: 18px;
+  opacity: 1;
+}
+/*
+div.contenedor:hover img.icon{
+  -webkit-box-shadow:0px 0px 0px 0px rgba(255, 255, 255, 0.884);
+}*/
+
+.icon{
+  width: 100px;
+  height: 50px;
+  margin: 15px;
+}
+/*--------------------- MENU-----------------F----*/

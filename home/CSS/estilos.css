@@ -23,76 +23,7 @@ body{
 /*----------------*/
 
 
-/*--------------------- MENU--------------I-------*/
-header{
-  /*margin:50px auto;*/
-  width: 100%;
-  background-color: #FE945E;
-  height:65px;
-  margin-inline: auto;
-  font-family: "helvetica" ,sans-serif;
-  font-size: 15px;
 
-  
-
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0px;
-  z-index: 1030;
-  
-  }
-.menu{
-  width: 100%;
-
-
-}
-div.contenedor {
-  width: 20%;
-  height: 65px;
-  -webkit-transition:25px 0.4s;
-  float: left;
-  
-}
-
-div #uno, #dos, #tres, #cuatro, #cinco,#seis{
-  background-color: #fff;
-
-}
-
-img.icon{
-  display: block;
-  margin: 10px auto;
-}
-
-p.texto{
-  font-size: 1.2em;
-  color: rgb(36, 36, 36);
-  text-align: center;
-  padding: 10px;
-  align-items: center;
-  margin-top: 10px;
-  opacity: 0.6;
-  -webkit-transition: padding-top 0.4s;
-
-}
-div.contenedor:hover{
-  height: 70px;
-}
-div.contenedor:hover p.texto{
-  padding-top: 18px;
-  opacity: 1;
-}
-/*
-div.contenedor:hover img.icon{
-  -webkit-box-shadow:0px 0px 0px 0px rgba(255, 255, 255, 0.884);
-}*/
-
-.icon{
-  width: 100px;
-  height: 50px;
-  margin: 15px;
-}
-/*--------------------- MENU-----------------F----*/
 
 /*Contenido de los post Pcontenido */
 .Pcontenido{
@@ -123,13 +54,15 @@ margin-left: 90px;
   border: solid 1px;
   border-color: #707070;
   width: 220px;
-  height: 351px;
+  height: 365px;
   border-radius: 15px;
   font-family: Arial, Helvetica, sans-serif;
-
+  grid-row-end: span 2;
+  
+  transition: height .6s;
 }
 
-/* -----ASIGNACION DE LOS GRID AREAS----*/
+/* -----ASIGNACION DE LOS GRID AREAS----
 .post1 {
   grid-area: item1;
 }
@@ -156,11 +89,27 @@ margin-left: 90px;
 }
 .post9{
   grid-area: item9;
-}
+}*/
 
 .descripcion{
   font-size: 12px;
   margin: 5px;
+  width: 80%;
+  background-color: #ccc;
+  float: left;
+}
+
+.escondido{
+    float: left;
+    font-size: 12px;
+    margin: 5px;
+    width: 80%;
+    background-color: red;
+    display: none;
+}
+
+.escondido .activarSty{
+  display: block;
 }
 
 /***************************************/
@@ -175,20 +124,22 @@ margin-left: 90px;
 .posts{
   display: grid;
   grid-gap: 15px;
-  margin: 10px auto;
-  
+  justify-content: center;
+    /*margin: 10px auto;
+
   grid-template-areas: "item1 item2 item3 item4 item5"
                        "item6 item7 item8 item9 item10";
+  */
+  grid-template-columns: repeat(auto-fill, 220px);
 }
 
-.botonAbajo{
+.post1 button.botonAbajo{
   background: none;
   border: 0;
   font: inherit;
   padding: 0;
   cursor: pointer;
-  margin: 0px;
-  margin-right: 5px;
+  
 }
 
 /*----------------------------------*/

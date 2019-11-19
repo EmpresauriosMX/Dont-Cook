@@ -6,9 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="CSS/estilos.css">
 
+   <script src="./JS/swiper.min.js"></script>
+   <script src="JS/jquery-3.4.1.js"></script>
+   <script type="text/javascript" src="JS/button.js"></script>
+
     
   <!--CSS de el slider-->
   <link rel="stylesheet" href="./CSS/swiper.min.css">
+   <link rel="stylesheet" href="../menu/menu.css">
 
 
     <title>Don't cook</title>
@@ -36,7 +41,7 @@
    <header class="header">
          <div class="menu">
                   <div class="contenedor" id="uno">
-                       <img class="icon" src="pictures/logo100w57h.png">
+                       <img class="icon" src="../menu/logo100w57h.png">
                        <!--p class="texto">Inicio</p-->
                    </div>
                    
@@ -80,7 +85,7 @@
          <a href="../Categorias/ejemplo/" class="swiper-slide" style="background-image:url(./images/pasta.png);width: 180px; height: 220px;"></a>
          <a href="../Categorias/ejemplo/pollerias.html" class="swiper-slide" style="background-image:url(./images/poio.png);width: 180px; height: 220px;"></a>
          <a href="../Categorias/ejemplo/" class="swiper-slide" style="background-image:url(./images/burgue.png);width: 180px; height: 220px;"></a>
-         <a href="../Categorias/ejemplo/pizzerias.html" class="swiper-slide" style="background-image:url(./images/chino.png);width: 180px; height: 220px;"></a>
+         <a href="../Categorias/ejemplo/oriental.html" class="swiper-slide" style="background-image:url(./images/chino.png);width: 180px; height: 220px;"></a>
          <!--div class="swiper-slide" style="background-image:url(./images/pozole.png);width: 180px; height: 220px;"></div>
          <div class="swiper-slide" style="background-image:url(./images/chino.jpg);width: 180px; height: 220px;"></div>
          <div class="swiper-slide" style="background-image:url(./images/burgue.jpg);width: 180px; height: 220px;"></div>
@@ -102,18 +107,24 @@
 
          <div class="posts">
 
-            <div class="post1">
-               <img src="./images/condesa1.jpg" alt="item1" class="imgitem1">
-               <div class="descripcion">
-                  <h3 class="titulo">Condesa</h3>
-                  <p>Lunes de alitas</p>
-                  <button class="botonAbajo"><img src="media/icono-abajo.png" alt="icono-abajo"></button>
+            <div class="post1 " id="modificable">
+               <img src="../media/pizza.jpg" alt="item1" class="imgitem1" >
+               <div class="descripcion" >
+                  <h3 class="titulo" id="titulo">Condesa</h3>
+                  <p >Lunes de alitas</p>  
                </div>
+
+               <!--CAJA DE DESCRIPCION DETALLADA QUE SE OCULTA Y APARECE-->
+               <div class="escondido" category="item1" id="desc1" >
+                  <p >Numero: 999-000-1112</p>
+               </div>
+               <!--BOTON-->
+               <button class="botonAbajo" id="button1" onclick="abajo('modificable')" >  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
             </div>
       
             
             <div class="post2">
-               <img src="./images/condesa2.jpg" alt="item1" class="imgitem1">
+               <img src="../media/pizza.jpg" alt="item1" class="imgitem1">
                <div class="descripcion">
                   <h3 class="titulo">Condesa</h3>
                   <p>Lunes de alitas</p>
@@ -199,7 +210,7 @@
       
 
             <!-- Swiper JS -->
-      <script src="./JS/swiper.min.js"></script>
+
 
       <!-- Initialize Swiper -->
       <script>

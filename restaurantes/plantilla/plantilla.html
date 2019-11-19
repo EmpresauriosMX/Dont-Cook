@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dont-Cook</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="../../menu/menu.css">
+    <link rel="icon" href="../../menu/logo100w57h.png" type="image/x-icon">
+</head>
+<body>
+    
+   <header class="header">
+    <div class="menu">
+             <div class="contenedor" id="uno">
+                  <img class="icon" src="../../menu/logo100w57h.png">
+                  <!--p class="texto">Inicio</p-->
+              </div>
+              
+              <!--div class="contenedor"id="dos" >
+                 <img class="icon" src="pictures/icon9.png"-->
+                 <!--p class="texto">Categorias</p>
+              </div-->
+              
+              <div class="contenedor"id="tres">
+                <!--img class="icon" src="pictures/icon8.png"-->
+                <p class="texto">SERVICIO A DOMICILIO</p>
+              </div>
+              
+              <div class="contenedor"id="cuatro">
+                <!--img class="icon" src="pictures/icon7.png"-->
+                <p class="texto">BARES</p>
+              </div>
+              
+              <div class="contenedor"id="cinco">
+                  <!--img class="icon" src="pictures/icon11.png"-->
+                  <p class="texto">RESTAURANTES</p>
+              </div>
+              
+              <div class="contenedor"id="seis">
+                  <!--img class="icon" src="pictures/icon10.png"-->
+                  <p class="texto">CERCA DE TI</p>
+              </div>
+  </div>
+</header>
+
+
+    <div class="contenido">
+        <img src="img/img1.JPG" alt="logoRestaurante" class="imgLogo">
+
+        <div class="descripcion">
+            <h2 class="titulo">NOMBRE DEL RESTAURANTE</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero aliquam praesentium id molestias. Incidunt, quibusdam perspiciatis, recusandae voluptate similique qui adipisci delectus nobis illo, ipsam id quae nulla suscipit eveniet.</p>
+        </div>
+    </div>
+
+    
+        <div class="cajaDmenu">
+            
+            <a href="#" class=item ><p class="text2">MAPA</p></a>
+            <a href="#" class=item ><p class="text2">MENU</p></a>
+            <a href="#" class=item ><p class="text2">GALERIA</p></a>
+            <a href="#" class=item ><p class="text2">DETALLES</p></a>
+        </div>
+   
+        <!--####### MAPA ###########-->
+        <div class="areaMapa">
+                <div id="map"></div>
+        </div>
+        <!--####### MAPA ###########-->
+        <!--=========GALERIA=======-->
+
+
+
+        <!--    SCRIPT PARA USAR EL MAPA    -->
+        <script>
+                // Initialize and add the map
+                function initMap() {
+                  // The location of Uluru
+                  var uluru = {lat: 20.688330, lng: -88.203340};
+                  // ORIGINAL :LAT: 20.692679 LNG:-88.203912
+                  // The map, centered at Uluru
+                  var map = new google.maps.Map(
+                      document.getElementById('map'), {zoom: 18, center: uluru});
+                  // The marker, positioned at Uluru
+                  var marker = new google.maps.Marker({position: uluru, map: map});
+                }
+                    </script>
+                    <!--Load the API from the specified URL
+                    * The async attribute allows the browser to render the page while the API loads
+                    * The key parameter will contain your own API key (which is not needed for this tutorial)
+                    * The callback parameter executes the initMap() function
+                    -->
+                    <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDgg3TgNa0Ctnr463dIf0JIgWVUtmn92o&callback=initMap">
+        </script>
+</body>
+</html>
