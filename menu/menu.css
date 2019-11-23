@@ -96,7 +96,7 @@ div.contenedor:hover img.icon{
 }
 
 .content-search{
-    width: 100%;
+    width: 85%;
     height: 100vh;
     position: fixed;
     top: 55px;

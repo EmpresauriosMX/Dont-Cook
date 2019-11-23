@@ -1,17 +1,10 @@
 $(document).ready(function(){
-  alert("hola");
+  //alert("hola");
 
-  //Quita la clase de visibilidad a la descripcion escondida
-  
-  //$('.post1 .escondido[category="item1"]').addClass('activarSty');
-  //$('.escondido[category="item1"]').addClass('activarSty');
-  //$('.escondido').addClass(".activarSty");
-  
 });
     
 function abajo(id){
-  //alert("entro");
-  //document.getElementById("modificable").style.height = "400px";
+  
   if (document.getElementById(id).style.height == "365px") {
       $('.post1 .escondido[category="item1"]').addClass('activarSty');
       document.getElementById(id).style.height = "400px";
@@ -30,18 +23,7 @@ function acordeon(item){
 
 }
 
-var buscador = $("#table").DataTable();
 
-$("#input-search").keyup(function(){
-    
-    buscador.search($(this).val()).draw();
-    
-    if ($("#input-search").val() == ""){
-        $(".content-search").fadeOut(300);
-    }else{
-        $(".content-search").fadeIn(300);
-    }
-})
 
 /* document.getElementById("button1").style.color = "blue";
 

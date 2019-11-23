@@ -8,9 +8,13 @@
     <title>Dont-Cook</title>
     <link rel="stylesheet" href="estilos.css">
     <link rel="stylesheet" href="../../menu/menu.css">
+    
     <link rel="icon" href="../../menu/logo100w57h.png" type="image/x-icon">
 
-    <script type="text/javascript" src="../../JS/jquery-3.4.1.js"></script>
+    <script src="../../JS/jquery.js"></script>
+    <script src="../../JS//jquery.dataTables.min.js"></script>
+
+    <!--script type="text/javascript" src="../../JS/jquery-3.4.1.js"></script-->
     <script type="text/javascript" src="script1.js"></script>
     
 </head>
@@ -18,38 +22,105 @@
     
    <header class="header">
     <div class="menu">
-             <div class="contenedor" id="uno">
-                  <img class="icon" src="../../menu/logo100w57h.png">
-                  <!--p class="texto">Inicio</p-->
-              </div>
-              
-              <!--div class="contenedor"id="dos" >
-                 <img class="icon" src="pictures/icon9.png"-->
-                 <!--p class="texto">Categorias</p>
-              </div-->
-              
-              <div class="contenedor"id="tres">
-                <!--img class="icon" src="pictures/icon8.png"-->
-                <p class="texto">SERVICIO A DOMICILIO</p>
-              </div>
-              
-              <div class="contenedor"id="cuatro">
-                <!--img class="icon" src="pictures/icon7.png"-->
-                <p class="texto">BARES</p>
-              </div>
-              
-              <div class="contenedor"id="cinco">
-                  <!--img class="icon" src="pictures/icon11.png"-->
-                  <p class="texto">RESTAURANTES</p>
-              </div>
-              
-              <div class="contenedor"id="seis">
-                  <!--img class="icon" src="pictures/icon10.png"-->
-                  <p class="texto">CERCA DE TI</p>
-              </div>
-  </div>
-</header>
+        <div class="contenedor" id="uno">
+             <img class="icon" src="../../menu/logo100w57h.png">
+             <!--p class="texto">Inicio</p-->
+         </div>
+         
+         <div class="contenedor"id="dos" >
+           
+            <p class="texto">SERVICIO A DOMICILIO</p>
+         </div>
+         
+         <div class="contenedor"id="tres">
+           <!--img class="icon" src="pictures/icon8.png"-->
+           <p class="texto">BARES</p>
+         </div>
+         
+         <div class="contenedor"id="cuatro">
+           <!--img class="icon" src="pictures/icon7.png"-->
+           <p class="texto">RESTAURANTES</p>
+         </div>
+         
+         <div class="contenedor"id="cinco">
+             <!--img class="icon" src="pictures/icon11.png"-->
+             <p class="texto">CERCA DE TI</p>
+         </div>
+         
+         <div class="contenedor"id="seis">
+           
+           <div class="buscador">
+              <input type="search" id="input-search" placeholder="Buscar aqui">
 
+              <div class="content-search">
+                 <div class="content-table">
+                       <table id="table">
+                          <thead>
+                             <tr>
+                                   <td></td>
+                             </tr>
+                          </thead>
+                          <tbody>
+                             <tr>
+                                   <td><a href="#">Inicio</a></td>
+                             </tr>
+
+                             <tr>
+                                   <td><a href="#">Tacos</a></td>
+                             </tr>
+
+                             <tr>
+                                   <td><a href="#">Tortas</a></td>
+                             </tr>
+
+                             <tr>
+                                   <td><a href="#">Pizzas</a></td>
+                             </tr>
+
+                             <tr>
+                                   <td><a href="#">Helados</a></td>
+                             </tr>
+
+                             <tr>
+                                   <td><a href="#">Pollos</a></td>
+                             </tr>
+
+                             <tr>
+                                   <td><a href="#">Carnitas</a></td>
+                             </tr>
+
+                             <tr>
+                                   <td><a href="#">Taquerias</a></td>
+                             </tr>
+
+                             <tr>
+                                   <td><a href="#">Pastas</a></td>
+                             </tr>
+
+                             <tr>
+                                   <td><a href="#">Comida china</a></td>
+                             </tr>
+
+                             <tr>
+                                   <td><a href="#">Sushi</a></td>
+                             </tr>
+
+                             <tr>
+                                   <td><a href="#">Hamburguesas</a></td>
+                             </tr>
+
+                             <tr>
+                                   <td><a href="#">Gringas</a></td>
+                             </tr>
+                          </tbody>
+                       </table>
+                 </div>
+              </div>
+           </div>
+         </div>
+</div>
+</header>
+    <script src="../../JS/search.js"></script>
 
     <div class="contenido">
         <img src="img/img1.JPG" alt="logoRestaurante" class="imgLogo">
