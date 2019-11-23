@@ -29,14 +29,14 @@
 
 .titulo{
     margin-bottom: 20px;
-    background-color: #ccc;
+    
     width: 80%;
     font-size: 35px;
 }
 
 .cajaDmenu{
-    width: 38%;
-    background-color: #F19F52;
+    width: 15%;
+    background-color: #FFA24B;
     height: 50px;
     border-radius: 30px;
     margin-inline: auto;
@@ -54,17 +54,22 @@ a{
 .item {
     font-family: 'helvetica' ,sans-serif;
     font-size: 15px;
+
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
     
-    width: 24%;
-    margin: auto;
+    width: 49%;
+    margin-inline: auto;
     display: inline-block;
     height: 50px;
     text-align: center;
     color: #fff;
     border-radius: 100px;
-    transition: background-color: .1s;
+    transition: background-color .1s;
 
-    trasition: color .4s;
+    transition: color .4s;
 }
 
 .item:hover{
@@ -79,11 +84,44 @@ a{
 
 /**     MAPA        **/
 /* Set the size of the div element that contains the map */
-#map {
+
+.areaMapa{
+    display: none;
+}
+
+.activar{
+    display: grid;
+}
+
+#map{
     margin: 20px;
     margin-inline: auto;
     border-radius: 20px;
     height: 400px;  /* The height is 400 pixels */
-    width: 70%;  /* The  width is the width of the web page */
+    width: 75%;  /* The  width is the width of the web page */
 }
 
+
+/** Galeria **/
+
+.galeria{
+    margin: 20px;
+    width: 70%;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 50%);
+    display: none;
+}
+
+.picP{
+    width: 90%;
+    margin-inline: auto;
+}
+
+.pic{
+    width: 100%;
+    padding-inline: auto;
+    border-radius: 30px;
+}
+
+/** FIN DE GALERIA **/

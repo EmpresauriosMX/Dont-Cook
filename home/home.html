@@ -6,13 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="CSS/estilos.css">
 
-   <script src="./JS/swiper.min.js"></script>
-   <script src="JS/jquery-3.4.1.js"></script>
-   <script type="text/javascript" src="JS/button.js"></script>
 
+   <script src="JS/jquery.js"></script>
+   <script src="JS/jquery.dataTables.min.js"></script>
+
+   <script src="./JS/swiper.min.js"></script>
+   <!--script src="JS/jquery-3.4.1.js"></script-->
+   
+   
+   <script type="text/javascript" src="JS/button.js"></script>
+   
     
-  <!--CSS de el slider-->
-  <link rel="stylesheet" href="./CSS/swiper.min.css">
+   <!--CSS de el slider-->
+   <link rel="stylesheet" href="./CSS/swiper.min.css">
    <link rel="stylesheet" href="../menu/menu.css">
 
 
@@ -45,35 +51,30 @@
                        <!--p class="texto">Inicio</p-->
                    </div>
                    
-                   <!--div class="contenedor"id="dos" >
-                      <img class="icon" src="pictures/icon9.png"-->
-                      <!--p class="texto">Categorias</p>
-                   </div-->
+                   <div class="contenedor"id="dos" >
+                     
+                      <p class="texto">SERVICIO A DOMICILIO</p>
+                   </div>
                    
                    <div class="contenedor"id="tres">
                      <!--img class="icon" src="pictures/icon8.png"-->
-                     <p class="texto">SERVICIO A DOMICILIO</p>
+                     <p class="texto">BARES</p>
                    </div>
                    
                    <div class="contenedor"id="cuatro">
                      <!--img class="icon" src="pictures/icon7.png"-->
-                     <p class="texto">BARES</p>
+                     <p class="texto">RESTAURANTES</p>
                    </div>
                    
                    <div class="contenedor"id="cinco">
                        <!--img class="icon" src="pictures/icon11.png"-->
-                       <p class="texto">RESTAURANTES</p>
+                       <p class="texto">CERCA DE TI</p>
                    </div>
                    
                    <div class="contenedor"id="seis">
-                       <!--img class="icon" src="pictures/icon10.png"-->
-                       <p class="texto">CERCA DE TI</p>
-                   </div>
-
-                   <div class="contenedor" id="siete">
-                     <!--BUSCADOR-->
+                     
                      <div class="buscador">
-                     <input type="search" id="input-search" placeholder="Buscar aqui">
+                        <input type="search" id="input-search" placeholder="Buscar aqui">
 
                         <div class="content-search">
                            <div class="content-table">
@@ -141,7 +142,11 @@
                         </div>
                      </div>
                    </div>
+       </div>
    </header>
+   
+   <script src="JS/search.js"></script>
+
    <div class="fila1">
       <h2 class="destacado">¡Categorias!</h2>
    </div>
@@ -180,13 +185,13 @@
 
             <div class="post1 " id="modificable">
                <img src="../media/pizza.jpg" alt="item1" class="imgitem1" >
-               <div class="descripcion" >
+               <div class="descripcion">
                   <h3 class="titulo" id="titulo">Condesa</h3>
                   <p >Lunes de alitas</p>  
                </div>
 
                <!--CAJA DE DESCRIPCION DETALLADA QUE SE OCULTA Y APARECE-->
-               <div class="escondido" category="item1" id="desc1" >
+               <div class="escondido " category="item1" id="desc1" >
                   <p >Numero: 999-000-1112</p>
                </div>
                <!--BOTON-->

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -8,6 +9,10 @@
     <link rel="stylesheet" href="estilos.css">
     <link rel="stylesheet" href="../../menu/menu.css">
     <link rel="icon" href="../../menu/logo100w57h.png" type="image/x-icon">
+
+    <script type="text/javascript" src="../../JS/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="script1.js"></script>
+    
 </head>
 <body>
     
@@ -50,26 +55,47 @@
         <img src="img/img1.JPG" alt="logoRestaurante" class="imgLogo">
 
         <div class="descripcion">
-            <h2 class="titulo">NOMBRE DEL RESTAURANTE</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero aliquam praesentium id molestias. Incidunt, quibusdam perspiciatis, recusandae voluptate similique qui adipisci delectus nobis illo, ipsam id quae nulla suscipit eveniet.</p>
+            <h2 class="titulo">Taquería Valladolid</h2>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere, fuga enim? Tenetur incidunt ex maiores ab ea praesentium soluta dolore culpa at obcaecati non delectus, dolorem voluptatem quis corporis asperiores?<p>
+            <br>
+            <p>Número: 999 888 7776</p>
+            <p>Horario: lunes a vienes de 9am a 11pm</p>
         </div>
     </div>
 
     
         <div class="cajaDmenu">
             
-            <a href="#" class=item ><p class="text2">MAPA</p></a>
-            <a href="#" class=item ><p class="text2">MENU</p></a>
-            <a href="#" class=item ><p class="text2">GALERIA</p></a>
-            <a href="#" class=item ><p class="text2">DETALLES</p></a>
+            <!--a href="" onclick="ocultar_aparecer('aMap')" class="item" ><p class="text2">MAPA</p></a-->
+            <button class="item" id="button1" onclick="ocultar_aparecer('aMap','galeriaa')" >MAPA</button>
+            <!--a href="#" class=item ><p class="text2">MENU</p></a-->
+            <button class="item" id="button2" onclick="ocultar_aparecer('galeriaa','aMap')" >GALERIA</button>
+            <!--a href="" onclick="ocultar_aparecer('galeriaa')" class="item" ><p class="text2">GALERIA</p></a-->
+            <!--a href="" class="item" ><p class="text2">DETALLES</p></a-->
         </div>
    
         <!--####### MAPA ###########-->
-        <div class="areaMapa">
+        <div class="areaMapa" category="mapa" id="aMap">
                 <div id="map"></div>
         </div>
         <!--####### MAPA ###########-->
+
+
+
         <!--=========GALERIA=======-->
+
+        <div class="galeria" category="galeria1" id="galeriaa">
+            <div class="picP" >
+                <img src="img//9.jpg" alt="img1" class="pic">
+            </div>
+    
+            <div class="picP" >
+                <img src="img/8.jpg" alt="img1" class="pic">
+            </div>
+        </div>
+
+        
+
 
 
 
