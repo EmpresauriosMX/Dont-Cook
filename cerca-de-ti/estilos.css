@@ -1,0 +1,12 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+#map{
+    margin: 20px;
+    margin-inline: auto;
+    border-radius: 20px;
+    height: 500px;  /* The height is 400 pixels */
+    width: 75%;  /* The  width is the width of the web page */
+}
