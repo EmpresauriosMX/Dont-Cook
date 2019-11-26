@@ -60,7 +60,7 @@ border-radius: 15px;
 font-family: Arial, Helvetica, sans-serif;
 grid-row-end: span 2;
 
-transition: height .4s;
+transition: height .2s;
 
 }
 
@@ -133,6 +133,7 @@ grid-template-areas: "item1 item2 item3 item4 item5"
                      "item6 item7 item8 item9 item10";
 */
 grid-template-columns: repeat(auto-fill, 220px);
+  margin: 10px;
 }
 
 button.botonAbajo{
@@ -166,3 +167,43 @@ border-radius: 5%;
 height: 100px;
 }
 /*--------*/
+
+.diario{
+  display: block;
+}
+
+.lunes{
+  display: none;
+}
+
+.martes{
+  display: none;
+}
+
+.miercoles{
+  display: none;
+}
+
+.jueves{
+  display: none;
+}
+
+.viernes{
+  display: none;
+}
+
+.sabado{
+  display: none;
+}
+
+.domingo{
+  display: none;
+}
+
+.activarPost{
+  display: block;
+}
+
+
+
+

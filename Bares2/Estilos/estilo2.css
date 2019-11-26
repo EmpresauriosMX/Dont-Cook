@@ -1,0 +1,156 @@
+/*---FUENTES---*/
+@font-face {
+    font-family: DK-brush;
+    font-style: normal;
+    font-weight: normal;
+    src: url(../media/fonts/DK-brush.otf);
+  } 
+  @font-face { 
+    font-family: free;
+    font-style: normal;
+    font-weight: normal;
+    src: url(free.TTF);
+  }
+  /*----------------*/
+
+html,body{
+    margin:0;
+    padding:0;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    font-family: sans-serif;
+    letter-spacing: 0.03em;
+    line-height: 1.6;
+}
+
+.tittle{
+    text-align: center;
+    font-size: 40px;
+    color:#363636;
+    font-weight: 100;
+    font-family: 'HELVETICA', sans-serif;
+}
+
+.contenedor2{
+    /*background-color: aquamarine;*/
+    widows: 25%;
+    max-width: 100%;
+    max-height: 900px;
+    display: flex;
+    margin-inline: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contenedor2 .card{
+    background-color:#ff9e2f;
+    width: 220px;
+    height: 270px;
+    border-radius: 25px;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+    overflow: hidden;
+    margin: 10px;
+    text-align: center;
+    transition: all 0.25s;
+}
+
+
+
+.contenedor2 .card:hover{
+    transform: translateY(-15px);
+    box-shadow: 0 12px 16px rgba(0,0,0,0.2);
+    background-color: #f8a74a;
+
+}
+
+
+.contenedor2 .card img{
+    width: 100%;
+    height: 220px;
+}
+
+.contenedor2 .card h4{
+    margin-top: auto;
+    font-weight: 600;
+    color: white;
+    font-size: 25px;
+}
+
+.contenedor2 .card p{
+    padding: 0 1rem;
+    font-size: 16px;
+    font-weight: 300;
+}
+/*--------------------- MENU--------------I-------*/
+header{
+  /*margin:50px auto;*/
+  width: 100%;
+  background-color: #FE945E;
+  height:65px;
+  margin-inline: auto;
+  font-family: "helvetica" ,sans-serif;
+  font-size: 15px;
+
+  
+
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  z-index: 1030;
+  
+  }
+.menu{
+  width: 100%;
+
+
+}
+div.contenedor {
+  width: 20%;
+  height: 65px;
+  -webkit-transition:25px 0.4s;
+  float: left;
+  
+}
+
+div #uno, #dos, #tres, #cuatro, #cinco,#seis{
+  background-color: #fff;
+
+}
+
+img.icon{
+  display: block;
+  margin: 10px auto;
+}
+
+p.texto{
+  font-size: 1.2em;
+  color: rgb(36, 36, 36);
+  text-align: center;
+  padding: 10px;
+  align-items: center;
+  margin-top: 10px;
+  opacity: 0.6;
+  -webkit-transition: padding-top 0.4s;
+
+}
+div.contenedor:hover{
+  height: 70px;
+}
+div.contenedor:hover p.texto{
+  padding-top: 18px;
+  opacity: 1;
+}
+/*
+div.contenedor:hover img.icon{
+  -webkit-box-shadow:0px 0px 0px 0px rgba(255, 255, 255, 0.884);
+}*/
+
+.icon{
+  width: 100px;
+  height: 50px;
+  margin: 15px;
+}
+/*--------------------- MENU-----------------F----*/

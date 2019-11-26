@@ -158,7 +158,7 @@
 
          <a href="../Categorias/ejemplo/pizzerias.html" class="swiper-slide"  style  ="background-image:url(./images/pizza.PNG); width: 180px; height: 220px;"> </a> 
          <a href="../Categorias/ejemplo/taquerias.html" class="swiper-slide" style="background-image:url(./images/tacos.png);width: 180px; height: 220px;"></a>
-         <a href="../Categorias/ejemplo/" class="swiper-slide" style="background-image:url(./images/pasta.png);width: 180px; height: 220px;"></a>
+         <a href="../Categorias/ejemplo/helados.html" class="swiper-slide" style="background-image:url(./images/helados1.png);width: 180px; height: 220px;"></a>
          <a href="../Categorias/ejemplo/pollerias.html" class="swiper-slide" style="background-image:url(./images/poio.png);width: 180px; height: 220px;"></a>
          <a href="../Categorias/ejemplo/" class="swiper-slide" style="background-image:url(./images/burgue.png);width: 180px; height: 220px;"></a>
          <a href="../Categorias/ejemplo/oriental.html" class="swiper-slide" style="background-image:url(./images/chino.png);width: 180px; height: 220px;"></a>
@@ -178,24 +178,10 @@
 
          <div class="posts">
 
-            <div class="post1 " id="modificable">
-               <img src="../media/pizza.jpg" alt="item1" class="imgitem1" >
-               <div class="descripcion">
-                  <h3 class="titulo" id="titulo">Condesa</h3>
-                  <p >Lunes de alitas</p>  
-               </div>
-
-               <!--CAJA DE DESCRIPCION DETALLADA QUE SE OCULTA Y APARECE-->
-               <div class="escondido " category="item1" id="desc1" >
-                  <p >Numero: 999-000-1112</p>
-               </div>
-               <!--BOTON-->
-               <button class="botonAbajo"  id="button1" onclick="abajo('modificable')" >  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
-            </div>
-      
-            
             <!----------------------------------DIARIO------------------------------------------->
-            <div class="post2" id="modificable2">
+
+         
+            <div class="post2 diario " id="modificable2">
                <img src="media/Promociones/promocion 1.png" alt="item1" class="imgitem1">
                <div class="descripcion">
                   <h3 class="titulo">Burger King</h3>
@@ -203,16 +189,16 @@
                </div>
                
                <!--CAJA DE DESCRIPCION DETALLADA QUE SE OCULTA Y APARECE-->
-               <div class="escondido" category="item2" id="desc1" >
+               <div class="escondido" category="item2" id="desc2" >
                   <p >Numero: 985 856 4000</p>
                   <p>Direccion: calle 39 x 38 y 40 centro</p>
                </div>
                <!--BOTON-->
-               <button class="botonAbajo"  id="button1" onclick="abajo('modificable2')" onclick="acordeon('item2','modificable2')">  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
+               <button class="botonAbajo"  onclick="abajouno('modificable2')">  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
             </div>
       
             
-            <div class="post3" id="modificable3">
+            <div class="post3 diario" id="modificable3">
                <img src="media/Promociones/promocion 4.png" alt="item3" class="imgitem1">
                <div class="descripcion">
                   <h3 class="titulo">Subway</h3>
@@ -220,15 +206,15 @@
                </div>
                 
                <!--CAJA DE DESCRIPCION DETALLADA QUE SE OCULTA Y APARECE-->
-               <div class="escondido" category="item3" id="desc1" >
+               <div class="escondido" category="item3" id="desc3" >
                   <p >Numero: 985 856 4450</p>
                   <p>Direccion: Calle 42 # 194-B x35 y 37</p>
                </div>
                <!--BOTON-->
-               <button class="botonAbajo"  onclick="abajo('modificable')" >  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
+               <button class="botonAbajo"  onclick="abajo3('modificable3')" >  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
             </div>
    
-            <div class="post4" id="modificable4">
+            <div class="post4 diario" id="modificable4">
                <img src="media/Promociones/promocion 2.png" alt="item3" class="imgitem1">
                <div class="descripcion">
                   <h3 class="titulo">Burger King</h3>
@@ -236,240 +222,238 @@
                </div>
 
                <!--CAJA DE DESCRIPCION DETALLADA QUE SE OCULTA Y APARECE-->
-               <div class="escondido " category="item1" id="desc1" >
+               <div class="escondido " category="item1" id="desc4" >
                   <p >Numero: 985 856 4000</p>
                   <p>Direccion: calle 39 x 38 y 40 centro</p>
                </div>
                <!--BOTON-->
-               <button class="botonAbajo" id="button1" onclick="abajo('modificable')" >  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
+               <button class="botonAbajo" id="button1"  onclick="abajo4('modificable4')">  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
             </div>
    
-            <div class="post5">
+            <div class="post5 diario" id="modificable5">
                <img src="media/Promociones/promocion 5.png" alt="item4" class="imgitem1">
                <div class="descripcion">
                   <h3 class="titulo">Subway</h3>
                   <p>Sub Milanesa de Pollo</p>
                </div>
                <!--CAJA DE DESCRIPCION DETALLADA QUE SE OCULTA Y APARECE-->
-               <div class="escondido " category="item1" id="desc1" >
+               <div class="escondido " category="item1" id="desc5" >
                   <p >Numero: 985 856 4450</p>
                   <p>Direccion: Calle 42 # 194-B x35 y 37</p>
                </div>
                <!--BOTON-->
-               <button class="botonAbajo" id="button1" onclick="abajo('modificable')" >  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
+               <button class="botonAbajo" id="button1"  onclick="abajo5('modificable5')">  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
             </div>
    
-            <div class="post6">
+            <div class="post6 diario" id="modificable6">
                <img src="media/Promociones/promocion 7.png" alt="item1" class="imgitem1">
                <div class="descripcion">
                   <h3 class="titulo">PikaTako</h3>
                   <p>Rebanada y Frappe $59</p>
                </div>
                <!--CAJA DE DESCRIPCION DETALLADA QUE SE OCULTA Y APARECE-->
-               <div class="escondido " category="item1" id="desc1" >
+               <div class="escondido " category="item1" id="desc6" >
                   <p >Numero: 985 856 4450</p>
                   <p>Direccion: Calle 41 (1.78 km)</p>
                </div>
                <!--BOTON-->
-               <button class="botonAbajo" id="button1" onclick="abajo('modificable')" >  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
+               <button class="botonAbajo" id="button1"  onclick="abajo6('modificable6')" >  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
             </div>
    
-            <div class="post7">
+            <div class="post7 diario" id="modificable7">
                <img src="media/Promociones/promocion 6.png" alt="item1" class="imgitem1">
                <div class="descripcion">
                   <h3 class="titulo">La Muralla China</h3>
                   <p>Combos de guisados</p>
                </div>
                <!--CAJA DE DESCRIPCION DETALLADA QUE SE OCULTA Y APARECE-->
-               <div class="escondido " category="item1" id="desc1" >
+               <div class="escondido " category="item1" id="desc7" >
                   <p>Direccion: Centro</p>
                </div>
                <!--BOTON-->
-               <button class="botonAbajo" id="button1" onclick="abajo('modificable')" >  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
+               <button class="botonAbajo" id="button1"  onclick="abajo7('modificable7')">  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
             </div>
+         
 
             <!-----------------------------FIN DIARIO-------------------------------->
-
+            
             <!-------------------------LUNES-------------------------------->
-            <div class="post8">
+         
+            <div class="post8 lunes" id="modificable8">
                <img src="media/Promociones/Lunes1.jpg" alt="item1" class="imgitem1">
                <div class="descripcion">
                   <h3 class="titulo">Condesa-Bar</h3>
                   <p>Lunes de alitas</p>
                </div>
                <!--CAJA DE DESCRIPCION DETALLADA QUE SE OCULTA Y APARECE-->
-               <div class="escondido " category="item1" id="desc1" >
+               <div class="escondido " category="item1" id="desc8" >
                   <p >Numero: 985 856 5895</p>
                   <p>Direccion: Calle 40 #201E entre 41 y 43 Col.Centro</p>
                </div>
                <!--BOTON-->
-               <button class="botonAbajo" id="button1" onclick="abajo('modificable')" >  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
+               <button class="botonAbajo" id="button1" onclick="abajo8('modificable8')" >  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
             </div>
    
-            <div class="post9">
+            <div class="post9 lunes" id="modificable9">
                <img src="media/Promociones/Lunes2.jpg" alt="item1" class="imgitem1">
                <div class="descripcion">
                   <h3 class="titulo">Libranos del Mal</h3>
                   <p>Lunes de alitas</p>
                </div>
                 <!--CAJA DE DESCRIPCION DETALLADA QUE SE OCULTA Y APARECE-->
-                <div class="escondido " category="item1" id="desc1" >
+                <div class="escondido " category="item9" id="desc9" >
                   <p >Numero: 985 856 1901</p>
                   <p>Direccion: Calle 39 No. 199A por 38 y 40 Col. Centro</p>
                </div>
                <!--BOTON-->
-               <button class="botonAbajo" id="button1" onclick="abajo('modificable')" >  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
+               <button class="botonAbajo" id="button1" onclick="abajo9('modificable9')" >  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
             </div>
+         
             <!-------------------------FIN LUNES-------------------------------->
 
 
-
-
-
             <!-------------------------MARTES-------------------------------->
-            <div class="post10">
+
+        
+            <div class="post10 martes" id="modificable10">
                <img src="media/Promociones/Martes1.jpg" alt="item1" class="imgitem1">
                <div class="descripcion">
                   <h3 class="titulo">Libranos del Mal</h3>
                   <p>Martes de heladez</p>
                </div>
                <!--CAJA DE DESCRIPCION DETALLADA QUE SE OCULTA Y APARECE-->
-               <div class="escondido " category="item1" id="desc1" >
+               <div class="escondido " category="item1" id="desc10" >
                   <p >Numero: 985 856 1901</p>
                   <p>Direccion: Calle 39 No. 199A por 38 y 40 Col. Centro</p>
                </div>
                <!--BOTON-->
-               <button class="botonAbajo" id="button1" onclick="abajo('modificable')" >  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
+               <button class="botonAbajo" id="button1" onclick="abajo10('modificable10')" >  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
             </div>
 
-            <div class="post11">
+            <div class="post11 martes" id="modificable11">
                <img src="media/Promociones/Martes2.jpg" alt="item1" class="imgitem1">
                <div class="descripcion">
                   <h3 class="titulo">Condesa-Bar</h3>
                   <p>Martes de heladez</p>
                </div>
                <!--CAJA DE DESCRIPCION DETALLADA QUE SE OCULTA Y APARECE-->
-               <div class="escondido " category="item1" id="desc1" >
+               <div class="escondido " category="item1" id="desc11" >
                   <p >Numero: 985 856 5895</p>
                   <p>Direccion: Calle 40 #201E entre 41 y 43 Col.Centro</p>
                </div>
                <!--BOTON-->
-               <button class="botonAbajo" id="button1" onclick="abajo('modificable')" >  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
+               <button class="botonAbajo" id="button1" onclick="abajo11('modificable11')" >  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
             </div>
 
-            <div class="post12">
+            <div class="post12 martes" id="modificable12">
                <img src="media/Promociones/Martes3.jpg" alt="item1" class="imgitem1">
                <div class="descripcion">
                   <h3 class="titulo">Bait Lajam</h3>
                   <p>Martes de 3x2</p>
                </div>
                <!--CAJA DE DESCRIPCION DETALLADA QUE SE OCULTA Y APARECE-->
-               <div class="escondido " category="item1" id="desc1" >
+               <div class="escondido " category="item1" id="desc12" >
                   <p >Numero: 985 856 4073</p>
                   <p>Direccion: Calle 42 entre 27 y 29 Santa Lucia</p>
                </div>
                <!--BOTON-->
-               <button class="botonAbajo" id="button1" onclick="abajo('modificable')" >  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
+               <button class="botonAbajo" id="button1" onclick="abajo12('modificable12')" >  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
             </div>
+         
+
             <!-------------------------FIN MARTES-------------------------------->
 
 
-
-
-
-
-
             <!-------------------------MIERCOLES-------------------------------->
-            <div class="post13">
+         
+            <div class="post13 miercoles" id="modificable13">
                <img src="media/Promociones/miercoles1.jpg" alt="item1" class="imgitem1">
                <div class="descripcion">
                   <h3 class="titulo">Absenta pub</h3>
                   <p>Entradas 2x1 </p>
                </div>
                <!--CAJA DE DESCRIPCION DETALLADA QUE SE OCULTA Y APARECE-->
-               <div class="escondido " category="item1" id="desc1" >
+               <div class="escondido " category="item1" id="desc13" >
                   <p >Numero: 985 856 0763</p>
                   <p>Direccion: Calle 56B</p>
                </div>
                <!--BOTON-->
-               <button class="botonAbajo" id="button1" onclick="abajo('modificable')" >  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
+               <button class="botonAbajo" id="button1" onclick="abajo13('modificable13')" >  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
             </div>
-            <!-------------------------FIN MIERCOLES-------------------------------->
-
-
-
-
-
-             <!-------------------------JUEVES-------------------------------->
-            <div class="post14">
+         
+            
+            <!-------------------------FIN MIERCOLES-------------------------------->          
+            
+            <div class="post14 jueves" id="modificable14">
                <img src="media/Promociones/jueves1.jpg" alt="item1" class="imgitem1">
                <div class="descripcion">
                   <h3 class="titulo">Condesa-Bar</h3>
-                  <p>Nacjos a $1</p>
+                  <p>Nachos a $1</p>
                </div>
                <!--CAJA DE DESCRIPCION DETALLADA QUE SE OCULTA Y APARECE-->
-               <div class="escondido " category="item1" id="desc1" >
+               <div class="escondido " category="item1" id="desc14" >
                   <p >Numero: 985 856 5895</p>
                   <p>Direccion: Calle 40 #201E entre 41 y 43 Col.Centro</p>
                </div>
                <!--BOTON-->
-               <button class="botonAbajo" id="button1" onclick="abajo('modificable')" >  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
+               <button class="botonAbajo" id="button1" onclick="abajo14('modificable14')" >  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
             </div>
+
             <!-------------------------FIN JUEVES-------------------------------->
 
 
-
-
             <!-------------------------SABADO-------------------------------->
-            <div class="post15">
+         
+            <div class="post15 sabado" id="modificable15">
                <img src="media/Promociones/Sabado1.jpg" alt="item1" class="imgitem1">
                <div class="descripcion">
                   <h3 class="titulo">Libranos del Mal</h3>
                   <p>Mezcales 2x1</p>
                </div>
                <!--CAJA DE DESCRIPCION DETALLADA QUE SE OCULTA Y APARECE-->
-               <div class="escondido " category="item1" id="desc1" >
+               <div class="escondido " category="item1" id="desc15" >
                   <p >Numero: 985 856 1901</p>
                   <p>Direccion: Calle 39 No. 199A por 38 y 40 Col. Centro</p>
                </div>
                <!--BOTON-->
-               <button class="botonAbajo" id="button1" onclick="abajo('modificable')" >  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
+               <button class="botonAbajo" id="button1" onclick="abajo15('modificable15')" >  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
             </div>
-           
+         
              <!-------------------------FIN SABADO-------------------------------->
 
 
 
 
              <!-------------------------DOMINGO-------------------------------->
-             <div class="post16">
+         
+            <div class="post16 domingo" id="modificable16">
                <img src="media/Promociones/Domingo1.jpg" alt="item1" class="imgitem1">
                <div class="descripcion">
                   <h3 class="titulo">Libranos del Mal</h3>
                   <p>Todo a $19</p>
                </div>
                <!--CAJA DE DESCRIPCION DETALLADA QUE SE OCULTA Y APARECE-->
-               <div class="escondido " category="item1" id="desc1" >
+               <div class="escondido " category="item1" id="desc16" >
                   <p >Numero: 985 856 1901</p>
                   <p>Direccion: Calle 39 No. 199A por 38 y 40 Col. Centro</p>
                </div>
                <!--BOTON-->
-               <button class="botonAbajo" id="button1" onclick="abajo('modificable')" >  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
+               <button class="botonAbajo" id="button1" onclick="abajo16('modificable16')" >  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
             </div>
              
-            <div class="post17" id="modificable17">
+            <div class="post17 domingo" id="modificable17">
                <img src="media/Promociones/Domingo2.jpg" alt="item1" class="imgitem1">
                <div class="descripcion">
                   <h3 class="titulo">Absenta pub</h3>
                   <p>20% en pizzas, pastas y mas</p>
                </div>
                <!--CAJA DE DESCRIPCION DETALLADA QUE SE OCULTA Y APARECE-->
-               <div class="escondido " category="item1" id="desc1" >
+               <div class="escondido " category="item1" id="desc17" >
                   <p >Numero: 985 856 0763</p>
                   <p>Direccion: Calle 56B</p>
                </div>
                <!--BOTON-->
-               <button class="botonAbajo" id="button1" onclick="abajo('modificable')" >  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
+               <button class="botonAbajo" id="button1" onclick="abajo17('modificable17')" >  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
             </div>
 
             <!-------------------------FIN DOMINGO-------------------------------->
