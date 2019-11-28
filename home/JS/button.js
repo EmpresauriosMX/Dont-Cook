@@ -1,134 +1,129 @@
+//SCRIP QUE SE EJECUTA AL INICIAR EL DOCUMENTO
+//ES NECESARIO PARA EL FILTRADO DE LAS PROMOCIONES
 $(document).ready(function(){
-  //alert("hola");
-
-  var x = new Date();
-  console.log(x.getDay());
-
-  switch(x.getDay()){
-    case 0:
-      document.getElementById('modificable16').style.display = 'block';
-      document.getElementById('modificable17').style.display = 'block';
-      break;
-    case 1:
-      console.log('lunes');
-      //var x = getElementsByClassName('lunes');
-      /*var i;
-      for (i = 0; i < x.length; i++) {
-        x[i].style.display = "block";
-      }*/
-      document.getElementById('modificable8').style.display = 'block';
-      document.getElementById('modificable9').style.display = 'block';
-      break;
-    case 3:
-      console.log('martes');
-      document.getElementById('modificable10').style.display = 'block';
-      document.getElementById('modificable11').style.display = 'block';
-      document.getElementById('modificable12').style.display = 'block';
-      break;
-    case 4:
-      console.log('miercoles');
-      document.getElementById('modificable13').style.display = 'block';
-      break;      
-    case 5:
-      console.log('jueves');
-      document.getElementById('modificable14').style.display = 'block';
-      break;   
-    case 6:
-      console.log('viernes');
-      
-      break;  
-    case 7:
-      console.log('sabado');
-      document.getElementById('modificable15').style.display = 'block';
-      break;  
-    }
-
+  //llama a la funcion que muestra la promocion del dia correspondiente
+  promocion_del_dia();
 });
-/*
-function abajo(id , item){
-  
-  var categ = $(this).attr('category');
-  console.log(categ);
+//FIN DE SCRIPT INICIAL
 
-  if (document.getElementById(id).style.height == "365px") {
-     // $(' .escondido[category="item1"]').addClass('activarSty');
-      document.getElementById(id).style.height = "400px";
-      document.getElementById(id).style.grid.row.end = "span 4";
-      //$('.escondido[category="item1"]').addClass('activarSty');
-      $(item).addClass('activarSty');
-      
-    } else {
-      //$(' .escondido[category="item1"]').removeClass('activarSty');
-      document.getElementById(id).style.height = "365px";
-      $(item).removeClass('activarSty');
-    }
+function promocion_del_dia() {
+   //OBTIENE EL DIA 
+   var x = new Date();
+   console.log(x.getDay());
+   //EL DIA ES  GUARDADO EN VAR EN TIPO INT
+   switch(x.getDay()){
+     //CASO DOMIINGO
+     case 0:
+       //llama a funcion que muestra la promocion del dia requerido
+         muestraPromociones('domingo',1);break;
+     case 1:
+       //LUNES
+       console.log('lunes');
+       muestraPromociones('lunes',1);break;
+     case 2:
+       //MARTES
+       console.log('martes');
+       muestraPromociones('martes',1);break;
+     case 3:
+       //MIERCOLES
+       console.log('miercoles');
+       muestraPromociones('miercoles',1); break; 
+     case 4:
+       //JUEVES
+       console.log('jueves');  
+       muestraPromociones('jueves',1);break;
+     case 5:
+       //VIERNES
+       muestraPromociones('viernes',1);break;
+     case 6:
+       //SABADO
+       console.log('sabado');
+       muestraPromociones('sabado',1);break;
+       
+     }
+     
+}
 
-    //acordeon(item,id);
-} 
-function acordeon(item, id){
-  //funcion que llama al query que agrega o quita la clase css para el boton ver más
-  //var categ = $(this).attr('category');
-  //console.log(categ);
+//variable del estado del boton, comienza con 0
+var indice = 0;
 
-  if (document.getElementById(id).style.height == "365px") {
-      $(item).addClass('activarSty');
+//funcion llamada por el boton que mostrara o ocultara las
+//promociones segun el estado del boton
+function muestra_promociones(id) {
+  if (indice==0){
+    //muestra todas las promociones
+    //muestra oculta todos con mensaje de uno mostrara todas las promociones
+    muestra_oculta_todos(1);
+    indice = 1;
+  }
+  else{
+    //muestra oculta todos con mensaje de cero ocultara todas las promociones
+    muestra_oculta_todos(0);
+    //cambio del estado del boton
+    indice = 0;
+    //llamado a la promocion del dia 
+    promocion_del_dia();
+  }
+}
 
-    } else {
-      $(item).removeClass('activarSty');
-
+//funcion que mostrara o ocultara todas las promociones segun el dia que se le mande por mensaje
+function muestraPromociones(dia,aparece_oculta) {
+  //si el mensaje aparece oculta es true mostrara las promociones
+  if (aparece_oculta){
+      var aparece = "block";
+  }
+  //si el mensaje es false lo ocultara
+  else{
+      var aparece = "none";
+  }
+  //obtiene las promociones con la clase dia que es pasado en el mensaje
+    var x = document.getElementsByClassName(dia);
+    var i;
+  //muestra o oculta todo el array del dia
+    for (i = 0; i < x.length; i++){
+      x[i].style.display = aparece;
+    //aparece es el estado que toma valor de block o none
     }
 }
-*/
 
-/* ----EL QUE FUNCIONA xd
+//si el mensaje dado en esta funcion es true lo muestra y si es false lo oculta
+function muestra_oculta_todos(aparece_oculta) {
+  muestraPromociones('lunes',aparece_oculta );
+  muestraPromociones('martes', aparece_oculta);
+  muestraPromociones('miercoles', aparece_oculta);
+  muestraPromociones('jueves', aparece_oculta);
+  muestraPromociones('viernes', aparece_oculta);
+  muestraPromociones('sabado', aparece_oculta);
+  muestraPromociones('domingo', aparece_oculta);
+}
 
-function abajo(id){
-  
-  if (document.getElementById(id).style.height == "365px") {
-      $('.post1 .escondido[category="item1"]').addClass('activarSty');
-      document.getElementById(id).style.height = "400px";
-      document.getElementById(id).style.grid.row.end = "span 4";
-      //$('.escondido[category="item1"]').addClass('activarSty');
-      
-    } else {
-      $('.post1 .escondido[category="item1"]').removeClass('activarSty');
-      document.getElementById(id).style.height = "365px";
-    }
-} -----------------------*/
 
+//Funciones que hacen que baje el cuadro de descripcion y aparezca informacion adicional
 // ABAJO 1
 function abajo1(id){
+  //obtiene el valor de la altura del cuadro, su estado natural es 365px
   if (document.getElementById(id).style.height == "365px") {
-      $('#desc1').addClass('activarSty');
+      //se agrega como estilos el activar estilos que hace visible la informacion
       document.getElementById(id).style.height = "400px";
       document.getElementById(id).style.grid.row.end = "span 4";
+      $('#desc1').addClass('activarSty');
     } else {
       $('#desc1').removeClass('activarSty');
       document.getElementById(id).style.height = "365px";
     }
-} 
+}
 // ABAJO 2
 function abajouno(id){
   if (document.getElementById(id).style.height == "365px") {
-      $('#desc2').addClass('activarSty');
       document.getElementById(id).style.height = "400px";
-      document.getElementById(id).style.grid.row.end = "span 4";
+      //document.getElementById(id).style.grid.row.end = "span 4";
+      $('#desc2').addClass('activarSty');
     } else {
       $('#desc2').removeClass('activarSty');
       document.getElementById(id).style.height = "365px";
     }
 } 
 
-/*function abajo2(id){
-  if (document.getElementById(id).style.height == "365px") {
-      //$('#desc2').addClass('activarSty');
-      document.getElementById(id).style.height = "400px";
-      document.getElementById(id).style.grid.row.end = "span 4";
-    } else {
-      //$('#desc2').removeClass('activarSty');
-      document.getElementById(id).style.height = "365px";
-    }
-} */
 // ABAJO 3
 function abajo3(id){
   if (document.getElementById(id).style.height == "365px") {
@@ -295,39 +290,40 @@ function abajo17(id){
     }
 }
 
-
-
-
-/*
-function abajo(id){
-  
+// ABAJO 18
+function abajo18(id){
   if (document.getElementById(id).style.height == "365px") {
+      $('#desc18').addClass('activarSty');
       document.getElementById(id).style.height = "400px";
-      //document.getElementById(id).style.grid.row.end = "span 4";
-      //$('.escondido[category="item1"]').addClass('activarSty');
-      
+      document.getElementById(id).style.grid.row.end = "span 4";
     } else {
-      
+      $('#desc18').removeClass('activarSty');
       document.getElementById(id).style.height = "365px";
     }
-} 
-*/
-/*ITEM 1
-function acordeon1(){
-  if (document.getElementById(id).style.height == "365px") {
-    $('.escondido[category="item1"]').addClass('activarSty');    
-    
-  } else {
-    $('.escondido[category="item1"]').removeClass('activarSty');
-  }
 }
 
-//ITEM 2
-function acordeon2(){
+// ABAJO 19
+function abajo19(id){
   if (document.getElementById(id).style.height == "365px") {
-    $('.escondido[category="item2"]').addClass('activarSty');    
-  
-  } else {
-    $('.escondido[category="item2"]').removeClass('activarSty');
-  }
-}*/
+      $('#desc19').addClass('activarSty');
+      document.getElementById(id).style.height = "400px";
+      document.getElementById(id).style.grid.row.end = "span 4";
+    } else {
+      $('#desc19').removeClass('activarSty');
+      document.getElementById(id).style.height = "365px";
+    }
+}
+
+// ABAJO 20
+function abajo20(id){
+  if (document.getElementById(id).style.height == "365px") {
+      $('#desc20').addClass('activarSty');
+      document.getElementById(id).style.height = "400px";
+      document.getElementById(id).style.grid.row.end = "span 4";
+    } else {
+      $('#desc20').removeClass('activarSty');
+      document.getElementById(id).style.height = "365px";
+    }
+}
+
+

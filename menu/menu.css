@@ -3,17 +3,16 @@ header{
   /*margin:50px auto;*/
   width: 100%;
   background-color: #FE945E;
-  height:65px;
+  height:85px;
   margin-inline: auto;
   font-family: "helvetica" ,sans-serif;
   font-size: 15px;
-
   
-
   position: -webkit-sticky;
+  position: -moz-sticky;
   position: sticky;
   top: 0px;
-  z-index: 1030;
+  z-index: 4030;
   
   }
 .menu{
@@ -23,7 +22,7 @@ header{
 }
 div.contenedor {
   width: 16.667%;
-  height: 65px;
+  height: 85px;
   -webkit-transition:25px 0.4s;
   float: left;
   
@@ -45,16 +44,17 @@ p.texto{
   text-align: center;
   padding: 10px;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 8px;
   opacity: 0.6;
   -webkit-transition: padding-top 0.4s;
+  
 
 }
 div.contenedor:hover{
   /*height: 70px;*/
 }
 div.contenedor:hover p.texto{
-  padding-top: 18;
+  padding-top: 18px;
   opacity: 1;
 }
 /*
@@ -67,6 +67,14 @@ div.contenedor:hover img.icon{
   height: 50px;
   margin: 15px;
 }
+
+.menu a{  
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+    text-align: center;
+    text-decoration: none;
+}
 /*--------------------- MENU-----------------F----*/
 
 /*BARRA DE BUSQUEDA */
@@ -74,10 +82,11 @@ div.contenedor:hover img.icon{
 .buscador{
    width:100%;
      height: 45px;
-     padding: 10px;
+     padding: 13px;
      float: right;
     
   margin-inline: auto;
+  
 }
 
 #input-search{
@@ -101,7 +110,7 @@ div.contenedor:hover img.icon{
     position: fixed;
     top: 55px;
     display: none;
-  margin: auto;w
+  margin: auto;
 }
 
 .content-table{
@@ -109,7 +118,7 @@ div.contenedor:hover img.icon{
     max-height: 200px;
     height: auto;
     background-color: #FE945E;
-  background-color: rgba(255, 158, 110,1);
+  background-color: rgba(255, 158, 110,0.970);
     margin-left:0px;
     overflow-y: visible;
     overflow-x: hidden;

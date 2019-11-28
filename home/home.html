@@ -11,18 +11,15 @@
    <script src="../JS/jquery.dataTables.min.js"></script>
 
    <script src="./JS/swiper.min.js"></script>
-   <!--script src="JS/jquery-3.4.1.js"></script-->
-   
-   
    <script type="text/javascript" src="JS/button.js"></script>
    
     
    <!--CSS de el slider-->
    <link rel="stylesheet" href="./CSS/swiper.min.css">
    <link rel="stylesheet" href="../menu/menu.css">
+   <link rel="icon" href="../menu/logo100w57h.png" type="image/x-icon">
 
-
-    <title>Don't cook</title>
+    <title>Don't-cook</title>
 
       <!-- Demo styles -->
   <style>
@@ -38,7 +35,7 @@
         height: 300px; 
   
       }
-      */
+      
     </style>
 
 </head>
@@ -47,28 +44,27 @@
    <header class="header">
          <div class="menu">
                   <div class="contenedor" id="uno">
-                       <img class="icon" src="../menu/logo100w57h.png">
+                       <a href="../index.html"><img class="icon" src="../menu/logo100w57h.png"></a>
                        <!--p class="texto">Inicio</p-->
                    </div>
                    
                    <div class="contenedor"id="dos" >
-                     
-                      <p class="texto">SERVICIO A DOMICILIO</p>
+                     <p class="texto">SERVICIO A DOMICILIO</p>
                    </div>
                    
                    <div class="contenedor"id="tres">
                      <!--img class="icon" src="pictures/icon8.png"-->
-                     <p class="texto">BARES</p>
+                     <a href="../Bares2/Bar.html"> <p class="texto">BARES</p> </a>
                    </div>
                    
                    <div class="contenedor"id="cuatro">
                      <!--img class="icon" src="pictures/icon7.png"-->
-                     <p class="texto">RESTAURANTES</p>
+                     <a href="../restaurantes/Restaurantes.html"><p class="texto">RESTAURANTES</p></a>
                    </div>
                    
                    <div class="contenedor"id="cinco">
                        <!--img class="icon" src="pictures/icon11.png"-->
-                       <p class="texto">CERCA DE TI</p>
+                       <a href="../cerca-de-ti/cerca-de-ti.html"><p class="texto">CERCA DE TI</p></a>
                    </div>
                    
                    <div class="contenedor"id="seis">
@@ -160,7 +156,7 @@
          <a href="../Categorias/ejemplo/taquerias.html" class="swiper-slide" style="background-image:url(./images/tacos.png);width: 180px; height: 220px;"></a>
          <a href="../Categorias/ejemplo/helados.html" class="swiper-slide" style="background-image:url(./images/helados1.png);width: 180px; height: 220px;"></a>
          <a href="../Categorias/ejemplo/pollerias.html" class="swiper-slide" style="background-image:url(./images/poio.png);width: 180px; height: 220px;"></a>
-         <a href="../Categorias/ejemplo/" class="swiper-slide" style="background-image:url(./images/burgue.png);width: 180px; height: 220px;"></a>
+         <a href="../Categorias/ejemplo/rapida.html" class="swiper-slide" style="background-image:url(./images/burgue.png);width: 180px; height: 220px;"></a>
          <a href="../Categorias/ejemplo/oriental.html" class="swiper-slide" style="background-image:url(./images/chino.png);width: 180px; height: 220px;"></a>
          </div>
          <!-- Add Pagination -->
@@ -308,6 +304,21 @@
                <!--BOTON-->
                <button class="botonAbajo" id="button1" onclick="abajo9('modificable9')" >  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
             </div>
+
+            <div class="post19 lunes" id="modificable19">
+               <img src="media/Promociones/yepez2.jpg" alt="item1" class="imgitem1">
+               <div class="descripcion">
+                  <h3 class="titulo">Yepez</h3>
+                  <p>Tacos 5x2</p>
+               </div>
+                <!--CAJA DE DESCRIPCION DETALLADA QUE SE OCULTA Y APARECE-->
+                <div class="escondido " category="item1" id="desc19" >
+                  <p >Numero: 985 856 1901</p>
+                  <p>Direccion: Calle 39 No. 199A por 38 y 40 Col. Centro</p>
+               </div>
+               <!--BOTON-->
+               <button class="botonAbajo" id="button1" onclick="abajo19('modificable19')" >  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
+            </div>
          
             <!-------------------------FIN LUNES-------------------------------->
 
@@ -381,9 +392,24 @@
                <button class="botonAbajo" id="button1" onclick="abajo13('modificable13')" >  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
             </div>
          
-            
+            <div class="post20 miercoles" id="modificable20">
+               <img src="media/Promociones/yepez3.jpg" alt="item1" class="imgitem1">
+               <div class="descripcion">
+                  <h3 class="titulo">Yepez</h3>
+                  <p>Miercoles Pozolero</p>
+               </div>
+               <!--CAJA DE DESCRIPCION DETALLADA QUE SE OCULTA Y APARECE-->
+               <div class="escondido " category="item1" id="desc20" >
+                  <p >Numero: 985 856 0763</p>
+                  <p>Direccion: Calle 56B</p>
+               </div>
+               <!--BOTON-->
+               <button class="botonAbajo" id="button1" onclick="abajo20('modificable20')" >  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
+            </div>
             <!-------------------------FIN MIERCOLES-------------------------------->          
             
+
+            <!-------------------------JUEVES-------------------------------->
             <div class="post14 jueves" id="modificable14">
                <img src="media/Promociones/jueves1.jpg" alt="item1" class="imgitem1">
                <div class="descripcion">
@@ -399,19 +425,19 @@
                <button class="botonAbajo" id="button1" onclick="abajo14('modificable14')" >  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
             </div>
 
-            <div class="post18">
+            <div class="post18 jueves" id="modificable18">
                <img src="media/Promociones/yepez.jpg" alt="item1" class="imgitem1">
                <div class="descripcion">
                   <h3 class="titulo">Yepez</h3>
                   <p>Nachos!</p>
                </div>
                <!--CAJA DE DESCRIPCION DETALLADA QUE SE OCULTA Y APARECE-->
-               <div class="escondido " category="item1" id="desc1" >
+               <div class="escondido " category="item1" id="desc18" >
                   <p >Numero: 985 856 5895</p>
                   <p>Direccion: Calle 40 #201E entre 41 y 43 Col.Centro</p>
                </div>
                <!--BOTON-->
-               <button class="botonAbajo" id="button1" onclick="abajo('modificable')" >  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
+               <button class="botonAbajo" id="button1" onclick="abajo18('modificable18')" >  <img src="media/icono-abajo.png" alt="icono-abajo"></button>
             </div>
 
             <!-------------------------FIN JUEVES-------------------------------->
@@ -477,11 +503,10 @@
          <!--PROMOCIONES-->
 
       </div>
-        
-            <!-- Swiper JS -->
+      
+      <input type="button" onclick="muestra_promociones('btn1')" value="Ver todas las promociones" class="btn" id="btn1">
+            
 
-
-      <!-- Initialize Swiper -->
       <script>
          var swiper = new Swiper('.swiper-container', {
             effect: 'coverflow',

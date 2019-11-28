@@ -71,9 +71,9 @@ function initMap()
         var marker = new google.maps.Marker({
             position: propiedades.coords,
             map: map,
-            title: "Centro de adopción",
+            title: "RESTAURANTE",
             animation: google.maps.Animation.BOUNCE,
-            icon: 'IMG/icon.jpeg'
+            icon: 'IMG/icon.png'
         })
 
         // Si el marcador pasado contiene informacion para ser mostrada.
@@ -105,18 +105,14 @@ function initMap()
     // Array con etiquetas html de cada marcador para mostrar como informacion.
     var etiquetas = [
         {
-            tierra_de_animales: 
-                "<h3>Tierra de Animales</h3>\
-                <p>Leona Vicario</p>\
-                <p>Leona Vicario, Q.R. 77535 </p>\
-                <form method='POST' action='../../centro_de_adopcion/mascotas.php'>\
-                <input type='text' value='1' name='id_sucursal' id='id_sucursal' HIDDEN/>\
-                <br><input type='submit' value='Ir al centro de adopcion' class='btn btn-primary btn-xs btn-block' /><br>\
-                </form>\
-                <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-mlADLFGgp2cVcCMjDSHP7PxNeZ0xfgD8pZaDkmOv1a9L8RH4nw' alt='img' width='200px'><br>"
+           taqueria_de_valladolid: 
+                "<h3>Taquería de valladolid</h3>\
+                <p>Ubicacion </p>\
+                <p>lorem xd</p>\
+                <img src='../restaurantes/plantilla/img/img1.JPG' alt='img' width='200px'><br>"
         },
         {
-            luum:
+            /*luum:
                 "<h3>Luum Balicheo</h3>\
                 <p>Avenida Kohunlich</p>\
                 <p>251 Mz 13 Lote 28, Sm 50</p>\
@@ -126,19 +122,20 @@ function initMap()
                 <br><input type='submit' value='Ir al centro de adopcion' class='btn btn-primary btn-xs btn-block' /><br>\
                 </form>\
                 <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-mlADLFGgp2cVcCMjDSHP7PxNeZ0xfgD8pZaDkmOv1a9L8RH4nw' alt='img' width='200px'>"
-        }
+            */            
+            }
     ]
 
     // Array con cada uno de los marcadores de centros de adopcion.
     var marcadores = 
     [
         {
-            coords: { lat: 21.01822850610167, lng: -87.1388781},
-            content: etiquetas[0].tierra_de_animales
+            coords: { lat: 20.688330, lng: -88.203340},
+            content: etiquetas[0].taqueria_de_valladolid
         },
         {
-            coords: { lat: 21.145828406142304, lng: -86.84871550000003},
-            content: etiquetas[1].luum
+            //coords: { lat: 21.145828406142304, lng: -86.84871550000003},
+            //content: etiquetas[1].luum
         }
     ];
 
