@@ -154,6 +154,20 @@ function initMap()
             <p></p>\
             <p>Desayunos,comidas y cenas</p>\
             <img src='../restaurantes/Yepez/img/yepez.png' alt='img' width='200px'><br>" 
+        },
+        {
+            la_selva:
+            "<h3>La selva</h3>\
+            <p></p>\
+            <p>Desayunos,comidas y cenas</p>\
+            <img src='../restaurantes/Yepez/img/yepez.png' alt='img' width='200px'><br>" 
+        },
+        {
+            la_selva2:
+            "<h3>La selva</h3>\
+            <p></p>\
+            <p>Desayunos,comidas y cenas</p>\
+            <img src='../restaurantes/Yepez/img/yepez.png' alt='img' width='200px'><br>" 
         }
     ]
 
@@ -183,7 +197,7 @@ function initMap()
         //La selva
         {
             coords: {lat: 20.6961904, lng: -88.2027456},
-            content: etiquetas_restaurantes[3].yepez
+            content: etiquetas_restaurantes[4].la_selva
         }
 
     ];
