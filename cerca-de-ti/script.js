@@ -65,15 +65,38 @@ function initMap()
 
     /* ============== Colocar marcadores de centros de adopcion ============== */
 
+    //ICONOS
+    var icon_restaurante = 'IMG/icon.png';
+    var icon_pizza = 'IMG/pizza.png';
+    var icon_pollo = 'IMG/pollo.png';
+    var icon_rapido = 'IMG/rapida.png';
+    var icon_bares = 'IMG/bares.png';
+    var iconoMar;
+
     // Funcion que agrega un nuevo marcador en base a sus valores.
-    function agregar_marcador(propiedades)
-    {
+    function agregar_marcador(propiedades ,icono)
+    {   
+        switch(icono){
+            case 'restaurante':
+                iconoMar = icon_restaurante; break;
+            case 'pizza': 
+                iconoMar = icon_pizza; break;
+            case 'pollo':
+                iconoMar = icon_pollo; break;
+            case 'rapida':  
+                iconoMar = icon_rapido; break;
+            case 'bares':
+                iconoMar =icon_bares; break;
+            default :
+                iconoMar = 'IMG/icon.png';
+        }
+
         var marker = new google.maps.Marker({
             position: propiedades.coords,
             map: map,
             title: "RESTAURANTE",
             animation: google.maps.Animation.BOUNCE,
-            icon: 'IMG/icon.png'
+            icon: iconoMar
         })
 
         // Si el marcador pasado contiene informacion para ser mostrada.
@@ -103,46 +126,72 @@ function initMap()
     }
 
     // Array con etiquetas html de cada marcador para mostrar como informacion.
-    var etiquetas = [
+    var etiquetas_restaurantes = [
         {
-           taqueria_de_valladolid: 
-                "<h3>Taquería de valladolid</h3>\
-                <p>Ubicacion </p>\
-                <p>lorem xd</p>\
-                <img src='../restaurantes/plantilla/img/img1.JPG' alt='img' width='200px'><br>"
+            eleganzza: 
+                "<h3>Eleganzza</h3>\
+                <p>Comida mexicana</p>\
+                <p></p>\
+                <img src='../restaurantes/Eleganzza/img/elelogo.jpg' alt='img' width='200px'><br>"
         },
         {
-            /*luum:
-                "<h3>Luum Balicheo</h3>\
-                <p>Avenida Kohunlich</p>\
-                <p>251 Mz 13 Lote 28, Sm 50</p>\
-                <p>Cancún, Q.R. 77533 </p>\
-                <form method='POST' action='../../centro_de_adopcion/mascotas.php'>\
-                <input type='text' value='2' name='id_sucursal' id='id_sucursal' HIDDEN/>\
-                <br><input type='submit' value='Ir al centro de adopcion' class='btn btn-primary btn-xs btn-block' /><br>\
-                </form>\
-                <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-mlADLFGgp2cVcCMjDSHP7PxNeZ0xfgD8pZaDkmOv1a9L8RH4nw' alt='img' width='200px'>"
-            */            
-            }
+            ambrosia:
+                "<h3>Ambrosía</h3>\
+                <p></p>\
+                <p>Restaurante, cafeteria</p>\
+                <img src='../restaurantes//Ambrosía/img/amlogo.jpg' alt='img' width='200px'><br>"          
+        },
+        {
+            bait_Lajam:
+                "<h3>Bait Lajam</h3>\
+                <p></p>\
+                <p>Comida arabe</p>\
+                <img src='../restaurantes/BaitLajam/img/lalogo2.png' alt='img' width='200px'><br>" 
+        },
+        {
+            yepez:
+            "<h3>Yepez</h3>\
+            <p></p>\
+            <p>Desayunos,comidas y cenas</p>\
+            <img src='../restaurantes/Yepez/img/yepez.png' alt='img' width='200px'><br>" 
+        }
     ]
 
     // Array con cada uno de los marcadores de centros de adopcion.
-    var marcadores = 
+    var marcadores_restaurantes = 
     [
+        //eleganzza
         {
-            coords: { lat: 20.688330, lng: -88.203340},
-            content: etiquetas[0].taqueria_de_valladolid
+            coords: { lat: 20.6906411, lng: -88.2000389},
+            content: etiquetas_restaurantes[0].eleganzza
         },
+        //Ambrosia
         {
-            //coords: { lat: 21.145828406142304, lng: -86.84871550000003},
-            //content: etiquetas[1].luum
+            coords: { lat: 20.689633, lng: -88.1988336},
+            content: etiquetas_restaurantes[1].ambrosia
+        },
+        //Bait Lajam
+        {
+            coords: { lat: 20.6987164, lng: -88.2029344},
+            content: etiquetas_restaurantes[2].bait_Lajam
+        },
+        //Yepez
+        {
+            coords: { lat: 20.6814191, lng: -88.1880452},
+            content: etiquetas_restaurantes[3].yepez
+        },
+        //La selva
+        {
+            coords: {lat: 20.6961904, lng: -88.2027456},
+            content: etiquetas_restaurantes[3].yepez
         }
+
     ];
 
-    // Se añade cada marcador al mapa.
-    for(var i = 0; i < marcadores.length; i++)
+    // Se añade cada marcador al mapa de restaurantes
+    for(var i = 0; i < marcadores_restaurantes.length; i++)
     {
-        agregar_marcador( marcadores[i] );
+        agregar_marcador( marcadores_restaurantes[i],'restaurantes');
     }
 
 }

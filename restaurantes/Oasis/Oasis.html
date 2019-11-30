@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dont-Cook</title>
+    <link rel="stylesheet" href="../estilos.css">
+    <link rel="stylesheet" href="../../menu/menu.css">
+    
+    <link rel="icon" href="../../menu/logo100w57h.png" type="image/x-icon">
+
+    <script src="../../JS/jquery.js"></script>
+    <script src="../../JS/jquery.dataTables.min.js"></script>
+
+    <!--script type="text/javascript" src="../../JS/jquery-3.4.1.js"></script-->
+    <script type="text/javascript" src="../script1.js"></script>
+    
+</head>
+<body>
+    
+   <header class="header">
+    <div class="menu">
+        <div class="contenedor" id="uno">
+             <img class="icon" src="../../menu/logo100w57h.png">
+             <!--p class="texto">Inicio</p-->
+         </div>
+         
+         <div class="contenedor"id="dos" >
+           
+            <p class="texto">SERVICIO A DOMICILIO</p>
+         </div>
+         
+         <div class="contenedor"id="tres">
+           <!--img class="icon" src="pictures/icon8.png"-->
+           <p class="texto">BARES</p>
+         </div>
+         
+         <div class="contenedor"id="cuatro">
+           <!--img class="icon" src="pictures/icon7.png"-->
+           <p class="texto">RESTAURANTES</p>
+         </div>
+         
+         <div class="contenedor"id="cinco">
+             <!--img class="icon" src="pictures/icon11.png"-->
+             <p class="texto">CERCA DE TI</p>
+         </div>
+         
+         <div class="contenedor"id="seis">
+           
+           <div class="buscador">
+              <input type="search" id="input-search" placeholder="Buscar aqui">
+
+              <div class="content-search">
+                 <div class="content-table">
+                       <table id="table">
+                          <thead>
+                             <tr>
+                                   <td></td>
+                             </tr>
+                          </thead>
+                          <tbody>
+                             <tr>
+                                   <td><a href="#">Inicio</a></td>
+                             </tr>
+
+                             <tr>
+                                   <td><a href="#">Tacos</a></td>
+                             </tr>
+
+                             <tr>
+                                   <td><a href="#">Tortas</a></td>
+                             </tr>
+
+                             <tr>
+                                   <td><a href="#">Pizzas</a></td>
+                             </tr>
+
+                             <tr>
+                                   <td><a href="#">Helados</a></td>
+                             </tr>
+
+                             <tr>
+                                   <td><a href="#">Pollos</a></td>
+                             </tr>
+
+                             <tr>
+                                   <td><a href="#">Carnitas</a></td>
+                             </tr>
+
+                             <tr>
+                                   <td><a href="#">Taquerias</a></td>
+                             </tr>
+
+                             <tr>
+                                   <td><a href="#">Pastas</a></td>
+                             </tr>
+
+                             <tr>
+                                   <td><a href="#">Comida china</a></td>
+                             </tr>
+
+                             <tr>
+                                   <td><a href="#">Sushi</a></td>
+                             </tr>
+
+                             <tr>
+                                   <td><a href="#">Hamburguesas</a></td>
+                             </tr>
+
+                             <tr>
+                                   <td><a href="#">Gringas</a></td>
+                             </tr>
+                          </tbody>
+                       </table>
+                 </div>
+              </div>
+           </div>
+         </div>
+</div>
+</header>
+    <script src="../../JS/search.js"></script>
+
+    <div class="contenido">
+        <img src="img/oasis2.jpg" alt="logoRestaurante" class="imgLogo">
+
+        <div class="descripcion">
+            <h2 class="titulo">Oasis</h2>
+            <p>Es un restaurante muy conocido por su buen servicio, en este lugar encontrás los mejores platillos acompañados de la bebida preferida del cliente </p> 
+            <br>
+            <p>Para disfrutar una buena cena con la familia</p>
+            <br>
+            <p>Número: 985 856 4827</p>
+        </div>
+    </div>
+
+    
+        <div class="cajaDmenu">
+            
+            <!--a href="" onclick="ocultar_aparecer('aMap')" class="item" ><p class="text2">MAPA</p></a-->
+            <button class="item" id="button1" onclick="ocultar_aparecer('aMap','galeriaa')" >MAPA</button>
+            <!--a href="#" class=item ><p class="text2">MENU</p></a-->
+            <button class="item" id="button2" onclick="ocultar_aparecer('galeriaa','aMap')" >GALERIA</button>
+            <!--a href="" onclick="ocultar_aparecer('galeriaa')" class="item" ><p class="text2">GALERIA</p></a-->
+            <!--a href="" class="item" ><p class="text2">DETALLES</p></a-->
+        </div>
+   
+        <!--####### MAPA ###########-->
+        <div class="areaMapa" category="mapa" id="aMap">
+                <div id="map"></div>
+        </div>
+        <!--####### MAPA ###########-->
+
+
+
+        <!--=========GALERIA=======-->
+
+        <div class="galeria" category="galeria1" id="galeriaa">
+            <div class="picP" >
+                <img src="img/oasis1.jpg" alt="img1" class="pic">
+            </div>
+    
+            <div class="picP" >
+                <img src="img/oasis3.jpg" alt="img1" class="pic">
+            </div>
+
+            <div class="picP" >
+                  <img src="img/oasis4.jpg" alt="img1" class="pic">
+              </div>
+
+              <div class="picP" >
+                  <img src="img/oasis5.jpg" alt="img1" class="pic">
+              </div>
+
+              <div class="picP" >
+                  <img src="img/oasis6.jpg" alt="img1" class="pic">
+              </div>
+
+              <div class="picP" >
+                  <img src="img/oasis7.jpg" alt="img1" class="pic">
+              </div>
+
+              <div class="picP" >
+                  <img src="img/oasis8.jpg" alt="img1" class="pic">
+              </div>
+        </div>
+
+        
+
+
+
+
+        <!--    SCRIPT PARA USAR EL MAPA    -->
+        <script>
+                // Initialize and add the map
+                function initMap() {
+                  // The location of Uluru
+                  var uluru = {lat: 20.6860908, lng: -88.1981081};
+                  // ORIGINAL :LAT: 20.692679 LNG:-88.203912
+                  // The map, centered at Uluru
+                  var map = new google.maps.Map(
+                      document.getElementById('map'), {zoom: 18, center: uluru});
+                  // The marker, positioned at Uluru
+                  var marker = new google.maps.Marker({position: uluru, map: map});
+                }
+                    </script>
+                    <!--Load the API from the specified URL
+                    * The async attribute allows the browser to render the page while the API loads
+                    * The key parameter will contain your own API key (which is not needed for this tutorial)
+                    * The callback parameter executes the initMap() function
+                    -->
+                    <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDgg3TgNa0Ctnr463dIf0JIgWVUtmn92o&callback=initMap">
+        </script>
+</body>
+</html>

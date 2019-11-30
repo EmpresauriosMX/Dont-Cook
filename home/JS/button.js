@@ -53,8 +53,11 @@ function muestra_promociones(id) {
   if (indice==0){
     //muestra todas las promociones
     //muestra oculta todos con mensaje de uno mostrara todas las promociones
+    document.getElementById(id).value = "Ver menos";
+    
     muestra_oculta_todos(1);
     indice = 1;
+    
   }
   else{
     //muestra oculta todos con mensaje de cero ocultara todas las promociones
@@ -63,6 +66,7 @@ function muestra_promociones(id) {
     indice = 0;
     //llamado a la promocion del dia 
     promocion_del_dia();
+    document.getElementById(id).value = "Ver todas las promociones";
   }
 }
 
