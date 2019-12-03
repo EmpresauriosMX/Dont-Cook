@@ -154,10 +154,17 @@ function initMap()
             <p></p>\
             <p>Desayunos,comidas y cenas</p>\
             <img src='../restaurantes/Yepez/img/yepez.png' alt='img' width='200px'><br>" 
+        },
+        {
+            la_selva:
+            "<h3>La selva</h3>\
+            <p></p>\
+            <p>Comida regional</p>\
+            <img src='../restaurantes/LaSelva/img/sellogo.jpg' alt='img' width='200px'><br>" 
         }
     ]
 
-    // Array con cada uno de los marcadores de centros de adopcion.
+    // Array con cada uno de los marcadores de restaurantes
     var marcadores_restaurantes = 
     [
         //eleganzza
@@ -183,10 +190,53 @@ function initMap()
         //La selva
         {
             coords: {lat: 20.6961904, lng: -88.2027456},
-            content: etiquetas_restaurantes[3].yepez
+            content: etiquetas_restaurantes[4].la_selva
         }
 
     ];
+
+    var etiquetas_pizza = [
+        {
+            Oasis: 
+                "<h3>Oasis</h3>\
+                <p>Pizzas</p>\
+                <p></p>\
+                <img src='../restaurantes/Oasis/img/oasislogo.gif' alt='img' width='200px'><br>"
+        }
+    ]
+
+    // Array con cada uno de los marcadores de pizzerias
+    var marcadores_pizza = 
+    [
+        //eleganzza
+        {
+            coords: { lat: 20.6860908, lng: -88.1981081},
+            content: etiquetas_pizza[0].Oasis
+        }
+    ];
+
+    //comida rapida
+    //etiquetas de comida rapida
+    var etiquetas_rapida = [
+        {
+            d_volada: 
+                "<h3>D'volada</h3>\
+                <p>comida rapida</p>\
+                <p></p>\
+                <img src='../restaurantes/Oasis/img/oasislogo.gif' alt='img' width='200px'><br>"
+        }
+    ]
+    var marcadores_rapida = 
+    [
+        //eleganzza
+        {
+            coords: {lat: 20.6907672, lng: -88.2056933},
+            content: etiquetas_rapida[0].d_volada
+        }
+    ];
+
+
+    
 
     // Se añade cada marcador al mapa de restaurantes
     for(var i = 0; i < marcadores_restaurantes.length; i++)
@@ -194,4 +244,15 @@ function initMap()
         agregar_marcador( marcadores_restaurantes[i],'restaurantes');
     }
 
+    // Se añade cada marcador al mapa de pizzas
+    for(var i = 0; i < marcadores_pizza.length; i++)
+    {
+        agregar_marcador( marcadores_pizza[i],'pizza');
+    }
+
+    // Se añade cada marcador al mapa de comida rapida
+    for(var i = 0; i < marcadores_rapida.length; i++)
+    {
+        agregar_marcador( marcadores_rapida[i],'rapida');
+    }
 }

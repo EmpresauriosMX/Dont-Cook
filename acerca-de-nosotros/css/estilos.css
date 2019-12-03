@@ -1,0 +1,88 @@
+*{
+  margin:0px;
+  padding: 0px;
+}
+
+
+.up{
+  width: 100%;
+
+  margin: 0px;
+}
+
+.img-dc{
+  display: block;
+
+  margin: 15px;
+  margin-inline: auto;
+  transition: width 0.9s;
+}
+
+.img-dc:hover{
+  width: 320px;
+}
+
+.titulo{
+  display: none;
+
+  font-family: 'helvetica', sans-serif;
+  margin: 0px;
+  margin-inline: auto;
+  text-align: center;
+  font-size: 30px;
+
+}
+
+.middle{
+
+  width: 70%;
+  margin: 40px;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  
+}
+
+.logocuv{
+  display: grid;
+  width: 25%;  
+  margin-inline: auto;
+}
+
+.descripcion{
+  font-family: 'helvetica', sans-serif;
+  display: grid;
+  width: 100%;
+  margin: auto;
+  font-size: 20px;
+
+}
+
+.perfil{
+  margin-inline: auto;
+  width: 150px;
+  border-radius: 150px;
+  
+}
+
+.down{
+  width: 80%;
+
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill ,24.6%);
+  grid-gap: 5px;
+  text-align: center;
+  font-family: 'helvetica', sans-serif;
+}
+
+.item{
+
+  width: 80%;
+  margin-inline: auto;
+}
+
+.nombre{
+  margin-bottom: 0px;
+}
+
