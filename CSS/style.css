@@ -87,7 +87,7 @@ a{
   outline:none;
   margin: 0 auto;
   transition: width 0.9s;
-  transition: background-color: 0.9s;
+  transition: background-color 0.9s;
 }
 
 .btn:hover{
@@ -293,6 +293,12 @@ p{
 .cono{
   grid-area: cono;
     margin: auto;
+  text-decoration: none;
+  color: #fff;
+}
+
+.cono:visited{
+  color: #fff;
 }
 
 .coap{
