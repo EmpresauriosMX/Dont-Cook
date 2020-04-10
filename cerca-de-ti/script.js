@@ -161,6 +161,20 @@ function initMap()
             <p></p>\
             <p>Comida regional</p>\
             <img src='../restaurantes/LaSelva/img/sellogo.jpg' alt='img' width='200px'><br>" 
+        },
+        {
+            calzada:
+            "<h3>La Calzada</h3>\
+            <p></p>\
+            <p>Restaurantes</p>\
+            <img src='../restaurantes/calzada/img/1.JPG' alt='img' width='200px'><br>" 
+        },
+        {
+            burger_k:
+            "<h3>Burguer king</h3>\
+            <p></p>\
+            <p>Hamburguesas</p>\
+            <img src='../restaurantes/burger/img/1.JPG' alt='img' width='200px'><br>"
         }
     ]
 
@@ -191,8 +205,15 @@ function initMap()
         {
             coords: {lat: 20.6961904, lng: -88.2027456},
             content: etiquetas_restaurantes[4].la_selva
+        },
+        {
+            coords: {lat: 20.6890257, lng: -88.2058563},
+            content: etiquetas_restaurantes[5].calzada
+        },
+        {
+            coords: {lat: 20.6909095, lng: -88.1999725},
+            content: etiquetas_restaurantes[6].burger_k
         }
-
     ];
 
     var etiquetas_pizza = [
@@ -202,16 +223,38 @@ function initMap()
                 <p>Pizzas</p>\
                 <p></p>\
                 <img src='../restaurantes/Oasis/img/oasislogo.gif' alt='img' width='200px'><br>"
+        },
+        {
+            Moronis:
+                "<h3>Moronis</h3>\
+                <p>Pizzas</p>\
+                <p></p>\
+                <img src='../restaurantes/moronis/img/1.jpg' alt='img' width='200px'><br>"
+        },
+        {
+            pika_tako:
+                "<h3>PIKA TAKO</h3>\
+                <p>Pizzas</p>\
+                <p></p>\
+                <img src='../restaurantes/pika/img/1.JPG' alt='img' width='200px'><br>"
         }
     ]
 
     // Array con cada uno de los marcadores de pizzerias
     var marcadores_pizza = 
     [
-        //eleganzza
+        //Oasis
         {
             coords: { lat: 20.6860908, lng: -88.1981081},
             content: etiquetas_pizza[0].Oasis
+        },
+        {
+            coords: { lat: 20.6908525, lng: -88.2004795},
+            content: etiquetas_pizza[1].Moronis
+        },
+        {
+            coords: { lat: 20.6896101, lng: -88.2064337},
+            content: etiquetas_pizza[2].pika_tako
         }
     ];
 
@@ -224,14 +267,63 @@ function initMap()
                 <p>comida rapida</p>\
                 <p></p>\
                 <img src='../restaurantes/Oasis/img/oasislogo.gif' alt='img' width='200px'><br>"
+        },
+        {
+            jarochos:
+                "<h3>Qué desmadre jarocho</h3>\
+                <p>Taqueria</p>\
+                <p></p>\
+                <img src='../restaurantes/jarocho/img/1.JPG' alt='img' width='200px'><br>"
+        },
+        {
+            taq_valla:
+                "<h3>Taqueria de valladolid</h3>\
+                <p>Taqueria</p>\
+                <p></p>\
+                <img src='../restaurantes/tvalladolid/img/1.JPG' alt='img' width='200px'><br>"
+    
+        },
+        {
+            lechon:
+                "<h3>Lechon al horno</h3>\
+                <p>Taqueria</p>\
+                <p></p>\
+                <img src='../restaurantes/lechon/img/1.JPG' alt='img' width='200px'><br>"
+        },
+        {
+            gallo:
+                "<h3>El gallo</h3>\
+                <p>Taqueria</p>\
+                <p></p>\
+                <img src='../restaurantes/gallo/img/1.JPG' alt='img' width='200px'><br>"
         }
     ]
     var marcadores_rapida = 
     [
-        //eleganzza
+        //de volada
         {
             coords: {lat: 20.6907672, lng: -88.2056933},
             content: etiquetas_rapida[0].d_volada
+        },
+        {
+            //Jarochos
+            coords: {lat: 20.688507, lng: -88.202633},
+            content: etiquetas_rapida[1].jarochos
+        },
+        {
+            //taqueria de valladolid
+            coords: {lat: 20.688400, lng: -88.203320},
+            content: etiquetas_rapida[2].taq_valla
+        },
+        {
+            //lechon al horno
+            coords: {lat: 20.688689, lng: -88.203336},
+            content: etiquetas_rapida[3].lechon
+        },
+        {
+            //Gallo
+            coords: {lat: 20.6904883, lng: -88.2048921},
+            content: etiquetas_rapida[4].gallo
         }
     ];
 
