@@ -22,19 +22,35 @@
    <!--contenido de la plantilla -->
 
     <div class="container mb-5">
-        <h2>el contenido va aqui</h2>
+        <h2>Mis restaurantes</h2>
         <div class="row mt-3">
             <div class="col-md-6">
+                
                 <div class="card bg-dark text-white">
-                <img src="../../src/img/restaurants/pikalogodarkmode.png" class="card-img" alt="...">
-                <div class="card-img-overlay" >
-                    <h5 class="card-title">Restaurante</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut excepturi corporis iste itaque nesciunt illum eligendi suscipit, nihil voluptates provident quis voluptas voluptatibus culpa saepe velit dolorem, veniam a? At!</p>
-                    <p class="card-text">Last updated 3 mins ago</p>
-                    <button class="btn btn-success">visitar</button>
-                </div>
+                    <img src="../../src/img/restaurants/pikalogodarkmode.png" class="card-img" alt="...">
+                    <div class="card-img-overlay" >
+                        <h5 class="card-title">Restaurante</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut excepturi corporis iste itaque nesciunt illum eligendi suscipit, nihil voluptates provident quis voluptas voluptatibus culpa saepe velit dolorem, veniam a? At!</p>
+                        <p class="card-text">Last updated 3 mins ago</p>
+                        <button class="btn btn-success">visitar</button>
+                    </div>
                 </div>
             </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+            <h5>Vista general</h5>  
+                    <div class="featured__item">
+                        <div class="featured__item__pic set-bg" data-setbg="../../src/img/restaurants/pikalogodarkmode.png">
+                            <ul class="featured__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a href="#">pequeña descripción</a></h6>
+                            <h5>Restaurante</h5>
+                        </div>
+                    </div>
+                </div>
         </div>
             </div>
         </div>
