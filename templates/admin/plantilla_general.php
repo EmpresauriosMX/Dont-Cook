@@ -3,13 +3,13 @@
 
 <head>
     <?php 
-    include '../../templates/componentes/header.html';
+    include '../componentes/header.html';
     ?>
 </head>
 <body>
    <?php
-   include '../../templates/componentes/head.html';
-   include '../../templates/componentes/navegacion.html';
+   include '../componentes/head.html';
+   include '../componentes/navegacion.html';
    ?>
    <!--contenido de la plantilla -->
 
@@ -21,8 +21,8 @@
 
 <!--contenido de la plantilla -->
     <?php 
-    include '../../templates/componentes/footer.html';
-    include '../../templates/componentes/scripts.html';
+    include '../componentes/footer.html';
+    include '../componentes/scripts.html';
     ?>
 </body>
 
