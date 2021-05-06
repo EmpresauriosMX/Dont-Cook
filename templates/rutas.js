@@ -16,7 +16,7 @@ function router(ruta) { //aqui se indicaran las rutas
     case "admin.html":
       console.log("estas en el apartado de admin xd");
       break;
-    case "home.html":
+    case "home_admin.php":
       console.log("estas en el apartado del home xd");
       break;
     case "lugares.html":
