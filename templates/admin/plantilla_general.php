@@ -13,8 +13,10 @@
    ?>
    <!--contenido de la plantilla -->
 
+    <div class="container">
+        <h2>el contenido va aqui</h2>
+    </div>
 
-<h2>el contenido va aqui</h2>
 
 
 <!--contenido de la plantilla -->
