@@ -15,7 +15,6 @@
     
     <?php
         include '../componentes/menu_admin.html';
-        include '../componentes/head.html';
     ?>
 
    <!--contenido de la plantilla -->
