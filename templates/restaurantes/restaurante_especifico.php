@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2 id="nombre_restaurante">Restaurante X</h2>
+                        <h2 id="nombre_restaurante">PikaTako</h2>
                         <div class="breadcrumb__option">
                             <a href="./index.html">Home</a>
                             <a href="./index.html">Vegetables</a>
@@ -48,14 +48,14 @@
 
                     <!--Imagenes del restaurante-->
                     <div class="product__details__pic__slider owl-carousel">
-                        <img data-imgbigurl="img/product/details/product-details-2.jpg"
-                            src="../../src/img/product/details/thumb-1.jpg" alt="">
-                        <img data-imgbigurl="img/product/details/product-details-3.jpg"
-                            src="../../src/img/product/details/thumb-2.jpg" alt="">
-                        <img data-imgbigurl="img/product/details/product-details-5.jpg"
-                            src="../../src/img/product/details/thumb-3.jpg" alt="">
-                        <img data-imgbigurl="img/product/details/product-details-4.jpg"
-                            src="../../src/img/product/details/thumb-4.jpg" alt="">
+                        <img data-imgbigurl="../../src/img/restaurants/1.jpg"
+                            src="../../src/img/restaurants/1.jpg" alt="">
+                        <img data-imgbigurl="../../src/img/restaurants/2.jpg"
+                            src="../../src/img/restaurants/2.jpg" alt="">
+                        <img data-imgbigurl="../../src/img/restaurants/3.jpg"
+                            src="../../src/img/restaurants/3.jpg" alt="">
+                        <img data-imgbigurl="../../src/img/restaurants/4.jpg"
+                            src="../../src/img/restaurants/4.jpg" alt="">
                     </div>
                     <!--Fin imagenes del restaurante-->
 
@@ -63,9 +63,11 @@
             </div>
             <!--Fin slider-->
 
+            <!--Información del restaurante-->
             <div class="col-lg-6 col-md-6">
                 <div class="product__details__text">
-                    <h3>Vetgetable’s Package</h3>
+                    <h1 id="nombre_restaurante">PikaTako</h1>
+                    <!--Area de Calificación-->
                     <div class="product__details__rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -74,37 +76,125 @@
                         <i class="fa fa-star-half-o"></i>
                         <span>(18 reviews)</span>
                     </div>
-                    <div class="product__details__price">$50.00</div>
-                    <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam
-                        vehicula elementum sed sit amet dui. Sed porttitor lectus nibh. Vestibulum ac diam sit amet
-                        quam vehicula elementum sed sit amet dui. Proin eget tortor risus.</p>
-                    <div class="product__details__quantity">
-                        <div class="quantity">
-                            <div class="pro-qty">
-                                <input type="text" value="1">
+                    <!--Fin area de calificación-->
+
+                    <p id="descripcion">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim, vel. Voluptates nulla aut impedit, in commodi sit, eum nam facere laboriosam ut praesentium aperiam nihil ipsam? Est, nemo aut? Tempore.</p>
+                        
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <img width="40" height="40" src="../../src/img/iconos/ubicacion.png">
+                        </div>
+                        <div class="col-sm-2">
+                            <img width="40" height="40" src="../../src/img/iconos/tripadvisor.png">
+                        </div>
+                        <div class="col-sm-2">
+                            <img width="40" height="40" src="../../src/img/iconos/facebook.png">
+                        </div>
+                        <div class="col-sm-2">
+                            <img width="40" height="40" src="../../src/img/iconos/instagram.png">
+                        </div>
+                        <div class="col-sm-2">
+                            <img width="40" height="40" src="../../src/img/iconos/galeria.png">
+                        </div>
+                    </div>
+                    <br>
+                    
+                    <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+
+                    <!--<ul>
+                        <li><img width="40" height="40" src="../../src/img/iconos/facebook.png"> <img width="40" height="40" src="../../src/img/iconos/instagram.png"><img width="40" height="40" src="../../src/img/iconos/galeria.png"></li>
+                        
+                    </ul>-->
+                </div>
+            </div>
+            <!--Fin información del restaurante-->
+        </div>
+        
+        <br><br>
+        <!--Redes Sociales-->
+        <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                    <div class="contact__widget">
+                        <span class="icon_phone"></span>
+                        <h4>Telefono</h4>
+                        <p id="telefono">+01-3-8888-6868</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                    <div class="contact__widget">
+                        <span class="icon_pin_alt"></span>
+                        <h4>Dirección</h4>
+                        <p id="direccion">60-49 Road 11378 New York</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                    <div class="contact__widget">
+                        <span class="icon_clock_alt"></span>
+                        <h4>Horarios</h4>
+                        <p id="horarios">10:00 am to 23:00 pm</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                    <div class="contact__widget">
+                        <span class="icon_mail_alt"></span>
+                        <h4>Correo</h4>
+                        <p id="correo">hello@colorlib.com</p>
+                    </div>
+                </div>
+            </div>
+            <!--Fin redes sociales-->
+
+            <!--Sub menu-->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="product__details__tab">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab"
+                                    aria-selected="true">Promociones</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab"
+                                    aria-selected="false">Galeria</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
+                                    aria-selected="false">Menú</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                                <div class="product__details__tab__desc">
+                                    <h3>Promociones!</h3>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, aperiam quidem commodi cupiditate porro consequuntur quo debitis sed at incidunt vitae hic, perspiciatis molestiae odio obcaecati maiores officiis. Eos, nulla.</p>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabs-2" role="tabpanel">
+                                <div class="product__details__tab__desc">
+                                    <h3>Fotos del restaurante!</h3>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum libero voluptatum debitis, consectetur necessitatibus dolores veritatis officia deleniti inventore perferendis doloremque maxime, aliquid excepturi eveniet porro fugiat, quisquam asperiores at.</p>
+                                    <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Lorem
+                                        ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit aliquet
+                                        elit, eget tincidunt nibh pulvinar a. Cras ultricies ligula sed magna dictum
+                                        porta. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus
+                                        nibh. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.</p>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabs-3" role="tabpanel">
+                                <div class="product__details__tab__desc">
+                                    <h3>Fotos del menú!</h3>
+                                    <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
+                                        Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus.
+                                        Vivamus suscipit tortor eget felis porttitor volutpat. Vestibulum ac diam
+                                        sit amet quam vehicula elementum sed sit amet dui.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <a href="#" class="primary-btn">ADD TO CARD</a>
-                    <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
-                    <ul>
-                        <li><b>Availability</b> <span>In Stock</span></li>
-                        <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
-                        <li><b>Weight</b> <span>0.5 kg</span></li>
-                        <li><b>Share on</b>
-                            <div class="share">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
-                                <a href="#"><i class="fa fa-pinterest"></i></a>
-                            </div>
-                        </li>
-                    </ul>
                 </div>
             </div>
+            <!--Fin Submenu-->
 
-
-        </div>
     </div>
     <!--Fin contenido de la plantilla -->
 
