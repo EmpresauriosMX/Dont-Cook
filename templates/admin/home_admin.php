@@ -24,13 +24,15 @@
     <div class="container mb-5">
         <h2>Mis restaurantes</h2>
         <div class="row mt-3">
-            <div class="col-md-6">
+            <div class="col-md-7">
                 
                 <div class="card bg-dark text-white">
                     <img src="../../src/img/restaurants/pikalogodarkmode.png" class="card-img" alt="...">
                     <div class="card-img-overlay" >
                         <h5 class="card-title">Restaurante</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut excepturi corporis iste itaque nesciunt illum eligendi suscipit, nihil voluptates provident quis voluptas voluptatibus culpa saepe velit dolorem, veniam a? At!</p>
+                        <p class="card-text"></p>
+                        <div class="d-none d-sm-none d-md-block">descripción larga para escritorio. Este texto solo visible para escritorio</div>
+                        <div class="d-block d-sm-block d-md-none">Descripción corta para celulares. Este texto solo visible para smartphone</div>
                         <p class="card-text">Last updated 3 mins ago</p>
                         <button class="btn btn-success">visitar</button>
                     </div>
