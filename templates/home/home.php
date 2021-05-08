@@ -11,15 +11,16 @@
    include '../../templates/componentes/head.html';
    include '../../templates/componentes/navegacion.html';
    ?>
-   <!--contenido de la plantilla -->
 
+<!--contenido de la plantilla -->
     <div class="container">
         <h3>Categorías destacadas</h3>
     </div>
-
-     <!-- Categories Section Begin -->
+    <!--Todo de home-->
+     
      <section class="categories">
         <div class="container">
+            <!-- Slider de categorias -->
             <div class="row mb-3">
                 <div class="categories__slider owl-carousel">
                     <div class="col-lg-3">
@@ -50,6 +51,7 @@
                 </div>
             </div>
             <br>
+            <!-- Fin slider de categorias -->
 
             <!--RESTAURANTES-->
             <div class="section-title mt-3">
@@ -211,14 +213,11 @@
                     <small class="text-muted">Last updated 3 mins ago</small>
                     </div>
                 </div>
-                
             </div>
-
             <!--Fin de tarjetas de promociones-->
         </div>
     </section>
-    <!-- Categories Section End -->
-
+   <!--Fin de todo de home-->
 
 <!--contenido de la plantilla -->
     <?php 
