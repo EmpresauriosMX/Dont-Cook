@@ -4,7 +4,7 @@
         <?php 
         include '../componentes/header.html';
         ?>
-        <link rel="stylesheet" href="../../src/css/login1.scss" type="text/css">
+        <link rel="stylesheet" href="../../src/css/login.scss" type="text/css">
 
     </head>
     <body>
