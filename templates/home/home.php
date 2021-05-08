@@ -49,74 +49,164 @@
                     </div>
                 </div>
             </div>
-        <br>
+            <br>
+
             <!--RESTAURANTES-->
-        <div class="section-title mt-3">
-            <h2>Todos los restaurantes</h2>
-        </div>
-        <div class="row mt-3">
-            <!--restaurante 1-->
-            <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-                <div class="featured__item">
-                    <div class="featured__item__pic set-bg" data-setbg="../../src/img/restaurants/pikalogodarkmode.png">
-                        <ul class="featured__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-eye"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="featured__item__text">
-                        <h6><a href="#">pequeña descripción</a></h6>
-                        <h5>Restaurante</h5>
-                    </div>
-                </div>
+            <div class="section-title mt-3">
+                <h2>Todos los restaurantes</h2>
             </div>
-            <!--restaurante 2-->
-            <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-                <div class="featured__item">
-                    <div class="featured__item__pic set-bg" data-setbg="../../src/img/restaurants/pikalogodarkmode.png">
-                        <ul class="featured__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-eye"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="featured__item__text">
-                        <h6><a href="#">pequeña descripción</a></h6>
-                        <h5>Restaurante</h5>
+            <div class="row mt-3">
+                <!--restaurante 1-->
+                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+                    <div class="featured__item">
+                        <div class="featured__item__pic set-bg" data-setbg="../../src/img/restaurants/pikalogodarkmode.png">
+                            <ul class="featured__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a href="#">pequeña descripción</a></h6>
+                            <h5>Restaurante</h5>
+                        </div>
                     </div>
                 </div>
+                <!--restaurante 2-->
+                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+                    <div class="featured__item">
+                        <div class="featured__item__pic set-bg" data-setbg="../../src/img/restaurants/pikalogodarkmode.png">
+                            <ul class="featured__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a href="#">pequeña descripción</a></h6>
+                            <h5>Restaurante</h5>
+                        </div>
+                    </div>
+                </div>
+                <!--restaurante 3-->
+                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+                    <div class="featured__item">
+                        <div class="featured__item__pic set-bg" data-setbg="../../src/img/restaurants/pikalogodarkmode.png">
+                            <ul class="featured__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a href="#">pequeña descripción</a></h6>
+                            <h5>Restaurante</h5>
+                        </div>
+                    </div>
+                </div>
+                <!--restaurante 4-->
+                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+                    <div class="featured__item">
+                        <div class="featured__item__pic set-bg" data-setbg="../../src/img/restaurants/pikalogodarkmode.png">
+                            <ul class="featured__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a href="#">pequeña descripción</a></h6>
+                            <h5>Restaurante</h5>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <!--restaurante 3-->
-            <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-                <div class="featured__item">
-                    <div class="featured__item__pic set-bg" data-setbg="../../src/img/restaurants/pikalogodarkmode.png">
-                        <ul class="featured__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-eye"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="featured__item__text">
-                        <h6><a href="#">pequeña descripción</a></h6>
-                        <h5>Restaurante</h5>
-                    </div>
-                </div>
+            <!--FIN RESTAURANTES-->
+
+            <!--Tarjetas de promociones-->
+            <div class="section-title mt-3">
+                <h2>Promociones de Hoy!</h2>
             </div>
-            <!--restaurante 4-->
-            <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-                <div class="featured__item">
-                    <div class="featured__item__pic set-bg" data-setbg="../../src/img/restaurants/pikalogodarkmode.png">
-                        <ul class="featured__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-eye"></i></a></li>
-                        </ul>
+            <div class="card-columns">
+                <div class="card">
+                    <img class="card-img-top" src="../../src/img/banner/banner-1.jpg" alt="Card image cap">
+                    <div class="card-body">
+                    <h5 class="card-title">Restaurante</h5>
+                    <h6>Nombre de la Promoción</h6>
+                    <p class="card-text">Descripción de la promocion... <br>
+                        Chelas 2x1 xdxd <br>
+                        De Lunes a Jueves <br>
+                        Con Horario de 12:00 a 16:00</p>
                     </div>
-                    <div class="featured__item__text">
-                        <h6><a href="#">pequeña descripción</a></h6>
-                        <h5>Restaurante</h5>
+                    <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
                     </div>
                 </div>
+                <div class="card">
+                    <img class="card-img-top" src="../../src/img/banner/banner-2.jpg" alt="Card image cap">
+                    <div class="card-body">
+                    <h5 class="card-title">Restaurante</h5>
+                    <h6>Nombre de la Promoción</h6>
+                    <p class="card-text">Descripción de la promocion... <br>
+                        Chelas 2x1 xdxd <br>
+                        De Lunes a Jueves <br>
+                        Con Horario de 12:00 a 16:00</p>
+                    </div>
+                    <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" src="../../src/img/banner/banner_dc.png" alt="Card image cap">
+                    <div class="card-body">
+                    <h5 class="card-title">Restaurante</h5>
+                    <h6>Nombre de la Promoción</h6>
+                    <p class="card-text">Descripción de la promocion... <br>
+                        Chelas 2x1 xdxd <br>
+                        De Lunes a Jueves <br>
+                        Con Horario de 12:00 a 16:00</p>
+                    </div>
+                    <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" src="../../src/img/banner/banner_dc2.png" alt="Card image cap">
+                    <div class="card-body">
+                    <h5 class="card-title">Restaurante</h5>
+                    <h6>Nombre de la Promoción</h6>
+                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                    <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" src="../../src/img/banner/banner_dc6.png" alt="Card image cap">
+                    <div class="card-body">
+                    <h5 class="card-title">Restaurante</h5>
+                    <h6>Nombre de la Promoción</h6>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo reprehenderit necessitatibus cumque non cupiditate, odio commodi eveniet modi tenetur! Quis rem perspiciatis enim nesciunt deleniti doloremque libero aut quo natus.</p>
+                    </div>
+                    <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" src="../../src/img/banner/banner_dc4.png" alt="Card image cap">
+                    <div class="card-body">
+                    <h5 class="card-title">Restaurante</h5>
+                    <h6>Nombre de la Promoción</h6>
+                    <p class="card-text">Descripción de la promocion... <br>
+                        Chelas 2x1 xdxd <br>
+                        De Lunes a Jueves <br>
+                        Con Horario de 12:00 a 16:00</p>
+                    </div>
+                    <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+                
             </div>
 
-        </div>
+            <!--Fin de tarjetas de promociones-->
         </div>
     </section>
     <!-- Categories Section End -->
