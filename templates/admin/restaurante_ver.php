@@ -10,7 +10,7 @@
 <body>
    <?php
    include '../componentes/head.html';
-   include '../componentes/navegacion_reducido.html';
+   //include '../componentes/navegacion_reducido.html';
    ?>
    
    <!-- Barra de Imagen -->
