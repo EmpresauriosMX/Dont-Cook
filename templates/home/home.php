@@ -125,7 +125,8 @@
                 <h2>Promociones de Hoy!</h2>
             </div>
             <div class="card-columns">
-                <div class="card">
+                <!--Tarjeta de Base-->
+                <div class="card border-danger">
                     <img class="card-img-top" src="../../src/img/banner/banner-1.jpg" alt="Card image cap">
                     <div class="card-body">
                     <h5 class="card-title">Restaurante</h5>
@@ -135,10 +136,17 @@
                         De Lunes a Jueves <br>
                         Con Horario de 12:00 a 16:00</p>
                     </div>
-                    <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
+                    <div class="card-footer bg-danger">
+                        <ul class="text-center">
+                            <a href="#"><img width="30" height="30"  src="../../src/img/iconos/ubicacion.png"></a>
+                            <a href="#"><img width="30" height="30" src="../../src/img/iconos/tripadvisor.png"></a>
+                            <a href="#"><img width="30" height="30" src="../../src/img/iconos/facebook.png"></a>
+                            <a href="#"><img width="30" height="30" src="../../src/img/iconos/instagram.png"></a>
+                            <a href="#"><img width="30" height="30" src="../../src/img/iconos/galeria.png"></a>
+                        </ul>
                     </div>
                 </div>
+                <!--Fin tarjeta de Base-->
                 <div class="card">
                     <img class="card-img-top" src="../../src/img/banner/banner-2.jpg" alt="Card image cap">
                     <div class="card-body">
