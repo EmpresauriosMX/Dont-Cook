@@ -33,7 +33,7 @@ body{
 
 body {
     /* Ruta relativa o completa a la imagen */
-    background-image: url(../img/login_DC.png);
+    background-image: url(../img/login_DC2.png);
     /* Centramos el fondo horizontal y verticalmente */
     background-position: center center;
     /* El fondo no se repite */
@@ -49,7 +49,7 @@ body {
 /* Background para ancho máximo de la pantalla física */
 @media only screen and (max-device-width: 767px) {
     body {
-        background-image: url(../img/login_DC.png);
+        background-image: url(../img/login_DC2.png);
         color: #FFF;
     }
 }
@@ -57,7 +57,7 @@ body {
 /* Background para ancho máximo del navegador */
 @media only screen and (max-width: 767px) {
     body {
-        background-image: url(../img/login_DC.png);
+        background-image: url(../img/login_DC3.png);
         color: #FFF;
     }
 }
