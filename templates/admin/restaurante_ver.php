@@ -156,7 +156,7 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
-                                    aria-selected="false">Ubicación</a>
+                                    aria-selected="false">Menús y platillos</a>
                             </li>
                         </ul>
                         <div class="tab-content">
@@ -164,6 +164,9 @@
                                 <div class="product__details__tab__desc">
                                     <h3>Promociones!</h3>
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, aperiam quidem commodi cupiditate porro consequuntur quo debitis sed at incidunt vitae hic, perspiciatis molestiae odio obcaecati maiores officiis. Eos, nulla.</p>
+                                    <div class="col-sm-2">
+                                        <span class="fa fa-edit btm btn site-btn"></span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="tab-pane" id="tabs-2" role="tabpanel">
@@ -175,28 +178,23 @@
                                         elit, eget tincidunt nibh pulvinar a. Cras ultricies ligula sed magna dictum
                                         porta. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus
                                         nibh. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.</p>
+                                        <div class="col-sm-2">
+                                            <span class="fa fa-edit btm btn site-btn"></span>
+                                        </div>
                                 </div>
                             </div>
                             <div class="tab-pane" id="tabs-3" role="tabpanel">
                                 <div class="product__details__tab__desc">
-                                    <h3>Ubicación!</h3>
-                                    <!-- Map Begin -->
-                                    <div class="map">
-                                        <iframe
-                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d49116.39176087041!2d-86.41867791216099!3d39.69977417971648!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x886ca48c841038a1%3A0x70cfba96bf847f0!2sPlainfield%2C%20IN%2C%20USA!5e0!3m2!1sen!2sbd!4v1586106673811!5m2!1sen!2sbd"
-                                            height="500" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-                                        <div class="map-inside">
-                                            <i class="icon_pin"></i>
-                                            <div class="inside-widget">
-                                                <h4>New York</h4>
-                                                <ul>
-                                                    <li>Telefono: +52-345-6789</li>
-                                                    <li>Dirección: 16 Creek Ave. Farmingdale, NY</li>
-                                                </ul>
-                                            </div>
+                                    <h3>Fotos del menú!</h3>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum libero voluptatum debitis, consectetur necessitatibus dolores veritatis officia deleniti inventore perferendis doloremque maxime, aliquid excepturi eveniet porro fugiat, quisquam asperiores at.</p>
+                                    <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Lorem
+                                        ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit aliquet
+                                        elit, eget tincidunt nibh pulvinar a. Cras ultricies ligula sed magna dictum
+                                        porta. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus
+                                        nibh. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.</p>
+                                        <div class="col-sm-2">
+                                            <span class="fa fa-edit btm btn site-btn"></span>
                                         </div>
-                                    </div>
-                                    <!-- Map End -->
                                 </div>
                             </div>
                         </div>
