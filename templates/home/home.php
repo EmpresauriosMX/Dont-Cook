@@ -18,33 +18,33 @@
     </div>
     <!--Todo de home-->
      
-     <section class="categories">
+     <section class="categories mt-3">
         <div class="container">
             <!-- Slider de categorias -->
             <div class="row mb-3">
                 <div class="categories__slider owl-carousel">
                     <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="../../src/img/categories/cat-1.jpg">
+                        <div class="categories__item set-bg" data-setbg="../../src/img/categories/fast_food.png">
                             <h5><a href="#">Fast food</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="../../src/img/categories/cat-2.jpg">
+                        <div class="categories__item set-bg" data-setbg="../../src/img/categories/tacos.png">
                             <h5><a href="#">Taquerías</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="../../src/img/categories/cat-3.jpg">
-                            <h5><a href="#">Cerca de tí</a></h5>
+                        <div class="categories__item set-bg" data-setbg="../../src/img/categories/domicilio.png">
+                            <h5><a href="#">Con entrega a domicilio</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="../../src/img/categories/cat-4.jpg">
+                        <div class="categories__item set-bg" data-setbg="../../src/img/categories/pizza.png">
                             <h5><a href="#">Pizzerías</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="../../src/img/categories/cat-5.jpg">
+                        <div class="categories__item set-bg" data-setbg="../../src/img/categories/carritos.png">
                             <h5><a href="#">Carritos de comida</a></h5>
                         </div>
                     </div>
