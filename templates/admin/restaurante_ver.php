@@ -280,17 +280,29 @@
                             </div>
                             <div class="tab-pane" id="tabs-3" role="tabpanel">
                                 <div class="product__details__tab__desc">
-                                <div id="editor">
-                                    <p>Hello World!</p>
-                                    <p>Some initial <strong>bold</strong> text</p>
-                                    <p><br></p>
-                                </div>
-                                <br>
-                                <button type="button" value="guardar" onclick="jssave()" class="btn btn-dark">Guardar</button>
+                                    <h3>Agrega tu menú en forma de texto!</h3>
+                                    <br>
+                                    <div id="editor">
+                                        <p>Agrega tu delicioso menú!</p>
+                                        <p>Agrega tu propio diseño!</p>
+                                        <p>Rico menú! <strong> $20.00</strong> <em><-Empieza a agregar tus deliciosos platillos</em></p>
+                                        <p><strong>(borra el texto anterior para empezar a escribir tu menú)</strong>...</p>
+                                        <p><br></p>
+                                    </div>
+                                    <br>
+                                    <div>
+                                        <button type="button" value="guardar" onclick="jssave()" class="btn btn-warning">Guardar Menu!</button>
+                                    </div>
+                                    
 
+
+                                    <!-- 
                                     <h3>Menú</h3>
                                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt at voluptate doloremque exercitationem, fugiat facilis reiciendis, pariatur recusandae repudiandae dignissimos vero. Odio, qui enim. Mollitia ad eum tempore cum voluptatibus?</p>
-                                    <!-- Gallery -->
+                                    -->
+                                    <br>
+                                    <h3>O si prefieres agrega imagenes de tu menú!</h3>
+
                                     <div class="row mt-3">
                                     <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
                                         <img
@@ -299,7 +311,6 @@
                                         alt=""
                                         />
                                     </div>
-                                    <!-- Gallery -->
                                     <div class="col-md-3 col-sm-6 col-lg-4 ">
                                         <div class="card">
                                             <div class="card-body text-center">
@@ -308,6 +319,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    
                                 </div>
                             </div>
                         </div>
