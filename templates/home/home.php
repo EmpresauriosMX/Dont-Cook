@@ -13,45 +13,14 @@
    ?>
 
 <!--contenido de la plantilla -->
-    <div class="container">
-        <h3>Categorías destacadas</h3>
-    </div>
+    
     <!--Todo de home-->
      
-     <section class="categories">
+     <section class="categories ">
         <div class="container">
-            <!-- Slider de categorias -->
-            <div class="row mb-3">
-                <div class="categories__slider owl-carousel">
-                    <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="../../src/img/categories/cat-1.jpg">
-                            <h5><a href="#">Fast food</a></h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="../../src/img/categories/cat-2.jpg">
-                            <h5><a href="#">Taquerías</a></h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="../../src/img/categories/cat-3.jpg">
-                            <h5><a href="#">Cerca de tí</a></h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="../../src/img/categories/cat-4.jpg">
-                            <h5><a href="#">Pizzerías</a></h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="../../src/img/categories/cat-5.jpg">
-                            <h5><a href="#">Carritos de comida</a></h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <!-- Fin slider de categorias -->
+        <?php
+            include '../../templates/componentes/categorias.html';
+        ?>
 
             <!--RESTAURANTES-->
             <div class="section-title mt-3">
