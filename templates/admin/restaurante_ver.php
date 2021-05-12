@@ -291,16 +291,10 @@
                                     </div>
                                     <br>
                                     <div>
-                                        <button type="button" value="guardar" onclick="jssave()" class="btn btn-warning">Guardar Menu!</button>
+                                        <button type="button" value="contenido" onclick="jssave()" class="btn btn-warning">Guardar Menu!</button>
                                     </div>
-                                    
-
-
-                                    <!-- 
-                                    <h3>Menú</h3>
-                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt at voluptate doloremque exercitationem, fugiat facilis reiciendis, pariatur recusandae repudiandae dignissimos vero. Odio, qui enim. Mollitia ad eum tempore cum voluptatibus?</p>
-                                    -->
                                     <br>
+
                                     <h3>O si prefieres agrega imagenes de tu menú!</h3>
 
                                     <div class="row mt-3">
@@ -342,7 +336,7 @@
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
 
-<!-- Initialize Quill editor -->
+<!-- Initialize Quill editor-->
 <script>
   var quill = new Quill('#editor', {
     theme: 'snow'
@@ -357,5 +351,5 @@
   }
 
 </script>
-
+ 
 </html>
