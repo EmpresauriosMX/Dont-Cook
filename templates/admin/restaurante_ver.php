@@ -12,6 +12,9 @@
    include '../componentes/head.html';
    //include '../componentes/navegacion_reducido.html';
    ?>
+
+   
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
    
    <!-- Barra de Imagen -->
    <section class="breadcrumb-section set-bg" data-setbg="../../src/img/fondo.jpeg">
@@ -80,19 +83,19 @@
 
                     <p id="descripcion">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim, vel. Voluptates nulla aut impedit, in commodi sit, eum nam facere laboriosam ut praesentium aperiam nihil ipsam? Est, nemo aut? Tempore.</p>
                         
-                    <div class="row">
-                        <div class="col-sm-2">
-                            <span class="fa fa-facebook btn site-btn"></span>
-                        </div>
-                        <div class="col-sm-2">
-                            <span class="fa fa-instagram btn site-btn"></span>
-                        </div>
-                        <div class="col-sm-2">
-                            <span class="fa fa-heart btn site-btn"></span>
-                        </div>
-                        <div class="col-sm-2">
-                            <span class="fa fa-edit btm btn site-btn"></span>
-                        </div>
+                    <div class="row mx-auto">
+                        
+                            <span class="fa fa-facebook btn site-btn mx-auto ml-2"></span>
+                        
+                        
+                            <span class="fa fa-instagram btn site-btn mx-auto ml-2"></span>
+                        
+                        
+                            <span class="fa fa-heart btn site-btn mx-auto ml-2"></span>
+                        
+                        
+                            <span class="fa fa-edit btm btn site-btn mx-auto ml-2"></span>
+                        
                         
                     </div>
                     <br>
@@ -162,39 +165,161 @@
                         <div class="tab-content">
                             <div class="tab-pane active" id="tabs-1" role="tabpanel">
                                 <div class="product__details__tab__desc">
-                                    <h3>Promociones!</h3>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, aperiam quidem commodi cupiditate porro consequuntur quo debitis sed at incidunt vitae hic, perspiciatis molestiae odio obcaecati maiores officiis. Eos, nulla.</p>
-                                    <div class="col-sm-2">
-                                        <span class="fa fa-edit btm btn site-btn"></span>
+                                    <h3>Promociones</h3>
+                                    <div class="card-columns mt-3">
+                                        <!--Tarjeta de Base-->
+                                        <div class="card ">
+                                            <img class="card-img-top" src="../../src/img/banner/banner-1.jpg" alt="Card image cap">
+                                            <div class="card-img-overlay">
+                                                <h4 class="card-title">Restaurante</h4>
+                                            </div>
+                                            <div class="card-body">
+                                            <h6>Nombre de la Promoción</h6>
+                                            <p class="card-text">Descripción de la promocion... <br>
+                                                Chelas 2x1 xdxd <br>
+                                                De Lunes a Jueves <br>
+                                                Con Horario de 12:00 a 16:00</p>
+                                            </div>
+                                            <div class="card-footer">
+                                                <!--button class="btn btn-dark btn-sm "> <span class="fa fa-eye"></span></button-->
+                                                <button class="btn btn-dark btn-sm "> <span class="fa fa-edit"></span></button>
+                                                <button class="btn btn-dark btn-sm "> <span class="fa fa-trash"></span></button>
+                                            </div>
+                                        </div>
+                                        <!--Fin tarjeta de Base-->
+                                        <!--Tarjeta de Base-->
+                                        <div class="card ">
+                                            <img class="card-img-top" src="../../src/img/banner/banner-1.jpg" alt="Card image cap">
+                                            <div class="card-img-overlay">
+                                                <h4 class="card-title">Restaurante</h4>
+                                            </div>
+                                            <div class="card-body">
+                                            <h6>Nombre de la Promoción</h6>
+                                            <p class="card-text">Descripción de la promocion... <br>
+                                                Chelas 2x1 xdxd <br>
+                                                De Lunes a Jueves <br>
+                                                Con Horario de 12:00 a 16:00</p>
+                                            </div>
+                                            <div class="card-footer">
+                                                <!--button class="btn btn-dark btn-sm "> <span class="fa fa-eye"></span></button-->
+                                                <button class="btn btn-dark btn-sm "> <span class="fa fa-edit"></span></button>
+                                                <button class="btn btn-dark btn-sm "> <span class="fa fa-trash"></span></button>
+                                            </div>
+                                        </div>
+                                        <!--Fin tarjeta de Base-->
+                                        
+                                    </div>
+                                    <!--Botones de acción-->
+                                    <div class="col-md-3 col-sm-6 col-lg-4 ">
+                                        <div class="card">
+                                            <div class="card-body text-center">
+                                                <p><strong>Agregar</strong></p>
+                                                <a href="agregar_promocion.php" class="fa fa-plus btm btn site-btn mx-auto"></a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="tab-pane" id="tabs-2" role="tabpanel">
                                 <div class="product__details__tab__desc">
-                                    <h3>Fotos del restaurante!</h3>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum libero voluptatum debitis, consectetur necessitatibus dolores veritatis officia deleniti inventore perferendis doloremque maxime, aliquid excepturi eveniet porro fugiat, quisquam asperiores at.</p>
-                                    <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Lorem
-                                        ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit aliquet
-                                        elit, eget tincidunt nibh pulvinar a. Cras ultricies ligula sed magna dictum
-                                        porta. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus
-                                        nibh. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.</p>
-                                        <div class="col-sm-2">
-                                            <span class="fa fa-edit btm btn site-btn"></span>
+                                    <h3>Fotos</h3>
+                                    <!-- Gallery -->
+                                    <div class="row mt-3">
+                                        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+                                            <img
+                                            src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg"
+                                            class="w-100 shadow-1-strong rounded mb-4"
+                                            alt=""
+                                            />
+
+                                            <img
+                                            src="https://mdbootstrap.com/img/Photos/Vertical/mountain1.jpg"
+                                            class="w-100 shadow-1-strong rounded mb-4"
+                                            alt=""
+                                            />
                                         </div>
+
+                                        <div class="col-lg-4 mb-4 mb-lg-0">
+                                            <img
+                                            src="https://mdbootstrap.com/img/Photos/Vertical/mountain2.jpg"
+                                            class="w-100 shadow-1-strong rounded mb-4"
+                                            alt=""
+                                            />
+
+                                            <img
+                                            src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg"
+                                            class="w-100 shadow-1-strong rounded mb-4"
+                                            alt=""
+                                            />
+                                        </div>
+
+                                        <div class="col-lg-4 mb-4 mb-lg-0">
+                                            <img
+                                            src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg"
+                                            class="w-100 shadow-1-strong rounded mb-4"
+                                            alt=""
+                                            />
+
+                                            <img
+                                            src="https://mdbootstrap.com/img/Photos/Vertical/mountain3.jpg"
+                                            class="w-100 shadow-1-strong rounded mb-4"
+                                            alt=""
+                                            />
+                                        </div>
+                                    </div>
+                                    <!-- Gallery -->
+                                    <div class="col-md-3 col-sm-6 col-lg-4 ">
+                                        <div class="card">
+                                            <div class="card-body text-center">
+                                                <p><strong>Agregar o editar</strong></p>
+                                                <span class="fa fa-plus btm btn site-btn mx-auto"></span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="tab-pane" id="tabs-3" role="tabpanel">
                                 <div class="product__details__tab__desc">
-                                    <h3>Fotos del menú!</h3>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum libero voluptatum debitis, consectetur necessitatibus dolores veritatis officia deleniti inventore perferendis doloremque maxime, aliquid excepturi eveniet porro fugiat, quisquam asperiores at.</p>
-                                    <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Lorem
-                                        ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit aliquet
-                                        elit, eget tincidunt nibh pulvinar a. Cras ultricies ligula sed magna dictum
-                                        porta. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus
-                                        nibh. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.</p>
-                                        <div class="col-sm-2">
-                                            <span class="fa fa-edit btm btn site-btn"></span>
+                                    <h3>Agrega tu menú en forma de texto!</h3>
+                                    <br>
+                                    <div id="editor">
+                                        <p>Agrega tu delicioso menú!</p>
+                                        <p>Agrega tu propio diseño!</p>
+                                        <p>Rico menú! <strong> $20.00</strong> <em><-Empieza a agregar tus deliciosos platillos</em></p>
+                                        <p><strong>(borra el texto anterior para empezar a escribir tu menú)</strong>...</p>
+                                        <p><br></p>
+                                    </div>
+                                    <br>
+                                    <div>
+                                        <button type="button" value="guardar" onclick="jssave()" class="btn btn-warning">Guardar Menu!</button>
+                                    </div>
+                                    
+
+
+                                    <!-- 
+                                    <h3>Menú</h3>
+                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt at voluptate doloremque exercitationem, fugiat facilis reiciendis, pariatur recusandae repudiandae dignissimos vero. Odio, qui enim. Mollitia ad eum tempore cum voluptatibus?</p>
+                                    -->
+                                    <br>
+                                    <h3>O si prefieres agrega imagenes de tu menú!</h3>
+
+                                    <div class="row mt-3">
+                                    <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+                                        <img
+                                        src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg"
+                                        class="w-100 shadow-1-strong rounded mb-4"
+                                        alt=""
+                                        />
+                                    </div>
+                                    <div class="col-md-3 col-sm-6 col-lg-4 ">
+                                        <div class="card">
+                                            <div class="card-body text-center">
+                                                <p><strong>Agregar o editar</strong></p>
+                                                <span class="fa fa-plus btm btn site-btn mx-auto"></span>
+                                            </div>
                                         </div>
+                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -212,4 +337,25 @@
     include '../componentes/scripts.html';
     ?>
 </body>
+
+<!-- Include the Quill library -->
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+
+<!-- Initialize Quill editor -->
+<script>
+  var quill = new Quill('#editor', {
+    theme: 'snow'
+  });
+
+  function jssave(){
+
+   let contenido = quill.container.firstChild.innerHTML;
+    fetch("../../inc/peticiones/admin/consultas.php?contenido=" + contenido);
+   alert("El menú se a guardado");
+
+  }
+
+</script>
+
 </html>

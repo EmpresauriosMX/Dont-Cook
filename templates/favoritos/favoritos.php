@@ -14,15 +14,11 @@
    <!--contenido de la plantilla -->
 
     <div class="container">
-        <!-- Categories Section Begin -->
-        <?php
-            include '../../templates/componentes/categorias.html';
-        ?>
-        <!-- Categories Section End -->
+        
 
         <!--RESTAURANTES-->
         <div class="section-title">
-            <h2>Todos los restaurantes</h2>
+            <h2>FAVORITOS <span class="fa fa-heart"></span></h2>
         </div>
         <div class="row">
             <!--restaurante 1-->
