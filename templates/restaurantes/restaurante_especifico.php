@@ -12,6 +12,7 @@
    include '../componentes/head.html';
    include '../componentes/navegacion_reducido.html';
    ?>
+
    
    <!-- Barra de Imagen -->
    <section class="breadcrumb-section set-bg" data-setbg="../../src/img/fondo.jpeg">
@@ -252,6 +253,9 @@
                             </div>
                             <div class="tab-pane" id="tabs-3" role="tabpanel">
                                 <div class="product__details__tab__desc">
+
+                               
+
                                     <h3>Menú</h3>
                                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt at voluptate doloremque exercitationem, fugiat facilis reiciendis, pariatur recusandae repudiandae dignissimos vero. Odio, qui enim. Mollitia ad eum tempore cum voluptatibus?</p>
                                     <!-- Gallery -->
@@ -280,4 +284,5 @@
     include '../componentes/scripts.html';
     ?>
 </body>
+
 </html>

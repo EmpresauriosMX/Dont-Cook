@@ -12,6 +12,9 @@
    include '../componentes/head.html';
    //include '../componentes/navegacion_reducido.html';
    ?>
+
+   
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
    
    <!-- Barra de Imagen -->
    <section class="breadcrumb-section set-bg" data-setbg="../../src/img/fondo.jpeg">
@@ -277,6 +280,14 @@
                             </div>
                             <div class="tab-pane" id="tabs-3" role="tabpanel">
                                 <div class="product__details__tab__desc">
+                                <div id="editor">
+                                    <p>Hello World!</p>
+                                    <p>Some initial <strong>bold</strong> text</p>
+                                    <p><br></p>
+                                </div>
+                                <br>
+                                <button type="button" value="guardar" onclick="jssave()" class="btn btn-dark">Guardar</button>
+
                                     <h3>Menú</h3>
                                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt at voluptate doloremque exercitationem, fugiat facilis reiciendis, pariatur recusandae repudiandae dignissimos vero. Odio, qui enim. Mollitia ad eum tempore cum voluptatibus?</p>
                                     <!-- Gallery -->
@@ -314,4 +325,25 @@
     include '../componentes/scripts.html';
     ?>
 </body>
+
+<!-- Include the Quill library -->
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+
+<!-- Initialize Quill editor -->
+<script>
+  var quill = new Quill('#editor', {
+    theme: 'snow'
+  });
+
+  function jssave(){
+
+   let contenido = quill.container.firstChild.innerHTML;
+    fetch("../../inc/peticiones/admin/consultas.php?contenido=" + contenido);
+   alert("El menú se a guardado");
+
+  }
+
+</script>
+
 </html>
