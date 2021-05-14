@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+
+// STYLES
+
+// fonts
+
+$font-primary: 'Montserrat','Arial',sans-serif;
+$font-body: 'Lato','Arial',sans-serif;
+
+// colors
+$color-primary: #8D6CC7;
+$color-primary-dark: darken($color-primary,3%);
+$color-light-gray: #DAE2F1;
+
+// GLOBAL
+
+*{
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+html,
+body{
+    /* Para que funcione correctamente en Smarthpones y Tablets */
+    height:100vh;
+}
+
+body {
+    /* Ruta relativa o completa a la imagen */
+    background-image: url(../img/login_DC2.png);
+    /* Centramos el fondo horizontal y verticalmente */
+    background-position: center center;
+    /* El fondo no se repite */
+    background-repeat: no-repeat;
+    /* Fijamos la imagen a la ventana para que no supere el alto de la ventana */
+    background-attachment: fixed;
+    /* El fondo se re-escala automáticamente */
+    background-size: cover;
+    /* Color de fondo si la imagen no se encuentra o mientras se está cargando */
+    background-color: #FFF;
+}
+
+/* Background para ancho máximo de la pantalla física */
+@media only screen and (max-device-width: 767px) {
+    body {
+        background-image: url(../img/login_DC2.png);
+        color: #FFF;
+    }
+}
+
+/* Background para ancho máximo del navegador */
+@media only screen and (max-width: 767px) {
+    body {
+        background-image: url(../img/login_DC3.png);
+        color: #FFF;
+    }
+}
+
+.container{
+  height: 100%;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1{
+  font-family: $font-primary;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 32px;
+}
+
+// FORM
+
+form{
+  text-transform: capitalize;
+  font-family: $font-body;
+  text-align: center;
+}
+
+input{
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 25px;
+  border: 1px solid rgb(255, 255, 255);
+  padding: 10px 20px;
+  color:#000000;
+  font-size: .8rem;
+  transition: .4s;
+  
+    &:last-child{
+    margin-bottom: 0;
+  }
+  &:focus{
+    border-color: rgb(96, 70, 243);
+    outline: none;
+  }
+}
+
+[type="submit"]{
+  background: rgb(35, 119, 228);
+  border-radius: 30px;
+  padding: 16px 30px;
+  width: 100%;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  font-size: 1rem;
+  transition: .4s;
+  font-family: $font-primary;
+  border: none;
+  box-shadow: none;
+  margin: 0;
+  
+    &:hover{
+    background: rgb(15, 0, 0);
+    cursor: pointer;
+  }
+}
+
+p{
+  color: rgb(255, 255, 255);
+}
