@@ -21,11 +21,13 @@
    <!--contenido de la plantilla -->
 
     <div class="container mb-5">
-    <div class="section-title mt-3">
+            <div class="section-title mt-3">
                 <h2>Mis restaurantes</h2>
             </div>
-        <div class="row mt-3">
-            
+    <?php
+        include '../pages/sin_restaurantes.html';
+    ?>
+        <div class="row mt-3">    
             <div class="col-md-7">
                 
                 <div class="card bg-dark text-white">
