@@ -23,8 +23,15 @@
         <?php
             include '../pages/sin_cuenta.html';
         ?>
-
         <!---EN CASO DE QUE SI TENGA UNA CUENTA-->
+
+
+
+        <!---AQUI VA LO DE CONFIGURACIÓN DE USUARIO-->
+
+        <!---AQUI VA LO DE CONFIGURACIÓN DE USUARIO /-->
+
+
     </div>
     <!--contenido de la plantilla -->
     <?php 
