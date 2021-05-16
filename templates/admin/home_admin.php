@@ -24,9 +24,15 @@
             <div class="section-title mt-3">
                 <h2>Mis restaurantes</h2>
             </div>
+    <!-- EN CASO DE QUE NO TENGA RESTAURANTES EN SU CUENTA -->
     <?php
         include '../pages/sin_restaurantes.html';
     ?>
+    <!-- EN CASO DE QUE NO TENGA SU CUENTA -->
+    <?php
+        //include '../pages/sin_cuenta.html';
+    ?>
+    <!-- EN CASO DE QUE SI TENGA RESTAURANTES EN SU CUENTA -->
         <div class="row mt-3">    
             <div class="col-md-7">
                 

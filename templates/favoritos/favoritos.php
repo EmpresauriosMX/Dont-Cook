@@ -11,8 +11,7 @@
    include '../componentes/head.html';
    include '../componentes/navegacion_reducido.html';
    ?>
-   <!--contenido de la plantilla -->
-
+    <!--contenido de la plantilla -->
     <div class="container">
         
 
@@ -87,10 +86,7 @@
 
 
     </div>
-
-
-
-<!--contenido de la plantilla -->
+    <!--contenido de la plantilla -->
     <?php 
     include '../componentes/footer.html';
     include '../componentes/scripts.html';
