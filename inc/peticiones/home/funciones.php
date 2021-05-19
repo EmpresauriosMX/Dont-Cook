@@ -9,9 +9,9 @@ switch ($accion) {
     case 'obtener_municipio':
         $resultado = getMunicipio();
         break;
-        case 'obtener_localidad':
-            $resultado = getLocalidad();
-            break;
+    case 'obtener_localidad':
+        $resultado = getLocalidad();
+        break;
 }
 
 

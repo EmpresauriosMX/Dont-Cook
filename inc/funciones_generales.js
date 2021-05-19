@@ -7,3 +7,8 @@ export async function enviar_datos(url, datos) {
     console.log(error);
   }
 }
+
+
+export function mostrar_ubicacion() {
+  return JSON.parse(localStorage.getItem("ubicacion")) || [];
+}
