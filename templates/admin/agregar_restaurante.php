@@ -24,19 +24,19 @@
         <div class=" mx-auto">
             <h4 class="mt-2 mb-2">Agregar restaurante</h4>
         </div>
-                <form action="#">
+                <form id="form_agregar_restaurante" name="form_agregar_restaurante" action="#">
                     <div class="row">
                         <div class="col-lg-8 col-md-6 mx-auto">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
-                                        <p>Nombre<span>*</span></p>
+                                        <p>Nombre del Restaurante<span>*</span></p>
                                         <input type="text">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
-                                        <p>Descripción corta<span>*</span></p>
+                                        <p>Descripción Corta del Restaurante<span>*</span></p>
                                         <input type="text">
                                     </div>
                                 </div>
@@ -53,7 +53,7 @@
                                 <input type="text" placeholder="Ciudad">
                             </div>
                             <div class="checkout__input">
-                                <p>Postcode / ZIP<span>*</span></p>
+                                <p>Codigo Postal<span>*</span></p>
                                 <input type="text">
                             </div>
                             <div class="row">

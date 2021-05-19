@@ -10,6 +10,6 @@ $statement = $link->prepare("INSERT INTO menus(descripcion)
 
 $statement->execute(["contenido" => $contenido]);
 
-echo("Se envio esa madreeeee");
+echo("Menú registrado");
 
 ?>
