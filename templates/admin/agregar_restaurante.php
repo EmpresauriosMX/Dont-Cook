@@ -20,10 +20,24 @@
    <!--contenido de la plantilla -->
    <!--contenido de la plantilla -->
 
-    <div class="container mb-5 mx-auto ">
-        <div class=" mx-auto">
-            <h4 class="mt-2 mb-2">Agregar restaurante</h4>
+    <!-- Barra de Imagen -->
+    <section class="breadcrumb-section set-bg" data-setbg="../../src/img/fondo.jpeg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2 id="nombre_restaurante">Agregar Restaurante</h2>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
+    <!-- Fin Barra de Imagen -->
+<br>
+
+    <div class="container mb-5 mx-auto ">
+
+        
                 <form id="form_agregar_restaurante" name="form_agregar_restaurante" action="#">
                     <div class="row">
                         <div class="col-lg-8 col-md-6 mx-auto">
@@ -31,42 +45,42 @@
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>Nombre del Restaurante<span>*</span></p>
-                                        <input type="text">
+                                        <input id="nombre" name="nombre" type="text">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>Descripción Corta del Restaurante<span>*</span></p>
-                                        <input type="text">
+                                        <input id="desc_corta" name="desc_corta" type="text">
                                     </div>
                                 </div>
                             </div>
                             <div class="checkout__input">
                                 <p>Descripción larga<span>*</span></p>
-                                <textarea class="form-control" rows="3"></textarea>
+                                <textarea class="form-control" rows="3" id="desc_larga" name="desc_larga"></textarea>
                             </div>
 
                             <div class="checkout__input">
                                 <p>Ubicacion<span>*</span></p>
-                                <input type="text" placeholder="Estado" class="checkout__input__add">
-                                <input type="text" placeholder="Municipio" class="checkout__input__add">
-                                <input type="text" placeholder="Ciudad">
+                                <input type="text" placeholder="Estado" id="estado" name="estado" class="checkout__input__add">
+                                <input type="text" placeholder="Municipio" id="municipio" name="municipio" class="checkout__input__add">
+                                <input type="text" placeholder="Ciudad" id="ciudad" name="ciudad" class="checkout__input__add" >
                             </div>
                             <div class="checkout__input">
                                 <p>Codigo Postal<span>*</span></p>
-                                <input type="text">
+                                <input placeholder="Codigo Postal" id="cp" name="cp" type="text">
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>Telefono<span>*</span></p>
-                                        <input type="text">
+                                        <input placeholder="Telefono" id="telefono" name="telefono" type="text">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>Email<span>*</span></p>
-                                        <input type="text">
+                                        <input placeholder="Correo Electronico" id="email" name="email" type="text">
                                     </div>
                                 </div>
                             </div>
@@ -90,6 +104,8 @@
     include '../componentes/footer.html';
     include '../componentes/scripts.html';
     ?>
+    
+    <script src="../../inc/funciones/admin/agregar_restaurante.js"></script>
    
 </body>
 
