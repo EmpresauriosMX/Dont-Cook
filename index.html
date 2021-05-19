@@ -21,6 +21,23 @@
       <div class="caja1" style="background-image: url(src/img/bg/bg12.png); ">
           <div class="contenedor">
               <h1 class="titulo" >Descubre nuevos sabores</h1>
+                  <!-- aqui se trabaja la ubicacion-->
+        <form id="combo" name="combo" action="guarda.php" method="POST" style="background-color: burlywood;">
+          <div>Selecciona Estado : <select name="cbx_estado" id="cbx_estado"></select></div>
+          
+          <br />
+          
+          <div>Selecciona Municipio : <select name="cbx_municipio" id="cbx_municipio"></select></div>
+          
+          <br />
+          
+          <div>Selecciona Localidad : <select name="cbx_localidad" id="cbx_localidad"></select></div>
+          
+          <br />
+          <input type="submit" id="enviar" name="enviar" value="Guardar" />
+        </form>
+
+        <!-- aqui se trabaja la otra ubicacion-->
               <img src="src/img/logo450w.png" alt="logo" class="logo">
               <a href="templates/home/home.php"><input type="button" value="¿Hambre?" class="btn"></a>
           </div>
@@ -68,7 +85,7 @@
           <div class="img-3">
             <img src="media/item3.png" alt="item3" class="item">
         </div>
-
+        
           <div class="footer">
               <h3 class="cont">Contactanos</h3>
               <!--img src="media/iconE.png" alt="correo" class="img-email"-->
@@ -87,10 +104,12 @@
 </div>
 
   	<!-- JavaScript -->
+
+    <script src="./inc/funciones/home/ubicacion.js" type="module"></script>
+
     <script type="text/javascript">
       $('#fullpage').fullpage();
     </script>
-  
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script-->
