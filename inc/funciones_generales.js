@@ -8,7 +8,6 @@ export async function enviar_datos(url, datos) {
   }
 }
 
-
 export function mostrar_ubicacion() {
   return JSON.parse(localStorage.getItem("ubicacion")) || [];
 }
