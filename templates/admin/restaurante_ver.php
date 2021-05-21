@@ -315,7 +315,7 @@
     function jssave() {
 
         let contenido = quill.container.firstChild.innerHTML;
-        fetch("../../inc/peticiones/admin/consultas.php?contenido=" + contenido);
+        fetch("../../inc/peticiones/admin/menu.php?contenido=" + contenido);
         alert("El menú se a guardado");
 
     }

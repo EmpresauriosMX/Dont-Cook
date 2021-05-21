@@ -7,8 +7,9 @@ listado_restaurante.addEventListener("submit",registro_restaurante)
 });
 
 function registro_restaurante(e){
-
-    e.preventDefault();
+    /*const datos = new FormData();
+    datos.append("accion","obtener_datos");*/
+    //e.preventDefault();
 
     const nombre = document.querySelector("#nombre").value;
     const desc_corta = document.querySelector("#desc_corta").value;
