@@ -16,7 +16,19 @@ function registro_usuario(e){
 
     if(contrasenia1 == contrasenia2){
         const datos = new FormData();
-        datos.append("accion","registrar_usuario");
+        //datos.append("accion","registrar_usuario");
+        enviar_datos(url, datos).then((res) => {
+            
+            if(res.respuesta == 1){
+                //si la respuesta es ok
+                console.log("respuesta = ok");
+            }
+            /*res.forEach((municipio) => {
+              cbx_municipio.innerHTML += `
+                    <option value="${municipio.id}">${municipio.nombre}</option>  
+                    `;
+            });*/   
+          });
     }
     alert(nombres);
     //console.log(acc);
