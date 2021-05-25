@@ -16,7 +16,7 @@
 
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 
-    <!-- Barra de Imagen -->
+    <!------------------------- Barra de Imagen >
     <section class="breadcrumb-section set-bg" data-setbg="../../src/img/fondo.jpeg">
         <div class="container">
             <div class="row">
@@ -33,8 +33,9 @@
             </div>
         </div>
     </section>
-    <!-- Fin Barra de Imagen -->
     <br>
+    <-------------------------------------------------------- Fin Barra de Imagen -->
+    
 
     <!--contenido de la plantilla -->
     <div class="container">
@@ -44,18 +45,18 @@
                 <div class="product__details__pic">
                     <!--Logo del restaurante-->
                     <div class="product__details__pic__item">
-                        <img class="product__details__pic__item--large" src="../../src/img/restaurants/pikalogodarkmode.png" alt="">
+                        <img id="img_restaurante" class="product__details__pic__item--large" src="../../src/img/restaurants/pikalogodarkmode.png" alt="">
                     </div>
                     <!--Fin logo del restaurante-->
 
-                    <!--Imagenes del restaurante-->
+                    <!--Imagenes del restaurante>
                     <div class="product__details__pic__slider owl-carousel">
-                        <img data-imgbigurl="../../src/img/restaurants/1.jpg" src="../../src/img/restaurants/1.jpg" alt="">
-                        <img data-imgbigurl="../../src/img/restaurants/2.jpg" src="../../src/img/restaurants/2.jpg" alt="">
-                        <img data-imgbigurl="../../src/img/restaurants/3.jpg" src="../../src/img/restaurants/3.jpg" alt="">
-                        <img data-imgbigurl="../../src/img/restaurants/4.jpg" src="../../src/img/restaurants/4.jpg" alt="">
+                        <img data-imgbigurl="../../src/img/restaurants/pikalogodarkmode.png" src="../../src/img/restaurants/pikalogodarkmode.png" alt="">
+                        <img data-imgbigurl="../../src/img/restaurants/pikalogodarkmode.png" src="../../src/img/restaurants/pikalogodarkmode.png" alt="">
+                        <img data-imgbigurl="../../src/img/restaurants/pikalogodarkmode.png" src="../../src/img/restaurants/pikalogodarkmode.png" alt="">
+                        <img data-imgbigurl="../../src/img/restaurants/pikalogodarkmode.png" src="../../src/img/restaurants/pikalogodarkmode.png" alt="">
                     </div>
-                    <!--Fin imagenes del restaurante-->
+                    <!Fin imagenes del restaurante-->
 
                 </div>
             </div>
@@ -66,47 +67,33 @@
                 <div class="product__details__text">
                     <h1 id="nombre_restaurante">PikaTako</h1>
                     <!--Area de Calificación-->
-                    <div class="product__details__rating">
+                    <!--div class="product__details__rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-half-o"></i>
                         <span>(18 reviews)</span>
-                    </div>
+                    </div-->
                     <!--Fin area de calificación-->
 
                     <p id="descripcion">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim, vel. Voluptates nulla aut impedit, in commodi sit, eum nam facere laboriosam ut praesentium aperiam nihil ipsam? Est, nemo aut? Tempore.</p>
-
+                    <!--CONTACTO-->
                     <div class="row mx-auto">
-
-                        <span class="fa fa-facebook btn site-btn mx-auto ml-2"></span>
-
-
-                        <span class="fa fa-instagram btn site-btn mx-auto ml-2"></span>
-
-
-                        <span class="fa fa-heart btn site-btn mx-auto ml-2"></span>
-
-
-                        <span class="fa fa-edit btm btn site-btn mx-auto ml-2"></span>
-
-
+                        <a id="facebook" href="#" class="fa fa-facebook btn site-btn mx-auto ml-2"></a>
+                        <a id="instagram" href="#" class="fa fa-instagram btn site-btn mx-auto ml-2"></a>
+                        <a id="favorito" href="#" class="fa fa-heart btn site-btn mx-auto ml-2"></a>
+                        <a id="editar" href="agregar_restaurante.php" class="fa fa-edit btm btn site-btn mx-auto ml-2"></a>
                     </div>
                     <br>
 
-
-                    <!--<ul>
-                        <li><img width="40" height="40" src="../../src/img/iconos/facebook.png"> <img width="40" height="40" src="../../src/img/iconos/instagram.png"><img width="40" height="40" src="../../src/img/iconos/galeria.png"></li>
-                        
-                    </ul>-->
                 </div>
             </div>
             <!--Fin información del restaurante-->
         </div>
 
         <br><br>
-        <!--Redes Sociales-->
+        <!----------------------------CONTACTO------------------------------>
         <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-6 text-center">
                 <div class="contact__widget">
@@ -137,7 +124,7 @@
                 </div>
             </div>
         </div>
-        <!--Fin redes sociales-->
+        <!---------------------------------------Fin CONTACTO-------------------------------------------------->
 
         <!--Sub menu-->
         <div class="row">
