@@ -34,7 +34,7 @@
                 </div>
             </div>
         </div>
-        <script src="../../inc/funciones/login/registro.js"></script>
+        <script src="../../inc/funciones/login/registro.js" type="module"></script>
         
     </body>
 </html>
