@@ -13,9 +13,7 @@
    ?>
 
 <!--contenido de la plantilla -->
-    
     <!--Todo de home-->
-     
      <section class="categories ">
         <div class="container">
         <?php
@@ -189,8 +187,8 @@
         </div>
     </section>
    <!--Fin de todo de home-->
-
 <!--contenido de la plantilla -->
+<script src="../../inc/funciones/home/ubicacion.js" type="module"></script>
     <?php 
     include '../../templates/componentes/footer.html';
     include '../../templates/componentes/scripts.html';
