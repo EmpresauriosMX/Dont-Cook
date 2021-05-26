@@ -3,12 +3,10 @@ $accion = $_POST['accion'];
 require 'consultas.php';
 
 switch ($accion) {
-    case "obtener_estado":
-        $resultado = getEstado();
+    case "registrar_restaurante":
+        $resultado = enviar();
         break;
-    case "enviar_datos":
-        $resultado = sendDatos();
-        break;
+        
 }
 
 

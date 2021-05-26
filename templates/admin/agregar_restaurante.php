@@ -107,7 +107,8 @@
     include '../componentes/scripts.html';
     ?>
     
-    <script src="../../inc/funciones/admin/agregar_restaurante.js"></script>
+    <script src="../../inc/funciones/admin/ag_restaurante.js" type="module"></script>
+
    
 </body>
 
