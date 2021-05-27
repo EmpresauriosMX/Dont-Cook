@@ -93,10 +93,20 @@
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
+
+                            <?php
+                                include '../componentes/etiquetas.html';
+                            ?>
+                            <br>
                             <button type="submit" class="site-btn btn-block">Guardar</button>
                         </div>
                     </div>
                 </form> 
+    </div>
+
+    <div class="container mb-5 mx-auto">
+    
+    
     </div>
 
     
