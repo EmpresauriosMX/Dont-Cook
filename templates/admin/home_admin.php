@@ -100,22 +100,17 @@
             <div class="col-md-3">
                 <a href="agregar_restaurante.php" class="btn btn-sm primary-btn  "> Agregar restaurante</a>
             </div> 
-                
-            
-            
             
         </div>
         
     </div>
-
-    
 
 <!--contenido de la plantilla -->
     <?php 
     include '../componentes/footer.html';
     include '../componentes/scripts.html';
     ?>
-   
+   <script src="../../inc/funciones/admin/home.js" type="module"></script>
 </body>
 
 </html>
