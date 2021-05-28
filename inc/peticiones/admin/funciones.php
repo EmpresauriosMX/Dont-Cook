@@ -6,8 +6,8 @@ switch ($accion) {
     case "registrar_restaurante":
         $resultado = enviar();
         break;
-    case "restaurantes_home":
-        $resultado = restaurantes_home();
+    case "verifica_cuenta":
+        $resultado = verifica_cuenta();
         break;
         
 }
