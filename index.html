@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="src/css/style_index.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <title>DONT-COOK</title>
 
     	<!-- Script -->
@@ -22,17 +23,36 @@
           <div class="contenedor">
               <h1 class="titulo" >Descubre nuevos sabores</h1>
                   <!-- aqui se trabaja la ubicacion-->
-        <form id="eleccion_ciudad" style="background-color: burlywood;">
-          <div>Selecciona ciudad : <select name="cbx" id="cbx"></select></div>
+
+        <form id="eleccion_ciudad">
+          <div class="text-white">
+            <h1>Selecciona tu ciudad! :</h1>
+          </div>
           
-          <br />
-          
-          <input type="submit" id="enviar" name="enviar" value="Guardar" />
+          <div class="row">
+              <div class="col-md-5 text-center">
+                  <select class="custom-select" name="cbx" id="cbx"></select>
+              </div>
+              <div class="text-center">
+                  <button id="enviar" name="enviar" value="Guardar" type="button" class="btn btn-secondary">Guardar</button>
+              </div>
+          </div>
+          <br>
+
+          <!--<div>Selecciona ciudad : <select name="cbx" id="cbx"></select></div>
+          <input type="submit" id="enviar" name="enviar" value="Guardar" />-->
         </form>
 
         <!-- aqui se trabaja la otra ubicacion-->
-              <img src="src/img/logo450w.png" alt="logo" class="logo">
-              <a href="templates/home/home.php"><input type="button" value="¿Hambre?" class="btn"></a>
+        <div class="row">
+          <div class="col-md-12"> 
+            <img src="src/img/logo450w.png" alt="logo" class="logo">
+          </div>
+        </div>
+              <div class="row">
+                <a href="templates/home/home.php"><input type="button" value="¿Hambre?" class="btn"></a>
+              </div>
+        
           </div>
       </div>
     </div>
