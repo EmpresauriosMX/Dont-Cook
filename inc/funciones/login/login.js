@@ -20,7 +20,7 @@ const contraseña = document.querySelector("#contraseña").value;
   const peticion_bd = await enviar_datos(url, datos);
 
   console.log(peticion_bd);
-  peticion_bd.respuesta === "correcto" ? window.location = 'index.html' : alert("contraseña incorrecta")
+  peticion_bd.respuesta === "correcto" ? window.location = 'index.html' : alert(`${peticion_bd.respuesta}`)
 }
 
 
