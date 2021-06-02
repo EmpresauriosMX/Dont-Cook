@@ -27,9 +27,10 @@ const url = "../../inc/peticiones/admin/funciones.php";
         const cp = document.querySelector("#cp").value;
         const telefono = document.querySelector("#telefono").value;
         const email = document.querySelector("#email").value;
+        const direccion = document.querySelector("#direccion").value;
         const acc = document.querySelector("#acc").value;
 
-        console.log(nombre, desc_corta, desc_larga, estado, municipio, ciudad, cp, telefono, email);
+        console.log(nombre, desc_corta, desc_larga, estado, municipio, ciudad, cp, telefono, email, direccion);
         
         datos.append("nombre", nombre);
         datos.append("desc_corta", desc_corta);
@@ -40,11 +41,14 @@ const url = "../../inc/peticiones/admin/funciones.php";
         datos.append("telefono",telefono);
         datos.append("cp",cp);
         datos.append("email",email);
-        
-        datos.append("accion","registrar_restaurante");
-    
-        enviar_datos(url,datos).then((re) => console.log(re));
+        datos.append("direccion",direccion);
 
+        datos.append("accion","registrar_restaurante");
+        enviar_datos(url,datos).then((re) => console.log(re));
         alert('EL RESTAURANTE SE REGISTRO CORRECTAMENTE');
+        
+        
+
+        
 
     }
