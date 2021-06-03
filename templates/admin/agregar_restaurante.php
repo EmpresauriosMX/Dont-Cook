@@ -15,6 +15,7 @@
     
     <?php
         include '../componentes/head.html';
+        include '../componentes/sesiones.php';
     ?>
 
    <!--contenido de la plantilla -->

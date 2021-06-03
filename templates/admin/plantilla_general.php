@@ -10,6 +10,8 @@
    <?php
    include '../componentes/head.html';
    include '../componentes/navegacion.html';
+   include '../componentes/sesiones.php';
+
    ?>
    <!--contenido de la plantilla -->
 
