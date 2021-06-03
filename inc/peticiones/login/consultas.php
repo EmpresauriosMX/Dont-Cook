@@ -57,7 +57,7 @@ function buscar_usuario(): array
 
         if ($nombre_usuario) {
             if (password_verify($contraseña_recibida, $contraseña_usuario)) {
-                session_start();
+                session_start(); //datos de la session
                 $_SESSION['nombre'] = $usuario;
                 $_SESSION['id'] = $id_usuario;
                 $_SESSION['login'] = true;
