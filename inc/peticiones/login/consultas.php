@@ -3,7 +3,6 @@
 function nuevo_usuario(): array
 {
     $opciones = array('cost' => 12);
-
     $nombre = $_POST['nombres'];
     $apellido = $_POST['apellidos'];
     $correo = $_POST['correo'];
