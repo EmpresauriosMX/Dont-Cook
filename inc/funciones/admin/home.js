@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const datos = new FormData();
     datos.append("accion","verifica_cuenta");
     
-    enviar_datos(url, datos).then((res) => res);
+    const res = await enviar_datos(url, datos);
     console.log(res);
   }
 
