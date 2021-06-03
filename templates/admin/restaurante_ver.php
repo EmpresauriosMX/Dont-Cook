@@ -10,6 +10,7 @@
 <body>
     <?php
     include '../componentes/head.html';
+    include '../componentes/sesiones.php';
     //include '../componentes/navegacion_reducido.html';
     ?>
 

@@ -7,7 +7,10 @@ switch ($accion) {
         $resultado = nuevo_usuario();
         break;
     case "ingresar":
-$resultado = buscar_usuario();
+        $resultado = buscar_usuario();
+        break;
+    case 'comprobar_usuario':
+        $resultado = existente_usuario();
         break;
 }
 

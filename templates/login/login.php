@@ -15,13 +15,13 @@
                 <form id="login_inicio">
                     <input type="text" id="usuario" placeholder="usuario">
                     <br>
-                    <input type="text" id="contraseña" placeholder="contraseña">
+                    <input type="password" id="contraseña" placeholder="contraseña">
                     <br><br>
                     <input type="submit" value="Ingresar">
                 </form>
                 <p></p>
                 <div class="login">
-                    <p>¿No tienes una cuenta?<a href="#"> Registrate</a></p>
+                    <p>¿No tienes una cuenta?<a href="registro.php"> Registrate</a></p>
                 </div>
             </div>
         </div>

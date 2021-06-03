@@ -15,6 +15,7 @@
     
     <?php
         include '../componentes/head.html';
+        include '../componentes/sesiones.php';
     ?>
 
    <!--contenido de la plantilla -->
@@ -47,42 +48,46 @@
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>Nombre del Restaurante<span>*</span></p>
-                                        <input id="nombre" name="nombre" type="text">
+                                        <input id="nombre" name="nombre" type="text" required="required">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>Descripción Corta del Restaurante<span>*</span></p>
-                                        <input id="desc_corta" name="desc_corta" type="text">
+                                        <input id="desc_corta" name="desc_corta" type="text" required="required">
                                     </div>
                                 </div>
                             </div>
                             <div class="checkout__input">
                                 <p>Descripción larga<span>*</span></p>
-                                <textarea class="form-control" rows="3" id="desc_larga" name="desc_larga"></textarea>
-                            </div>
-
-                            <div class="checkout__input">
-                                <p>Ubicacion<span>*</span></p>
-                                <input type="text" placeholder="Estado" id="estado" name="estado" class="checkout__input__add">
-                                <input type="text" placeholder="Municipio" id="municipio" name="municipio" class="checkout__input__add">
-                                <input type="text" placeholder="Ciudad" id="ciudad" name="ciudad" class="checkout__input__add" >
+                                <textarea class="form-control" rows="3" id="desc_larga" name="desc_larga" required="required"></textarea>
                             </div>
                             <div class="checkout__input">
                                 <p>Codigo Postal<span>*</span></p>
-                                <input placeholder="Codigo Postal" id="cp" name="cp" type="text">
+                                <input placeholder="Codigo Postal" id="cp" name="cp" type="text" required="required">
+                            </div>
+                            <div class="checkout__input">
+                                <p>Ubicacion<span>*</span></p>
+                                <input type="text" placeholder="Estado" id="estado" name="estado" class="checkout__input__add" required="required">
+                                <input type="text" placeholder="Municipio" id="municipio" name="municipio" class="checkout__input__add" required="required">
+                                <input type="text" placeholder="Ciudad" id="ciudad" name="ciudad" class="checkout__input__add" required="required">
+                            </div>
+                            
+                            <div class="checkout__input">
+                                <p>Dirección<span>*</span></p>
+                                <input  placeholder="Dirección" id="direccion" name="direccion" type="text" required="required">
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>Telefono<span>*</span></p>
-                                        <input placeholder="Telefono" id="telefono" name="telefono" type="text">
+                                        <input placeholder="Telefono" id="telefono" name="telefono" type="text" required="required">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>Email<span>*</span></p>
-                                        <input placeholder="Correo Electronico" id="email" name="email" type="text">
+                                        <input placeholder="Correo Electronico" id="email" name="email" type="text" required="required">
                                     </div>
                                 </div>
                             </div>
