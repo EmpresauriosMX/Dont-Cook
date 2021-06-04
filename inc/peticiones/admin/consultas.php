@@ -96,15 +96,16 @@ function verifica_cuenta(): array{
     $cuenta_existente = false;
     //-----------SE ABRE LA SESIÓN DEL USUARIO
     session_start();
-    $id_user = $_SESSION['id_user'];
-    //$cuenta_existente = $id_user ? 'verdadero' : 'falso';
+    $id_user = $_SESSION['id'];
+    //$cuenta_existente = $id_user ? 'true' : 'false';
     if($id_user != ""){ //si la variable de sesión está vacia entonces se redirige al login
         //header("location: ../../../index.html");
         $cuenta_existente = true;
     }
 
         $respuesta = array(
-            'cuenta_existente' => $cuenta_existente
+            'cuenta_existente' => $cuenta_existente,    
+            'id_cuenta_activa' => $id_user
         );
 
 

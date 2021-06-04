@@ -24,9 +24,12 @@
             <div class="section-title mt-3">
                 <h2>Mis restaurantes</h2>
             </div>
+    <div id="mensaje">
+    
+    </div>
     <!-- EN CASO DE QUE NO TENGA RESTAURANTES EN SU CUENTA -->
     <?php
-        include '../pages/sin_restaurantes.html';
+        //include '../pages/sin_restaurantes.html';
     ?>
     <!-- EN CASO DE QUE NO TENGA SU CUENTA -->
     <?php
@@ -34,7 +37,7 @@
     ?>
     <!-- EN CASO DE QUE SI TENGA RESTAURANTES EN SU CUENTA -->
         <div class="row mt-3">    
-            <div class="col-md-7" id="mensaje">
+            <div class="col-md-7">
                 <div class="card bg-dark text-white">
                     <img src="../../src/img/restaurants/pikalogodarkmode.png" class="card-img" alt="...">
                     <div class="card-img-overlay" >
