@@ -20,3 +20,14 @@ export function mostrar_ubicacion() {
 export function iniciar_sesion(){
   
 }
+
+export async function existe_cuenta() {
+  const url = "../../inc/peticiones/admin/funciones.php";
+  const datos = new FormData();
+  datos.append("accion","verifica_cuenta");
+  
+  const res = await enviar_datos(url, datos);
+  console.log(res); 
+  const cuenta = res.cuenta_existente;
+  return cuenta;
+}
