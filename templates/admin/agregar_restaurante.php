@@ -40,11 +40,14 @@
 
     <div class="container mb-5 mx-auto ">
 
-        
                 <form id="form_agregar_restaurante" name="form_agregar_restaurante" action="#">
                     <div class="row">
                         <div class="col-lg-8 col-md-6 mx-auto">
+
+                            
+
                             <div class="row">
+                                
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>Nombre del Restaurante<span>*</span></p>
@@ -62,6 +65,17 @@
                                 <p>Descripción larga<span>*</span></p>
                                 <textarea class="form-control" rows="3" id="desc_larga" name="desc_larga" required="required"></textarea>
                             </div>
+
+                            <div class="checkout__input">
+                                <p>Logotipo del restaurante<span>*</span></p>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="imagen" lang="es">
+                                    <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+                                </div>
+                                <br>
+                            </div>
+
+
                             <div class="checkout__input">
                                 <p>Codigo Postal<span>*</span></p>
                                 <input placeholder="Codigo Postal" id="cp" name="cp" type="text" required="required">
@@ -72,11 +86,23 @@
                                 <input type="text" placeholder="Municipio" id="municipio" name="municipio" class="checkout__input__add" required="required">
                                 <input type="text" placeholder="Ciudad" id="ciudad" name="ciudad" class="checkout__input__add" required="required">
                             </div>
-                            
+
                             <div class="checkout__input">
-                                <p>Dirección<span>*</span></p>
-                                <input  placeholder="Dirección" id="direccion" name="direccion" type="text" required="required">
+                                <p>Ubicación<span>*</span></p>
+                                <div class="hero__search">
+                                    <form id="eleccion_ciudad">
+                                        <p>Selecciona tu ciudad:<span>*</span></p>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <select placeholder="Ciudad" class="custom-select" name="cbx" id="cbx"></select>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <input  placeholder="Dirección" id="direccion" name="direccion" type="text" class="checkout__input__add" required="required">
+
                             </div>
+
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
@@ -90,6 +116,10 @@
                                         <input placeholder="Correo Electronico" id="email" name="email" type="text" required="required">
                                     </div>
                                 </div>
+                            </div>
+                            <div class="checkout__input">
+                                <p>Horarios del restaurante<span>*</span></p>
+                                <input  placeholder="00:00 - 00:00" id="horarios" name="horarios" type="text" required="required">
                             </div>
                             <div class="checkout__input__checkbox">
                                 <label for="acc">
