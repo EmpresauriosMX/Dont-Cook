@@ -76,31 +76,30 @@
                             </div>
 
 
-                            <div class="checkout__input">
-                                <p>Codigo Postal<span>*</span></p>
-                                <input placeholder="Codigo Postal" id="cp" name="cp" type="text" required="required">
-                            </div>
+                            <!--
                             <div class="checkout__input">
                                 <p>Ubicacion<span>*</span></p>
                                 <input type="text" placeholder="Estado" id="estado" name="estado" class="checkout__input__add" required="required">
                                 <input type="text" placeholder="Municipio" id="municipio" name="municipio" class="checkout__input__add" required="required">
                                 <input type="text" placeholder="Ciudad" id="ciudad" name="ciudad" class="checkout__input__add" required="required">
                             </div>
+                            -->
+                            
 
                             <div class="checkout__input">
-                                <p>Ubicación<span>*</span></p>
                                 <div class="hero__search">
                                     <form id="eleccion_ciudad">
                                         <p>Selecciona tu ciudad:<span>*</span></p>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <select placeholder="Ciudad" class="custom-select" name="cbx" id="cbx"></select>
+                                                <select placeholder="Ciudad" class="custom-select" name="cbx" id="cbx" ></select>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
                                 <input  placeholder="Dirección" id="direccion" name="direccion" type="text" class="checkout__input__add" required="required">
-
+                                
+                                <input placeholder="Codigo Postal" id="cp" name="cp" type="text" class="checkout__input__add" required="required">
                             </div>
 
                             <div class="row">
@@ -117,10 +116,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="checkout__input">
-                                <p>Horarios del restaurante<span>*</span></p>
-                                <input  placeholder="00:00 - 00:00" id="horarios" name="horarios" type="text" required="required">
-                            </div>
+
                             <div class="checkout__input__checkbox">
                                 <label for="acc">
                                     ¿Cuenta con servicio a domicilio?
@@ -128,10 +124,57 @@
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
+                            
+                            <div class="checkout__input">
+                                <p>Horario del restaurante<span>*</span></p>
+                            </div>
+
+
+                            <div class="card text-center">
+                                <div class="card-header text-white bg-dark">
+                                <h6>Selecciona los dias habiles del restaurante</h6>
+                                </div>
+                                <div class="card-columns body">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                        <label class="form-check-label" for="flexSwitchCheckDefault">Lunes</label>
+                                    </div>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                        <label class="form-check-label" for="flexSwitchCheckDefault">Martes</label>
+                                    </div>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                        <label class="form-check-label" for="flexSwitchCheckDefault">Miercoles</label>
+                                    </div>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                        <label class="form-check-label" for="flexSwitchCheckDefault">Jueves</label>
+                                    </div>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                        <label class="form-check-label" for="flexSwitchCheckDefault">Viernes</label>
+                                    </div>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                        <label class="form-check-label" for="flexSwitchCheckDefault">Sabado</label>
+                                    </div>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                        <label class="form-check-label" for="flexSwitchCheckDefault">Domingo</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <br>
+                            <div class="checkout__input">
+                                <input  placeholder="Horario" id="horarios" name="horarios" type="text" required="required">
+                            </div>
 
                             <?php
                                 include '../componentes/etiquetas.html';
                             ?>
+
                             <br>
                             <button type="submit" class="site-btn btn-block">Guardar</button>
                         </div>

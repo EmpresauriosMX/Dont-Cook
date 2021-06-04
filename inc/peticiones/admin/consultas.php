@@ -8,18 +8,18 @@ function enviar(): array{
     $telefono = $_POST['telefono'];
     $des_corta = $_POST['desc_corta'];
     $des_larga = $_POST['desc_larga'];
-    $estado = $_POST['estado'];
-    $municipio = $_POST['municipio'];
-    $localidad = $_POST['ciudad'];
+    $ciudad = $_POST['ciudad'];
     $direccion = $_POST['direccion'];
     $cp = $_POST['cp'];
+    $email = $_POST['email'];
+    $horarios = $_POST['horarios'];
 
     try {
         require '../../../conexion.php';
-        $stmt = $conn->prepare("INSERT INTO restaurantes (nombre, telefono, descripcion_corta, des_larga, codigo_postal, direccion, estado, municipio, localidad)
+        $stmt = $conn->prepare("INSERT INTO restaurantes (nombre, telefono, descripcion_corta, des_larga, horario, correo, codigo_postal, direccion)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-        $stmt->bind_param('sssssssss', $nombre, $telefono, $des_corta, $des_larga, $cp, $direccion, $estado, $municipio, $localidad);
+        $stmt->bind_param('sssssssss', $nombre, $telefono, $des_corta, $des_larga, $horarios, $email, $cp, $direccion);
         $stmt -> execute();
 
         $respuesta = array(
@@ -27,11 +27,10 @@ function enviar(): array{
             'telefono'=> $telefono,
             'corta' => $des_corta,
             'larga' => $des_larga,
-            'estado' => $estado,
-            'municipio' => $municipio,
+            'horarios' => $horarios,
+            'email' => $email,
             'CP' => $cp,
-            'direccion' => $direccion,
-            'localidad' => $localidad 
+            'direccion' => $direccion
         );
 
        $stmt->close();
