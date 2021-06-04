@@ -9,6 +9,14 @@ export async function enviar_datos(url, datos) {
 }
 
 export function mostrar_ubicacion() {
-  return JSON.parse(localStorage.getItem("ubicacion")) || [];
+ return JSON.parse(localStorage.getItem("ubicacion")) || [];
+ /*console.log(ubicacion.length);
+  if (ubicacion.length === 0) {
+    
+    window.location = "../login/login.php";
+  }*/
 }
 
+export function iniciar_sesion(){
+  
+}

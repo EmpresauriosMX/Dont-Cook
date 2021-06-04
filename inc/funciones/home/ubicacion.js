@@ -4,7 +4,7 @@ import { enviar_datos, mostrar_ubicacion } from "../../funciones_generales.js";
 const url = "../../inc/peticiones/home/ciudades.json";
 
 const select_ciudad = document.querySelector("#cbx");
-const formulario = document.querySelector("#eleccion_ciudad");
+const btn_confirmar_ciudad = document.querySelector("#enviar");
 const obj = {
   id: "",
   ciudad: "",
@@ -12,9 +12,9 @@ const obj = {
 
 document.addEventListener("DOMContentLoaded", () => {
   select_ciudad.addEventListener("change", obtener_valor_select);
-  formulario.addEventListener("submit", guardar_ubicacion);
+  btn_confirmar_ciudad.addEventListener("click", guardar_ubicacion);
   obtener_ciudades();
-  console.log(mostrar_ubicacion());
+ alert(mostrar_ubicacion().ciudad);
 });
 
 
@@ -40,4 +40,9 @@ function obtener_ciudades() {
           `;
     });
   });
+}
+
+
+export function ejemplo(){
+  console.log("des la funcion de ubicacion que esta en el home");
 }

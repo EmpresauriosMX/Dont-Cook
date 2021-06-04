@@ -1,4 +1,5 @@
-import {enviar_datos} from "../../funciones_generales.js";
+import {enviar_datos,mostrar_ubicacion} from "../../funciones_generales.js";
+import {ejemplo} from "../home/ubicacion.js";
 
 const url = "../../inc/peticiones/admin/funciones.php";
     
@@ -10,7 +11,7 @@ const url = "../../inc/peticiones/admin/funciones.php";
     document.addEventListener("DOMContentLoaded",() =>{
 
         listado_restaurante.addEventListener("submit",registro_restaurante)
-        
+       console.log(mostrar_ubicacion());
     });
 
     function registro_restaurante(e){
