@@ -29,14 +29,14 @@
     </div>
     <!-- EN CASO DE QUE NO TENGA RESTAURANTES EN SU CUENTA -->
     <?php
-        //include '../pages/sin_restaurantes.html';
+        include '../pages/sin_restaurantes.html';
     ?>
     <!-- EN CASO DE QUE NO TENGA SU CUENTA -->
     <?php
         //include '../pages/sin_cuenta.html';
     ?>
     <!-- EN CASO DE QUE SI TENGA RESTAURANTES EN SU CUENTA -->
-        <div class="row mt-3">    
+        <div class="row mt-3" id="restaurantes">    
             <div class="col-md-7">
                 <div class="card bg-dark text-white">
                     <img src="../../src/img/restaurants/pikalogodarkmode.png" class="card-img" alt="...">

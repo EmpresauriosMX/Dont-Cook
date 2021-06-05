@@ -46,15 +46,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function mostrar_mensaje(mensaje){
       let div = document.querySelector("#mensaje");
+      let restaurantes = document.querySelector("#restaurantes");
       
         const MENSAJES_POR_MOSTRAR ={
-            'sin_cuenta' :  `<?php include '../pages/sin_cuenta.html';?>`,
+            'sin_cuenta' :  `<div class="row">
+                                <div class="col-md-4 mx-auto">
+                                    <img src="../../src/img/ilustrations/no.svg" class="img-fluid" alt="Responsive image">
+                                    <h5 class="text-center text-muted mt-3">Aún no tienes una cuenta. <a href="../login/registro.php">Registrate aquí :)</a></h5>
+                                    <div class="col text-center mt-3">
+                                        
+                                    </div>
+                                </div> 
+                            </div>`,
             //'existe_cuenta' : "mostrar mensaje de que  si hay cuenta",
-            'sin_restaurante'  : "mostrar mensaje de que si hay cuenta"
+            'sin_restaurante'  : `<div class="row">
+                                      <div class="col-md-5 mx-auto">
+                                          <img src="../../src/img/ilustrations/empty_place.svg" class="img-fluid" alt="Responsive image">
+                                          <h5 class="text-center text-muted mt-3">Parece que aun no tienes ningún restaurante registrado :(</h5>
+                                          <div class="col text-center mt-3">
+                                              <a href="../admin/agregar_restaurante.php"><button class="btn primary-btn mx-auto">Agregar un restaurante <span class="fa fa-check"></span></button></a>
+                                          </div>
+                                          
+                                      </div> 
+                                  </div>`
         }
         const muestra = MENSAJES_POR_MOSTRAR[mensaje];
-        div.innerHTML += `<?php include '../pages/sin_cuenta.html';?>`;
-        console.log(muestra);
+        div.innerHTML += muestra;
+        restaurantes.innerHTML = "";
 
     }
 
