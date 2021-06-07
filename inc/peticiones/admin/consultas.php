@@ -16,25 +16,27 @@ function enviar(): array{
 
     try {
         require '../../../conexion.php';
-        $stmt = $conn->prepare("INSERT INTO restaurantes (nombre, telefono, descripcion_corta, des_larga, horario, correo, codigo_postal, direccion)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO restaurantes (nombre, telefono, descripcion_corta, des_larga, horario, correo, codigo_postal, direccion,ciudad)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)");
 
-        $stmt->bind_param('sssssssss', $nombre, $telefono, $des_corta, $des_larga, $horarios, $email, $cp, $direccion);
+        $stmt->bind_param('sssssssss', $nombre, $telefono, $des_corta, $des_larga, $horarios, $email, $cp, $direccion,$ciudad);
         $stmt -> execute();
 
-        $respuesta = array(
-            'nombre' => $nombre,
-            'telefono'=> $telefono,
-            'corta' => $des_corta,
-            'larga' => $des_larga,
-            'horarios' => $horarios,
-            'email' => $email,
-            'CP' => $cp,
-            'direccion' => $direccion
-        );
 
        $stmt->close();
-        return $respuesta;
+
+       $respuesta = array(
+        'nombre' => $nombre,
+        'telefono'=> $telefono,
+        'corta' => $des_corta,
+        'larga' => $des_larga,
+        'horarios' => $horarios,
+        'email' => $email,
+        'CP' => $cp,
+        'ciudad' => $ciudad,
+        'direccion' => $direccion
+    );
+       return $respuesta;
 
     } catch (\Throwable $th) {
         $respuesta = array(

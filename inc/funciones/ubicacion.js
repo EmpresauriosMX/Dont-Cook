@@ -1,6 +1,6 @@
 import { enviar_datos } from "./funciones_generales.js";
 
-const obj = {
+export const obj = {
     id: "",
     ciudad: "",
   };
