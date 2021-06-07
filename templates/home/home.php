@@ -188,7 +188,7 @@
     </section>
    <!--Fin de todo de home-->
 <!--contenido de la plantilla -->
-<script src="../../inc/funciones/home/ubicacion.js" type="module"></script>
+<script src="../../inc/funciones/home/home.js" type="module"></script>
     <?php 
     include '../../templates/componentes/footer.html';
     include '../../templates/componentes/scripts.html';

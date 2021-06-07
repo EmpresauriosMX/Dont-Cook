@@ -1,4 +1,4 @@
-import {enviar_datos,mostrar_ubicacion} from "../../funciones_generales.js";
+import {enviar_datos,mostrar_ubicacion} from "../funciones_generales";
 import {ejemplo} from "../home/ubicacion.js";
 
 const url = "../../inc/peticiones/admin/funciones.php";

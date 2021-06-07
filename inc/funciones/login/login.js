@@ -1,4 +1,4 @@
-import { enviar_datos } from "../../funciones_generales.js";
+import { enviar_datos } from "../funciones_generales.js";
 
 const form_login = document.querySelector("#login_inicio");
 

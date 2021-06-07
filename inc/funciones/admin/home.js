@@ -1,4 +1,4 @@
-  import {enviar_datos, existe_cuenta} from "../../funciones_generales.js";
+  import {enviar_datos, existe_cuenta} from "../funciones_generales";
   //VARIABLE A LA CUAL SE ENCUENTRAN LAS PETICIONES
   const url = "../../inc/peticiones/admin/funciones.php";
 
