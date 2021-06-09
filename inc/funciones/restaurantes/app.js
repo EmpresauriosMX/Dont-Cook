@@ -27,7 +27,8 @@ async function mostrar_restaurantes() {
     contenedor.innerHTML += `
     <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
     <div class="featured__item">
-        <div class="featured__item__pic set-bg" data-setbg="product-5.jpg">
+        <div class="featured__item__pic set-bg" data-setbg="">
+        <img src="../../inc/funciones/restaurantes/product-5.jpg">
             <ul class="featured__item__pic__hover">
                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                 <li><a href="#"><i class="fa fa-eye"></i></a></li>
