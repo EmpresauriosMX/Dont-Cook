@@ -27,7 +27,7 @@ export async function enviar_datos(url, datos) {
     datos.append("accion","verifica_cuenta");
     
     const res = await enviar_datos(url, datos);
-    console.log(res); 
+    //console.log(res); 
     const cuenta = res.cuenta_existente;
     return cuenta;
   }

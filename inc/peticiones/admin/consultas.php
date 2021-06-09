@@ -113,5 +113,50 @@ function verifica_cuenta(): array{
         return $respuesta;
 }
 
+function busca_restaurantes(): array{
+    $cuenta_existente = false;
+    //-----------SE ABRE LA SESIÓN DEL USUARIO
+    session_start();
+    $id_user = $_SESSION['id'];
+    //$cuenta_existente = $id_user ? 'true' : 'false';
+    if($id_user != ""){ //si la variable de sesión está vacia entonces se redirige al login
+        $cuenta_existente = true;
+    }
+    //SE VALIDA DE QUE TENGA UNA CUENTA EXISTENTE
+    if($cuenta_existente){
+        try {
+            require '../../../conexion.php';
+            $sql = "SELECT * FROM `restaurantes` WHERE `id_propietario` = $id_user";
+            $consulta = mysqli_query($conn, $sql);
+            $respuesta = [];
+            $i = 0;
+            //SI CUENTA CON RESTAURANTES
+            if($consulta != ""){
+                while ($row = mysqli_fetch_assoc($consulta)) {
+                    $respuesta[$i]['id_restaurante'] = $row['id_restaurante'];
+                    $respuesta[$i]['nombre'] = $row['nombre'];
+                    $respuesta[$i]['telefono'] = $row['telefono'];
+                    $respuesta[$i]['descripcion'] = $row['descripcion_corta'];
+                    $i++;
+                }
+            }
+            else{
+                //SI NO CUENTA CON RESTAURANTES
+                $respuesta = array(
+                    'respuesta' => "sin_restaurantes"
+                );  
+            }
+            
+            
+            
+        } catch (\Throwable $th) {
+            $respuesta = array(
+                'respuesta' => "sin_restaurantes"
+            );
+        }
+    }
+    return $respuesta;
+}
+
 
 ?>

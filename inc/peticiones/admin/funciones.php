@@ -9,6 +9,9 @@ switch ($accion) {
     case "verifica_cuenta":
         $resultado = verifica_cuenta();
         break;
+    case "busca_restaurantes":
+        $resultado = busca_restaurantes();
+        break;
         
 }
 
