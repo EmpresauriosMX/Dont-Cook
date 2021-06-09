@@ -1,4 +1,4 @@
-  import {enviar_datos, existe_cuenta} from "../funciones_generales";
+  import {enviar_datos, existe_cuenta} from "../funciones_generales.js";
   //VARIABLE A LA CUAL SE ENCUENTRAN LAS PETICIONES
   const url = "../../inc/peticiones/admin/funciones.php";
 
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
             'sin_cuenta' :  `<div class="row">
                                 <div class="col-md-4 mx-auto">
                                     <img src="../../src/img/ilustrations/no.svg" class="img-fluid" alt="Responsive image">
-                                    <h5 class="text-center text-muted mt-3">Aún no tienes una cuenta. <a href="../login/registro.php">Registrate aquí :)</a></h5>
+                                    <h5 class="text-center text-muted mt-3">Aún no tienes una cuenta.  <a class="btn primary-btn" href="../login/registro.php">Registrate aquí :)</a></h5>
                                     <div class="col text-center mt-3">
                                         
                                     </div>
