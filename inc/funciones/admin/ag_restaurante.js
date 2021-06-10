@@ -13,7 +13,7 @@ const url = "../../inc/peticiones/admin/funciones.php";
         const ubicacion = new Ubicacion();
         ubicacion.buscar();
         select_ciudad.addEventListener("change", ubicacion.obtener);
-        listado_restaurante.addEventListener("submit",registro_restaurante)
+        listado_restaurante.addEventListener("submit",registro_restaurante);
        console.log(mostrar_ubicacion());
     });
 
