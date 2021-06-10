@@ -8,10 +8,10 @@
 // ----------------SE CARGA AL INICIAR--------------
 document.addEventListener("DOMContentLoaded", () => {
     mostrarServicios();
-  });
+});
 
-  //FUNCIONES QUE SE DEBEN DE CARGAR AL INICIO
-  async function mostrarServicios(){
+//FUNCIONES QUE SE DEBEN DE CARGAR AL INICIO
+async function mostrarServicios(){
     cuenta_activa =  await existe_cuenta();
     //VALIDACION DE UN LOG ANTERIOR
     if (cuenta_activa){
@@ -27,9 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
         mostrar_mensaje(mensaje);
         console.log("no existe una cuenta");
     }
-    //VALIDACION DE CONTAR CON RESTAURANTES
-    //cargar_restaurantes();  
-  }
+}
 
     //CARGA LOS RESTAURANTES O EN
     async function cargar_restaurantes(){

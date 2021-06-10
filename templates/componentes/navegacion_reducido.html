@@ -28,19 +28,16 @@
             <div class="col-lg-9">
                 <div class="hero__search">
                     <form id="eleccion_ciudad">
-                        <h5>Selecciona tu ciudad! :</h5>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <select class="custom-select" name="cbx" id="cbx"></select>
-                            </div>
-                            <div class="col-md-3">
-                                <button id="enviar" name="enviar" value="Guardar" type="button" class="btn btn-secondary">Guardar</button>
+                        <div class="input-group mb-3">
+                            <select class="custom-select" name="cbx" id="cbx">
+                                <option value="">Selecciona una ciudad</option>
+                            </select>
+                            <div class="input-group-append">
+                                <button id="enviar" name="enviar" value="Guardar" class="btn btn-outline-secondary" type="button">Guardar</button>
                             </div>
                         </div>
-                        <br>
-                        
-                        <!--<input type="submit" id="enviar" name="enviar" value="Guardar" />-->
-                      </form>
+                            <!--<input type="submit" id="enviar" name="enviar" value="Guardar" />-->
+                    </form>
                     <div class="hero__search__form">
                         <form action="#">
                             <input type="text" placeholder="Busca un Restaurante o platillo">

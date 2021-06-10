@@ -1,5 +1,6 @@
-import { enviar_datos, mostrar_ubicacion } from "../funciones_generales.js";
+import { enviar_datos, mostrar_ubicacion, existe_cuenta } from "../funciones_generales.js";
 import {Ubicacion,select_ciudad,btn_confirmar_ciudad} from "../ubicacion.js";
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const ubicacion = new Ubicacion();
@@ -10,6 +11,28 @@ document.addEventListener("DOMContentLoaded", () => {
   alert(mostrar_ubicacion().ciudad);
 });
 
+//----------VALIDACION DE CUENTA DE USUARIO-----------
+  document.addEventListener("DOMContentLoaded", () => {
+    mostrarServicios();
+  });
+  //FUNCIONES QUE SE DEBEN DE CARGAR AL INICIO
+  async function mostrarServicios(){
+    var cuenta_activa = false;
+    cuenta_activa =  await existe_cuenta();
+    //VALIDACION DE UN LOG ANTERIOR
+    if (cuenta_activa){
+        //EXISTE UNA CUENTA
+        console.log("existe una cuenta");
+        let div_1 = document.querySelector("#btn-1");
+        let div_2 = document.querySelector("#btn-2");
+        div_1.innerHTML = `<a href="../../inc/peticiones/login/logout.php"><i class="fa fa-sign-out "></i></a>`;
+        div_2.innerHTML = `<a href="../../inc/peticiones/login/logout.php"><i class="fa fa-sign-out "></i></a>`;
+    }
+    else{
+        //NO EXISTE UNA CUENTA
+        console.log("existe una cuenta");
+    }
+  }
 
 
 export function ejemplo() {

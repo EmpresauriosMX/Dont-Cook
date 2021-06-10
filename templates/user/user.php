@@ -8,168 +8,137 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../../src/css/user.css" type="text/css">
+    <style>
+        
+            #card {
+            background: #ffa04b;
+            margin: 2em auto;
+            padding-bottom: 1em;
+            border-radius: 2px;
+            -webkit-box-shadow: 0px 3px 13px 0px rgba(0, 0, 0, 0.24);
+            -moz-box-shadow: 0px 3px 13px 0px rgba(0, 0, 0, 0.24);
+            box-shadow: 0px 3px 13px 0px rgba(0, 0, 0, 0.24);
+            }
+
+            #userImage {
+            position: relative;
+            top: 1em;
+            display: block;
+            text-align: center;
+            margin: 1em auto;
+            max-width: 100px;
+            border-radius: 100%;
+            }
+
+            #playerName {
+            position: relative;
+            top: -15px;
+            text-align: center;
+            font-size: 20px;
+            color: #fff;
+            font-weight: bolder;
+            }
+
+            #states {
+            width: 85%;
+            margin: 1em auto;
+            font-weight: 300;
+            }
+
+            #values li:hover {
+            color: #555;
+            cursor: pointer;
+            text-decoration: underline;
+            
+            }
+
+            .info {
+                padding-bottom: 1em;
+            list-style: none;
+            position: relative;
+            float: left;
+            margin-left: 0;
+            text-align: left;
+            color: #fff;
+            margin-bottom: 8px;
+            padding: 1px 0px 8px 0px;
+            border-bottom: 1px solid #ffac63;
+            }
+
+            .values {
+                padding-bottom: 1em;
+            list-style: none;
+            position: relative;
+            text-align: right;
+            color: #fff;
+            margin-bottom: 8px;
+            padding: 1px 0px 8px 0px;
+            border-bottom: 1px solid #ffac63;   
+            }
+
+    </style>
 </head>
 <body>
-   <?php
-   include '../componentes/head.html';
-   include '../componentes/navegacion_reducido.html';
-   ?>
+<?php
+    include '../componentes/head.html';
+    include '../componentes/navegacion_reducido.html';
+?>
     <!--contenido de la plantilla -->
     <div class="container">
         
 
-        <!--RESTAURANTES-->
+        
         <div class="section-title">
-            <h2>Cuenta de usuario</h2>
+            <h2>Cuenta de usuario</h2>        
+        </div>
+        <!--USER CARD-->
+        <div class="col-md-5 col-sm-12" id='card'>
+            <img alt='user-image' id='userImage' src='https://randomuser.me/api/portraits/men/62.jpg'>
+            <br>
+            <h4 id='playerName'>sn4ever</h4>
+            <div id='states'>
+                <ul class='info'>
+                    <li>
+                        Correo
+                    </li>
+                    <li>
+                        Edad
+                    </li>
+                    <li>
+                        Ubicación
+                    </li>
+                    
+                </ul>
+                <ul class='values'>
+                    <li>mi_correo@email.com</li>
+                    <li>20</li>
+                    <li>Cancún</li>
+                </ul>
+            </div>
+                <form id="eleccion_ciudad">
+                    <div class="input-group mb-3">
+                        <select class="custom-select" name="cbx" id="cbx">
+                            <option value="">Selecciona una ciudad</option>
+                        </select>
+                        <div class="input-group-append">
+                            <button id="enviar" name="enviar" value="Guardar" class="btn btn-dark" type="button">Guardar</button>
+                        </div>
+                    </div>
+                        <!--<input type="submit" id="enviar" name="enviar" value="Guardar" />-->
+                </form>
+            <div class=" mx-auto">
+                <a href='#' class='btn btn-dark '>
+                    <i class='fa fa-edit'></i>
+                    Editar
+                </a>
+                <a href='../../inc/peticiones/login/logout.php' class='btn btn-danger'>
+                    <i class='fa fa-sign-out'></i>
+                    Salir
+                </a>
+            </div>
+            
+        </div>
 
-            <div class="container emp-profile">
-            <form method="post">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="profile-img">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
-                            <div class="file btn btn-lg btn-primary">
-                                Change Photo
-                                <input type="file" name="file"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="profile-head">
-                                    <h5>
-                                        Kshiti Ghelani
-                                    </h5>
-                                    <h6>
-                                        Web Developer and Designer
-                                    </h6>
-                                    <p class="proile-rating">RANKINGS : <span>8/10</span></p>
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="profile-work">
-                            <p>WORK LINK</p>
-                            <a href="">Website Link</a><br/>
-                            <a href="">Bootsnipp Profile</a><br/>
-                            <a href="">Bootply Profile</a>
-                            <p>SKILLS</p>
-                            <a href="">Web Designer</a><br/>
-                            <a href="">Web Developer</a><br/>
-                            <a href="">WordPress</a><br/>
-                            <a href="">WooCommerce</a><br/>
-                            <a href="">PHP, .Net</a><br/>
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="tab-content profile-tab" id="myTabContent">
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>User Id</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>Kshiti123</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Name</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>Kshiti Ghelani</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Email</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>kshitighelani@gmail.com</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Phone</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>123 456 7890</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Profession</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>Web Developer and Designer</p>
-                                            </div>
-                                        </div>
-                            </div>
-                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Experience</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>Expert</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Hourly Rate</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>10$/hr</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Total Projects</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>230</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>English Level</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>Expert</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Availability</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>6 months</p>
-                                            </div>
-                                        </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <label>Your Bio</label><br/>
-                                        <p>Your detail description</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>           
-        </div>
-        </div>
         <!---EN CASO DE QUE NO CUENTE CON UNA CUENTA -->
         <?php
             include '../pages/sin_cuenta.html';
