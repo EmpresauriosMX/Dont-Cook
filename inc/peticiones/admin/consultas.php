@@ -131,7 +131,7 @@ function busca_restaurantes(): array{
             $respuesta = [];
             $i = 0;
             //SI CUENTA CON RESTAURANTES
-            if($consulta != ""){
+            if(mysqli_num_rows($consulta)!=0){
                 while ($row = mysqli_fetch_assoc($consulta)) {
                     $respuesta[$i]['id_restaurante'] = $row['id_restaurante'];
                     $respuesta[$i]['nombre'] = $row['nombre'];
@@ -143,15 +143,13 @@ function busca_restaurantes(): array{
             else{
                 //SI NO CUENTA CON RESTAURANTES
                 $respuesta = array(
-                    'respuesta' => "sin_restaurantes"
+                    'respuesta' => "sin_restaurantes",
+                    'consulta' => mysqli_num_rows($consulta)
                 );  
             }
-            
-            
-            
         } catch (\Throwable $th) {
             $respuesta = array(
-                'respuesta' => "sin_restaurantes"
+                'respuesta' => "entro al catch "
             );
         }
     }

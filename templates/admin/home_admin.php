@@ -34,7 +34,7 @@
             //include '../pages/sin_cuenta.html';
         ?>
         <!-- EN CASO DE QUE SI TENGA RESTAURANTES EN SU CUENTA -->
-        <div class="row mt-3" id="restaurantes">            
+        <div class="row mt-3 " id="restaurantes">            
         </div>
         
     </div>
