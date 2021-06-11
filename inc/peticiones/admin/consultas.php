@@ -2,7 +2,8 @@
 
 
 
-function enviar(): array{
+function enviar(): array
+{
 
     $nombre = $_POST['nombre'];
     $telefono = $_POST['telefono'];
@@ -14,42 +15,41 @@ function enviar(): array{
     $email = $_POST['email'];
     $horarios = $_POST['horarios'];
 
+    $temp = explode(".", $_FILES["imagen"]["name"]);
+    $nueva_imagen = round(microtime(true)) . '.' . end($temp);
+
     try {
         require '../../../conexion.php';
-        $stmt = $conn->prepare("INSERT INTO restaurantes (nombre, telefono, descripcion_corta, des_larga, horario, correo, codigo_postal, direccion,ciudad)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)");
+        $stmt = $conn->prepare("INSERT INTO restaurantes (nombre, telefono, descripcion_corta, des_larga, horario, correo, codigo_postal, direccion,ciudad,foto)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?,?,?)");
+        $resultado = move_uploaded_file($_FILES["imagen"]["tmp_name"], "../../../src/img/restaurantes/" . $nueva_imagen);
+        if ($resultado) {
+            $stmt->bind_param('ssssssssss', $nombre, $telefono, $des_corta, $des_larga, $horarios, $email, $cp, $direccion, $ciudad, $nueva_imagen);
+            $stmt->execute();
+            $stmt->close();
+            $respuesta = array(
+                'respuesta' => 'correcto',
+                'imagen' => $imagen
+            );
+        } else {
 
-        $stmt->bind_param('sssssssss', $nombre, $telefono, $des_corta, $des_larga, $horarios, $email, $cp, $direccion,$ciudad);
-        $stmt -> execute();
-
-
-       $stmt->close();
-
-       $respuesta = array(
-        'nombre' => $nombre,
-        'telefono'=> $telefono,
-        'corta' => $des_corta,
-        'larga' => $des_larga,
-        'horarios' => $horarios,
-        'email' => $email,
-        'CP' => $cp,
-        'ciudad' => $ciudad,
-        'direccion' => $direccion
-    );
-       return $respuesta;
-
+            $respuesta = array(
+                'respuesta' => 'error',
+                'imagen' => $imagen
+            );
+        }
+        return $respuesta;
     } catch (\Throwable $th) {
         $respuesta = array(
             'respuesta' => $th
         );
         return $respuesta;
     }
-
-    
-
 }
 
-function restaurantes_home(): array{
+
+function restaurantes_home(): array
+{
 
     $nombre = $_POST['nombre'];
     $telefono = $_POST['telefono'];
@@ -66,64 +66,62 @@ function restaurantes_home(): array{
         VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
         $stmt->bind_param('ssssssss', $nombre, $telefono, $des_corta, $des_larga, $cp, $estado, $municipio, $localidad);
-        $stmt -> execute();
+        $stmt->execute();
 
         $respuesta = array(
             'nombre' => $nombre,
-            'telefono'=> $telefono,
+            'telefono' => $telefono,
             'corta' => $des_corta,
             'larga' => $des_larga,
             'estado' => $estado,
             'municipio' => $municipio,
             'CP' => $cp,
-            'localidad' => $localidad 
+            'localidad' => $localidad
         );
 
-       $stmt->close();
+        $stmt->close();
         return $respuesta;
-
     } catch (\Throwable $th) {
         $respuesta = array(
             'respuesta' => $th
         );
         return $respuesta;
     }
-
-    
-
 }
 
-function verifica_cuenta(): array{
+function verifica_cuenta(): array
+{
     $cuenta_existente = false;
     //-----------SE ABRE LA SESIÓN DEL USUARIO
     session_start();
     $id_user = $_SESSION['id'];
     //$cuenta_existente = $id_user ? 'true' : 'false';
-    if($id_user != ""){ //si la variable de sesión está vacia entonces se redirige al login
+    if ($id_user != "") { //si la variable de sesión está vacia entonces se redirige al login
         //header("location: ../../../index.html");
         $cuenta_existente = true;
     }
 
-        $respuesta = array(
-            'cuenta_existente' => $cuenta_existente,    
-            'id_cuenta_activa' => $id_user
-        );
+    $respuesta = array(
+        'cuenta_existente' => $cuenta_existente,
+        'id_cuenta_activa' => $id_user
+    );
 
 
-        return $respuesta;
+    return $respuesta;
 }
 
-function busca_restaurantes(): array{
+function busca_restaurantes(): array
+{
     $cuenta_existente = false;
     //-----------SE ABRE LA SESIÓN DEL USUARIO
     session_start();
     $id_user = $_SESSION['id'];
     //$cuenta_existente = $id_user ? 'true' : 'false';
-    if($id_user != ""){ //si la variable de sesión está vacia entonces se redirige al login
+    if ($id_user != "") { //si la variable de sesión está vacia entonces se redirige al login
         $cuenta_existente = true;
     }
     //SE VALIDA DE QUE TENGA UNA CUENTA EXISTENTE
-    if($cuenta_existente){
+    if ($cuenta_existente) {
         try {
             require '../../../conexion.php';
             $sql = "SELECT * FROM `restaurantes` WHERE `id_propietario` = $id_user";
@@ -131,7 +129,7 @@ function busca_restaurantes(): array{
             $respuesta = [];
             $i = 0;
             //SI CUENTA CON RESTAURANTES
-            if(mysqli_num_rows($consulta)!=0){
+            if (mysqli_num_rows($consulta) != 0) {
                 while ($row = mysqli_fetch_assoc($consulta)) {
                     $respuesta[$i]['id_restaurante'] = $row['id_restaurante'];
                     $respuesta[$i]['nombre'] = $row['nombre'];
@@ -139,13 +137,12 @@ function busca_restaurantes(): array{
                     $respuesta[$i]['descripcion'] = $row['descripcion_corta'];
                     $i++;
                 }
-            }
-            else{
+            } else {
                 //SI NO CUENTA CON RESTAURANTES
                 $respuesta = array(
                     'respuesta' => "sin_restaurantes",
                     'consulta' => mysqli_num_rows($consulta)
-                );  
+                );
             }
         } catch (\Throwable $th) {
             $respuesta = array(
@@ -155,6 +152,3 @@ function busca_restaurantes(): array{
     }
     return $respuesta;
 }
-
-
-?>
