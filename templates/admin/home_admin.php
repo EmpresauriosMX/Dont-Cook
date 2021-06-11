@@ -17,9 +17,7 @@
         include '../componentes/head.html';
     ?>
 
-   <!--contenido de la plantilla -->
-   <!--contenido de la plantilla -->
-
+    <!--contenido de la plantilla -->
     <div class="container mb-5">
             <div class="section-title mt-3">
                 <h2>Mis restaurantes</h2>
