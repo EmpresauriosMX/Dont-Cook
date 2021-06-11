@@ -19,7 +19,7 @@ async function mostrarServicios(){
         console.log("existe una cuenta");
       //AL EXISTIR UNA CUENTA SE VALIDA PUEDEN HABER FAVORITOS
       //OS WE, AQUI PONES EL CODIGO DE CARGAR FAVORITOS
-      //cargar_favoritos();
+      cargar_favoritos();
     }
     else{
       //NO EXISTE UNA CUENTA
@@ -31,5 +31,8 @@ async function mostrarServicios(){
 }
 
 async function cargar_favoritos(){
-
+  //OS, en caso de que no tenga favoritos muestra este mensaje
+  let mensaje = "sin_favoritos";
+  mostrar_mensaje(mensaje);
+  
 }

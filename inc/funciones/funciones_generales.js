@@ -46,11 +46,19 @@ export async function enviar_datos(url, datos) {
                                   </div>
                               </div> 
                           </div>`,
-          //'existe_cuenta' : "mostrar mensaje de que  si hay cuenta",
           'sin_restaurante'  : `<div class="row">
                                   <div class="col-md-5 mx-auto">
                                       <img src="../../src/img/ilustrations/empty_place.svg" class="img-fluid" alt="Responsive image">
                                       <h5 class="text-center text-muted mt-3">Parece que aun no tienes ningún restaurante registrado :(</h5>
+                                      <div class="col text-center mt-3">
+                                          <a href="../admin/agregar_restaurante.php"><button class="btn primary-btn mx-auto">Agregar un restaurante <span class="fa fa-check"></span></button></a>
+                                      </div>  
+                                  </div> 
+                              </div>`,
+          'sin_favoritos'   : `<div class="row">
+                                  <div class="col-md-5 mx-auto">
+                                      <img src="../../src/img/ilustrations/fav.svg" class="img-fluid" alt="Responsive image">
+                                      <h5 class="text-center text-muted mt-3">Parece que aun no tienes ningún restaurante en favoritos :(</h5>
                                       <div class="col text-center mt-3">
                                           <a href="../admin/agregar_restaurante.php"><button class="btn primary-btn mx-auto">Agregar un restaurante <span class="fa fa-check"></span></button></a>
                                       </div>  
