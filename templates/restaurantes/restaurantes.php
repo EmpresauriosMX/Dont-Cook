@@ -22,7 +22,7 @@
 
         <!--RESTAURANTES-->
         <div class="section-title">
-            <h2>Todos los restaurantes</h2>
+            <h2 id="titulo_restaurantes"> Todos los restaurantes</h2>
         </div>
         <div class="row" id="contenedor_restaurantes">
 

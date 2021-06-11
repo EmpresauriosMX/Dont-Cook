@@ -1,8 +1,15 @@
 import {enviar_datos, existe_cuenta, mostrar_mensaje} from "../funciones_generales.js";
+import { Ubicacion, select_ciudad, btn_confirmar_ciudad} from "../ubicacion.js";
+
+
 const url = "../../inc/peticiones/user/funciones.php";
 //----------VALIDACION DE CUENTA DE USUARIO-----------
 document.addEventListener("DOMContentLoaded", () => {
     mostrarServicios();
+    const ubicacion = new Ubicacion();
+    select_ciudad.addEventListener("change", ubicacion.obtener);
+    btn_confirmar_ciudad.addEventListener("click", ubicacion.guardar);
+    ubicacion.buscar();
 });
   //FUNCIONES QUE SE DEBEN DE CARGAR AL INICIO
 async function mostrarServicios(){
