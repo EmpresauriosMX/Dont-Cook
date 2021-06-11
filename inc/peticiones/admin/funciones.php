@@ -12,6 +12,9 @@ switch ($accion) {
     case "busca_restaurantes":
         $resultado = busca_restaurantes();
         break;
+    case "info_restaurantes":
+        $resultado = info_restaurante();
+        break;
         
 }
 

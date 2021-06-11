@@ -277,7 +277,7 @@
 
     </div>
     <!--Fin contenido de la plantilla -->
-
+   
     <br>
     <?php 
     include '../componentes/footer.html';
