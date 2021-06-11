@@ -60,7 +60,7 @@ export async function enviar_datos(url, datos) {
                                       <img src="../../src/img/ilustrations/fav.svg" class="img-fluid" alt="Responsive image">
                                       <h5 class="text-center text-muted mt-3">Parece que aun no tienes ningún restaurante en favoritos :(</h5>
                                       <div class="col text-center mt-3">
-                                          <a href="../admin/agregar_restaurante.php"><button class="btn primary-btn mx-auto">Agregar un restaurante <span class="fa fa-check"></span></button></a>
+                                      <span class="text-muted">Agregarlos es cencillo, solo dale click al icono del corazón "<i class="fa fa-heart"></i>" del restaurante que más te guste.</span>
                                       </div>  
                                   </div> 
                               </div>`
