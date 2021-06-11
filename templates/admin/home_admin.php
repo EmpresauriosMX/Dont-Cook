@@ -44,7 +44,7 @@
     include '../componentes/footer.html';
     include '../componentes/scripts.html';
     ?>
-   <script src="../../inc/funciones/admin/home.js" type="module"></script>
+    <script src="../../inc/funciones/admin/home.js" type="module"></script>
 </body>
 
 </html>

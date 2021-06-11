@@ -1,4 +1,4 @@
-  import {enviar_datos, existe_cuenta} from "../funciones_generales.js";
+  import {enviar_datos, existe_cuenta, mostrar_mensaje} from "../funciones_generales.js";
   //VARIABLE A LA CUAL SE ENCUENTRAN LAS PETICIONES
   const url = "../../inc/peticiones/admin/funciones.php";
 
@@ -75,57 +75,4 @@ async function mostrarServicios(){
         }
     }
 
-    function mostrar_mensaje(mensaje){
-      let div = document.querySelector("#mensaje");
-      let restaurantes = document.querySelector("#restaurantes");
-      
-        const MENSAJES_POR_MOSTRAR ={
-            'sin_cuenta' :  `<div class="row">
-                                <div class="col-md-4 mx-auto">
-                                    <img src="../../src/img/ilustrations/no.svg" class="img-fluid" alt="Responsive image">
-                                    <h5 class="text-center text-muted mt-3">Aún no tienes una cuenta.  <a class="btn primary-btn" href="../login/registro.php">Registrate aquí :)</a></h5>
-                                    <div class="col text-center mt-3">
-                                        
-                                    </div>
-                                </div> 
-                            </div>`,
-            //'existe_cuenta' : "mostrar mensaje de que  si hay cuenta",
-            'sin_restaurante'  : `<div class="row">
-                                      <div class="col-md-5 mx-auto">
-                                          <img src="../../src/img/ilustrations/empty_place.svg" class="img-fluid" alt="Responsive image">
-                                          <h5 class="text-center text-muted mt-3">Parece que aun no tienes ningún restaurante registrado :(</h5>
-                                          <div class="col text-center mt-3">
-                                              <a href="../admin/agregar_restaurante.php"><button class="btn primary-btn mx-auto">Agregar un restaurante <span class="fa fa-check"></span></button></a>
-                                          </div>
-                                          
-                                      </div> 
-                                  </div>`
-        }
-        const muestra = MENSAJES_POR_MOSTRAR[mensaje];
-        div.innerHTML += muestra;
-        restaurantes.innerHTML = "";
 
-    }
-
-    /*
-export async function existe_cuenta(){
-  const url = "../../inc/peticiones/admin/funciones.php";
-  const datos = new FormData();
-  datos.append("accion","verifica_cuenta");
-  let respuesta = enviar_datos(url,datos).then(res => res);
-  console.log("respuesta: " + respuesta);
-  return respuesta;
-  /*if(re.cuenta_existente){
-      //EXISTE UNA CUENTA
-      console.log("existe una cuenta");
-      cargar_restaurantes();
-  }
-  else{
-      //NO EXISTE UNA CUENTA
-      //mostrar el mensaje de no existe una cuenta 
-      let mensaje = "sin_cuenta";
-      mostrar_mensaje(mensaje);
-      console.log("no existe una cuenta");
-  }
-
-}*/

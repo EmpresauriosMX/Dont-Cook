@@ -85,17 +85,21 @@
 ?>
     <!--contenido de la plantilla -->
     <div class="container">
-        
-
-        
         <div class="section-title">
             <h2>Cuenta de usuario</h2>        
         </div>
+        <!---EN CASO DE QUE NO CUENTE CON UNA CUENTA -->
+        <?php
+            //include '../pages/sin_cuenta.html';
+        ?>
+        <div id="mensaje"></div>
+        <!---EN CASO DE QUE SI TENGA UNA CUENTA-->
+        <!---AQUI VA LO DE CONFIGURACIÓN DE USUARIO-->
         <!--USER CARD-->
         <div class="col-md-5 col-sm-12" id='card'>
             <img alt='user-image' id='userImage' src='https://randomuser.me/api/portraits/men/62.jpg'>
             <br>
-            <h4 id='playerName'>sn4ever</h4>
+            <h4 id='playerName'>Nombre apellido</h4>
             <div id='states'>
                 <ul class='info'>
                     <li>
@@ -131,33 +135,29 @@
                     <i class='fa fa-edit'></i>
                     Editar
                 </a>
+                <a href='' class='btn btn-dark'>
+                    <i class='fa fa-home'></i>
+                    Mis restaurantes
+                </a>
                 <a href='../../inc/peticiones/login/logout.php' class='btn btn-danger'>
                     <i class='fa fa-sign-out'></i>
                     Salir
                 </a>
+                
             </div>
             
         </div>
-
-        <!---EN CASO DE QUE NO CUENTE CON UNA CUENTA -->
-        <?php
-            include '../pages/sin_cuenta.html';
-        ?>
-        <!---EN CASO DE QUE SI TENGA UNA CUENTA-->
-
-
-
-        <!---AQUI VA LO DE CONFIGURACIÓN DE USUARIO-->
-
         <!---AQUI VA LO DE CONFIGURACIÓN DE USUARIO /-->
-
-
     </div>
+
+
+
     <!--contenido de la plantilla -->
     <?php 
     include '../componentes/footer.html';
     include '../componentes/scripts.html';
     ?>
+    <script src="../../inc/funciones/user/app.js" type="module"></script>
 </body>
 
 </html>
