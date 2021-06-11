@@ -1,6 +1,7 @@
 import { enviar_datos, mostrar_ubicacion } from "../funciones_generales.js";
 import {Ubicacion,select_ciudad,btn_confirmar_ciudad} from "../ubicacion.js";
 
+
 document.addEventListener("DOMContentLoaded", () => {
   const ubicacion = new Ubicacion();
   console.log(ubicacion);
@@ -9,8 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
   ubicacion.buscar();
   alert(mostrar_ubicacion().ciudad);
 });
-
-
 
 export function ejemplo() {
   console.log("des la funcion de ubicacion que esta en el home");

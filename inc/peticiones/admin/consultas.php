@@ -159,49 +159,4 @@ function busca_restaurantes(): array{
 }
 
 
-
-function info_restaurante(): array{
-
-    $id_user = '19';
-
-    try {
-        require '../../../conexion.php';
-        $sql = "SELECT * FROM `restaurantes` WHERE `id_propietario` = $id_user";
-        $consulta = mysqli_query($conn, $sql);
-        $respuesta = [];
-        $i = 0;
-        //SI CUENTA CON RESTAURANTES
-        if($consulta != ""){
-            while ($row = mysqli_fetch_assoc($consulta)) {
-                $respuesta[$i]['id_restaurante'] = $row['id_restaurante'];
-                $respuesta[$i]['nombre'] = $row['nombre'];
-                $respuesta[$i]['telefono'] = $row['telefono'];
-                $respuesta[$i]['descripcion'] = $row['descripcion_corta'];
-                $respuesta[$i]['descripcion_larga'] = $row['des_larga'];
-                $respuesta[$i]['horario'] = $row['horario'];
-                $respuesta[$i]['correo'] = $row['correo'];
-                $respuesta[$i]['cp'] = $row['codigo_postal'];
-                $respuesta[$i]['direccion'] = $row['direccion'];
-                $respuesta[$i]['ciudad'] = $row['ciudad'];
-                $i++;
-            }
-        }
-        else{
-            //SI NO CUENTA CON RESTAURANTES
-            $respuesta = array(
-                'respuesta' => "sin_restaurantes"
-            );  
-        }
-        
-        
-        
-    } catch (\Throwable $th) {
-        $respuesta = array(
-            'respuesta' => "sin_restaurantes"
-        );
-    }
-
-}
-
-
 ?>

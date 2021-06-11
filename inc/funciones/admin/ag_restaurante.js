@@ -32,6 +32,8 @@ const url = "../../inc/peticiones/admin/funciones.php";
         const email = document.querySelector("#email").value;
         const horarios = document.querySelector("#horarios").value;
         const acc = document.querySelector("#acc").value;
+        const imagen = document.querySelector("#imagen");
+        
 
         console.log(`el nombre es: ${nombre}
         decripcion corta: ${desc_corta}
@@ -50,6 +52,7 @@ const url = "../../inc/peticiones/admin/funciones.php";
         datos.append("telefono",telefono);
         datos.append("email",email);
         datos.append("horarios",horarios);
+        datos.append("imagen",imagen.files[0]);
 
        datos.append("accion","registrar_restaurante");
         enviar_datos(url,datos).then((re) => console.log(re));

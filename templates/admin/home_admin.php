@@ -34,7 +34,7 @@
             //include '../pages/sin_cuenta.html';
         ?>
         <!-- EN CASO DE QUE SI TENGA RESTAURANTES EN SU CUENTA -->
-        <div class="row mt-3" id="restaurantes">            
+        <div class="row mt-3 " id="restaurantes">            
         </div>
         
     </div>
@@ -44,7 +44,7 @@
     include '../componentes/footer.html';
     include '../componentes/scripts.html';
     ?>
-   <script src="../../inc/funciones/admin/home.js" type="module"></script>
+    <script src="../../inc/funciones/admin/home.js" type="module"></script>
 </body>
 
 </html>
