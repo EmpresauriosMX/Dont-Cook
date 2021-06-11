@@ -59,5 +59,5 @@ export async function enviar_datos(url, datos) {
       }
       const muestra = MENSAJES_POR_MOSTRAR[mensaje];
       div.innerHTML += muestra;
-      restaurantes.innerHTML = "";
+      
   }

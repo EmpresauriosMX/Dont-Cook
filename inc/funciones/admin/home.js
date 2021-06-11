@@ -1,6 +1,6 @@
-  import {enviar_datos, existe_cuenta, mostrar_mensaje} from "../funciones_generales.js";
+    import {enviar_datos, existe_cuenta, mostrar_mensaje} from "../funciones_generales.js";
   //VARIABLE A LA CUAL SE ENCUENTRAN LAS PETICIONES
-  const url = "../../inc/peticiones/admin/funciones.php";
+    const url = "../../inc/peticiones/admin/funciones.php";
 
   //VARIABLE GLOBAL PARA SABER SI TIENE UNA CUENTA
   var cuenta_activa = false;

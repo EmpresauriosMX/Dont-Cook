@@ -53,7 +53,7 @@
             }
 
             .info {
-                padding-bottom: 1em;
+            padding-bottom: 1em;
             list-style: none;
             position: relative;
             float: left;
@@ -63,6 +63,7 @@
             margin-bottom: 8px;
             padding: 1px 0px 8px 0px;
             border-bottom: 1px solid #ffac63;
+            font-size: 14px;
             }
 
             .values {
@@ -73,7 +74,8 @@
             color: #fff;
             margin-bottom: 8px;
             padding: 1px 0px 8px 0px;
-            border-bottom: 1px solid #ffac63;   
+            border-bottom: 1px solid #ffac63;  
+            font-size: 14px; 
             }
 
     </style>
@@ -85,7 +87,32 @@
 ?>
     <!--contenido de la plantilla -->
     <div class="container">
-        <div class="section-title">
+        
+        <div class="row">
+            <div class="col-sm-12 col-md-7 mx-auto">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card_tittle">Configuración de localidad</h5>
+                    </div>
+                    <form class="mx-auto mt-3 "id="eleccion_ciudad">
+                        <div class="input-group mb-3">
+                            <select class="custom-select " name="cbx" id="cbx">
+                                <option value="">Selecciona una ciudad</option>
+                            </select>
+                            <div class="input-group-append">
+                                <button id="enviar" name="enviar" value="Guardar" class="btn btn-dark" type="button">Guardar</button>
+                            </div>
+                        </div>
+                            <!--<input type="submit" id="enviar" name="enviar" value="Guardar" />-->
+                    </form>
+
+                </div>
+                
+            </div>
+        </div>
+
+
+        <div class="section-title mt-3">
             <h2>Cuenta de usuario</h2>        
         </div>
         <!---EN CASO DE QUE NO CUENTE CON UNA CUENTA -->
@@ -96,55 +123,7 @@
         <!---EN CASO DE QUE SI TENGA UNA CUENTA-->
         <!---AQUI VA LO DE CONFIGURACIÓN DE USUARIO-->
         <!--USER CARD-->
-        <div class="col-md-5 col-sm-12" id='card'>
-            <img alt='user-image' id='userImage' src='https://randomuser.me/api/portraits/men/62.jpg'>
-            <br>
-            <h4 id='playerName'>Nombre apellido</h4>
-            <div id='states'>
-                <ul class='info'>
-                    <li>
-                        Correo
-                    </li>
-                    <li>
-                        Edad
-                    </li>
-                    <li>
-                        Ubicación
-                    </li>
-                    
-                </ul>
-                <ul class='values'>
-                    <li>mi_correo@email.com</li>
-                    <li>20</li>
-                    <li>Cancún</li>
-                </ul>
-            </div>
-                <form id="eleccion_ciudad">
-                    <div class="input-group mb-3">
-                        <select class="custom-select" name="cbx" id="cbx">
-                            <option value="">Selecciona una ciudad</option>
-                        </select>
-                        <div class="input-group-append">
-                            <button id="enviar" name="enviar" value="Guardar" class="btn btn-dark" type="button">Guardar</button>
-                        </div>
-                    </div>
-                        <!--<input type="submit" id="enviar" name="enviar" value="Guardar" />-->
-                </form>
-            <div class=" mx-auto">
-                <a href='#' class='btn btn-dark '>
-                    <i class='fa fa-edit'></i>
-                    Editar
-                </a>
-                <a href='' class='btn btn-dark'>
-                    <i class='fa fa-home'></i>
-                    Mis restaurantes
-                </a>
-                <a href='../../inc/peticiones/login/logout.php' class='btn btn-danger'>
-                    <i class='fa fa-sign-out'></i>
-                    Salir
-                </a>
-                
-            </div>
+        <div id="user_card">
             
         </div>
         <!---AQUI VA LO DE CONFIGURACIÓN DE USUARIO /-->
