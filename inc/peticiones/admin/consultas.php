@@ -197,7 +197,7 @@ function info_restaurante(): array{
             'respuesta' => "sin_restaurantes"
         );
     }
-
+    return $respuesta;
 }
 
 ?>
