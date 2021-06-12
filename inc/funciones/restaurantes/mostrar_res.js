@@ -1,25 +1,26 @@
-import {mostrar_ubicacion} from "../funciones_generales.js";
-import {Ubicacion,btn_confirmar_ciudad, select_ciudad,obj} from "../ubicacion.js";
+import {mostrar_ubicacion, enviar_datos} from "../funciones_generales.js";
+//import {Ubicacion,btn_confirmar_ciudad, select_ciudad,obj} from "../ubicacion.js";
 
 const url = "../../inc/peticiones/admin/funciones.php";
 
 //Documentos
-const contenido1 = document.querySelector("#form_contenido_restaurante");
+//const contenido1 = document.querySelector("#form_contenido_restaurante");
 const contenido2 = document.querySelector("#form_segundo_contenido");
 
-document.addEventListener("DOMContentLoaded",() =>{
 
-    const ubicacion = new Ubicacion();
-    ubicacion.buscar();
+document.addEventListener("DOMContentLoaded",() =>{
+    mostrar_restaurante();
+    //const ubicacion = new Ubicacion();
+    //ubicacion.buscar();
     //select_ciudad.addEventListener("change", ubicacion.obtener);
-    btn_confirmar_ciudad.addEventListener("click", mostrar_restaurante);
-    console.log(mostrar_ubicacion());
+    //btn_confirmar_ciudad.addEventListener("click", mostrar_restaurante);
+    //console.log(mostrar_ubicacion());
 });
 
 async function mostrar_restaurante(){
 
-    limpiar_contenedor();
-    e.preventDefault();
+    //limpiar_contenedor();
+    //e.preventDefault();
     const datos = new FormData();
 
     const ciudad = mostrar_ubicacion().ciudad;
@@ -30,8 +31,7 @@ async function mostrar_restaurante(){
     console.log(res);
 
 
-   
-        //let contenido1 = document.querySelector("#form_contenido_restaurante");
+        let contenido1 = document.querySelector("#form_contenido_restaurante");
         res.forEach(respuesta => {
             const { id_restaurante, nombre, descripcion} = respuesta;
             contenido1.innerHTML += `
@@ -52,19 +52,12 @@ async function mostrar_restaurante(){
                 </div>
             `;
         });
-        contenido1.innerHTML += `
-            <div class="row">
-                <div class="col-md-3">
-                    <a href="agregar_restaurante.php" class="btn btn-sm primary-btn  "> Agregar restaurante</a>
-                </div> 
-            </div>
-        `;
     
 
 
 }
 
-
+/*
 function limpiar_contenedor() {
     contenido1.innerHTML ="";
-}
+}*/

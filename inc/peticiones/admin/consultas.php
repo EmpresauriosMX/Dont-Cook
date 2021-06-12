@@ -159,7 +159,7 @@ function busca_restaurantes(): array{
 
 function info_restaurante(): array{
 
-    $id_user = '19';
+    $id_user = '26';
 
     try {
         require '../../../conexion.php';

@@ -31,7 +31,7 @@
                         <div class="featured__item__pic set-bg" data-setbg="../../src/img/restaurants/pikalogodarkmode.png">
                             <ul class="featured__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                                <li><a href="../admin/restaurante_ver.php"><i class="fa fa-eye"></i></a></li>
                             </ul>
                         </div>
                         <div class="featured__item__text">
