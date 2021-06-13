@@ -163,6 +163,7 @@ function info_restaurante(): array{
 
     try {
         require '../../../conexion.php';
+        $sqxd = "SELECT ";
         $sql = "SELECT * FROM `restaurantes` WHERE `id_propietario` = $id_user";
         $consulta = mysqli_query($conn, $sql);
         $respuesta = [];

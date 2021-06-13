@@ -29,7 +29,6 @@ async function mostrar_restaurante(){
     const res = await enviar_datos(url, datos);
     console.log(res);
 
-        let contenido2 = document.querySelector("#form_segundo_contenido");
         let contenido1 = document.querySelector("#form_contenido_restaurante");
         res.forEach(respuesta => {
             const { id_restaurante, nombre, telefono, descripcion, descripcion_larga, horario, correo, cp, direccion, ciudad} = respuesta;
@@ -97,7 +96,9 @@ async function mostrar_restaurante(){
         </div>
             `;
         });
-    
+            
+        
+        let contenido2 = document.querySelector("#form_segundo_contenido");
         contenido2.innerHTML+=`
             <div class="row">
             <div class="col-lg-12">
