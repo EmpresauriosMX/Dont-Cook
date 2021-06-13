@@ -59,7 +59,7 @@ async function mostrarServicios(){
                             </div>
                             <div class="featured__item__text">
                                 <h6><a href="#">${descripcion}</a></h6>
-                                <h5>${nombre}</h5>
+                                <h5><a href="restaurante_ver.php?r=${id_restaurante}">${nombre}<a/></h5>
                             </div>
                         </div>
                     </div>

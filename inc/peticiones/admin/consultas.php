@@ -158,9 +158,7 @@ function busca_restaurantes(): array{
 
 
 function info_restaurante(): array{
-
     $id_user = '26';
-
     try {
         require '../../../conexion.php';
         $sqxd = "SELECT ";
@@ -190,9 +188,6 @@ function info_restaurante(): array{
                 'respuesta' => "sin_restaurantes"
             );  
         }
-        
-        
-        
     } catch (\Throwable $th) {
         $respuesta = array(
             'respuesta' => "sin_restaurantes"
