@@ -120,6 +120,21 @@
                                 </div>
                             </div>
 
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>Facebook<span>*</span></p>
+                                        <input placeholder="URL o link de Facebook" id="telefono" name="telefono" type="text" required="required">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>Instagram<span>*</span></p>
+                                        <input placeholder="URL o link de Instagram" id="email" name="email" type="text" required="required">
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="checkout__input__checkbox">
                                 <label for="acc">
                                     ¿Cuenta con servicio a domicilio?
@@ -171,7 +186,7 @@
                             
                             <br>
                             <div class="checkout__input">
-                                <input  placeholder="Horario" id="horarios" name="horarios" type="text" required="required">
+                                <input  placeholder="Horario: 00:00 a 00:00" id="horarios" name="horarios" type="text" required="required">
                             </div>
 
                             <?php
