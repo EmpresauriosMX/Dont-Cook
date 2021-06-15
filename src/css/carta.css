@@ -4,11 +4,6 @@
   box-sizing: border-box;
 }
 
-body {
-  
-  margin: 2rem;
-}
-
 .blog-card {
   display: flex;
   flex-direction: column;
