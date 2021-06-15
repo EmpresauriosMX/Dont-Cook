@@ -48,7 +48,7 @@ async function mostrarServicios(){
             res.forEach(respuesta => {
                 const { id_restaurante, nombre, descripcion, foto} = respuesta;
                 div_restaurantes.innerHTML += `
-                <div class="blog-card col-md-12 col-sm-12 col-xs-12 col-lg-6">
+                <div class="blog-card col-md-12 col-sm-12 col-xs-12 col-lg-5 mx-auto">
                     <div class="meta">
                         <div class="photo" style="background-image: url(https://pbs.twimg.com/profile_images/1338640471195791363/NTrEomnH_400x400.jpg)"></div>
                         <ul class="details">
