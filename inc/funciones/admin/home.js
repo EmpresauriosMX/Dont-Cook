@@ -46,28 +46,46 @@ async function mostrarServicios(){
         else{
             let div_restaurantes = document.querySelector("#restaurantes");
             res.forEach(respuesta => {
-                const { id_restaurante, nombre, descripcion} = respuesta;
+                const { id_restaurante, nombre, descripcion, foto} = respuesta;
                 div_restaurantes.innerHTML += `
-                    <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-                        <div class="featured__item">
-                            <div class="featured__item__pic set-bg" data-setbg="">
-                            <img src="../../inc/funciones/restaurantes/product-5.jpg">
-                                <ul class="featured__item__pic__hover">
-                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-eye"></i></a></li>
-                                </ul>
+                <div class="blog-card col-md-12 col-sm-12 col-xs-12 col-lg-6">
+                    <div class="meta">
+                        <div class="photo" style="background-image: url(https://pbs.twimg.com/profile_images/1338640471195791363/NTrEomnH_400x400.jpg)"></div>
+                        <ul class="details">
+                            <li class="author"><a href="#">Correo@mail.com</a></li>
+                            <li class="tags">
+                            <ul>
+                                <li><a href="#">Facebook</a></li>
+                                <li><a href="#">Instagram</a></li>
+                                <li><a href="#">Twitter</a></li>
+                            </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="description">
+                        <h4>${nombre}</b></h4>
+                        <h5>Abierto / Cerrado</h5>
+                        <p class=""><small class="text-muted">${descripcion}</small></p>
+                            <div class="row">
+                                
                             </div>
-                            <div class="featured__item__text">
-                                <h6><a href="#">${descripcion}</a></h6>
-                                <h5><a href="restaurante_ver.php?r=${id_restaurante}">${nombre}<a/></h5>
-                            </div>
+                        <div class="read-more mt-2">
+                            <button type="button" class="btn btn-outline-secondary btn-sm">
+                                <span class="fa fa-heart">
+                                </span>
+                                Favorito
+                            </button>
+                            <a href="restaurante_ver.php?r=${id_restaurante}" class="btn btn-outline-secondary btn-sm">
+                                <span class="fa fa-eye" ></span> Visitar
+                            </a>
                         </div>
                     </div>
+                </div>
                 `;
             });
             div_restaurantes.innerHTML += `
-                <div class="row">
-                    <div class="col-md-3">
+                <div class="row mx-auto mt-3">
+                    <div class="col-md-3 ">
                         <a href="agregar_restaurante.php" class="btn btn-sm primary-btn  "> Agregar restaurante</a>
                     </div> 
                 </div>

@@ -137,6 +137,7 @@ function busca_restaurantes(): array{
                     $respuesta[$i]['nombre'] = $row['nombre'];
                     $respuesta[$i]['telefono'] = $row['telefono'];
                     $respuesta[$i]['descripcion'] = $row['descripcion_corta'];
+                    $respuesta[$i]['foto'] = $row['foto'];
                     $i++;
                 }
             }
