@@ -88,6 +88,24 @@
     <!--contenido de la plantilla -->
     <div class="container">
         
+        
+
+
+        <div class="section-title mt-3">
+            <h2>Cuenta de usuario</h2>        
+        </div>
+        <!---EN CASO DE QUE NO CUENTE CON UNA CUENTA -->
+        <?php
+            //include '../pages/sin_cuenta.html';
+        ?>
+        <div id="mensaje"></div>
+        <!---EN CASO DE QUE SI TENGA UNA CUENTA-->
+        <!---AQUI VA LO DE CONFIGURACIÓN DE USUARIO-->
+        <!--USER CARD-->
+        <div id="user_card">
+            
+        </div>
+
         <div class="row">
             <div class="col-sm-12 col-md-6 mx-auto">
                 <div class="card">
@@ -109,22 +127,6 @@
                 </div>
                 
             </div>
-        </div>
-
-
-        <div class="section-title mt-3">
-            <h2>Cuenta de usuario</h2>        
-        </div>
-        <!---EN CASO DE QUE NO CUENTE CON UNA CUENTA -->
-        <?php
-            //include '../pages/sin_cuenta.html';
-        ?>
-        <div id="mensaje"></div>
-        <!---EN CASO DE QUE SI TENGA UNA CUENTA-->
-        <!---AQUI VA LO DE CONFIGURACIÓN DE USUARIO-->
-        <!--USER CARD-->
-        <div id="user_card">
-            
         </div>
         <!---AQUI VA LO DE CONFIGURACIÓN DE USUARIO /-->
     </div>

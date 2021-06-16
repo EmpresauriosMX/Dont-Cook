@@ -135,6 +135,7 @@ function imprime_menu_config(datos){
 }
 
 function config_promociones(datos){
+    //aqui va tu codigo para obtener las promociones
     let div_promociones = document.querySelector("#tabs-1");
     div_promociones.innerHTML+=`
     <div class="product__details__tab__desc">
