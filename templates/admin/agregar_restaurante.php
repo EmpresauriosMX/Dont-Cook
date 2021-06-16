@@ -124,13 +124,13 @@
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>Facebook<span>*</span></p>
-                                        <input placeholder="URL o link de Facebook" id="telefono" name="telefono" type="text" required="required">
+                                        <input placeholder="URL o link de Facebook" id="telefono" name="telefono" type="text">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>Instagram<span>*</span></p>
-                                        <input placeholder="URL o link de Instagram" id="email" name="email" type="text" required="required">
+                                        <input placeholder="URL o link de Instagram" id="email" name="email" type="text">
                                     </div>
                                 </div>
                             </div>
