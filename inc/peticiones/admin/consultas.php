@@ -2,7 +2,8 @@
 
 
 
-function enviar(): array{
+function enviar(): array
+{
 
     $nombre = $_POST['nombre'];
     $telefono = $_POST['telefono'];
@@ -14,39 +15,36 @@ function enviar(): array{
     $email = $_POST['email'];
     $horarios = $_POST['horarios'];
 
+    $temp = explode(".", $_FILES["imagen"]["name"]);
+    $nueva_imagen = round(microtime(true)) . '.' . end($temp);
+
     try {
         require '../../../conexion.php';
-        $stmt = $conn->prepare("INSERT INTO restaurantes (nombre, telefono, descripcion_corta, des_larga, horario, correo, codigo_postal, direccion,ciudad)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)");
+        $stmt = $conn->prepare("INSERT INTO restaurantes (nombre, telefono, descripcion_corta, des_larga, horario, correo, codigo_postal, direccion,ciudad,foto)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?,?,?)");
+        $resultado = move_uploaded_file($_FILES["imagen"]["tmp_name"], "../../../src/img/restaurantes/" . $nueva_imagen);
+        if ($resultado) {
+            $stmt->bind_param('ssssssssss', $nombre, $telefono, $des_corta, $des_larga, $horarios, $email, $cp, $direccion, $ciudad, $nueva_imagen);
+            $stmt->execute();
+            $stmt->close();
+            $respuesta = array(
+                'respuesta' => 'correcto',
+                'imagen' => $imagen
+            );
+        } else {
 
-        $stmt->bind_param('sssssssss', $nombre, $telefono, $des_corta, $des_larga, $horarios, $email, $cp, $direccion,$ciudad);
-        $stmt -> execute();
-
-
-       $stmt->close();
-
-       $respuesta = array(
-        'nombre' => $nombre,
-        'telefono'=> $telefono,
-        'corta' => $des_corta,
-        'larga' => $des_larga,
-        'horarios' => $horarios,
-        'email' => $email,
-        'CP' => $cp,
-        'ciudad' => $ciudad,
-        'direccion' => $direccion
-    );
-       return $respuesta;
-
+            $respuesta = array(
+                'respuesta' => 'error',
+                'imagen' => $imagen
+            );
+        }
+        return $respuesta;
     } catch (\Throwable $th) {
         $respuesta = array(
             'respuesta' => $th
         );
         return $respuesta;
     }
-
-    
-
 }
 
 function restaurantes_home(): array{
