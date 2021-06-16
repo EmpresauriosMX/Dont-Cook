@@ -161,7 +161,6 @@ function info_restaurante(): array{
     //-----------SE ABRE LA SESIÓN DEL USUARIO
     session_start();
     $id_user = $_SESSION['id'];
-    //$cuenta_existente = $id_user ? 'true' : 'false';
     if($id_user != ""){ //si la variable de sesión está vacia entonces se redirige al login
         $cuenta_existente = true;
     }

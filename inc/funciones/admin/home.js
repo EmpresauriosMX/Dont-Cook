@@ -50,7 +50,7 @@ async function mostrarServicios(){
                 div_restaurantes.innerHTML += `
                 <div class="blog-card col-md-12 col-sm-12 col-xs-12 col-lg-5 mx-auto">
                     <div class="meta">
-                        <div class="photo" style="background-image: url(https://pbs.twimg.com/profile_images/1338640471195791363/NTrEomnH_400x400.jpg)"></div>
+                        <div class="photo" style="background-image: url(../../src/img/restaurantes/${foto}"></div>
                         <ul class="details">
                             <li class="author"><a href="#">Correo@mail.com</a></li>
                             <li class="tags">
