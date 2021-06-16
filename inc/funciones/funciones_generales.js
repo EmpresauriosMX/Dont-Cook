@@ -56,11 +56,19 @@ export async function enviar_datos(url, datos) {
                                   </div> 
                               </div>`,
           'sin_favoritos'   : `<div class="row">
-                                  <div class="col-md-5 mx-auto">
+                                  <div class="col-md-4 mx-auto">
                                       <img src="../../src/img/ilustrations/fav.svg" class="img-fluid" alt="Responsive image">
                                       <h5 class="text-center text-muted mt-3">Parece que aun no tienes ningún restaurante en favoritos :(</h5>
                                       <div class="col text-center mt-3">
                                       <span class="text-muted">Agregarlos es cencillo, solo dale click al icono del corazón "<i class="fa fa-heart"></i>" del restaurante que más te guste.</span>
+                                      </div>  
+                                  </div> 
+                              </div>`,
+          'error'             : `<div class="row">
+                                  <div class="col-md-4 mx-auto">
+                                      <img src="../../src/img/ilustrations/empty_place.svg" class="img-fluid" alt="Responsive image">
+                                      <h5 class="text-center text-muted mt-3">Aquí no hay nada :(</h5>
+                                      <div class="col text-center mt-3">
                                       </div>  
                                   </div> 
                               </div>`

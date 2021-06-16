@@ -13,43 +13,21 @@
 <body>
     <?php
     include '../componentes/head.html';
-    include '../componentes/sesiones.php';
     //include '../componentes/navegacion_reducido.html';
     ?>
-
-
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 
-    <!------------------------- Barra de Imagen >
-    <section class="breadcrumb-section set-bg" data-setbg="../../src/img/fondo.jpeg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="breadcrumb__text">
-                        <h2 id="nombre_restaurante">PikaTako</h2>
-                        <div class="breadcrumb__option">
-                            <a href="./index.html">Home</a>
-                            <a href="./index.html">Vegetables</a>
-                            <span>Vegetable’s Package</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <br>
-    <-------------------------------------------------------- Fin Barra de Imagen -->
     
-
     <!--contenido de la plantilla -->
     <?php
         include '../componentes/restaurante_especifico.html';
+    ?>
+    <div id="mensaje"></div>
+
+    <?php
         include '../componentes/footer.html';
         include '../componentes/scripts.html';
     ?>
-    
-       
-        
 </body>
 
 <script src="../../inc/funciones/restaurantes/mostrar_res.js" type="module"></script>

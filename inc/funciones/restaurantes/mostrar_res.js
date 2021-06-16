@@ -1,43 +1,47 @@
-import {mostrar_ubicacion, enviar_datos} from "../funciones_generales.js";
-//import {Ubicacion,btn_confirmar_ciudad, select_ciudad,obj} from "../ubicacion.js";
-
+import {mostrar_ubicacion, enviar_datos, mostrar_mensaje} from "../funciones_generales.js";
 const url = "../../inc/peticiones/admin/funciones.php";
-
-//Documentos
-//const contenido1 = document.querySelector("#form_contenido_restaurante");
-
-
-document.addEventListener("DOMContentLoaded",() =>{
-    mostrar_restaurante();
-    //const ubicacion = new Ubicacion();
-    //ubicacion.buscar();
-    //select_ciudad.addEventListener("change", ubicacion.obtener);
-    //btn_confirmar_ciudad.addEventListener("click", mostrar_restaurante);
-    //console.log(mostrar_ubicacion());
+//CON ESTO OBTENEMOS EL ID DEL RESTAURANTE POR LA URL
+document.addEventListener("DOMContentLoaded", () => {
+    const parametrosURL = new URLSearchParams(window.location.search);
+    let restaurante = parametrosURL.get("r");
+    //SI LE PASAMOS UN RESTAURANTE LO BUSCARA
+    if (restaurante) {
+        //LE PASAMOS EL ID DE RESUTAURANTE
+        mostrar_restaurante(restaurante);
+    }
+    //SI NO LE PASAMOS NADA CARGARA UN MENSAJE DE ERROR
+    else{
+        mostrar_mensaje("error");
+    }
 });
 
-async function mostrar_restaurante(){
-
-    //limpiar_contenedor();
-    //e.preventDefault();
+async function mostrar_restaurante(id){
     const datos = new FormData();
-
-    const ciudad = mostrar_ubicacion().ciudad;
-    datos.append("ciudad", ciudad)
-    
+    datos.append("id", id);
     datos.append("accion","info_restaurantes");
+    //SE BUSCA EL RESTAURANTE CON SU ID
     const res = await enviar_datos(url, datos);
     console.log(res);
+    //SI SE ENCUENTRA EL RESTAURANTE SE IMPRIME
+    if(!res.respuesta){
+        imprime_restaurante(res);
+        imprime_menu_config(res);
+    }
+    else{
+        mostrar_mensaje("error");
+    }
+}
 
-        let contenido1 = document.querySelector("#form_contenido_restaurante");
-        res.forEach(respuesta => {
-            const { id_restaurante, nombre, telefono, descripcion, descripcion_larga, horario, correo, cp, direccion, ciudad} = respuesta;
-            contenido1.innerHTML += `
+function imprime_restaurante(datos){
+    let contenido1 = document.querySelector("#form_contenido_restaurante");
+    const { id_restaurante, nombre, telefono, descripcion, descripcion_larga, horario, correo, cp, direccion, ciudad,foto} = datos;
+
+    contenido1.innerHTML += `
             <div class="row">
             <div class="col-lg-6 col-md-6">
                 <div class="product__details__pic">
                     <div class="product__details__pic__item">
-                        <img id="img_restaurante" class="product__details__pic__item--large" src="../../src/img/restaurants/pikalogodarkmode.png" alt="">
+                        <img id="img_restaurante" class="product__details__pic__item--large" src="../../src/img/restaurantes/${foto}" alt="">
                     </div>
 
                 </div>
@@ -60,11 +64,7 @@ async function mostrar_restaurante(){
             </div>
 
         </div>
-
-
-
-        <br><br>
-        <div class="row">
+        <div class="row mt-3">
             <div class="col-lg-3 col-md-3 col-sm-6 text-center">
                 <div class="contact__widget">
                     <span class="icon_phone"></span>
@@ -95,11 +95,13 @@ async function mostrar_restaurante(){
             </div>
         </div>
             `;
-        });
-            
-        
-        let contenido2 = document.querySelector("#form_segundo_contenido");
-        contenido2.innerHTML+=`
+}
+
+
+function imprime_menu_config(datos){
+    let div_config = document.querySelector("#form_segundo_contenido");
+    const { id_restaurante, nombre, telefono, descripcion, descripcion_larga, horario, correo, cp, direccion, ciudad} = datos;
+    div_config.innerHTML+=`
             <div class="row">
             <div class="col-lg-12">
                 <div class="product__details__tab">
@@ -116,138 +118,138 @@ async function mostrar_restaurante(){
                     </ul>
                     
                     <div class="tab-content">
-
-                        
-                        <div class="tab-pane active" id="tabs-1" role="tabpanel">
-                            <div class="product__details__tab__desc">
-                                <h3>Promociones</h3>
-                                <div class="card-columns mt-3">
-                                    
-                                    <div class="card ">
-                                        <img class="card-img-top" src="../../src/img/banner/banner-1.jpg" alt="Card image cap">
-                                        <div class="card-img-overlay">
-                                            <h4 id="nombre_restaurante" class="card-title">Restaurante</h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <h6 id="nombre_promocion">Nombre de la Promoción</h6>
-                                            <p id="descripcion_promocion" class="card-text">Descripción de la promocion... <br>
-                                                Chelas 2x1 xdxd <br>
-                                                De Lunes a Jueves <br>
-                                                Con Horario de 12:00 a 16:00</p>
-                                        </div>
-                                        <div class="card-footer">
-                                            <button class="btn btn-dark btn-sm "> <span class="fa fa-edit"></span></button>
-                                            <button class="btn btn-dark btn-sm "> <span class="fa fa-trash"></span></button>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                
-                                <div class="col-md-3 col-sm-6 col-lg-4 ">
-                                    <div class="card">
-                                        <div class="card-body text-center">
-                                            <p><strong>Agregar</strong></p>
-                                            <a href="agregar_promocion.php" class="fa fa-plus btm btn site-btn mx-auto"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-
-                        
-                        <div class="tab-pane" id="tabs-2" role="tabpanel">
-                            <div class="product__details__tab__desc">
-                                <h3>Fotos</h3>
-                                
-                                <div class="row mt-3">
-                                    <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-                                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg" class="w-100 shadow-1-strong rounded mb-4" alt="" />
-
-                                        <img src="https://mdbootstrap.com/img/Photos/Vertical/mountain1.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="" />
-                                    </div>
-
-                                    <div class="col-lg-4 mb-4 mb-lg-0">
-                                        <img src="https://mdbootstrap.com/img/Photos/Vertical/mountain2.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="" />
-
-                                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg" class="w-100 shadow-1-strong rounded mb-4" alt="" />
-                                    </div>
-
-                                    <div class="col-lg-4 mb-4 mb-lg-0">
-                                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg" class="w-100 shadow-1-strong rounded mb-4" alt="" />
-
-                                        <img src="https://mdbootstrap.com/img/Photos/Vertical/mountain3.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="" />
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-3 col-sm-6 col-lg-4 ">
-                                    <div class="card">
-                                        <div class="card-body text-center">
-                                            <p><strong>Agregar o editar</strong></p>
-                                            <span class="fa fa-plus btm btn site-btn mx-auto"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-
-                        
-                        <div class="tab-pane" id="tabs-3" role="tabpanel">
-                            <div class="product__details__tab__desc">
-                                <h3>Agrega tu menú en forma de texto!</h3>
-                                <br>
-                                <div id="editor">
-                                    <p>Agrega tu delicioso menú!</p>
-                                    <p>Agrega tu propio diseño!</p>
-                                    <p>Rico menú! <strong> $20.00</strong> <em>
-                                            <-Empieza a agregar tus deliciosos platillos</em>
-                                    </p>
-                                    <p><strong>(borra el texto anterior para empezar a escribir tu menú)</strong>...</p>
-                                    <p><br></p>
-                                </div>
-                                <br>
-                                <div>
-                                    <button type="button" value="contenido" onclick="jssave()" class="btn btn-warning">Guardar Menu!</button>
-                                </div>
-                                <br>
-
-                                <h3>O si prefieres agrega imagenes de tu menú!</h3>
-
-                                <div class="row mt-3">
-                                    <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-                                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg" class="w-100 shadow-1-strong rounded mb-4" alt="" />
-                                    </div>
-                                    <div class="col-md-3 col-sm-6 col-lg-4 ">
-                                        <div class="card">
-                                            <div class="card-body text-center">
-
-                                                <form action="../../inc/peticiones/admin/upload.php" method="post" enctype="multipart/form-data">
-                                                    Select image to upload:
-                                                    <input type="file" name="fileToUpload" id="fileToUpload">
-                                                    <input type="submit" value="Subir" name="submit">
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        
-
+                        <div class="tab-pane active" id="tabs-1" role="tabpanel"></div>
+                        <div class="tab-pane" id="tabs-2" role="tabpanel"></div>
+                        <div class="tab-pane" id="tabs-3" role="tabpanel"></div>
                     </div>
-                    
                 </div>
             </div>
             
         </div>
         <br>
-        `;
-
+    `;
+    //Imprime cada una de las configuraciones 
+    config_promociones();
+    config_galeria();
+    config_menu();
 }
 
-/*
-function limpiar_contenedor() {
-    contenido1.innerHTML ="";
-}*/
+function config_promociones(datos){
+    let div_promociones = document.querySelector("#tabs-1");
+    div_promociones.innerHTML+=`
+    <div class="product__details__tab__desc">
+            <h3>Promociones</h3>
+            <div class="card-columns mt-3 ">
+                
+                <div class="card">
+                    <img class="card-img-top" src="../../src/img/banner/banner-1.jpg" alt="Card image cap">
+                    <div class="card-img-overlay">
+                        <h4 class="card-title">Restaurante</h4>
+                    </div>
+                    <div class="card-body">
+                        <h6>Nombre de la Promoción</h6>
+                        <p class="card-text">Descripción de la promocion... <br>
+                        Chelas 2x1 xdxd <br>
+                        De Lunes a Jueves <br>
+                        Con Horario de 12:00 a 16:00</p>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="col-md-3 col-sm-6 col-lg-4  mt-3">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <p><strong>Agregar</strong></p>
+                        <a href="agregar_promocion.php" class="fa fa-plus btm btn site-btn mx-auto"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `
+}
+
+function config_galeria(datos){
+    let div_galeria = document.querySelector("#tabs-2");
+    div_galeria.innerHTML+=`
+        
+        <div class="product__details__tab__desc">
+                <h3>Fotos</h3>
+                
+                <div class="row mt-3">
+                    <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg" class="w-100 shadow-1-strong rounded mb-4" alt="" />
+
+                        <img src="https://mdbootstrap.com/img/Photos/Vertical/mountain1.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="" />
+                    </div>
+
+                    <div class="col-lg-4 mb-4 mb-lg-0">
+                        <img src="https://mdbootstrap.com/img/Photos/Vertical/mountain2.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="" />
+
+                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg" class="w-100 shadow-1-strong rounded mb-4" alt="" />
+                    </div>
+
+                    <div class="col-lg-4 mb-4 mb-lg-0">
+                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg" class="w-100 shadow-1-strong rounded mb-4" alt="" />
+
+                        <img src="https://mdbootstrap.com/img/Photos/Vertical/mountain3.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="" />
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6 col-lg-4 ">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <p><strong>Agregar o editar</strong></p>
+                            <span class="fa fa-plus btm btn site-btn mx-auto"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    `;
+}
+
+function config_menu(datos){
+    let div_menu = document.querySelector("#tabs-3");
+    div_menu.innerHTML+=`
+        
+        <div class="product__details__tab__desc">
+                <h3>Agrega tu menú en forma de texto!</h3>
+                <br>
+                <div id="editor">
+                    <p>Agrega tu delicioso menú!</p>
+                    <p>Agrega tu propio diseño!</p>
+                    <p>Rico menú! <strong> $20.00</strong> <em>
+                            <-Empieza a agregar tus deliciosos platillos</em>
+                    </p>
+                    <p><strong>(borra el texto anterior para empezar a escribir tu menú)</strong>...</p>
+                    <p><br></p>
+                </div>
+                <br>
+                <div>
+                    <button type="button" value="contenido" onclick="jssave()" class="btn btn-warning">Guardar Menu!</button>
+                </div>
+                <br>
+
+                <h3>O si prefieres agrega imagenes de tu menú!</h3>
+
+                <div class="row mt-3">
+                    <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg" class="w-100 shadow-1-strong rounded mb-4" alt="" />
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-lg-4 ">
+                        <div class="card">
+                            <div class="card-body text-center">
+
+                                <form action="../../inc/peticiones/admin/upload.php" method="post" enctype="multipart/form-data">
+                                    Select image to upload:
+                                    <input type="file" name="fileToUpload" id="fileToUpload">
+                                    <input type="submit" value="Subir" name="submit">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+    `;
+}

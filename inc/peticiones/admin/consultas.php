@@ -159,42 +159,54 @@ function busca_restaurantes(): array{
 
 
 function info_restaurante(): array{
-    $id_user = '26';
-    try {
-        require '../../../conexion.php';
-        $sqxd = "SELECT ";
-        $sql = "SELECT * FROM `restaurantes` WHERE `id_propietario` = $id_user";
-        $consulta = mysqli_query($conn, $sql);
-        $respuesta = [];
-        $i = 0;
-        //SI CUENTA CON RESTAURANTES
-        if($consulta != ""){
-            while ($row = mysqli_fetch_assoc($consulta)) {
-                $respuesta[$i]['id_restaurante'] = $row['id_restaurante'];
-                $respuesta[$i]['nombre'] = $row['nombre'];
-                $respuesta[$i]['telefono'] = $row['telefono'];
-                $respuesta[$i]['descripcion'] = $row['descripcion_corta'];
-                $respuesta[$i]['descripcion_larga'] = $row['des_larga'];
-                $respuesta[$i]['horario'] = $row['horario'];
-                $respuesta[$i]['correo'] = $row['correo'];
-                $respuesta[$i]['cp'] = $row['codigo_postal'];
-                $respuesta[$i]['direccion'] = $row['direccion'];
-                $respuesta[$i]['ciudad'] = $row['ciudad'];
-                $i++;
+    $cuenta_existente = false;
+    //-----------SE ABRE LA SESIÓN DEL USUARIO
+    session_start();
+    $id_user = $_SESSION['id'];
+    //$cuenta_existente = $id_user ? 'true' : 'false';
+    if($id_user != ""){ //si la variable de sesión está vacia entonces se redirige al login
+        $cuenta_existente = true;
+    }
+    //SE VALIDA DE QUE TENGA UNA CUENTA EXISTENTE
+    if($cuenta_existente){
+        $id_restaurante = $_POST['id'];
+        try {
+            require '../../../conexion.php';
+            $sql = "SELECT * FROM `restaurantes` WHERE `id_propietario` = $id_user and `id_restaurante` = $id_restaurante";
+            $consulta = mysqli_query($conn, $sql);
+            $respuesta = [];
+            //SI CUENTA CON RESTAURANTES
+            if(mysqli_num_rows($consulta)!=0){
+                $row = mysqli_fetch_assoc($consulta);
+                $respuesta = array(
+                    'id'        => $row['id_restaurante'],
+                    'nombre'    => $row['nombre'],
+                    'telefono'  => $row['telefono'],
+                    'descripcion'=> $row['descripcion_corta'],
+                    'descripcion_larga'=> $row['des_larga'],
+                    'horario'   => $row['horario'],
+                    'correo'    => $row['correo'],
+                    'cp'        => $row['codigo_postal'],
+                    'direccion' => $row['direccion'],
+                    'ciudad'    => $row['ciudad'],
+                    'foto'      => $row['foto']
+                ); 
             }
-        }
-        else{
-            //SI NO CUENTA CON RESTAURANTES
+            else{
+                //SI NO CUENTA CON RESTAURANTES
+                $respuesta = array(
+                    'respuesta' => "sin_restaurantes",
+                    'consulta' => mysqli_num_rows($consulta)
+                );  
+            }
+        } catch (\Throwable $th) {
             $respuesta = array(
-                'respuesta' => "sin_restaurantes"
-            );  
+                'respuesta' => "entro al catch "
+            );
         }
-    } catch (\Throwable $th) {
-        $respuesta = array(
-            'respuesta' => "sin_restaurantes"
-        );
     }
     return $respuesta;
 }
 
 ?>
+
