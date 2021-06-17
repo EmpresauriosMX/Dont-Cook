@@ -1,50 +1,57 @@
 <?php
-
-
-
-function enviar(): array
-{
-
-    $nombre = $_POST['nombre'];
-    $telefono = $_POST['telefono'];
-    $des_corta = $_POST['desc_corta'];
-    $des_larga = $_POST['desc_larga'];
-    $ciudad = $_POST['ciudad'];
-    $direccion = $_POST['direccion'];
-    $cp = $_POST['cp'];
-    $email = $_POST['email'];
-    $horarios = $_POST['horarios'];
-
-    $temp = explode(".", $_FILES["imagen"]["name"]);
-    $nueva_imagen = round(microtime(true)) . '.' . end($temp);
-
-    try {
-        require '../../../conexion.php';
-        $stmt = $conn->prepare("INSERT INTO restaurantes (nombre, telefono, descripcion_corta, des_larga, horario, correo, codigo_postal, direccion,ciudad,foto)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?,?,?)");
-        $resultado = move_uploaded_file($_FILES["imagen"]["tmp_name"], "../../../src/img/restaurantes/" . $nueva_imagen);
-        if ($resultado) {
-            $stmt->bind_param('ssssssssss', $nombre, $telefono, $des_corta, $des_larga, $horarios, $email, $cp, $direccion, $ciudad, $nueva_imagen);
-            $stmt->execute();
-            $stmt->close();
-            $respuesta = array(
-                'respuesta' => 'correcto',
-                'imagen' => $imagen
-            );
-        } else {
-
-            $respuesta = array(
-                'respuesta' => 'error',
-                'imagen' => $imagen
-            );
-        }
-        return $respuesta;
-    } catch (\Throwable $th) {
-        $respuesta = array(
-            'respuesta' => $th
-        );
-        return $respuesta;
+function enviar(): array{
+    $cuenta_existente = false;
+    //-----------SE ABRE LA SESIÓN DEL USUARIO
+    session_start();
+    $id_user = $_SESSION['id'];
+    //$cuenta_existente = $id_user ? 'true' : 'false';
+    if($id_user != ""){ //si la variable de sesión está vacia entonces se redirige al login
+        $cuenta_existente = true;
     }
+    //SE VALIDA DE QUE TENGA UNA CUENTA EXISTENTE
+    if($cuenta_existente){
+        $nombre = $_POST['nombre'];
+        $telefono = $_POST['telefono'];
+        $des_corta = $_POST['desc_corta'];
+        $des_larga = $_POST['desc_larga'];
+        $ciudad = $_POST['ciudad'];
+        $direccion = $_POST['direccion'];
+        $cp = $_POST['cp'];
+        $email = $_POST['email'];
+        $horarios = $_POST['horarios'];
+
+        $temp = explode(".", $_FILES["imagen"]["name"]);
+        $nueva_imagen = round(microtime(true)) . '.' . end($temp);
+
+        try {
+            require '../../../conexion.php';
+            $stmt = $conn->prepare("INSERT INTO restaurantes (id_propietario, nombre, telefono, descripcion_corta, des_larga, horario, correo, codigo_postal, direccion,ciudad,foto)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?,?,?)");
+            $resultado = move_uploaded_file($_FILES["imagen"]["tmp_name"], "../../../src/img/restaurantes/" . $nueva_imagen);
+            if ($resultado) {
+                $stmt->bind_param('sssssssssss', $id_user, $nombre, $telefono, $des_corta, $des_larga, $horarios, $email, $cp, $direccion, $ciudad, $nueva_imagen);
+                $stmt->execute();
+                $stmt->close();
+                $respuesta = array(
+                    'respuesta' => 'correcto',
+                    'imagen' => $imagen
+                );
+            } else {
+                $respuesta = array(
+                    'respuesta' => 'error',
+                    'imagen' => $imagen
+                );
+            }
+            return $respuesta;
+        }
+        catch (\Throwable $th) {
+            $respuesta = array(
+                'respuesta' => $th
+            );
+            return $respuesta;
+        }
+    }
+    return $respuesta;
 }
 
 function restaurantes_home(): array{
@@ -77,7 +84,7 @@ function restaurantes_home(): array{
             'localidad' => $localidad 
         );
 
-       $stmt->close();
+        $stmt->close();
         return $respuesta;
 
     } catch (\Throwable $th) {
