@@ -38,13 +38,11 @@ export async function enviar_datos(url, datos) {
     
       const MENSAJES_POR_MOSTRAR ={
           'sin_cuenta' :  `<div class="row">
-                              <div class="col-md-4 mx-auto">
+                              <div class="col-md-5 mx-auto">
                                   <img src="../../src/img/ilustrations/no.svg" class="img-fluid" alt="Responsive image">
                                   <h5 class="text-center text-muted mt-3">Aún no tienes una cuenta.  
                                     <a class="btn btn-sm btn-dark mx-auto " href="../login/registro.php">Registrate</a> o 
                                     <a class="btn btn-sm btn-dark mx-auto" href="../login/login.php">Inicia sesión</a>
-                                    <hr>
-                                    Pero si solo quieres configurar la ciudad puedes hacerlo aquí abajo. 
                                   </h5>
                                   <div class="col text-center mt-3">
                                       

@@ -7,11 +7,11 @@
     ?>
 </head>
 <body>
-   <?php
-   include '../componentes/head.html';
-   include '../componentes/navegacion_reducido.html';
-   ?>
-   <!--contenido de la plantilla -->
+    <?php
+    include '../componentes/head.html';
+    include '../componentes/navegacion_reducido.html';
+    ?>
+    <!--contenido de la plantilla -->
 
     <div class="container">
 

@@ -7,16 +7,16 @@
     ?>
 </head>
 <body>
-   <?php
-   include '../../templates/componentes/head.html';
-   include '../../templates/componentes/navegacion.html';
-   ?>
+    <?php
+    include '../../templates/componentes/head.html';
+    include '../../templates/componentes/navegacion.html';
+    ?>
 
 <!--contenido de la plantilla -->
     <div class="container">
     </div>
     <!--Todo de home-->
-     
+    
     <section class="categories">
         <div class="container">
             <br>

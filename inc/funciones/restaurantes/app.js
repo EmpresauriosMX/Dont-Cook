@@ -29,12 +29,14 @@ document.addEventListener("DOMContentLoaded", () => {
         
     }
 });
-
+//si no tiene una ciudad registrada
 function sin_ciudad(){
     mostrar_mensaje("sin_ciudad");
     const div_categorias = document.querySelector("#categorias");
     div_categorias.innerHTML = "";
 }
+
+//----------------------CATEGORIAS-----------------------------
 
 async function mostrar_restaurantes_categoria(categoria){
     mostar_banner_categoria(categoria);
@@ -67,7 +69,7 @@ async function mostar_banner_categoria(categoria){
     
 }
 
-
+//------------TODOS LOS RESTUARANTES DE LA CIUDAD-----------
 async function mostrar_restaurantes() {
     limpiar_contenedor();
     const datos = new FormData();
