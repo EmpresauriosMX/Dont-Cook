@@ -1,6 +1,6 @@
-import {enviar_datos, existe_cuenta, mostrar_mensaje} from "../funciones_generales.js";
+import {enviar_datos, mostrar_ubicacion, existe_cuenta, mostrar_mensaje} from "../funciones_generales.js";
 import { Ubicacion, select_ciudad, btn_confirmar_ciudad} from "../ubicacion.js";
-
+const tienes_ciudad = mostrar_ubicacion().ciudad;
 
 const url = "../../inc/peticiones/user/funciones.php";
 //----------VALIDACION DE CUENTA DE USUARIO-----------
@@ -14,9 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
   //FUNCIONES QUE SE DEBEN DE CARGAR AL INICIO
 
-  function ir_restaurantes() {
-      window.location.href ="../restaurantes/restaurantes.php";
-  }
+    function ir_restaurantes() {
+        window.location.href ="../restaurantes/restaurantes.php";
+    }
 async function mostrarServicios(){
     var cuenta_activa = false;
     cuenta_activa =  await existe_cuenta();
@@ -62,7 +62,7 @@ async function imprime_user_card(){
                 <ul class='values'>
                     <li>${correo}</li>
                     <li>${edad}</li>
-                    <li>cancun</li>
+                    <li>${tienes_ciudad}</li>
                 </ul>
             </div>
             <div class=" mx-auto">

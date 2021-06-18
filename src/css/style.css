@@ -2944,7 +2944,7 @@ ol {
 		margin-bottom: 30px;
 	}
 	.hero__search__form {
-		width: 485px;
+		width: 100%;
 	}
 	.categories__slider.owl-carousel .owl-nav button {
 		left: -20px;
