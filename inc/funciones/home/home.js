@@ -1,6 +1,44 @@
-import { enviar_datos, mostrar_ubicacion } from "../funciones_generales.js";
+import { enviar_datos, mostrar_ubicacion, mostrar_mensaje } from "../funciones_generales.js";
 import {Ubicacion,select_ciudad,btn_confirmar_ciudad} from "../ubicacion.js";
 
+const url = "../../inc/peticiones/restaurantes/funciones.php";
+const contenedor = document.querySelector("#contenedor_restaurantes");
+const titulo = document.querySelector("#titulo_restaurantes");
+const tienes_ciudad = mostrar_ubicacion().ciudad;
+
+//AQUI CARGA SI TIENE UNA CIUDAD REGISTRADA O NO
+document.addEventListener("DOMContentLoaded", () => {
+  if (!tienes_ciudad) {
+    //MUESTRA EL MENSAJE DE QUE NO TIENE UNA CIUDAD
+    mostrar_mensaje("sin_ciudad");
+    const div_categorias = document.querySelector("#categorias");
+    const div_restaurantes = document.querySelector("#restaurantes");
+    const div_titulo_restaurantes = document.querySelector("#titulo_restaurantes");
+    const div_promociones = document.querySelector("#promociones");
+    const div_titulo_promociones = document.querySelector("#titulo_promociones");
+    //Vacia casi todos los div para mostrar solo el mensaje
+    div_categorias.innerHTML = "";
+    div_restaurantes.innerHTML = "";
+    div_titulo_restaurantes.innerHTML = "";
+    div_promociones.innerHTML = "";
+    div_titulo_promociones.innerHTML = "";
+
+  }else{
+    //BRO, A QUIEN LE TOQUE PROGRAMAR EL HOME AQUI HAY DOS FUNCIONES EN LOS CUALES PUEDES PROGRAMAR
+    mostrar_restaurantes();
+    mostrar_promociones();
+  }      
+});
+
+async function mostrar_restaurantes(){
+  //WE, AQUI PON LO DE RESTAURANTES
+}
+
+async function mostrar_promociones(){
+  //WE, AQUI PON LO DE PROMOCIONES ;V
+}
+
+/*
 
 document.addEventListener("DOMContentLoaded", () => {
   const ubicacion = new Ubicacion();
@@ -10,11 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ubicacion.buscar();
   alert(mostrar_ubicacion().ciudad);
 });
-
-export function ejemplo() {
-  console.log("des la funcion de ubicacion que esta en el home");
-}
-
+*/
 
 /* obtener la ubicacion por gps y coompararlo con otras coordenadas
 navigator.geolocation.getCurrentPosition(haz_algo,veremos);

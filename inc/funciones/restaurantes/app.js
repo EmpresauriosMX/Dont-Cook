@@ -30,8 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-
-
 async function mostrar_restaurantes_categoria(categoria){
     mostar_banner_categoria(categoria);
     console.log("voy a cargar los restaurantes de la categoria: "+categoria);
