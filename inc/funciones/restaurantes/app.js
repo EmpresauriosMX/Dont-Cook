@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (categoria) {
         //LE PASAMOS LA CATEGORIA
         if (!tienes_ciudad) {
-            mostrar_mensaje("sin_ciudad");
+            sin_ciudad();
         }else{
             mostrar_restaurantes_categoria(categoria);
         }
@@ -22,13 +22,19 @@ document.addEventListener("DOMContentLoaded", () => {
     //SI NO LE PASAMOS NADA
     else{
         if (!tienes_ciudad) {
-            mostrar_mensaje("sin_ciudad");
+            sin_ciudad();
         }else{
             mostrar_restaurantes();
         }
         
     }
 });
+
+function sin_ciudad(){
+    mostrar_mensaje("sin_ciudad");
+    const div_categorias = document.querySelector("#categorias");
+    div_categorias.innerHTML = "";
+}
 
 async function mostrar_restaurantes_categoria(categoria){
     mostar_banner_categoria(categoria);
