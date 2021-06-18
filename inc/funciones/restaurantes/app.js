@@ -3,10 +3,16 @@ import { enviar_datos, mostrar_ubicacion } from "../funciones_generales.js";
 const url = "../../inc/peticiones/restaurantes/funciones.php";
 const contenedor = document.querySelector("#contenedor_restaurantes");
 const titulo = document.querySelector("#titulo_restaurantes");
+const tienes_ciudad = mostrar_ubicacion().ciudad;
 
 document.addEventListener("DOMContentLoaded", () => {
-  mostrar_restaurantes();
-  // alert(mostrar_ubicacion().ciudad);
+    if (!tienes_ciudad) {
+        alert("parece que no tienes una ubicacion, selecciona tu ubicacion :D")
+        window.location.href  ="../user/user.php";
+    }else{
+        mostrar_restaurantes();
+
+    }
 });
 
 async function mostrar_restaurantes() {

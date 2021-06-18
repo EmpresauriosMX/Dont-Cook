@@ -9,9 +9,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const ubicacion = new Ubicacion();
     select_ciudad.addEventListener("change", ubicacion.obtener);
     btn_confirmar_ciudad.addEventListener("click", ubicacion.guardar);
+    btn_confirmar_ciudad.addEventListener("click", ir_restaurantes)
     ubicacion.buscar();
 });
   //FUNCIONES QUE SE DEBEN DE CARGAR AL INICIO
+
+  function ir_restaurantes() {
+      window.location.href ="../restaurantes/restaurantes.php";
+  }
 async function mostrarServicios(){
     var cuenta_activa = false;
     cuenta_activa =  await existe_cuenta();
