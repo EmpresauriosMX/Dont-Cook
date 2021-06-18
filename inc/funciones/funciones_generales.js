@@ -40,7 +40,12 @@ export async function enviar_datos(url, datos) {
           'sin_cuenta' :  `<div class="row">
                               <div class="col-md-4 mx-auto">
                                   <img src="../../src/img/ilustrations/no.svg" class="img-fluid" alt="Responsive image">
-                                  <h5 class="text-center text-muted mt-3">Aún no tienes una cuenta.  <a class="btn btn-sm btn-dark mx-auto " href="../login/registro.php">Registrate</a> o <a class="btn btn-sm btn-dark mx-auto" href="../login/login.php">Inicia sesión</a></h5>
+                                  <h5 class="text-center text-muted mt-3">Aún no tienes una cuenta.  
+                                    <a class="btn btn-sm btn-dark mx-auto " href="../login/registro.php">Registrate</a> o 
+                                    <a class="btn btn-sm btn-dark mx-auto" href="../login/login.php">Inicia sesión</a>
+                                    <hr>
+                                    Pero si solo quieres configurar la ciudad puedes hacerlo aquí abajo. 
+                                  </h5>
                                   <div class="col text-center mt-3">
                                       
                                   </div>
@@ -71,7 +76,17 @@ export async function enviar_datos(url, datos) {
                                       <div class="col text-center mt-3">
                                       </div>  
                                   </div> 
-                              </div>`
+                              </div>`,
+          'sin_ciudad'             : `<div class="row">
+                                  <div class="col-md-4 mx-auto">
+                                      <img src="../../src/img/ilustrations/city.svg" class="img-fluid" alt="Responsive image">
+                                      <h5 class="text-center text-muted mt-3">No tienes una ciudad guardada.
+                                        <a class="btn btn-sm btn-dark mx-auto mt-2" href="../user/user.php">Configurar ciudad</a>
+                                      </h5>
+                                      <div class="col text-center mt-3">
+                                      </div>  
+                                  </div> 
+                              </div>`                              
       }
       const muestra = MENSAJES_POR_MOSTRAR[mensaje];
       div.innerHTML += muestra;
