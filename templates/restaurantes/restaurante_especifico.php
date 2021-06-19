@@ -39,6 +39,7 @@
      ?>
     <!--Fin contenido de la plantilla -->
    
+    <script src="../inc/funciones/restaurantes/app.js"></script>
     <br>
     <?php 
     include '../componentes/footer.html';
