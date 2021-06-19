@@ -72,7 +72,7 @@
                             <div class="checkout__input">
                                 <p>Logotipo del restaurante<span>*</span></p>
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="imagen" lang="es">
+                                    <input type="file" class="custom-file-input" id="imagen" lang="es" accept=".png,.jpg">
                                     <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
                                 </div>
                                 <br>
