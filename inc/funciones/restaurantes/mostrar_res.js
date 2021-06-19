@@ -15,10 +15,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+//------------UN RESTAURANTE EN ESPECIFICO-----------
 async function mostrar_restaurante(id){
+    limpiar_contenedor();
     const datos = new FormData();
     datos.append("id", id);
-    datos.append("accion","info_restaurantes");
+    datos.append("accion","mostrar_restaurante");
     //SE BUSCA EL RESTAURANTE CON SU ID
     const res = await enviar_datos(url, datos);
     console.log(res);
@@ -33,67 +35,100 @@ async function mostrar_restaurante(id){
 }
 
 function imprime_restaurante(datos){
-    let contenido1 = document.querySelector("#form_contenido_restaurante");
-    const { id_restaurante, nombre, telefono, descripcion, descripcion_larga, horario, correo, cp, direccion, ciudad,foto} = datos;
+    let contenido1 = document.querySelector("#form_contenido1");
+    const { id_restaurante, nombre, telefono, descripcion, fb, inst, descripcion_larga, horario, correo, cp, direccion, ciudad,foto} = datos;
 
     contenido1.innerHTML += `
-            <div class="row">
-            <div class="col-lg-6 col-md-6">
-                <div class="product__details__pic">
-                    <div class="product__details__pic__item">
-                        <img id="img_restaurante" class="product__details__pic__item--large" src="../../src/img/restaurantes/${foto}" alt="">
-                    </div>
-
+    <div class="row">
+        <!--Slider-->
+        <div class="col-lg-6 col-md-6">
+            <div class="product__details__pic">
+                <!--Logo del restaurante-->
+                <div class="product__details__pic__item">
+                    <img class="product__details__pic__item--large"
+                        src="../../src/img/restaurants/${foto}" alt="">
                 </div>
-            </div>
+                <!--Fin logo del restaurante-->
 
-            <div class="col-lg-6 col-md-6">
-                <div class="product__details__text">
-                    <h1 id="nombre_restaurante">${nombre}</h1>
-
-                    <p id="descripcion_larga">${descripcion_larga}</p>
-                    <div class="row mx-auto">
-                        <a id="facebook" href="#" class="fa fa-facebook btn site-btn mx-auto ml-2"></a>
-                        <a id="instagram" href="#" class="fa fa-instagram btn site-btn mx-auto ml-2"></a>
-                        <a id="favorito" href="#" class="fa fa-heart btn site-btn mx-auto ml-2"></a>
-                        <a id="editar" href="agregar_restaurante.php" class="fa fa-edit btm btn site-btn mx-auto ml-2"></a>
-                    </div>
-                    <br>
-
+                <!--Imagenes del restaurante-->
+                <div class="product__details__pic__slider owl-carousel">
+                    <img data-imgbigurl="../../src/img/restaurants/1.jpg"
+                        src="../../src/img/restaurants/1.jpg" alt="">
+                    <img data-imgbigurl="../../src/img/restaurants/2.jpg"
+                        src="../../src/img/restaurants/2.jpg" alt="">
+                    <img data-imgbigurl="../../src/img/restaurants/3.jpg"
+                        src="../../src/img/restaurants/3.jpg" alt="">
+                    <img data-imgbigurl="../../src/img/restaurants/4.jpg"
+                        src="../../src/img/restaurants/4.jpg" alt="">
                 </div>
-            </div>
+                <!--Fin imagenes del restaurante-->
 
+            </div>
         </div>
-        <div class="row mt-3">
+        <!--Fin slider-->
+
+        <!--Información del restaurante-->
+        <div class="col-lg-6 col-md-6">
+            <div class="product__details__text">
+                <h1 id="nombre_restaurante">${nombre}</h1>
+                <!--Area de Calificación-->
+                <div class="product__details__rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                    <span>(18 reviews)</span>
+                </div>
+                <!--Fin area de calificación-->
+
+                <p id="descripcion_larga">${descripcion_larga}</p>
+                    
+                <div class="row mx-auto">
+                    <a id="facebook" href="${fb}" class="fa fa-facebook btn site-btn mx-auto ml-2"></a>
+                    <a id="instagram" href="${inst}" class="fa fa-instagram btn site-btn mx-auto ml-2"></a>
+                    <a id="favorito" href="#" class="fa fa-heart btn site-btn mx-auto ml-2"></a>
+                </div>
+                <br>
+                
+            </div>
+        </div>
+        <!--Fin información del restaurante-->
+    </div>
+
+    <br><br>
+    <!--Redes Sociales-->
+    <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-6 text-center">
                 <div class="contact__widget">
                     <span class="icon_phone"></span>
-                    <h4>Telefono</h4>
-                    <p id="telefono">${telefono}</p>
+                    <h4>${telefono}</h4>
+                    <p id="telefono">+01-3-8888-6868</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 text-center">
                 <div class="contact__widget">
                     <span class="icon_pin_alt"></span>
-                    <h4>Dirección</h4>
-                    <p id="direccion">${direccion}</p>
+                    <h4>${direccion}</h4>
+                    <p id="direccion">60-49 Road 11378 New York</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 text-center">
                 <div class="contact__widget">
                     <span class="icon_clock_alt"></span>
-                    <h4>Horarios</h4>
-                    <p id="horarios">${horario}</p>
+                    <h4>${horario}</h4>
+                    <p id="horarios">10:00 am to 23:00 pm</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 text-center">
                 <div class="contact__widget">
                     <span class="icon_mail_alt"></span>
-                    <h4>Correo</h4>
-                    <p id="correo">${correo}</p>
+                    <h4>${correo}</h4>
+                    <p id="correo">hello@colorlib.com</p>
                 </div>
             </div>
         </div>
+    <!--Fin redes sociales-->
             `;
 }
 

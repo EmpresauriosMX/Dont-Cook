@@ -7,7 +7,7 @@ switch ($accion) {
         $resultado = obtener_restaurantes();
         break;
     case "mostrar_restaurante":
-        $resultado = mostrar_restaurante();
+        $resultado = res_especifico();
         break;
 }
 
