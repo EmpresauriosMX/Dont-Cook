@@ -37,7 +37,7 @@ function obtener_restaurantes(): array
 
 function res_especifico(): array
 {
-    $ciudad = $_POST['ciudad'];
+    //$ciudad = $_POST['ciudad'];
     $cuenta_existente = false;
     //-----------SE ABRE LA SESIÓN DEL USUARIO
     session_start();
@@ -50,7 +50,7 @@ function res_especifico(): array
         $id_restaurante = $_POST['id'];
         try {
             require '../../../conexion.php';
-            $sql = "SELECT * FROM `restaurantes` WHERE `ciudad` = $ciudad and `id_restaurante` = $id_restaurante";
+            $sql = "SELECT * FROM `restaurantes` WHERE `id_restaurante` = $id_restaurante";
             $consulta = mysqli_query($conn, $sql);
             $respuesta = [];
             //SI CUENTA CON RESTAURANTES
