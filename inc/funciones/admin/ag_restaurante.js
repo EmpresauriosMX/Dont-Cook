@@ -32,17 +32,12 @@ const url = "../../inc/peticiones/admin/funciones.php";
         const email = document.querySelector("#email").value;
         const horarios = document.querySelector("#horarios").value;
         const acc = document.querySelector("#acc").value;
+        const facebook = document.querySelector("#facebook").value;
+        const instagram = document.querySelector("#instagram").value
         const imagen = document.querySelector("#imagen");
         
 
-        console.log(`el nombre es: ${nombre}
-        decripcion corta: ${desc_corta}
-        descripcion larga: ${desc_larga}
-        direccion: ${direccion}
-        codigo postal : ${cp}
-        telefono: ${telefono}
-        email: ${email}
-        horario: ${horarios}`);
+
         datos.append("nombre", nombre);
         datos.append("desc_corta", desc_corta);
         datos.append("desc_larga", desc_larga);
@@ -52,6 +47,8 @@ const url = "../../inc/peticiones/admin/funciones.php";
         datos.append("telefono",telefono);
         datos.append("email",email);
         datos.append("horarios",horarios);
+        datos.append("face",facebook);
+        datos.append("insta", instagram)
         datos.append("imagen",imagen.files[0]);
 
        datos.append("accion","registrar_restaurante");

@@ -20,6 +20,8 @@ function enviar(): array
         $cp = $_POST['cp'];
         $email = $_POST['email'];
         $horarios = $_POST['horarios'];
+        $face = $_POST['face'];
+        $inta = $_POST ['insta'];
         try {
             $tiene_imagen = getimagesize($_FILES["imagen"]["tmp_name"]);
             if ($tiene_imagen) {
@@ -30,10 +32,10 @@ function enviar(): array
                 $nueva_imagen = "fondo.png";
             }
             require '../../../conexion.php';
-            $stmt = $conn->prepare("INSERT INTO restaurantes ( nombre,id_propietario,telefono,foto,descripcion_corta,des_larga,horario,correo,codigo_postal,direccion,ciudad)
-            VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+            $stmt = $conn->prepare("INSERT INTO restaurantes ( nombre,id_propietario,telefono,foto,descripcion_corta,des_larga,horario,correo,codigo_postal,direccion,ciudad,fb,inst)
+            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
-            $stmt->bind_param('sssssssssss', $nombre, $id_user, $telefono, $nueva_imagen, $des_corta, $des_larga, $horarios, $email, $cp, $direccion, $ciudad);
+            $stmt->bind_param('sssssssssssss', $nombre, $id_user, $telefono, $nueva_imagen, $des_corta, $des_larga, $horarios, $email, $cp, $direccion, $ciudad,$face,$inta);
             $stmt->execute();
             $stmt->close();
             $respuesta = array(
