@@ -103,7 +103,8 @@ async function mostrar_restaurantes() {
     const res = await enviar_datos(url, datos);
     titulo.innerHTML = `<h2>Todos los restaurantes de ${ciudad}</h2>`;
     res.forEach((restaurante) => {
-    const { nombre, lugar, horario, descripcion, imagen } = restaurante;
+        console.log(restaurante);
+    const {id, nombre, lugar, horario, descripcion, imagen } = restaurante;
     contenedor.innerHTML += `
                 <div class="blog-card col-md-12 col-sm-12 col-xs-12 col-lg-5 mx-auto">
                     <div class="meta">
@@ -132,7 +133,7 @@ async function mostrar_restaurantes() {
                                 </span>
                                 Favorito
                             </button>
-                            <a class="btn btn-outline-secondary btn-sm">
+                            <a href="restaurante_especifico.php?r=${id}" class="btn btn-outline-secondary btn-sm">
                                 <span class="fa fa-eye" ></span> Visitar
                             </a>
                         </div>

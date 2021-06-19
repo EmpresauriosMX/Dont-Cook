@@ -39,7 +39,7 @@
      ?>
     <!--Fin contenido de la plantilla -->
    
-    <script src="../inc/funciones/restaurantes/mostrar_res.js"></script>
+    <script src="../inc/funciones/restaurantes/mostrar_res.js" type="module"></script>
     <br>
     <?php 
     include '../componentes/footer.html';

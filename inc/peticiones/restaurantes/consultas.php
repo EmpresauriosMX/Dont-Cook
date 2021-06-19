@@ -4,9 +4,9 @@ function obtener_restaurantes(): array
 {
     $ciudad = $_POST['ciudad'];
     if (isset($ciudad)) {
-        $sql = "SELECT nombre,descripcion_corta,horario,ciudad,foto FROM restaurantes WHERE ciudad = '$ciudad'";
+        $sql = "SELECT id_restaurante,nombre,descripcion_corta,horario,ciudad,foto FROM restaurantes WHERE ciudad = '$ciudad'";
     }else {
-        $sql = "SELECT nombre,descripcion_corta,horario,ciudad,foto FROM restaurantes";
+        $sql = "SELECT id_restaurante,nombre,descripcion_corta,horario,ciudad,foto FROM restaurantes";
     }
     try {
         require '../../../conexion.php';
@@ -15,12 +15,13 @@ function obtener_restaurantes(): array
         $stmt->execute();
 
         // Loguear el usuario
-        $stmt->bind_result($nombre, $descripcion, $horario, $lugar,$imagen);
+        $stmt->bind_result($id,$nombre, $descripcion, $horario, $lugar,$imagen);
 
         $respuesta = [];
         $i = 0;
 
         while ($stmt->fetch()) {
+            $respuesta[$i]['id'] = $id;
             $respuesta[$i]['nombre'] = $nombre;
             $respuesta[$i]['lugar'] = $lugar;
             $respuesta[$i]['horario'] = $horario;
