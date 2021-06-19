@@ -1,5 +1,5 @@
 import {mostrar_ubicacion, enviar_datos, mostrar_mensaje} from "../funciones_generales.js";
-const url = "../../inc/peticiones/admin/funciones.php";
+const url = "../../inc/peticiones/restaurantes/funciones.php";
 //CON ESTO OBTENEMOS EL ID DEL RESTAURANTE POR LA URL
 document.addEventListener("DOMContentLoaded", () => {
     const parametrosURL = new URLSearchParams(window.location.search);
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //------------UN RESTAURANTE EN ESPECIFICO-----------
 async function mostrar_restaurante(id){
-    limpiar_contenedor();
+    //limpiar_contenedor();
     const datos = new FormData();
     datos.append("id", id);
     datos.append("accion","mostrar_restaurante");

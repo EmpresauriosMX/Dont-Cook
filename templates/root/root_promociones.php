@@ -12,7 +12,6 @@
 <body>
    <?php
    include '../componentes/menu_admin.html';
-   include '../componentes/sesiones.php';
 
    ?>
    <!--contenido de la plantilla -->
