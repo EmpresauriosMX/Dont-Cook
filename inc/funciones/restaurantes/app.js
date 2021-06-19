@@ -10,17 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const parametrosURL = new URLSearchParams(window.location.search);
     let categoria = parametrosURL.get("c");
 
-    //SI LE PASAMOS UN RESTAURANTE LO BUSCARA
-    if (restaurante) {
-        //LE PASAMOS EL ID DE RESUTAURANTE
-        mostrar_restaurantes(restaurante);
-    }
-    //SI NO LE PASAMOS NADA CARGARA UN MENSAJE DE ERROR
-    else{
-        mostrar_mensaje("error");
-    }
-
-
     //SI LE PASAMOS UNA CATEGORIA LO BUSCARA
     console.log(categoria); 
     if (categoria) {
@@ -156,7 +145,6 @@ async function mostrar_restaurantes() {
 function limpiar_contenedor() {
     contenedor.innerHTML = "";
     titulo.innerHTML = "";
-    contenido1.innerHTML = "";
 }
 
 
