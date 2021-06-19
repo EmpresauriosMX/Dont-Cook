@@ -30,7 +30,7 @@
     ?>
 </body>
 
-<script src="../../inc/funciones/restaurantes/mostrar_res.js" type="module"></script>
+<script src="../../inc/funciones/admin/mostrar_res.js" type="module"></script>
 
 <!-- Include the Quill library -->
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
