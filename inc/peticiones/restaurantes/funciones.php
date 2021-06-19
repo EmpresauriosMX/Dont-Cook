@@ -6,6 +6,9 @@ switch ($accion) {
     case "obtener_restaurantes":
         $resultado = obtener_restaurantes();
         break;
+    case "mostrar_restaurante":
+        $resultado = mostrar_restaurante();
+        break;
 }
 
 
