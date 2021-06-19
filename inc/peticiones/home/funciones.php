@@ -12,6 +12,9 @@ switch ($accion) {
     case 'obtener_localidad':
         $resultado = getLocalidad();
         break;
+    case 'busca_categorias':
+        $resultado = busca_categorias();
+        break;
 }
 
 

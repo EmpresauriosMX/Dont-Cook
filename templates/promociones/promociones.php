@@ -63,8 +63,8 @@
             <?php include '../../inc/peticiones/promociones/todas_promociones.php'; ?>
         </div>
     </section>
-   <!--Fin de todo de home-->
-
+    <!--Fin de todo de home-->
+    <script src="../../inc/funciones/home/categorias.js" type="module"></script>
 <!--contenido de la plantilla -->
     <?php 
     include '../../templates/componentes/footer.html';

@@ -34,6 +34,7 @@
     include '../componentes/footer.html';
     include '../componentes/scripts.html';
     ?>
+    <script src="../../inc/funciones/home/categorias.js" type="module"></script>
     <script src="../../inc/funciones/favoritos/app.js" type="module"></script>
 </body>
 

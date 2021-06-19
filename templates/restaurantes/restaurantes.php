@@ -28,8 +28,8 @@
         <!-- Categories Section End -->
 
         <!--RESTAURANTES-->
-        <div class="section-title">
-            <h2 id="titulo_restaurantes"> Todos los restaurantes</h2>
+        <div class="section-title" id="titulo_restaurantes">
+            <h2 ></h2>
         </div>
         <div id="mensaje"></div>
 
@@ -37,7 +37,9 @@
         </div>
     
     </div>
-<script src="../../inc/funciones/restaurantes/app.js" type="module"></script>
+    <script src="../../inc/funciones/home/categorias.js" type="module"></script>
+    <script src="../../inc/funciones/restaurantes/app.js" type="module"></script>
+
 
 
     <?php 

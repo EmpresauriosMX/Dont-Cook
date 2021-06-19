@@ -69,3 +69,27 @@ function getLocalidad(): array
     }
     mysqli_close($conn);
 }
+
+//---------BUSQUEDA DE CATEGORIAS--------
+function busca_categorias(): array
+{
+    try {
+        require('../../../conexion.php');
+        $sql = "SELECT * FROM `categorias`";
+        $consulta = mysqli_query($conn, $sql);
+
+        $categorias = [];
+        $i = 0;
+
+        while ($row = mysqli_fetch_assoc($consulta)) {
+            $categorias[$i]['id'] = $row['id_categoria'];
+            $categorias[$i]['nombre'] = $row['nombre'];
+            $i++;
+        }
+
+        return $categorias;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conn);
+}

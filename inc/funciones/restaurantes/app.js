@@ -41,6 +41,7 @@ function sin_ciudad(){
 async function mostrar_restaurantes_categoria(categoria){
     mostar_banner_categoria(categoria);
     console.log("voy a cargar los restaurantes de la categoria: "+categoria);
+    
 }
 
 async function mostar_banner_categoria(categoria){
@@ -50,23 +51,45 @@ async function mostar_banner_categoria(categoria){
         'tacos' : ["tacos.png","tacos"],
         'comida_rapida' : ["fast_food.png","Comida rapida"],                           
     }
-    const muestra = BANNERS[categoria];
+    const DEFAULT_BANNER = ["fondo.jpeg", "¡Gracias por la idea! pronto estará esta categoría"]; 
+    const muestra = BANNERS[categoria] || DEFAULT_BANNER;
+    const aver = BANNERS[categoria] ? BANNERS[categoria]: categoria_rara();
     const foto = muestra[0];
-    const titulo = muestra[1];
+    const titulo1 = muestra[1];
     banner.innerHTML = `
         <section class="breadcrumb-section set-bg" data-setbg="../../src/img/categories/${foto}" style="background-image: url(&quot;../../src/img/categories/${foto}&quot;);">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
                         <div class="breadcrumb__text">
-                            <h2 id="nombre_restaurante">${titulo}</h2>
+                            <h2 id="nombre_restaurante">${titulo1}</h2>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     `;
-    
+    titulo.innerHTML = ``;
+}
+
+function categoria_rara(){
+    let banner = document.querySelector("#banner_categoria");
+    const foto = "fondo.jpeg";
+    const titulo1 = "¡Gracias por la idea! pronto estará esta categoría";
+    banner.innerHTML = `
+        <section class="breadcrumb-section set-bg" data-setbg="../../src/img/categories/${foto}" style="background-image: url(&quot;../../src/img/categories/${foto}&quot;);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="breadcrumb__text">
+                            <h2 id="nombre_restaurante">${titulo1}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    `;
+    titulo.innerHTML = ``;
 }
 
 //------------TODOS LOS RESTUARANTES DE LA CIUDAD-----------
@@ -77,7 +100,7 @@ async function mostrar_restaurantes() {
     datos.append("ciudad", ciudad);
     datos.append("accion", "obtener_restaurantes");
     const res = await enviar_datos(url, datos);
-    titulo.innerHTML = `Todos los restaurantes de ${ciudad}`;
+    titulo.innerHTML = `<h2>Todos los restaurantes de ${ciudad}</h2>`;
     res.forEach((restaurante) => {
     const { nombre, lugar, horario, descripcion, imagen } = restaurante;
     contenedor.innerHTML += `
