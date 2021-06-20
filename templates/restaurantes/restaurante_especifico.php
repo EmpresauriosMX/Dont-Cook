@@ -14,7 +14,7 @@
    ?>
 
    
-   <!-- Barra de Imagen -->
+   <!-- Barra de Imagen
    <section class="breadcrumb-section set-bg" data-setbg="../../src/img/fondo.jpeg">
         <div class="container">
             <div class="row">
@@ -30,8 +30,9 @@
             </div>
         </div>
     </section>
-    <!-- Fin Barra de Imagen -->
+   Fin Barra de Imagen -->
 <br>
+
 
     <!--contenido de la plantilla -->
      <?php
@@ -39,7 +40,7 @@
      ?>
     <!--Fin contenido de la plantilla -->
    
-    <script src="../inc/funciones/restaurantes/mostrar_res.js" type="module"></script>
+    <script src="../../inc/funciones/restaurantes/mostrar_res.js" type="module"></script>
     <br>
     <?php 
     include '../componentes/footer.html';

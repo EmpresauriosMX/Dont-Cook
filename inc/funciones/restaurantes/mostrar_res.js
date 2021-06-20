@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+
 //------------UN RESTAURANTE EN ESPECIFICO-----------
 async function mostrar_restaurante(id){
     //limpiar_contenedor();
@@ -46,7 +47,7 @@ function imprime_restaurante(datos){
                 <!--Logo del restaurante-->
                 <div class="product__details__pic__item">
                     <img class="product__details__pic__item--large"
-                        src="../../src/img/restaurants/${foto}" alt="">
+                        src="../../src/img/restaurantes/${foto}" alt="">
                 </div>
                 <!--Fin logo del restaurante-->
 
@@ -99,42 +100,42 @@ function imprime_restaurante(datos){
     <br><br>
     <!--Redes Sociales-->
     <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                <div class="contact__widget">
-                    <span class="icon_phone"></span>
-                    <h4>${telefono}</h4>
-                    <p id="telefono">+01-3-8888-6868</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                <div class="contact__widget">
-                    <span class="icon_pin_alt"></span>
-                    <h4>${direccion}</h4>
-                    <p id="direccion">60-49 Road 11378 New York</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                <div class="contact__widget">
-                    <span class="icon_clock_alt"></span>
-                    <h4>${horario}</h4>
-                    <p id="horarios">10:00 am to 23:00 pm</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                <div class="contact__widget">
-                    <span class="icon_mail_alt"></span>
-                    <h4>${correo}</h4>
-                    <p id="correo">hello@colorlib.com</p>
-                </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+            <div class="contact__widget">
+                <span class="icon_phone"></span>
+                <h4>Telefono</h4>
+                <p id="telefono">${telefono}</p>
             </div>
         </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+            <div class="contact__widget">
+                <span class="icon_pin_alt"></span>
+                <h4>Dirección</h4>
+                <p id="direccion">${direccion}</p>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+            <div class="contact__widget">
+                <span class="icon_clock_alt"></span>
+                <h4>Horario</h4>
+                <p id="horarios">${horario}</p>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+            <div class="contact__widget">
+                <span class="icon_mail_alt"></span>
+                <h4>Correo</h4>
+                <p id="correo">${correo}</p>
+            </div>
+        </div>
+    </div>
     <!--Fin redes sociales-->
-            `;
+    `;
 }
 
 
 function imprime_menu_config(datos){
-    let div_config = document.querySelector("#form_segundo_contenido");
+    let div_config = document.querySelector("#contenido2");
     const { id_restaurante, nombre, telefono, descripcion, descripcion_larga, horario, correo, cp, direccion, ciudad} = datos;
     div_config.innerHTML+=`
             <div class="row">
