@@ -9,7 +9,7 @@ const p_c    = L.marker([20.484027730650677, -86.95238698520322]).bindPopup('Thi
 const p_c1    = L.marker([20.48341101298483, -86.95212038322828]).bindPopup('This is Denver, CO.');
 const p_c2    = L.marker([20.49397374191328, -86.94729358546024]).bindPopup('This is Denver, CO.');
 const p_c3    = L.marker([20.49581621209855, -86.9547473773008]).bindPopup('This is Denver, CO.');
-const p_c4    = L.marker([20.496082883576054, -86.93836456398587]).bindPopup('This is Denver, CO.');
+const p_c4    = L.marker([20.496082883576054, -86.93836456398587]).bindPopup('aqui ando .');
 const p_c5    = L.marker([20.491248852818842, -86.92428556037355]).bindPopup('This is Denver, CO.');
 const p_c6    = L.marker([20.488252196473198, -86.96817716789751]).bindPopup('This is Denver, CO.');
 const p_c7    = L.marker([20.479607967283112, -86.96190930105733]).bindPopup('This is Denver, CO.');
@@ -132,3 +132,4 @@ const asignar_nueva_ciudad = () => {
 };
 
 ubicacion_inicial();
+

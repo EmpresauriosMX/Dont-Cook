@@ -37,6 +37,7 @@
 
     <!--contenido de la plantilla -->
     <script src="../../inc/funciones/home/mapa.js"></script>
+    <script src="../../inc/funciones/home/categorias.js" type="module"></script>
     <?php
     include '../componentes/footer.html';
     include '../componentes/scripts.html';

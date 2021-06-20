@@ -1,26 +1,22 @@
-<div class="row mt-4">
-    <div class="col-md-8">
-        <div class="input-group mb-3"> 
-            <select class="form-select form-select-sm mr-1 " aria-label=".form-select-sm example">
-                <option selected>Estado</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
-            <select class="form-select form-select-sm mr-1 " aria-label=".form-select-sm example">
-                <option selected>Municipio</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
-            <select class="form-select form-select-sm mr-1 " aria-label=".form-select-sm example">
-                <option selected>Localidad</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
-            <button class="btn btn-secondary col-sm-2 mt-1 mb-1 ml-2 mr-2 " type="button" id="button-addon2">Buscar</button>
+<div class="row mt-3">
+    <div class="col-sm-12 col-md-6 mx-auto">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card_tittle">Configuración de localidad</h5>
+            </div>
+            <form class="mx-auto mt-3 "id="eleccion_ciudad">
+                <div class="input-group mb-3">
+                    <select class="custom-select " name="cbx" id="cbx">
+                        <option value="">Selecciona una ciudad</option>
+                    </select>
+                    <div class="input-group-append">
+                        <button id="enviar" name="enviar" value="Guardar" class="btn btn-dark" type="button">Guardar</button>
+                    </div>
+                </div>
+                    <!--<input type="submit" id="enviar" name="enviar" value="Guardar" />-->
+            </form>
+
         </div>
+        
     </div>
-    
 </div>

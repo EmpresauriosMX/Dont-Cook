@@ -13,27 +13,27 @@
    ?>
 
 <!--contenido de la plantilla -->
-    
     <!--Todo de home-->
-     
-     <section class="categories ">
+    <section class="categories ">
         <div class="container">
         <?php
             include '../../templates/componentes/categorias.html';
         ?>
+            <div id="mensaje" class="mt-3"></div>
 
             <!--RESTAURANTES-->
-            <div class="section-title mt-3">
+            <div id="titulo_restaurantes" class="section-title mt-3">
                 <h2>Todos los restaurantes</h2>
             </div>
-            <div class="row mt-3">
+
+            <div id="restaurantes" class="row mt-3">
                 <!--restaurante 1-->
                 <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="../../src/img/restaurants/pikalogodarkmode.png">
                             <ul class="featured__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                                <li><a href="../admin/restaurante_ver.php"><i class="fa fa-eye"></i></a></li>
                             </ul>
                         </div>
                         <div class="featured__item__text">
@@ -92,10 +92,10 @@
             <!--FIN RESTAURANTES-->
 
             <!--Tarjetas de promociones-->
-            <div class="section-title mt-3">
+            <div id="titulo_promociones" class="section-title mt-3">
                 <h2>Promociones de Hoy!</h2>
             </div>
-            <div class="card-columns">
+            <div id="promociones" class="card-columns">
                 <!--Tarjeta de Base-->
                 <div class="card">
                     <img class="card-img-top" src="../../src/img/banner/banner-1.jpg" alt="Card image cap">
@@ -188,9 +188,10 @@
             <!--Fin de tarjetas de promociones-->
         </div>
     </section>
-   <!--Fin de todo de home-->
-
+    <!--Fin de todo de home-->
 <!--contenido de la plantilla -->
+    <script src="../../inc/funciones/home/home.js" type="module"></script>
+    <script src="../../inc/funciones/home/categorias.js" type="module"></script>
     <?php 
     include '../../templates/componentes/footer.html';
     include '../../templates/componentes/scripts.html';

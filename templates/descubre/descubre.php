@@ -68,6 +68,7 @@
    
 
 <!--contenido de la plantilla -->
+    <script src="../../inc/funciones/home/categorias.js" type="module"></script>
     <?php 
     include '../../templates/componentes/footer.html';
     include '../../templates/componentes/scripts.html';

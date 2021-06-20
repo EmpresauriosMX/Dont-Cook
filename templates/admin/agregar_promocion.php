@@ -1,3 +1,6 @@
+<?php
+  include '../../inc/peticiones/login/sesion.php';
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -10,6 +13,8 @@
 <body>
   <?php
   include '../componentes/head.html';
+  include '../componentes/sesiones.php';
+
   ?>
 
   <!--contenido de la plantilla -->
