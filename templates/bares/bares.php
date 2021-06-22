@@ -117,7 +117,7 @@
 
     </div>
 
-holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa apenas me pusieron por aqui
+
 
 <!--contenido de la plantilla -->
     <?php 
