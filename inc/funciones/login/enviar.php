@@ -1,5 +1,5 @@
 <?php
-    $correo = $_POST[$correo];
+    $correo = $_POST['email'];
 
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
@@ -29,7 +29,7 @@
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML
         $mail->Subject = utf8_decode('RECUPERACION DE CONTRASEÑA');
-        $mail->Body    = 'aqui va la contraseña';
+        $mail->Body    = 'Cambia tu contraseña dando click ';
 
         $mail->send();
         echo 'MENSAJE ENVIADO';
