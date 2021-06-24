@@ -29,7 +29,7 @@
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML
         $mail->Subject = utf8_decode('RECUPERACION DE CONTRASEÑA');
-        $mail->Body    = 'Cambia tu contraseña dando click ';
+        $mail->Body    = 'Cambia tu contraseña dando click <a href="../../../templates/login/login.php">aqui</a>';
 
         $mail->send();
         echo 'MENSAJE ENVIADO';
