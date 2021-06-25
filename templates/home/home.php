@@ -21,75 +21,6 @@
         ?>
             <div id="mensaje" class="mt-3"></div>
 
-            <!--RESTAURANTES-->
-            <div id="titulo_restaurantes" class="section-title mt-3">
-                <h2>Todos los restaurantes</h2>
-            </div>
-
-            <div id="restaurantes" class="row mt-3">
-                <!--restaurante 1-->
-                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="../../src/img/restaurants/pikalogodarkmode.png">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="../admin/restaurante_ver.php"><i class="fa fa-eye"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">pequeña descripción</a></h6>
-                            <h5>Restaurante</h5>
-                        </div>
-                    </div>
-                </div>
-                <!--restaurante 2-->
-                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="../../src/img/restaurants/pikalogodarkmode.png">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-eye"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">pequeña descripción</a></h6>
-                            <h5>Restaurante</h5>
-                        </div>
-                    </div>
-                </div>
-                <!--restaurante 3-->
-                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="../../src/img/restaurants/pikalogodarkmode.png">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-eye"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">pequeña descripción</a></h6>
-                            <h5>Restaurante</h5>
-                        </div>
-                    </div>
-                </div>
-                <!--restaurante 4-->
-                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="../../src/img/restaurants/pikalogodarkmode.png">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-eye"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">pequeña descripción</a></h6>
-                            <h5>Restaurante</h5>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <!--FIN RESTAURANTES-->
 
             <!--Tarjetas de promociones-->
             <div id="titulo_promociones" class="section-title mt-3">
@@ -186,6 +117,78 @@
                 </div>
             </div>
             <!--Fin de tarjetas de promociones-->
+
+            <!--RESTAURANTES-->
+            <div id="titulo_restaurantes" class="section-title mt-3">
+                <h2>Todos los restaurantes</h2>
+            </div>
+
+            <div id="restaurantes" class="row mt-3">
+                <!--restaurante 1-->
+                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+                    <div class="featured__item">
+                        <div class="featured__item__pic set-bg" data-setbg="../../src/img/restaurants/pikalogodarkmode.png">
+                            <ul class="featured__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="../admin/restaurante_ver.php"><i class="fa fa-eye"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a href="#">pequeña descripción</a></h6>
+                            <h5>Restaurante</h5>
+                        </div>
+                    </div>
+                </div>
+                <!--restaurante 2-->
+                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+                    <div class="featured__item">
+                        <div class="featured__item__pic set-bg" data-setbg="../../src/img/restaurants/pikalogodarkmode.png">
+                            <ul class="featured__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a href="#">pequeña descripción</a></h6>
+                            <h5>Restaurante</h5>
+                        </div>
+                    </div>
+                </div>
+                <!--restaurante 3-->
+                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+                    <div class="featured__item">
+                        <div class="featured__item__pic set-bg" data-setbg="../../src/img/restaurants/pikalogodarkmode.png">
+                            <ul class="featured__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a href="#">pequeña descripción</a></h6>
+                            <h5>Restaurante</h5>
+                        </div>
+                    </div>
+                </div>
+                <!--restaurante 4-->
+                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+                    <div class="featured__item">
+                        <div class="featured__item__pic set-bg" data-setbg="../../src/img/restaurants/pikalogodarkmode.png">
+                            <ul class="featured__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a href="#">pequeña descripción</a></h6>
+                            <h5>Restaurante</h5>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!--FIN RESTAURANTES-->
+
+            
         </div>
     </section>
     <!--Fin de todo de home-->
