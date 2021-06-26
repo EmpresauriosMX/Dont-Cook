@@ -19,9 +19,10 @@ function enviar(): array
         $direccion = $_POST['direccion'];
         $cp = $_POST['cp'];
         $email = $_POST['email'];
-      //  $horarios = $_POST['horarios'];
+        //  $horarios = $_POST['horarios'];
         $face = $_POST['face'];
-        $inta = $_POST ['insta'];
+        $inta = $_POST['insta'];
+        $serv_domicilio = (int) $_POST['servicio'];
         try {
             $tiene_imagen = getimagesize($_FILES["imagen"]["tmp_name"]);
             if ($tiene_imagen) {
@@ -32,39 +33,40 @@ function enviar(): array
                 $nueva_imagen = "fondo.png";
             }
             require '../../../conexion.php';
-            $stmt = $conn->prepare("INSERT INTO restaurantes ( nombre,id_propietario,telefono,foto,descripcion_corta,des_larga,correo,codigo_postal,direccion,ciudad,fb,inst)
-            VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
+            $stmt = $conn->prepare("INSERT INTO restaurantes ( nombre,id_propietario,telefono,foto,descripcion_corta,des_larga,correo,codigo_postal,direccion,ciudad,fb,inst,serv_dom)
+            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
-            $stmt->bind_param('ssssssssssss', $nombre, $id_user, $telefono, $nueva_imagen, $des_corta, $des_larga, $email, $cp, $direccion, $ciudad,$face,$inta);
+            $stmt->bind_param('ssssssssssssi', $nombre, $id_user, $telefono, $nueva_imagen, $des_corta, $des_larga, $email, $cp, $direccion, $ciudad, $face, $inta, $serv_domicilio);
             $stmt->execute();
             $stmt->close();
 
-//ingreso del horario
+            //ingreso del horario
             $ingresar_horario = $conn->prepare("INSERT INTO fechas ( id_restaurante, dia, hora_inicio, hora_fin) VALUES (?,?,?,?)");
-            $ingresar_horario->bind_param('iiss', $nuevo_id, $dia,$inicio,$fin);
+            $ingresar_horario->bind_param('iiss', $nuevo_id, $dia, $inicio, $fin);
             //variables
-          /*  $dia = 2;
+            /*  $dia = 2;
             $inicio = "14:28";
             $fin = "03:11"; 
             $ingresar_horario -> execute();*/
             $nuevo_id = mysqli_insert_id($conn);
 
 
-           $fechas = json_decode($_POST['horarios']);
+            $fechas = json_decode($_POST['horarios']);
             foreach ($fechas as $value) {
-                $dia =(int) $value->id_dia;
+                $dia = (int) $value->id_dia;
                 $inicio = $value->hora_inicio;
                 $fin = $value->hora_fin;
-                $ingresar_horario-> execute();
+                $ingresar_horario->execute();
             }
 
-        
+
             $respuesta = array(
                 'estado' => $tiene_imagen,
                 'imagen' => $nueva_imagen,
                 'estado' => 'correcto',
                 'id' => mysqli_insert_id($conn),
                 'nuevo id' => $nuevo_id,
+                'servicio' => $serv_domicilio,
                 'fechas' => $_POST['horarios']
             );
 
