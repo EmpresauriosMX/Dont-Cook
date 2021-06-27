@@ -52,24 +52,24 @@ async function imprime_user_card(){
                     <li>
                         Correo
                     </li>
-                    <li>
+                    <!--<li>
                         Edad
-                    </li>
+                    </li>-->
                     <li>
                         Ubicación
                     </li> 
                 </ul>
                 <ul class='values'>
                     <li>${correo}</li>
-                    <li>${edad}</li>
+                    <!--<li>${edad}</li>-->
                     <li>${tienes_ciudad}</li>
                 </ul>
             </div>
             <div class=" mx-auto">
-                <a href='#' class='btn btn-dark mt-1'>
+                <!--<a href='#' class='btn btn-dark mt-1'>
                     <i class='fa fa-edit'></i>
                     Editar
-                </a>
+                </a>-->
                 <a href='../admin/home_admin.php' class='btn btn-dark mt-1'>
                     <i class='fa fa-home'></i>
                     Mis restaurantes
