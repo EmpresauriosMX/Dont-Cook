@@ -44,7 +44,7 @@ async function imprime_user_card(){
     let div_user_card = document.querySelector("#user_card");
     div_user_card.innerHTML= `
         <div class="col-md-6 col-sm-12" id='card'>
-            <img alt='user-image' id='userImage' src='https://randomuser.me/api/portraits/men/62.jpg'>
+            <img alt='user-image' id='userImage' src='https://blog.cpanel.com/wp-content/uploads/2019/08/user-01.png'>
             <br>
             <h4 id='playerName'>${nombres} ${apellidos}</h4>
             <div id='states'>
