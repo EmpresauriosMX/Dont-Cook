@@ -55,7 +55,7 @@ function registro_restaurante(e) {
   datos.append("horarios", array_horarios);
 
   datos.append("accion", "registrar_restaurante");
-  enviar_datos(url, datos).then((re) => console.log(re));
+  enviar_datos(url, datos).then((re) =>alert(JSON.stringify(re)));
 }
 
 function agregar_dia(e) {
