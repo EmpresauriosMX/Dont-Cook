@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //MUESTRA EL MENSAJE DE QUE NO TIENE UNA CIUDAD
     mostrar_mensaje("sin_ciudad");
     const div_categorias = document.querySelector("#categorias");
-    const div_restaurantes = document.querySelector("#restaurantes");
+    const div_restaurantes = document.querySelector("#contenedor_restaurantes");
     const div_titulo_restaurantes = document.querySelector("#titulo_restaurantes");
     const div_promociones = document.querySelector("#promociones");
     const div_titulo_promociones = document.querySelector("#titulo_promociones");
@@ -30,13 +30,66 @@ document.addEventListener("DOMContentLoaded", () => {
   }      
 });
 
-async function mostrar_restaurantes(){
-  //WE, AQUI PON LO DE RESTAURANTES
-}
-
 async function mostrar_promociones(){
   //WE, AQUI PON LO DE PROMOCIONES ;V
 }
+
+//------------TODOS LOS RESTUARANTES DE LA CIUDAD-----------
+async function mostrar_restaurantes() {
+  limpiar_contenedor();
+  const datos = new FormData();
+  const ciudad = mostrar_ubicacion().ciudad;
+  datos.append("ciudad", ciudad);
+  datos.append("accion", "obtener_restaurantes");
+  const res = await enviar_datos(url, datos);
+  titulo.innerHTML = `<h2>Todos los restaurantes de ${ciudad}</h2>`;
+  res.forEach((restaurante) => {
+      console.log(restaurante);
+  const {id, nombre, lugar, horario, descripcion, imagen } = restaurante;
+  contenedor.innerHTML += `
+              <div class="blog-card col-md-12 col-sm-12 col-xs-12 col-lg-5 mx-auto">
+                  <div class="meta">
+                      <div class="photo" style="background-image: url(../../src/img/restaurantes/${imagen}"></div>
+                      <ul class="details">
+                          <li class="author"><a href="#">Correo@mail.com</a></li>
+                          <li class="tags">
+                          <ul>
+                              <li><a href="#">Facebook</a></li>
+                              <li><a href="#">Instagram</a></li>
+                              <li><a href="#">Twitter</a></li>
+                          </ul>
+                          </li>
+                      </ul>
+                  </div>
+                  <div class="description">
+                      <h4>${nombre}</b></h4>
+                      <h5>Abierto / Cerrado</h5>
+                      <p class=""><small class="text-muted">${descripcion}</small></p>
+                          <div class="row">
+                              
+                          </div>
+                      <div class="read-more mt-2">
+                          <button type="button" class="btn btn-outline-secondary btn-sm">
+                              <span class="fa fa-heart">
+                              </span>
+                              Favorito
+                          </button>
+                          <a href="restaurante_especifico.php?r=${id}" class="btn btn-outline-secondary btn-sm">
+                              <span class="fa fa-eye" ></span> Visitar
+                          </a>
+                      </div>
+                  </div>
+              </div>
+              `;
+  });
+}
+
+function limpiar_contenedor() {
+  contenedor.innerHTML = "";
+  titulo.innerHTML = "";
+}
+
+
 
 /*
 
