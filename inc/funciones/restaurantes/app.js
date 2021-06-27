@@ -35,6 +35,7 @@ function sin_ciudad(){
     mostrar_mensaje("sin_ciudad");
     const div_categorias = document.querySelector("#categorias");
     div_categorias.innerHTML = "";
+    titulo.innerHTML = ``;
 }
 
 //----------------------CATEGORIAS-----------------------------
