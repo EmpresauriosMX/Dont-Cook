@@ -28,7 +28,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 ); color:white; font-weight:bold; pa
                 <p></p>
                 <div class="login">
                     <p>¿No tienes una cuenta?<a href="registro.php"> Registrate</a></p>
-                    <p>¿Olvidaste tu contraseña?<a href="recuperar.php"> Recuperala</a></p>
+                    <!--p>¿Olvidaste tu contraseña?<a href="recuperar.php"> Recuperala</a></p-->
                 </div>
             </div>
         </div>
