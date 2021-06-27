@@ -4,13 +4,19 @@
         <?php 
         include '../componentes/header.html';
         ?>
-        <link rel="stylesheet" href="../../src/css/login.scss" type="text/css">
+        <link rel="stylesheet" href="../../src/css/login.css" type="text/css">
 
     </head>
-    <body>
+    <body style="background-image: linear-gradient(to top, #3a3a3a,#202020 100%);">
         
         <div class="container">
-            <div style="background:#00000099; color:white; font-weight:bold; padding:15px; border:3px solid #B34F19; margin-top:40px; margin-bottom:40px; text-align:center; font-size:22px; border-radius:10px;">
+            <div style="
+background-color: #ffa04b;
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 20.0px );
+-webkit-backdrop-filter: blur( 20.0px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 ); color:white; font-weight:bold; padding:15px; margin-top:40px; margin-bottom:40px; text-align:center; font-size:22px; border-radius:10px;">
                 <h1>Iniciar sesión</h1>
                 <form id="login_inicio">
                     <input type="text" id="usuario" placeholder="usuario">

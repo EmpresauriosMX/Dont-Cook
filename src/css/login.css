@@ -1,22 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
-
-@import url('https://fonts.googleapis.com/css?family=Lato');
-
-
-// STYLES
-
-// fonts
-
-$font-primary: 'Montserrat','Arial',sans-serif;
-$font-body: 'Lato','Arial',sans-serif;
-
-// colors
-$color-primary: #8D6CC7;
-$color-primary-dark: darken($color-primary,3%);
-$color-light-gray: #DAE2F1;
-
-// GLOBAL
-
 *{
   margin: 0;
   padding: 0;
@@ -32,9 +13,7 @@ body{
 }
 
 body {
-    /* Ruta relativa o completa a la imagen */
-    background-image: url(../img/login_DC2.png);
-    /* Centramos el fondo horizontal y verticalmente */
+    
     background-position: center center;
     /* El fondo no se repite */
     background-repeat: no-repeat;
@@ -46,21 +25,6 @@ body {
     background-color: #FFF;
 }
 
-/* Background para ancho máximo de la pantalla física */
-@media only screen and (max-device-width: 767px) {
-    body {
-        background-image: url(../img/login_DC2.png);
-        color: #FFF;
-    }
-}
-
-/* Background para ancho máximo del navegador */
-@media only screen and (max-width: 767px) {
-    body {
-        background-image: url(../img/login_DC3.png);
-        color: #FFF;
-    }
-}
 
 .container{
   height: 100%;
@@ -72,18 +36,17 @@ body {
 }
 
 h1{
-  font-family: $font-primary;
+
   color: rgb(255, 255, 255);
   text-align: center;
   font-size: 2rem;
   margin-bottom: 32px;
 }
 
-// FORM
+
 
 form{
   text-transform: capitalize;
-  font-family: $font-body;
   text-align: center;
 }
 
@@ -96,18 +59,10 @@ input{
   color:#000000;
   font-size: .8rem;
   transition: .4s;
-  
-    &:last-child{
-    margin-bottom: 0;
-  }
-  &:focus{
-    border-color: rgb(96, 70, 243);
-    outline: none;
-  }
 }
 
 [type="submit"]{
-  background: rgb(35, 119, 228);
+  background: #46b389;
   border-radius: 30px;
   padding: 16px 30px;
   width: 100%;
@@ -115,15 +70,10 @@ input{
   text-transform: uppercase;
   font-size: 1rem;
   transition: .4s;
-  font-family: $font-primary;
   border: none;
   box-shadow: none;
   margin: 0;
-  
-    &:hover{
-    background: rgb(15, 0, 0);
-    cursor: pointer;
-  }
+
 }
 
 p{
