@@ -41,7 +41,8 @@ function imprime_restaurante(datos){
             <div class="col-lg-6 col-md-6">
                 <div class="product__details__pic">
                     <div class="product__details__pic__item">
-                        <img id="img_restaurante" class="product__details__pic__item--large" src="../../src/img/restaurantes/${foto}" alt="">
+                        <img id="img_restaurante" class="img-fluid" src="../../src/img/restaurantes/${foto}" alt="">
+                        <button class="btn btn-dark btn-sm btn-block"> Cambiar logo      <i class="fa fa-image"></i> </button> 
                     </div>
 
                 </div>
