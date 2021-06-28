@@ -20,13 +20,12 @@
     <section class="categories">
         <div class="container">
             <br>
-            <!-- Fin slider de categorias -->
-
+            <div id="mensaje"></div>
             <!--Tarjetas de promociones-->
-            <div class="section-title mt-3">
+            <div id="titulo_promociones" class="section-title mt-3">
                 <h2>Promociones de Hoy!</h2>
             </div>
-            <div class="card-columns">
+            <div id="contenido_promociones" class="card-columns">
                 <?php
                     $day = date("l");
                     switch ($day) {
@@ -57,14 +56,14 @@
             </div>
             <!--TODAS LAS PROMOCIONES-->
             <!--Tarjetas de promociones-->
-            <div class="section-title mt-3">
+            <div id="titulo_promociones_todas" class="section-title mt-3">
                 <h2>Todas las promociones</h2>
             </div>
-            <?php include '../../inc/peticiones/promociones/todas_promociones.php'; ?>
+            <!--?php include '../../inc/peticiones/promociones/todas_promociones.php'; ?-->
         </div>
     </section>
     <!--Fin de todo de home-->
-    <script src="../../inc/funciones/home/categorias.js" type="module"></script>
+    <script src="../../inc/funciones/promociones/app.js" type="module"></script>
 <!--contenido de la plantilla -->
     <?php 
     include '../../templates/componentes/footer.html';
