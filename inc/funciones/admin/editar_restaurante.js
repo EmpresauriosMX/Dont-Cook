@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-
 document.addEventListener("DOMContentLoaded", () => {
   const ubicacion = new Ubicacion();
   ubicacion.buscar();
@@ -31,6 +30,23 @@ document.addEventListener("DOMContentLoaded", () => {
   listado_restaurante.addEventListener("submit", registro_restaurante);
   lista_dias.addEventListener("change", agregar_dia);
 });
+
+async function mostrar_restaurante(id){
+  const datos = new FormData();
+  datos.append("id", id);
+  datos.append("accion","info_restaurantes");
+  //SE BUSCA EL RESTAURANTE CON SU ID
+  const res = await enviar_datos(url, datos);
+  console.log(res);
+  //SI SE ENCUENTRA EL RESTAURANTE SE IMPRIME
+  if(!res.respuesta){
+      imprime_restaurante(res);
+      //imprime_menu_config(res);
+  }
+  else{
+      mostrar_mensaje("error");
+  }
+}
 
 function registro_restaurante(e) {
   e.preventDefault();

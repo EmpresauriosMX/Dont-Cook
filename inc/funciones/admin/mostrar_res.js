@@ -57,7 +57,7 @@ function imprime_restaurante(datos){
                         <a id="facebook" href="#" class="fa fa-facebook btn site-btn mx-auto ml-2"></a>
                         <a id="instagram" href="#" class="fa fa-instagram btn site-btn mx-auto ml-2"></a>
                         <a id="favorito" href="#" class="fa fa-heart btn site-btn mx-auto ml-2"></a>
-                        <a id="editar" href="agregar_restaurante.php" class="fa fa-edit btm btn site-btn mx-auto ml-2"></a>
+                        <a id="editar" href="editar_restaurante.php?r=${id_restaurante}" class="fa fa-edit btm btn site-btn mx-auto ml-2"></a>
                     </div>
                     <br>
 
