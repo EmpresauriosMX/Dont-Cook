@@ -33,9 +33,10 @@ function enviar(): array
                 $nueva_imagen = "fondo.png";
             }
             require '../../../conexion.php';
+
+            //ingreso del restaurante
             $stmt = $conn->prepare("INSERT INTO restaurantes ( nombre,id_propietario,telefono,foto,descripcion_corta,des_larga,correo,codigo_postal,direccion,ciudad,fb,inst,serv_dom)
             VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
-
             $stmt->bind_param('ssssssssssssi', $nombre, $id_user, $telefono, $nueva_imagen, $des_corta, $des_larga, $email, $cp, $direccion, $ciudad, $face, $inta, $serv_domicilio);
             $stmt->execute();
             $stmt->close();
@@ -43,12 +44,19 @@ function enviar(): array
             //ingreso del horario
             $ingresar_horario = $conn->prepare("INSERT INTO fechas ( id_restaurante, dia, hora_inicio, hora_fin) VALUES (?,?,?,?)");
             $ingresar_horario->bind_param('iiss', $nuevo_id, $dia, $inicio, $fin);
+
+            //ingreso de las categorias
+
+            $ingresar_categoria = $conn->prepare("INSERT INTO categorias_restaurantes ( id_categoria, id_restaurante) VALUES (?,?)");
+            $ingresar_categoria->bind_param('ii', $id_categoria, $nuevo_id);
+
+
             //variables
             /*  $dia = 2;
             $inicio = "14:28";
             $fin = "03:11"; 
             $ingresar_horario -> execute();*/
-            $nuevo_id = mysqli_insert_id($conn);
+            $nuevo_id = mysqli_insert_id($conn); // id del restaurante insertado
 
 
             $fechas = json_decode($_POST['horarios']);
@@ -59,6 +67,12 @@ function enviar(): array
                 $ingresar_horario->execute();
             }
 
+            $categorias = json_decode($_POST['categorias']);
+
+            foreach ($categorias as $value) {
+                $id_categoria = (int) $value;
+                $ingresar_categoria->execute();
+            }
 
             $respuesta = array(
                 'estado' => $tiene_imagen,
@@ -67,7 +81,8 @@ function enviar(): array
                 'id' => mysqli_insert_id($conn),
                 'nuevo id' => $nuevo_id,
                 'servicio' => $serv_domicilio,
-                'fechas' => $_POST['horarios']
+                'fechas' => $_POST['horarios'],
+                'categoria' => $_POST['categorias']
             );
 
             return $respuesta;
