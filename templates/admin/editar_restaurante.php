@@ -39,9 +39,93 @@ include '../../inc/peticiones/login/sesion.php';
     </section>
     <!-- Fin Barra de Imagen -->
     <br>
+    <div class="container mb-5 mx-auto">
+        <ul class="nav nav-pills secondary justify-content-center mb-5" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#info" role="tab" aria-controls="home" aria-selected="true">Información general</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#contacto" role="tab" aria-controls="profile" aria-selected="false">Contacto</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#ciudad" role="tab" aria-controls="contact" aria-selected="false">Ciudad</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#horario" role="tab" aria-controls="contact" aria-selected="false">Horario</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <!--INFORMACIÓN GENERAL DEL RESTAURANTE-->
+            <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="home-tab">
+                <div class="row">
+                    <div class="col-md-12 mx-auto">
+                        <form id="form_agregar_restaurante" name="form_agregar_restaurante" action="#">
+                            <div class="row">
+                                <div class="col-lg-8 col-md-6 mx-auto">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="checkout__input">
+                                                <p>Nombre del Restaurante<span>*</span></p>
+                                                <input id="nombre" name="nombre" type="text" required="required">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="checkout__input">
+                                                <p>Descripción Corta del Restaurante<span>*</span></p>
+                                                <input id="desc_corta" name="desc_corta" type="text" required="required">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="checkout__input">
+                                        <p>Descripción larga<span>*</span></p>
+                                        <textarea class="form-control" rows="3" id="desc_larga" name="desc_larga" required="required"></textarea>
+                                    </div>
+
+                                    <div class="checkout__input__checkbox">
+                                        <label for="acc">
+                                            ¿Cuenta con servicio a domicilio?
+                                            <input type="checkbox" id="acc">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+
+                                    <br>
+                                    <button type="submit" class="site-btn btn-block">Guardar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--INFORMACIÓN GENERAL DEL RESTAURANTE /-->
+            <!--INFORMACION DE CONTACTO---->
+            <div class="tab-pane fade" id="contacto" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="row">
+                    <div class="col-md-12 mx-auto">
+                        <form id="form_agregar_restaurante" name="form_agregar_restaurante" action="#">
+                            <div class="row">
+                                <div class="col-lg-8 col-md-6 mx-auto">
+
+                                    <br>
+                                    <button type="submit" class="site-btn btn-block">Guardar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--INFORMACION DE CONTACTO--/-->
+            <div class="tab-pane fade" id="ciudad" role="tabpanel" aria-labelledby="contact-tab">...</div>
+            <div class="tab-pane fade" id="horario" role="tabpanel" aria-labelledby="contact-tab">...</div>
+        </div>
+
+    </div>
     
+
+
     <div  class="container mb-5 mx-auto ">
-    <div id="mensaje"></div>
+        <div id="mensaje"></div>
         <form id="form_agregar_restaurante" name="form_agregar_restaurante" action="#">
             <div class="row">
                 <div class="col-lg-8 col-md-6 mx-auto">
@@ -68,14 +152,14 @@ include '../../inc/peticiones/login/sesion.php';
                         <textarea class="form-control" rows="3" id="desc_larga" name="desc_larga" required="required"></textarea>
                     </div>
 
-                    <div class="checkout__input">
+                    <!--div class="checkout__input">
                         <p>Logotipo del restaurante<span>*</span></p>
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" id="imagen" lang="es" accept=".png,.jpg">
                             <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
                         </div>
                         <br>
-                    </div>
+                    </div-->
 
 
                     <!--
@@ -153,14 +237,14 @@ include '../../inc/peticiones/login/sesion.php';
                         </div>
                         <div class="card-columns body">
                             <div class="container" id="lista_lista">
-                                <div class="row row-cols-2">
-                                    <div class="col">
+                                <div class="row row-cols-2 text-center">
+                                    <div class="col mx-auto">
                                         <div class="form-check form-switch ">
                                             <input class="form-check-input" type="checkbox" id="1">
                                             <label class="form-check-label" for="flexSwitchCheckDefault">Lunes</label>
                                         </div>
                                     </div>
-                                    <div class="col">
+                                    <div class="col mx-auto">
                                         <div class="form-check form-switch">
                                             <input class="form-check-input" type="checkbox" id="2" >
                                             <label class="form-check-label" for="flexSwitchCheckDefault">Martes</label>

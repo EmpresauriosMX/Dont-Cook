@@ -70,6 +70,11 @@ async function mostrarServicios(){
                                 
                             </div>
                         <div class="read-more mt-2">
+                            <a href="editar_restaurante.php?r=${id_restaurante}" class="btn btn-outline-danger btn-sm">
+                                <span class="fa fa-edit">
+                                </span>
+                                Editar
+                            </a>
                             <button type="button" class="btn btn-outline-secondary btn-sm">
                                 <span class="fa fa-heart">
                                 </span>

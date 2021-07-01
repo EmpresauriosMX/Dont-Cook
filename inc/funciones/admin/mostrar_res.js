@@ -34,7 +34,7 @@ async function mostrar_restaurante(id){
 
 function imprime_restaurante(datos){
     let contenido1 = document.querySelector("#form_contenido_restaurante");
-    const { id_restaurante, nombre, telefono, descripcion, descripcion_larga, horario, correo, cp, direccion, ciudad,foto} = datos;
+    const { id, nombre, telefono, descripcion, descripcion_larga, horario, correo, cp, direccion, ciudad,foto} = datos;
 
     contenido1.innerHTML += `
             <div class="row">
@@ -57,7 +57,7 @@ function imprime_restaurante(datos){
                         <a id="facebook" href="#" class="fa fa-facebook btn site-btn mx-auto ml-2"></a>
                         <a id="instagram" href="#" class="fa fa-instagram btn site-btn mx-auto ml-2"></a>
                         <a id="favorito" href="#" class="fa fa-heart btn site-btn mx-auto ml-2"></a>
-                        <a id="editar" href="editar_restaurante.php?r=${id_restaurante}" class="fa fa-edit btm btn site-btn mx-auto ml-2"></a>
+                        <a id="editar" href="editar_restaurante.php?r=${id}" class="fa fa-edit btm btn site-btn mx-auto ml-2"></a>
                     </div>
                     <br>
 

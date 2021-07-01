@@ -8,6 +8,7 @@ const fechas = [];
 const listado_restaurante = document.querySelector("#form_agregar_restaurante");
 const lista_dias = document.querySelector("#lista_lista");
 
+//------------OBTENER EL ID DEL RESTAURANTE-------------
 document.addEventListener("DOMContentLoaded", () => {
   const parametrosURL = new URLSearchParams(window.location.search);
   let restaurante = parametrosURL.get("r");
@@ -23,14 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const ubicacion = new Ubicacion();
-  ubicacion.buscar();
-  select_ciudad.addEventListener("change", ubicacion.obtener);
-  listado_restaurante.addEventListener("submit", registro_restaurante);
-  lista_dias.addEventListener("change", agregar_dia);
-});
-
+//-----------MOSTRAR LOS DATOS QUE YA TENIA EL RESTAURANTE--------
 async function mostrar_restaurante(id){
   const datos = new FormData();
   datos.append("id", id);
@@ -45,8 +39,46 @@ async function mostrar_restaurante(id){
   }
   else{
       mostrar_mensaje("error");
+      listado_restaurante.innerHTML = "";
   }
 }
+
+function imprime_restaurante(restaurante){
+  let contenido1 = document.querySelector("#form_contenido_restaurante");
+  const { id, nombre, telefono, descripcion, descripcion_larga, horario, correo, cp, direccion, ciudad,foto} = restaurante;
+  //VARIABLE
+  const dias_validos = preparar_dias_a_enviar();
+
+  const nombre_res = document.querySelector("#nombre");
+  const desc_corta = document.querySelector("#desc_corta");
+  const desc_larga = document.querySelector("#desc_larga");
+  const select_ciudad = document.querySelector("#eleccion_ciudad");
+  const ciudad_res = obj.ciudad;
+  const direccion_res = document.querySelector("#direccion");
+  const cp_res = document.querySelector("#cp");
+  const telefono_res = document.querySelector("#telefono");
+  const email = document.querySelector("#email");
+  const acc = document.querySelector("#acc");
+  const facebook = document.querySelector("#facebook");
+  const instagram = document.querySelector("#instagram");
+  const imagen = document.querySelector("#imagen");
+  const array_horarios = JSON.stringify(dias_validos);
+  
+  nombre_res.value = nombre;
+  desc_corta.value = descripcion;
+  desc_larga.value = descripcion_larga
+
+}
+
+//------------------ENVIO DE LA ACTUALIZACION DEL RESTAURANTE------------
+document.addEventListener("DOMContentLoaded", () => {
+  const ubicacion = new Ubicacion();
+  ubicacion.buscar();
+  select_ciudad.addEventListener("change", ubicacion.obtener);
+  listado_restaurante.addEventListener("submit", registro_restaurante);
+  lista_dias.addEventListener("change", agregar_dia);
+});
+
 
 function registro_restaurante(e) {
   e.preventDefault();
