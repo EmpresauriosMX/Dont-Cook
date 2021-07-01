@@ -45,28 +45,42 @@ async function mostrar_restaurante(id){
 
 function imprime_restaurante(restaurante){
   let contenido1 = document.querySelector("#form_contenido_restaurante");
-  const { id, nombre, telefono, descripcion, descripcion_larga, horario, correo, cp, direccion, ciudad,foto} = restaurante;
-  //VARIABLE
+  const { id, nombre, telefono, descripcion, descripcion_larga, horario, correo, cp, direccion, ciudad,foto, serv_dom} = restaurante;
+  
   const dias_validos = preparar_dias_a_enviar();
 
+  //INFORMACION GENERAL
+  //variables
   const nombre_res = document.querySelector("#nombre");
   const desc_corta = document.querySelector("#desc_corta");
   const desc_larga = document.querySelector("#desc_larga");
+  const acc = document.querySelector("#acc");
+  const servicio_domicilio = serv_dom ? 1 : 0;
+  //imprimir en formulario
+  nombre_res.value = nombre;
+  desc_corta.value = descripcion;
+  desc_larga.value = descripcion_larga
+  acc.checked  = servicio_domicilio;
+
+  //INFORAMACION DE CONTACTO
+
+  //INFORMACION DE CIUDAD 
+
+  //INFORMACION DE HORARIO
+
+  
   const select_ciudad = document.querySelector("#eleccion_ciudad");
   const ciudad_res = obj.ciudad;
   const direccion_res = document.querySelector("#direccion");
   const cp_res = document.querySelector("#cp");
   const telefono_res = document.querySelector("#telefono");
   const email = document.querySelector("#email");
-  const acc = document.querySelector("#acc");
   const facebook = document.querySelector("#facebook");
   const instagram = document.querySelector("#instagram");
   const imagen = document.querySelector("#imagen");
   const array_horarios = JSON.stringify(dias_validos);
   
-  nombre_res.value = nombre;
-  desc_corta.value = descripcion;
-  desc_larga.value = descripcion_larga
+  
 
 }
 

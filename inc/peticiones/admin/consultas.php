@@ -234,7 +234,8 @@ function info_restaurante(): array
                     'cp'        => $row['codigo_postal'],
                     'direccion' => $row['direccion'],
                     'ciudad'    => $row['ciudad'],
-                    'foto'      => $row['foto']
+                    'foto'      => $row['foto'],
+                    'serv_dom'  => $row['serv_dom']
                 );
             } else {
                 //SI NO CUENTA CON RESTAURANTES
