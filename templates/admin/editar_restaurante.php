@@ -160,9 +160,10 @@ include '../../inc/peticiones/login/sesion.php';
                                     <div class="checkout__input">
                                         <div class="hero__search">
                                             <form id="eleccion_ciudad">
-                                                <p>Selecciona tu ciudad:<span>*</span></p>
+                                                <h5 class="text-center">Ciudad actual: </h5>
+                                                <p class="">Selecciona tu ciudad:<span>*</span></p>
                                                 <div class="row">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-6 ">
                                                         <select placeholder="Ciudad" class="custom-select" name="cbx" id="cbx"></select>
                                                     </div>
                                                 </div>
