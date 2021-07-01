@@ -1,3 +1,8 @@
+import { enviar_datos, mostrar_ubicacion } from "../funciones_generales.js";
+const url = "../../inc/peticiones/admin/funciones.php";
+const btn = document.querySelector("#btn");
+btn.addEventListener("click", qwerty);
+
 document.getElementById("file").onchange = function(e) {
   // Creamos el objeto de la clase FileReader
   let reader = new FileReader();
@@ -16,3 +21,17 @@ document.getElementById("file").onchange = function(e) {
     preview.append(image);
   };
 }
+
+function qwerty (){
+
+  const nombre = document.querySelector("#fullname").value;
+  const datos = new FormData();
+  datos.append("accion","ver_promo");
+  datos.append("qwerty1",nombre);
+
+  enviar_datos(url, datos).then((resultado) =>alert(JSON.stringify(resultado)));
+
+
+}
+
+

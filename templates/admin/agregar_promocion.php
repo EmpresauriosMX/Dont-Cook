@@ -13,7 +13,6 @@
 <body>
   <?php
   include '../componentes/head.html';
-  include '../componentes/sesiones.php';
 
   ?>
 
@@ -68,6 +67,16 @@
                           <input type="checkbox" class="flat" id="SI_SE"> viernes
                         </label>
                       </div>
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" class="flat" id="SI_SE"> sabado
+                        </label>
+                      </div>
+                      <div class="checkbox">  
+                        <label>
+                          <input type="checkbox" class="flat" id="SI_SE"> domingo
+                        </label>
+                      </div>
 
                     </div>
                   </div>
@@ -91,7 +100,7 @@
                   <textarea id="message" required="required" class="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.." data-parsley-validation-threshold="10"></textarea>
 
                   <br />
-                  <span class="btn btn-primary">Agregar Promocion</span>
+                  <span class="btn btn-primary" id="btn">Agregar Promocion</span>
 
                 </form>
                 <!-- end form for validations -->
@@ -109,7 +118,7 @@
   include '../componentes/footer.html';
   include '../componentes/scripts.html';
   ?>
-  <script src="../../inc/funciones/admin/agregar_promocion.js"></script>
+  <script src="../../inc/funciones/admin/agregar_promocion.js" type="module"></script>
 </body>
 
 </html>

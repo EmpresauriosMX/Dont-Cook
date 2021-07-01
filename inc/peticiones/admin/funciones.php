@@ -15,6 +15,12 @@ switch ($accion) {
     case "info_restaurantes":
         $resultado = info_restaurante();
         break;
+    case "agregar_promo":
+        $resultado = agregar_promocion();
+        break;
+    case "ver_promo":
+        $resultado = ver_promocion();
+        break;
         
 }
 

@@ -236,3 +236,25 @@ function info_restaurante(): array
     }
     return $respuesta;
 }
+
+function agregar_promocion(): array
+{
+    
+    $respuesta = array(
+        'respuesta' => "Ingresaron datos"
+    );
+
+    return $respuesta;
+}
+
+function ver_promocion(): array
+{
+
+    $promocion = $_POST['qwerty1'];
+    $respuesta = array(
+        'respuesta' => "sin_restaurantes",
+        'ver respuesta post' => $promocion
+    );
+
+    return $respuesta;
+}
