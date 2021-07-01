@@ -54,7 +54,16 @@ async function mostar_banner_categoria(categoria){
     //LAS CATEGORIAS SE VAN AGREGANDO AQUI CON UNA IMAGEN Y UNA FOTO
     const BANNERS ={
         'Bares' : ["bar.jpg","Bares"],
-        'comida_rapida' : ["fast_food.png","Comida rapida"],                           
+        'Cafeterías' : ["coffee.jpg","Cafeterías"],
+        'Carritos de comida' : ["truck.jpg","Carritos de comida"],
+        'Comida oriental' : ["oriental.jpg","Comida oriental"],
+        'Comida mexicana' : ["tacos.jpg","Comida mexicana"],
+        'Comida rapida' : ["fast.jpg","Comida rapida"],
+        'Mariscos' : ["camaron.jpg","Mariscos"],
+        'Pizzerias' : ["pizza.jpg","Pizzerías"],
+        'Servicio a domicilio' : ["delivery.jpg","Servicio a domicilio"],
+        
+
     }
     const DEFAULT_BANNER = ["fondo.jpeg", "¡Gracias por la idea! pronto estará esta categoría"]; 
     //const muestra = BANNERS[categoria] || DEFAULT_BANNER;
