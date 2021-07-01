@@ -54,6 +54,9 @@ include '../../inc/peticiones/login/sesion.php';
             <li class="nav-item">
                 <a class="nav-link" id="contact-tab" data-toggle="tab" href="#horario" role="tab" aria-controls="contact" aria-selected="false">Horario</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#categorias" role="tab" aria-controls="contact" aria-selected="false">Categorías</a>
+            </li>
         </ul>
         <!----CONTENIDO DE LOS FORMULARIOS--->
         <div class="tab-content" id="myTabContent">
@@ -61,7 +64,7 @@ include '../../inc/peticiones/login/sesion.php';
             <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="home-tab">
                 <div class="row">
                     <div class="col-md-12 mx-auto">
-                        <form id="form_agregar_restaurante" name="form_agregar_restaurante" action="#">
+                        <form id="" name="" action="#">
                             <div class="row">
                                 <div class="col-lg-8 col-md-6 mx-auto">
                                     <div class="row">
@@ -105,7 +108,7 @@ include '../../inc/peticiones/login/sesion.php';
             <div class="tab-pane fade" id="contacto" role="tabpanel" aria-labelledby="profile-tab">
                 <div class="row">
                     <div class="col-md-12 mx-auto">
-                        <form id="form_agregar_restaurante" name="form_agregar_restaurante" action="#">
+                        <form id="" name="" action="#">
                             <div class="row">
                                 <div class="col-lg-8 col-md-6 mx-auto">
                                     <div class="row">
@@ -151,24 +154,24 @@ include '../../inc/peticiones/login/sesion.php';
             <div class="tab-pane fade" id="ciudad" role="tabpanel" aria-labelledby="contact-tab">
                 <div class="row">
                     <div class="col-md-12 mx-auto">
-                        <form id="form_agregar_restaurante" name="form_agregar_restaurante" action="#">
+                        <form id="" name="" action="#">
                             <div class="row">
                                 <div class="col-lg-8 col-md-6 mx-auto">
-                                <div class="checkout__input">
-                                    <div class="hero__search">
-                                        <form id="eleccion_ciudad">
-                                            <p>Selecciona tu ciudad:<span>*</span></p>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <select placeholder="Ciudad" class="custom-select" name="cbx" id="cbx"></select>
+                                    <div class="checkout__input">
+                                        <div class="hero__search">
+                                            <form id="eleccion_ciudad">
+                                                <p>Selecciona tu ciudad:<span>*</span></p>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <select placeholder="Ciudad" class="custom-select" name="cbx" id="cbx"></select>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <input placeholder="Dirección" id="direccion" name="direccion" type="text" class="checkout__input__add" required="required">
+                                            </form>
+                                        </div>
+                                        <input placeholder="Dirección" id="direccion" name="direccion" type="text" class="checkout__input__add" required="required">
 
-                                    <input placeholder="Codigo Postal" id="cp" name="cp" type="text" class="checkout__input__add" required="required">
-                                </div>
+                                        <input placeholder="Codigo Postal" id="cp" name="cp" type="text" class="checkout__input__add" required="required">
+                                    </div>
 
                                     <br>
                                     <button type="submit" class="site-btn btn-block">Guardar</button>
@@ -183,7 +186,7 @@ include '../../inc/peticiones/login/sesion.php';
             <div class="tab-pane fade" id="horario" role="tabpanel" aria-labelledby="contact-tab">
                 <div class="row">
                     <div class="col-md-12 mx-auto">
-                        <form id="form_agregar_restaurante" name="form_agregar_restaurante" action="#">
+                        <form id="" name="" action="#">
                             <div class="row">
                                 <div class="col-lg-8 col-md-6 mx-auto">
                                     <div class="card text-center">
@@ -263,6 +266,81 @@ include '../../inc/peticiones/login/sesion.php';
                 </div>
             </div>
             <!--INFORMACIÓN DEL HORARIO--/-->
+            <!--INFORMACIÓN DE LAS CATEGORIAS-->
+            <div class="tab-pane fade" id="categorias" role="tabpanel" aria-labelledby="contact-tab">
+                <div class="row">
+                    <div class="col-md-12 mx-auto">
+                        <form id="" name="" action="#">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 mx-auto">
+                                    <!--LUIS WE AQUI PON LO DE LAS CATEGORIAS-->
+                                    <div class="checkout__input">
+                                        <div class="hero__search">
+                                            <form id="">
+                                                <div class="row">
+                                                    <div class="col-md-12 mx-auto">
+                                                        <p>Agregar una categoria</p>
+                                                        <div class="input-group mb-3">
+                                                        <select placeholder="Ciudad" class="custom-select" name="cbx" id=""></select>
+                                                            <div class="input-group-append">
+                                                                <button class="btn btn-outline-dark" type="button">Agregar</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--AQUI SE VAN A IMPRIMIR LAS CATEGORIAS-->
+                                                    <h5 class="text-center mb-3">Categorías de mi restaurante</h5>
+                                                    <div class="col-md-6 col-lg-4">
+                                                        <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+                                                            <small>Para llevar</small>
+                                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                                <span class="fa fa-trash" aria-hidden="true"></span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-lg-4">
+                                                        <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+                                                            <small>Para llevar</small>
+                                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                                <span class="fa fa-trash" aria-hidden="true"></span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-lg-4">
+                                                        <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+                                                            <small>Para llevar</small>
+                                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                                <span class="fa fa-trash" aria-hidden="true"></span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-lg-4 col-xs-4">
+                                                        <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+                                                            <small>Comida  china</small>
+                                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                                <span class="fa fa-trash" aria-hidden="true"></span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-lg-4 col-xs-4">
+                                                        <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+                                                            <small>Comida  china</small>
+                                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                                <span class="fa fa-trash" aria-hidden="true"></span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--INFORMACION DE LAS CATEGORIAS--/-->
         </div>
         <!----CONTENIDO DE LOS FORMULARIOS--/-->
     </div>
