@@ -55,6 +55,7 @@ include '../../inc/peticiones/login/sesion.php';
                 <a class="nav-link" id="contact-tab" data-toggle="tab" href="#horario" role="tab" aria-controls="contact" aria-selected="false">Horario</a>
             </li>
         </ul>
+        <!----CONTENIDO DE LOS FORMULARIOS--->
         <div class="tab-content" id="myTabContent">
             <!--INFORMACIÓN GENERAL DEL RESTAURANTE-->
             <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="home-tab">
@@ -180,7 +181,7 @@ include '../../inc/peticiones/login/sesion.php';
             <!--INFORMACION DE LA CIUDAD--/-->
             <!--INFORMACION DEL HORARIO-->
             <div class="tab-pane fade" id="horario" role="tabpanel" aria-labelledby="contact-tab">
-            <div class="row">
+                <div class="row">
                     <div class="col-md-12 mx-auto">
                         <form id="form_agregar_restaurante" name="form_agregar_restaurante" action="#">
                             <div class="row">
@@ -263,7 +264,7 @@ include '../../inc/peticiones/login/sesion.php';
             </div>
             <!--INFORMACIÓN DEL HORARIO--/-->
         </div>
-
+        <!----CONTENIDO DE LOS FORMULARIOS--/-->
     </div>
     
 

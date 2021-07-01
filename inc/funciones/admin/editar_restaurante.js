@@ -45,7 +45,7 @@ async function mostrar_restaurante(id){
 
 function imprime_restaurante(restaurante){
   let contenido1 = document.querySelector("#form_contenido_restaurante");
-  const { id, nombre, telefono, descripcion, descripcion_larga, horario, correo, cp, direccion, ciudad,foto, serv_dom} = restaurante;
+  const { id, nombre, telefono, descripcion, descripcion_larga, horario, correo, cp, direccion, ciudad,foto, serv_dom,fb, inst} = restaurante;
   
   const dias_validos = preparar_dias_a_enviar();
 
@@ -63,6 +63,16 @@ function imprime_restaurante(restaurante){
   acc.checked  = servicio_domicilio;
 
   //INFORAMACION DE CONTACTO
+  //variables
+  const telefono_res = document.querySelector("#telefono");
+  const email = document.querySelector("#email");
+  const facebook = document.querySelector("#facebook");
+  const instagram = document.querySelector("#instagram");
+  //imprimir en formulario
+  telefono_res.value = telefono;
+  email.value = correo;
+  facebook.value = fb;
+  instagram.value = inst;
 
   //INFORMACION DE CIUDAD 
 
@@ -73,10 +83,9 @@ function imprime_restaurante(restaurante){
   const ciudad_res = obj.ciudad;
   const direccion_res = document.querySelector("#direccion");
   const cp_res = document.querySelector("#cp");
-  const telefono_res = document.querySelector("#telefono");
-  const email = document.querySelector("#email");
-  const facebook = document.querySelector("#facebook");
-  const instagram = document.querySelector("#instagram");
+  
+  
+  
   const imagen = document.querySelector("#imagen");
   const array_horarios = JSON.stringify(dias_validos);
   

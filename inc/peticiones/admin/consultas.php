@@ -235,7 +235,9 @@ function info_restaurante(): array
                     'direccion' => $row['direccion'],
                     'ciudad'    => $row['ciudad'],
                     'foto'      => $row['foto'],
-                    'serv_dom'  => $row['serv_dom']
+                    'serv_dom'  => $row['serv_dom'],
+                    'fb'  => $row['fb'],
+                    'inst'  => $row['inst']
                 );
             } else {
                 //SI NO CUENTA CON RESTAURANTES
