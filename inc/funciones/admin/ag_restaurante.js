@@ -4,6 +4,7 @@ import { Ubicacion, select_ciudad, obj } from "../ubicacion.js";
 const url = "../../inc/peticiones/admin/funciones.php";
 
 const fechas = [];
+const categorias = [1,2,3,4];
 //Documento del formulario
 const listado_restaurante = document.querySelector("#form_agregar_restaurante");
 const lista_dias = document.querySelector("#lista_lista");
@@ -36,6 +37,7 @@ function registro_restaurante(e) {
   const instagram = document.querySelector("#instagram").value;
   const imagen = document.querySelector("#imagen");
   const array_horarios = JSON.stringify(dias_validos);
+  const array_categorias  = JSON.stringify(categorias);
 
   const servicio_domicilio = acc ? 1 : 0;
 
@@ -53,6 +55,7 @@ function registro_restaurante(e) {
   datos.append("insta", instagram);
   datos.append("imagen", imagen.files[0]);
   datos.append("horarios", array_horarios);
+  datos.append("categorias", array_categorias);
 
   datos.append("accion", "registrar_restaurante");
   enviar_datos(url, datos).then((re) =>alert(JSON.stringify(re)));
@@ -78,9 +81,9 @@ function preparar_dias_a_enviar() {
   const horario_abrir = document.querySelector("#horario_abrir").value;
   const horario_cerrar = document.querySelector("#horario_cerrar").value;
 
-  const cambio = fechas.forEach((ele) => {
-    ele.hora_inicio = horario_abrir;
-    ele.hora_fin = horario_cerrar;
+  const cambio = fechas.forEach((fecha) => {
+    fecha.hora_inicio = horario_abrir;
+    fecha.hora_fin = horario_cerrar;
   });
 
   return fechas.filter((elem) => elem.estado == true);
