@@ -257,9 +257,34 @@ function info_restaurante(): array
 
 function agregar_promocion(): array
 {
-    
+    $nombre = $_POST['nombre'];
+    $foto = $_POST['foto'];
+    $lunes = $_POST['lunes'];
+    $martes = $_POST['martes'];
+    $miercoles = $_POST['miercoles'];
+    $jueves = $_POST['jueves'];
+    $viernes = $_POST['viernes'];
+    $sabado = $_POST['sabado'];
+    $domingo = $_POST['domingo'];
+    $dia = $_POST['dia'];
+    $message = $_POST['message'];
+
+    require '../../../conexion.php';
+    $sql = "INSERT INTO promociones (id_promocion, id_restaurante, imagen, descripcion, Dias, Nombre) VALUES (NULL, '1', '12345', 'qwerty', '741', 'qwertyuiop')";
+
     $respuesta = array(
-        'respuesta' => "Ingresaron datos"
+        'respuesta' => "Ingresaron datos",
+        'ver respuesta nombre' => $nombre ,
+        'ver respuesta foto' => $foto ,
+        'ver respuesta lunes' => $lunes ,
+        'ver respuesta martes' => $martes ,
+        'ver respuesta miercoles' => $miercoles ,
+        'ver respuesta jueves' => $jueves ,
+        'ver respuesta viernes' => $viernes ,
+        'ver respuesta sabado' => $sabado ,
+        'ver respuesta domingo' => $domingo ,
+        'ver respuesta dia' => $dia ,
+        'ver respuesta message' => $message
     );
 
     return $respuesta;
@@ -268,7 +293,7 @@ function agregar_promocion(): array
 function ver_promocion(): array
 {
 
-    $promocion = $_POST['qwerty1'];
+    $promocion = $_POST['nombre'];
     $respuesta = array(
         'respuesta' => "sin_restaurantes",
         'ver respuesta post' => $promocion
