@@ -75,14 +75,17 @@ function imprime_restaurante(restaurante){
   instagram.value = inst;
 
   //INFORMACION DE CIUDAD 
-
-  //INFORMACION DE HORARIO
-
-  
-  const select_ciudad = document.querySelector("#eleccion_ciudad");
-  const ciudad_res = obj.ciudad;
+  //variable
+  const ciudad_actual = document.querySelector("#ciudad_actual");
   const direccion_res = document.querySelector("#direccion");
   const cp_res = document.querySelector("#cp");
+  //imprimir en el formulario
+  ciudad_actual.innerHTML = "Ciuad actual del restaurante: " + ciudad;
+  direccion_res.value = direccion;
+  cp_res.value = cp;
+  
+  //INFORMACION DE HORARIO
+  
   
   
   
