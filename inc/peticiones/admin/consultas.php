@@ -203,6 +203,39 @@ function busca_restaurantes(): array
 }
 
 
+function horario_restaurante(): array
+{   
+        $id_restaurante = $_POST['id'];
+        try {
+            require '../../../conexion.php';
+            $sql = "SELECT * FROM `fechas` WHERE `id_restaurante` = $id_restaurante";
+            $consulta = mysqli_query($conn, $sql);
+            $respuesta = [];
+            //SI CUENTA CON RESTAURANTES
+            if (mysqli_num_rows($consulta) != 0) {
+                while ($row = mysqli_fetch_assoc($consulta)) {
+                    $respuesta[$i]['id_restaurante'] = $row['id_restaurante'];
+                    $respuesta[$i]['id_fechas'] = $row['id_fechas'];
+                    $respuesta[$i]['dia'] = $row['dia'];
+                    $respuesta[$i]['hora_inicio'] = $row['hora_inicio'];
+                    $respuesta[$i]['hora_fin'] = $row['hora_fin'];
+                    $i++;
+                }
+            } else {
+                //SI NO CUENTA CON RESTAURANTES
+                $respuesta = array(
+                    'respuesta' => "sin_horario",
+                    'consulta' => mysqli_num_rows($consulta)
+                );
+            }
+        } catch (\Throwable $th) {
+            $respuesta = array(
+                'respuesta' => "entro al catch "
+            );
+        }
+    return $respuesta;
+}
+
 function info_restaurante(): array
 {
     $cuenta_existente = false;
