@@ -203,6 +203,40 @@ function busca_restaurantes(): array
 }
 
 
+function horario_restaurante(): array
+{   
+        $id_restaurante = $_POST['id'];
+        try {
+            require '../../../conexion.php';
+            $sql = "SELECT * FROM `fechas` WHERE `id_restaurante` = $id_restaurante";
+            $consulta = mysqli_query($conn, $sql);
+            $respuesta = [];
+            $i = 0;
+            //SI CUENTA CON RESTAURANTES
+            if (mysqli_num_rows($consulta) != 0) {
+                while ($row = mysqli_fetch_assoc($consulta)) {
+                    $respuesta[$i]['id_restaurante'] = $row['id_restaurante'];
+                    $respuesta[$i]['id_fechas'] = $row['id_fechas'];
+                    $respuesta[$i]['dia'] = $row['dia'];
+                    $respuesta[$i]['hora_inicio'] = $row['hora_inicio'];
+                    $respuesta[$i]['hora_fin'] = $row['hora_fin'];
+                    $i++;
+                }
+            } else {
+                //SI NO CUENTA CON RESTAURANTES
+                $respuesta = array(
+                    'respuesta' => "sin_horario",
+                    'consulta' => mysqli_num_rows($consulta)
+                );
+            }
+        } catch (\Throwable $th) {
+            $respuesta = array(
+                'respuesta' => "entro al catch "
+            );
+        }
+    return $respuesta;
+}
+
 function info_restaurante(): array
 {
     $cuenta_existente = false;
@@ -257,9 +291,34 @@ function info_restaurante(): array
 
 function agregar_promocion(): array
 {
-    
+    $nombre = $_POST['nombre'];
+    $foto = $_POST['foto'];
+    $lunes = $_POST['lunes'];
+    $martes = $_POST['martes'];
+    $miercoles = $_POST['miercoles'];
+    $jueves = $_POST['jueves'];
+    $viernes = $_POST['viernes'];
+    $sabado = $_POST['sabado'];
+    $domingo = $_POST['domingo'];
+    $dia = $_POST['dia'];
+    $message = $_POST['message'];
+
+    require '../../../conexion.php';
+    $sql = "INSERT INTO promociones (id_promocion, id_restaurante, imagen, descripcion, Dias, Nombre) VALUES (NULL, '1', '12345', 'qwerty', '741', 'qwertyuiop')";
+
     $respuesta = array(
-        'respuesta' => "Ingresaron datos"
+        'respuesta' => "Ingresaron datos",
+        'ver respuesta nombre' => $nombre ,
+        'ver respuesta foto' => $foto ,
+        'ver respuesta lunes' => $lunes ,
+        'ver respuesta martes' => $martes ,
+        'ver respuesta miercoles' => $miercoles ,
+        'ver respuesta jueves' => $jueves ,
+        'ver respuesta viernes' => $viernes ,
+        'ver respuesta sabado' => $sabado ,
+        'ver respuesta domingo' => $domingo ,
+        'ver respuesta dia' => $dia ,
+        'ver respuesta message' => $message
     );
 
     return $respuesta;
@@ -268,7 +327,7 @@ function agregar_promocion(): array
 function ver_promocion(): array
 {
 
-    $promocion = $_POST['qwerty1'];
+    $promocion = $_POST['nombre'];
     $respuesta = array(
         'respuesta' => "sin_restaurantes",
         'ver respuesta post' => $promocion

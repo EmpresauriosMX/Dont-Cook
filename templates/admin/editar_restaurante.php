@@ -160,7 +160,7 @@ include '../../inc/peticiones/login/sesion.php';
                                     <div class="checkout__input">
                                         <div class="hero__search">
                                             <form id="eleccion_ciudad">
-                                                <h5 class="text-center">Ciudad actual: </h5>
+                                                <h5 id="ciudad_actual" class="text-center">Ciudad actual: </h5>
                                                 <p class="">Selecciona tu ciudad:<span>*</span></p>
                                                 <div class="row">
                                                     <div class="col-md-6 ">
@@ -209,31 +209,31 @@ include '../../inc/peticiones/login/sesion.php';
                                                             <label class="form-check-label" for="flexSwitchCheckDefault">Martes</label>
                                                         </div>
                                                     </div>
-                                                    <div class="col">
+                                                    <div class="col mx-auto">
                                                         <div class="form-check form-switch">
                                                             <input class="form-check-input" type="checkbox" id="3" >
                                                             <label class="form-check-label" for="flexSwitchCheckDefault">Miercoles</label>
                                                         </div>
                                                     </div>
-                                                    <div class="col">
+                                                    <div class="col mx-auto">
                                                         <div class="form-check form-switch">
                                                             <input class="form-check-input" type="checkbox" id="4" >
                                                             <label class="form-check-label" for="flexSwitchCheckDefault">Jueves</label>
                                                         </div>
                                                     </div>
-                                                    <div class="col">
+                                                    <div class="col mx-auto">
                                                         <div class="form-check form-switch">
                                                             <input class="form-check-input" type="checkbox" id="5" >
                                                             <label class="form-check-label" for="flexSwitchCheckDefault">Viernes</label>
                                                         </div>
                                                     </div>
-                                                    <div class="col">
+                                                    <div class="col mx-auto">
                                                         <div class="form-check form-switch">
                                                             <input class="form-check-input" type="checkbox" id="6" >
                                                             <label class="form-check-label" for="flexSwitchCheckDefault">Sabado</label>
                                                         </div>
                                                     </div>
-                                                    <div class="col">
+                                                    <div class="col mx-auto">
                                                         <div class="form-check form-switch">
                                                             <input class="form-check-input" type="checkbox" id="0" >
                                                             <label class="form-check-label" for="flexSwitchCheckDefault">Domingo</label>

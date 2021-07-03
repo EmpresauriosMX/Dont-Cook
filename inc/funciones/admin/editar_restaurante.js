@@ -43,7 +43,7 @@ async function mostrar_restaurante(id){
   }
 }
 
-function imprime_restaurante(restaurante){
+async function imprime_restaurante(restaurante){
   let contenido1 = document.querySelector("#form_contenido_restaurante");
   const { id, nombre, telefono, descripcion, descripcion_larga, horario, correo, cp, direccion, ciudad,foto, serv_dom,fb, inst} = restaurante;
   
@@ -75,22 +75,36 @@ function imprime_restaurante(restaurante){
   instagram.value = inst;
 
   //INFORMACION DE CIUDAD 
-
-  //INFORMACION DE HORARIO
-
-  
-  const select_ciudad = document.querySelector("#eleccion_ciudad");
-  const ciudad_res = obj.ciudad;
+  //variable
+  const ciudad_actual = document.querySelector("#ciudad_actual");
   const direccion_res = document.querySelector("#direccion");
   const cp_res = document.querySelector("#cp");
+  //imprimir en el formulario
+  ciudad_actual.innerHTML = "Ciuad actual del restaurante: " + ciudad;
+  direccion_res.value = direccion;
+  cp_res.value = cp;
+  
+  //INFORMACION DE HORARIO
+  const res_horario = await obtener_horario_restaurante(id);
+  console.log(res_horario);
   
   
-  
-  const imagen = document.querySelector("#imagen");
-  const array_horarios = JSON.stringify(dias_validos);
-  
-  
-
+  res_horario.forEach((respuesta) => {
+  console.log(respuesta);
+  const {id_fechas, dia, hora_inicio, hora_fin} = respuesta;
+    console.log(dia);
+    const dia_div = document.getElementById(dia.toString());
+    dia_div.checked = true;
+  });
+}
+async function obtener_horario_restaurante(restaurante){
+  const datos = new FormData();
+  datos.append("id", restaurante);
+  datos.append("accion","horario_restaurante");
+  //SE BUSCA EL HORARIO CON SU ID DE RESTAURANTE
+  const horario = await enviar_datos(url, datos);
+  console.log(horario);
+  return horario;
 }
 
 //------------------ENVIO DE LA ACTUALIZACION DEL RESTAURANTE------------
