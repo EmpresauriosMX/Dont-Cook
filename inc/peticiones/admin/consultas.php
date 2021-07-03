@@ -70,7 +70,7 @@ function enviar(): array
             $categorias = json_decode($_POST['categorias']);
 
             foreach ($categorias as $value) {
-                $id_categoria = (int) $value;
+                $id_categoria = (int) $value -> id;
                 $ingresar_categoria->execute();
             }
 
@@ -274,5 +274,31 @@ function ver_promocion(): array
         'ver respuesta post' => $promocion
     );
 
+    return $respuesta;
+}
+
+//categorias
+function obtener_categorias(): array
+{
+    try {
+        require '../../../conexion.php';
+        $sql = "SELECT id_categoria,nombre FROM categorias";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+
+        $stmt->bind_result($id, $nombre);
+
+        $respuesta = [];
+        $i = 0;
+
+        while ($stmt->fetch()) {
+            $respuesta[$i]['id'] = $id;
+            $respuesta[$i]['nombre'] = $nombre;
+            $i++;
+        }
+        $stmt->close();
+    } catch (\Throwable $th) {
+    }
     return $respuesta;
 }

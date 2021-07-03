@@ -4,10 +4,15 @@ import { Ubicacion, select_ciudad, obj } from "../ubicacion.js";
 const url = "../../inc/peticiones/admin/funciones.php";
 
 const fechas = [];
-const categorias = [1,2,3,4];
+const categorias = [];
 //Documento del formulario
 const listado_restaurante = document.querySelector("#form_agregar_restaurante");
 const lista_dias = document.querySelector("#lista_lista");
+
+const select_categorias  = document.querySelector("#cbx_categoria");
+const btn_categoria = document.querySelector("#boton_agregar_categoria");
+const contenedor_categorias = document.querySelector( "#contenedor_categorias" );
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const ubicacion = new Ubicacion();
@@ -15,6 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
   select_ciudad.addEventListener("change", ubicacion.obtener);
   listado_restaurante.addEventListener("submit", registro_restaurante);
   lista_dias.addEventListener("change", agregar_dia);
+  btn_categoria.addEventListener("click", valor_select_categorias);
+  contenedor_categorias.addEventListener("click", eliminar_categoria);
+  obtener_categorias();
+ // displayTime();
+
 });
 
 function registro_restaurante(e) {
@@ -88,3 +98,68 @@ function preparar_dias_a_enviar() {
 
   return fechas.filter((elem) => elem.estado == true);
 }
+
+//categorias
+async function obtener_categorias() {
+  const datos = new FormData();
+  datos.append("accion", "obtener_categorias");
+
+  const res = await enviar_datos(url, datos);
+  console.log(res);
+  res.forEach((e) => {
+    select_categorias.innerHTML += `<option value=${e.id} name="ciudad">${e.nombre}</option>  `;
+  });
+}
+
+
+function valor_select_categorias() {
+ 
+    const opcion_id = select_categorias.value;
+    var opcion_texto = select_categorias.options[select_categorias.selectedIndex].text;
+   categorias.push({ id:parseInt(opcion_id), nombre: opcion_texto } );
+   console.log(categorias);
+
+   categorias_html();
+}
+
+function categorias_html() {
+  const contenedor_categorias = document.querySelector( "#contenedor_categorias" );
+  contenedor_categorias.innerHTML  = "";
+  categorias.forEach((categoria) => {
+    contenedor_categorias.innerHTML += `
+    <div class="col">
+    <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+        <small>${categoria.nombre}</small>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close" id="${categoria.id}">
+            <span class="fa fa-trash" aria-hidden="true" id ="${categoria.id}"></span>
+        </button>
+    </div>
+</div>`;
+  });
+}
+
+
+function eliminar_categoria (e){
+  if (e.target.classList.contains('fa-trash') || e.target.classList.contains('close') ) {
+    const id = e.target.id;
+    const is_categoria = categorias.findIndex((Element) => Element.id == id);
+console.log(is_categoria);
+console.log(id);
+      if (is_categoria != -1) {
+        categorias.splice(is_categoria,1)
+      } 
+      console.log(categorias);
+    }
+  }
+
+/*
+let contador = 0;
+
+function displayTime() {
+ // var time = moment().format('HH:mm:ss');
+
+console.log("hola mundo");
+  contador += 1;
+  console.log(`este es el tiempo actual ${contador}`);
+  setTimeout(displayTime, 1000);
+}*/

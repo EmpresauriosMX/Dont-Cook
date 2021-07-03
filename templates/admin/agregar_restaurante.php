@@ -164,37 +164,37 @@ include '../../inc/peticiones/login/sesion.php';
                                     </div>
                                     <div class="col">
                                         <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" id="2" >
+                                            <input class="form-check-input" type="checkbox" id="2">
                                             <label class="form-check-label" for="flexSwitchCheckDefault">Martes</label>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" id="3" >
+                                            <input class="form-check-input" type="checkbox" id="3">
                                             <label class="form-check-label" for="flexSwitchCheckDefault">Miercoles</label>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" id="4" >
+                                            <input class="form-check-input" type="checkbox" id="4">
                                             <label class="form-check-label" for="flexSwitchCheckDefault">Jueves</label>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" id="5" >
+                                            <input class="form-check-input" type="checkbox" id="5">
                                             <label class="form-check-label" for="flexSwitchCheckDefault">Viernes</label>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" id="6" >
+                                            <input class="form-check-input" type="checkbox" id="6">
                                             <label class="form-check-label" for="flexSwitchCheckDefault">Sabado</label>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" id="0" >
+                                            <input class="form-check-input" type="checkbox" id="0">
                                             <label class="form-check-label" for="flexSwitchCheckDefault">Domingo</label>
                                         </div>
                                     </div>
@@ -214,6 +214,42 @@ include '../../inc/peticiones/login/sesion.php';
                                 <label> Horario Cierre</label>
                                 <input type="time" id="horario_cerrar">
                             </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 mx-auto">
+                            <form id="" name="" action="#">
+                                <div class="row">
+                                    <div class="col-lg">
+                                        <!--LUIS WE AQUI PON LO DE LAS CATEGORIAS-->
+                                        <div class="checkout__input">
+                                            <div class="hero__search">
+                                                <form id="">
+                                                    <div class="row">
+                                                        <div class="col-md-12 mx-auto">
+                                                            <p>Agregar una categoria</p>
+                                                            <div class="input-group mb-3">
+                                                                <select placeholder="Ciudad" class="custom-select" name="cbx_categoria" id="cbx_categoria"></select>
+                                                                <div class="input-group-append">
+                                                                    <button class="btn btn-outline-dark" type="button" id="boton_agregar_categoria">Agregar</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--AQUI SE VAN A IMPRIMIR LAS CATEGORIAS-->
+                                                        <input type="hidden" class="close">
+                                                        <h5 class="text-center mb-3">Categorías de mi restaurante</h5>
+                                                        <div class="container">
+                                                            <div class="row row-cols-2" id="contenedor_categorias">
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
 
