@@ -6,6 +6,9 @@ switch ($accion) {
     case "obtener_restaurantes":
         $resultado = obtener_restaurantes();
         break;
+    case "obtener_restaurantes_categoria":
+        $resultado = obtener_restaurantes_categoria();
+        break;
     case "mostrar_restaurante":
         $resultado = res_especifico();
         break;
