@@ -64,7 +64,7 @@ async function mostrarServicios(){
                     </div>
                     <div class="description">
                         <h4>${nombre}</b></h4>
-                        <h5>Abierto / Cerrado</h5>
+                        <!--<h5>Abierto / Cerrado</h5>-->
                         <p class=""><small class="text-muted">${descripcion}</small></p>
                             <div class="row">
                                 
@@ -75,11 +75,11 @@ async function mostrarServicios(){
                                 </span>
                                 Editar
                             </a>
-                            <button type="button" class="btn btn-outline-secondary btn-sm">
+                            <!--<button type="button" class="btn btn-outline-secondary btn-sm">
                                 <span class="fa fa-heart">
                                 </span>
                                 Favorito
-                            </button>
+                            </button>-->
                             <a href="restaurante_ver.php?r=${id_restaurante}" class="btn btn-outline-secondary btn-sm">
                                 <span class="fa fa-eye" ></span> Visitar
                             </a>
