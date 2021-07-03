@@ -211,6 +211,7 @@ function horario_restaurante(): array
             $sql = "SELECT * FROM `fechas` WHERE `id_restaurante` = $id_restaurante";
             $consulta = mysqli_query($conn, $sql);
             $respuesta = [];
+            $i = 0;
             //SI CUENTA CON RESTAURANTES
             if (mysqli_num_rows($consulta) != 0) {
                 while ($row = mysqli_fetch_assoc($consulta)) {
