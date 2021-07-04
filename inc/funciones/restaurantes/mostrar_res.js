@@ -72,7 +72,7 @@ function imprime_restaurante(datos){
         <div class="col-lg-6 col-md-6">
             <div class="product__details__text">
                 <h1 id="nombre_restaurante">${nombre}</h1>
-                <!--Area de Calificación-->
+                <!--Area de Calificación
                 <div class="product__details__rating">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -81,7 +81,7 @@ function imprime_restaurante(datos){
                     <i class="fa fa-star-half-o"></i>
                     <span>(18 reviews)</span>
                 </div>
-                <!--Fin area de calificación-->
+                Fin area de calificación-->
 
                 <p id="descripcion_larga">${descripcion_larga}</p>
                     
