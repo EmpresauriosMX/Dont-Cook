@@ -21,10 +21,12 @@ switch ($accion) {
     case "ver_promo":
         $resultado = ver_promocion();
         break;
+    case "obtener_categorias":
+        $resultado = obtener_categorias();
+        break;
     case "horario_restaurante":
         $resultado = horario_restaurante();
         break;
-        
 }
 
 

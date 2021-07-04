@@ -70,7 +70,7 @@ function enviar(): array
             $categorias = json_decode($_POST['categorias']);
 
             foreach ($categorias as $value) {
-                $id_categoria = (int) $value;
+                $id_categoria = (int) $value -> id;
                 $ingresar_categoria->execute();
             }
 
@@ -211,6 +211,7 @@ function horario_restaurante(): array
             $sql = "SELECT * FROM `fechas` WHERE `id_restaurante` = $id_restaurante";
             $consulta = mysqli_query($conn, $sql);
             $respuesta = [];
+            $i = 0;
             //SI CUENTA CON RESTAURANTES
             if (mysqli_num_rows($consulta) != 0) {
                 while ($row = mysqli_fetch_assoc($consulta)) {
@@ -335,5 +336,31 @@ function ver_promocion(): array
         'ver respuesta post' => $promocion
     );
 
+    return $respuesta;
+}
+
+//categorias
+function obtener_categorias(): array
+{
+    try {
+        require '../../../conexion.php';
+        $sql = "SELECT id_categoria,nombre FROM categorias";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+
+        $stmt->bind_result($id, $nombre);
+
+        $respuesta = [];
+        $i = 0;
+
+        while ($stmt->fetch()) {
+            $respuesta[$i]['id'] = $id;
+            $respuesta[$i]['nombre'] = $nombre;
+            $i++;
+        }
+        $stmt->close();
+    } catch (\Throwable $th) {
+    }
     return $respuesta;
 }

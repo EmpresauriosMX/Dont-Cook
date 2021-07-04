@@ -87,32 +87,23 @@ async function imprime_restaurante(restaurante){
   //INFORMACION DE HORARIO
   const res_horario = await obtener_horario_restaurante(id);
   console.log(res_horario);
-  var dias = [];
-  for (var j = 1; j < 8; j++) {
-    var dia_cadena = j
-    dias[j] = document.getElementById(dia_cadena.toString());
-  }
-  var i = 1;
-    res_horario.forEach(respuesta => {
-      const { id_fechas, dia, hora_inicio, hora_fin} = respuesta;
-      if(dia == i){
-        dias[i].checked = true;
-      }
-      i ++;
-    });
   
-  const imagen = document.querySelector("#imagen");
-  const array_horarios = JSON.stringify(dias_validos);
   
+  res_horario.forEach((respuesta) => {
+  console.log(respuesta);
+  const {id_fechas, dia, hora_inicio, hora_fin} = respuesta;
+    console.log(dia);
+    const dia_div = document.getElementById(dia.toString());
+    dia_div.checked = true;
+  });
 }
-
 async function obtener_horario_restaurante(restaurante){
   const datos = new FormData();
   datos.append("id", restaurante);
   datos.append("accion","horario_restaurante");
   //SE BUSCA EL HORARIO CON SU ID DE RESTAURANTE
   const horario = await enviar_datos(url, datos);
-  //console.log(horario);
+  console.log(horario);
   return horario;
 }
 
