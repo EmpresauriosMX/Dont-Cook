@@ -71,7 +71,7 @@ document.getElementById("file").onchange = function(e) {
   };
 }
 
-/* function promociones (){
+function promociones (){
 
   const nombre = document.querySelector("#fullname").value;
   const foto = document.querySelector("#formFile").value;
@@ -82,7 +82,7 @@ document.getElementById("file").onchange = function(e) {
   const viernes = document.querySelector("#id_viernes").value;
   const sabado = document.querySelector("#id_sabado").value;
   const domingo = document.querySelector("#id_domingo").value;
-  const todo = document.querySelector("#id_todos").value;
+  const todos = document.querySelector("#id_todos").value;
   const dia = document.querySelector("#reservation-time").value;
   const message = document.querySelector("#message").value;
 
@@ -90,7 +90,7 @@ document.getElementById("file").onchange = function(e) {
 
   datos.append("accion","agregar_promo");
   datos.append("nombre",nombre);
-  datos.append("foto",foto);
+  datos.append("foto", foto.files[0]);
   datos.append("lunes",lunes);
   datos.append("martes",martes);
   datos.append("miercoles",miercoles);
@@ -105,4 +105,4 @@ document.getElementById("file").onchange = function(e) {
   enviar_datos(url, datos).then((resultado) =>alert(JSON.stringify(resultado)));
 
 
-} */
+}

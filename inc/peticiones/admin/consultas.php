@@ -300,12 +300,13 @@ function agregar_promocion(): array
     $viernes = $_POST['viernes'];
     $sabado = $_POST['sabado'];
     $domingo = $_POST['domingo'];
-    $todos = $_POST['todo'];
+    $todos = $_POST['todos'];
     $dia = $_POST['dia'];
     $message = $_POST['message'];
 
     require '../../../conexion.php';
-    $sql = "INSERT INTO promociones (id_promocion, id_restaurante, imagen, descripcion, Dias, Nombre) VALUES (NULL, '1', '12345', 'qwerty', '741', 'qwertyuiop')";
+    $sql = "INSERT INTO promociones (id_promocion, id_restaurante, imagen, descripcion, Dias, Nombre) 
+                             VALUES (NULL, '1', '$foto', '$message', '$lunes$martes$miercoles', '$nombre')";
     $consulta = mysqli_query($conn, $sql);
 
     $respuesta = array(
