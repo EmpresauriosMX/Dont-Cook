@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let categoria = parametrosURL.get("c");
 
     //SI LE PASAMOS UNA CATEGORIA LO BUSCARA
-    console.log(categoria); 
+    //console.log(categoria); 
     if (categoria) {
         //LE PASAMOS LA CATEGORIA
         if (!tienes_ciudad) {
@@ -43,12 +43,12 @@ function sin_ciudad(){
 
 async function mostrar_restaurantes_categoria(categoria){
     mostar_banner_categoria(categoria);
-    console.log("voy a cargar los restaurantes de la categoria: "+categoria);
+    //console.log("voy a cargar los restaurantes de la categoria: "+categoria);
     
 }
 
 async function mostar_banner_categoria(categoria){
-    console.log("voy a mostrar el banner de la categoria: "+categoria);
+    //console.log("voy a mostrar el banner de la categoria: "+categoria);
     
     //AQUI  VAN LAS CATEGORIAS, ESTA LISTA VA CRECIENDO
     //LAS CATEGORIAS SE VAN AGREGANDO AQUI CON UNA IMAGEN Y UNA FOTO
@@ -69,7 +69,7 @@ async function mostar_banner_categoria(categoria){
     //const muestra = BANNERS[categoria] || DEFAULT_BANNER;
     //const aver = BANNERS[categoria] ? BANNERS[categoria] : categoria_rara();
     const muestra = BANNERS[categoria] || false;    
-    console.log(muestra);
+    //console.log(muestra);
     if(muestra){
         const foto = muestra[0];
         const titulo1 = muestra[1];
@@ -96,7 +96,7 @@ async function mostar_banner_categoria(categoria){
 }
 
 function categoria_rara(){
-    console.log("entre a raros");
+    //console.log("entre a raros");
     const foto = "fondo.jpeg";
     const titulo1 = "¡Gracias por la idea! pronto estará esta categoría";
     banner.innerHTML = `
@@ -121,10 +121,21 @@ async function cargar_restaurantes_categoria(categoria){
     datos.append("ciudad", ciudad);
     datos.append("categoria", categoria);
     datos.append("accion", "obtener_restaurantes_categoria");
-    console.log(ciudad, categoria);
+    //console.log(ciudad, categoria);
     const res = await enviar_datos(url, datos);
+    //console.log(res);
+    if(res.respuesta){
+        mostrar_mensaje("error");
+    }
+    else{
+        imprime_restaurantes(res);
+    }
+
+}
+
+function imprime_restaurantes(res){
     res.forEach((restaurante) => {
-        console.log(restaurante);
+        //console.log(restaurante);
     const {id, nombre, lugar, horario, descripcion, imagen } = restaurante;
     contenedor.innerHTML += `
                 <div class="blog-card col-md-12 col-sm-12 col-xs-12 col-lg-5 mx-auto">
@@ -174,7 +185,7 @@ async function mostrar_restaurantes() {
     const res = await enviar_datos(url, datos);
     titulo.innerHTML = `<h2>Todos los restaurantes de ${ciudad}</h2>`;
     res.forEach((restaurante) => {
-        console.log(restaurante);
+        //console.log(restaurante);
     const {id, nombre, lugar, horario, descripcion, imagen } = restaurante;
     contenedor.innerHTML += `
                 <div class="blog-card col-md-12 col-sm-12 col-xs-12 col-lg-5 mx-auto">
