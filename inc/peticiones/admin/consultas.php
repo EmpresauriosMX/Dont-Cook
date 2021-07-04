@@ -299,11 +299,13 @@ function agregar_promocion(): array
     $viernes = $_POST['viernes'];
     $sabado = $_POST['sabado'];
     $domingo = $_POST['domingo'];
+    $todos = $_POST['todo'];
     $dia = $_POST['dia'];
     $message = $_POST['message'];
 
     require '../../../conexion.php';
     $sql = "INSERT INTO promociones (id_promocion, id_restaurante, imagen, descripcion, Dias, Nombre) VALUES (NULL, '1', '12345', 'qwerty', '741', 'qwertyuiop')";
+    $consulta = mysqli_query($conn, $sql);
 
     $respuesta = array(
         'respuesta' => "Ingresaron datos",
@@ -316,6 +318,7 @@ function agregar_promocion(): array
         'ver respuesta viernes' => $viernes ,
         'ver respuesta sabado' => $sabado ,
         'ver respuesta domingo' => $domingo ,
+        'ver respuesta todos' => $todos ,
         'ver respuesta dia' => $dia ,
         'ver respuesta message' => $message
     );

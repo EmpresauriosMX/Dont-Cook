@@ -47,36 +47,49 @@
                           <input type="checkbox" class="flat" id="lunes" value="1"> lunes
                         </label>
                       </div>
+                      <input type="hidden" class="form-control" id="id_lunes">
                       <div class="checkbox">
                         <label>
                           <input type="checkbox" class="flat" id="martes" value="2"> martes
                         </label>
                       </div>
+                      <input type="hidden" class="form-control" id="id_martes">
                       <div class="checkbox">
                         <label>
                           <input type="checkbox" class="flat" id="miercoles" value="3"> miercoles
                         </label>
                       </div>
+                      <input type="hidden" class="form-control" id="id_miercoles">
                       <div class="checkbox">
                         <label>
                           <input type="checkbox" class="flat" id="jueves" value="4"> jueves
                         </label>
                       </div>
+                      <input type="hidden" class="form-control" id="id_jueves">
                       <div class="checkbox">
                         <label>
                           <input type="checkbox" class="flat" id="viernes" value="5"> viernes
                         </label>
                       </div>
+                      <input type="hidden" class="form-control" id="id_viernes">
                       <div class="checkbox">
                         <label>
                           <input type="checkbox" class="flat" id="sabado" value="6"> sabado
                         </label>
                       </div>
+                      <input type="hidden" class="form-control" id="id_sabado">
                       <div class="checkbox">  
                         <label>
                           <input type="checkbox" class="flat" id="domingo" value="7"> domingo
                         </label>
                       </div>
+                      <input type="hidden" class="form-control" id="id_domingo">
+                      <div class="checkbox">  
+                        <label>
+                          <input type="checkbox" class="flat" id="todos" value="8"> toda la semana
+                        </label>
+                      </div>
+                      <input type="hidden" class="form-control" id="id_todos">
 
                     </div>
                   </div>
