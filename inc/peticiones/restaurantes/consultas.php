@@ -125,17 +125,7 @@ function obtener_restaurantes_categoria(): array
 */
 function res_especifico(): array
 {
-    //$ciudad = $_POST['ciudad'];
-    $cuenta_existente = false;
-    //-----------SE ABRE LA SESIÓN DEL USUARIO
-    session_start();
-    $id_user = $_SESSION['id'];
-    if ($id_user != "") { //si la variable de sesión está vacia entonces se redirige al login
-        $cuenta_existente = true;
-    }
-    //SE VALIDA DE QUE TENGA UNA CUENTA EXISTENTE
-    if ($cuenta_existente) {
-        $id_restaurante = $_POST['id'];
+    $id_restaurante = $_POST['id'];
         try {
             require '../../../conexion.php';
             $sql = "SELECT * FROM `restaurantes` WHERE `id_restaurante` = $id_restaurante";
@@ -171,7 +161,6 @@ function res_especifico(): array
                 'respuesta' => "entro al catch "
             );
         }
-    }
     return $respuesta;
 
 
