@@ -302,11 +302,13 @@ function agregar_promocion(): array
     $domingo = $_POST['domingo'];
     $todos = $_POST['todos'];
     $dia = $_POST['dia'];
+    $inicio = $_POST['inicio'];
+    $fin = $_POST['fin'];
     $message = $_POST['message'];
 
     require '../../../conexion.php';
-    $sql = "INSERT INTO promociones (id_promocion, id_restaurante, imagen, descripcion, Dias, Nombre) 
-                             VALUES (NULL, '1', '$foto', '$message', '$lunes$martes$miercoles$jueves$viernes$sabado$domingo$todos', '$nombre')";
+    $sql = "INSERT INTO promociones (id_promocion, id_restaurante, imagen, descripcion, Dias, Nombre, fecha, horario) 
+                             VALUES (NULL, '1', '$foto', '$message', '$lunes$martes$miercoles$jueves$viernes$sabado$domingo$todos', '$nombre', '$dia','$inicio - $fin')";
     $consulta = mysqli_query($conn, $sql);
 
     $respuesta = array(
@@ -322,6 +324,8 @@ function agregar_promocion(): array
         'ver respuesta domingo' => $domingo ,
         'ver respuesta todos' => $todos ,
         'ver respuesta dia' => $dia ,
+        'ver respuesta incio' => $inicio ,
+        'ver respuesta fin' => $fin ,
         'ver respuesta message' => $message
     );
 
@@ -330,11 +334,20 @@ function agregar_promocion(): array
 
 function ver_promocion(): array
 {
+    require '../../../conexion.php';
+    $sql = "SELECT * FROM `promociones`";
+    $consulta = mysqli_query($conn, $sql);
 
-    $promocion = $_POST['nombre'];
+    $row = mysqli_fetch_assoc($consulta);
     $respuesta = array(
-        'respuesta' => "sin_restaurantes",
-        'ver respuesta post' => $promocion
+        'id_promo'        => $row['id_promocion'],
+        'id_rest'    => $row['id_restaurante'],
+        'imagen'    => $row['imagen'],
+        'descripcion'    => $row['descripcion'],
+        'dias'    => $row['Dias'] ,
+        'nombre'    => $row['Nombre'] ,
+        'fecha'    => $row['fecha'] ,
+        'horario'    => $row['horario']
     );
 
     return $respuesta;

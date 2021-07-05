@@ -74,7 +74,7 @@ document.getElementById("file").onchange = function(e) {
 function promociones (){
 
   const nombre = document.querySelector("#fullname").value;
-  const foto = document.querySelector("#formFile").value;
+  const foto = document.querySelector("#formFile");
   const lunes = document.querySelector("#id_lunes").value;
   const martes = document.querySelector("#id_martes").value;
   const miercoles = document.querySelector("#id_miercoles").value;
@@ -84,6 +84,8 @@ function promociones (){
   const domingo = document.querySelector("#id_domingo").value;
   const todos = document.querySelector("#id_todos").value;
   const dia = document.querySelector("#reservation-time").value;
+  const inicio = document.querySelector("#horario_inicio").value;
+  const fin = document.querySelector("#horario_conclusion").value;
   const message = document.querySelector("#message").value;
 
   const datos = new FormData();
@@ -100,6 +102,8 @@ function promociones (){
   datos.append("domingo",domingo);
   datos.append("todos",todos);
   datos.append("dia",dia);
+  datos.append("inicio",inicio);
+  datos.append("fin",fin);
   datos.append("message",message);
 
   enviar_datos(url, datos).then((resultado) =>alert(JSON.stringify(resultado)));

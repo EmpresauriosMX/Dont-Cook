@@ -95,20 +95,26 @@
                   </div>
                   
                   <div class="col-md-12">
-                    Date and Time
+                    Fechas de disponibilidad
                     <form>
-
 
                       <div class="input-prepend input-group">
                         <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span>
                         <input type="text" name="reservation-time" id="reservation-time" class="form-control" value="01/01/2021 - 01/25/2021">
                       </div>
-
-
+                      <p></p>
+                      <div class="col">
+                        <label> Horario Inicio</label>
+                        <input type="time" id="horario_inicio">
+                      </div>
+                      <div class="col">
+                        <label> Horario Conclusion</label>
+                        <input type="time" id="horario_conclusion">
+                      </div>
                     </form>
                   </div>
 
-                  <label for="message">Descripcion (20 chars min, 100 max) :</label>
+                  <label for="message">Descripcion (20 caracteres min, 100 max) :</label>
                   <textarea id="message" required="required" class="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.." data-parsley-validation-threshold="10"></textarea>
 
                   <br />
