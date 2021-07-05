@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-//-----------MOSTRAR LOS DATOS QUE YA TENIA EL RESTAURANTE--------
+//----------------------MOSTRAR LOS DATOS QUE YA TENIA EL RESTAURANTE--------
 async function mostrar_restaurante(id){
   const datos = new FormData();
   datos.append("id", id);
