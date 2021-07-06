@@ -1,5 +1,6 @@
 import {mostrar_ubicacion, enviar_datos, mostrar_mensaje} from "../funciones_generales.js";
 const url = "../../inc/peticiones/admin/funciones.php";
+var id_restaurante = "";
 //CON ESTO OBTENEMOS EL ID DEL RESTAURANTE POR LA URL
 document.addEventListener("DOMContentLoaded", () => {
     const parametrosURL = new URLSearchParams(window.location.search);
@@ -7,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //SI LE PASAMOS UN RESTAURANTE LO BUSCARA
     if (restaurante) {
         //LE PASAMOS EL ID DE RESUTAURANTE
+        id_restaurante = restaurante;
         mostrar_restaurante(restaurante);
     }
     //SI NO LE PASAMOS NADA CARGARA UN MENSAJE DE ERROR
@@ -163,7 +165,7 @@ function config_promociones(datos){
                 <div class="card">
                     <div class="card-body text-center">
                         <p><strong>Agregar</strong></p>
-                        <a href="agregar_promocion.php" class="fa fa-plus btm btn site-btn mx-auto"></a>
+                        <a href="agregar_promocion.php?r=${id_restaurante}" class="fa fa-plus btm btn site-btn mx-auto"></a>
                     </div>
                 </div>
             </div>

@@ -1,3 +1,24 @@
+import {mostrar_ubicacion, enviar_datos, mostrar_mensaje} from "../funciones_generales.js";
+const url = "../../inc/peticiones/admin/funciones.php";
+var id_restaurante = "";
+//CON ESTO OBTENEMOS EL ID DEL RESTAURANTE POR LA URL
+document.addEventListener("DOMContentLoaded", () => {
+    const parametrosURL = new URLSearchParams(window.location.search);
+    let restaurante = parametrosURL.get("r");
+    //SI LE PASAMOS UN RESTAURANTE LO BUSCARA
+    if (restaurante) {
+        //LE PASAMOS EL ID DE RESUTAURANTE
+        id_restaurante = restaurante;
+    }
+    //SI NO LE PASAMOS NADA CARGARA UN MENSAJE DE ERROR
+    else{
+        mostrar_mensaje("error");
+        //let contenido1 = document.querySelector("#demo-form");
+        //contenido1.innerHTML = "";
+    }
+    console.log (restaurante);
+});
+
 $(document).on('change','#lunes' ,function(e) {
   const lunes = document.querySelector("#id_lunes").value;
   if(this.checked) $('#id_lunes').val(this.value);
@@ -47,31 +68,10 @@ $(document).on('change','#todos' ,function(e) {
   console.log (todos);
 });
 
-import { enviar_datos, mostrar_ubicacion } from "../funciones_generales.js";
-const url = "../../inc/peticiones/admin/funciones.php";
 const btn = document.querySelector("#btn");
 btn.addEventListener("click", promociones);
 
-document.getElementById("file").onchange = function(e) {
-  // Creamos el objeto de la clase FileReader
-  let reader = new FileReader();
-
-  // Leemos el archivo subido y se lo pasamos a nuestro fileReader
-  reader.readAsDataURL(e.target.files[0]);
-
-  // Le decimos que cuando este listo ejecute el código interno
-  reader.onload = function(){
-    let preview = document.getElementById('preview'),
-            image = document.createElement('img');
-
-    image.src = reader.result;
-
-    preview.innerHTML = '';
-    preview.append(image);
-  };
-}
-
-function promociones (){
+async function promociones (){
 
   const nombre = document.querySelector("#fullname").value;
   const foto = document.querySelector("#formFile");
@@ -83,10 +83,12 @@ function promociones (){
   const sabado = document.querySelector("#id_sabado").value;
   const domingo = document.querySelector("#id_domingo").value;
   const todos = document.querySelector("#id_todos").value;
-  const dia = document.querySelector("#reservation-time").value;
+  const diai = document.querySelector("#reservation-time1").value;
+  const diaf = document.querySelector("#reservation-time2").value;
   const inicio = document.querySelector("#horario_inicio").value;
   const fin = document.querySelector("#horario_conclusion").value;
   const message = document.querySelector("#message").value;
+  const id_res = id_restaurante;
 
   const datos = new FormData();
 
@@ -101,12 +103,16 @@ function promociones (){
   datos.append("sabado",sabado);
   datos.append("domingo",domingo);
   datos.append("todos",todos);
-  datos.append("dia",dia);
+  datos.append("diai",diai);
+  datos.append("diaf",diaf);
   datos.append("inicio",inicio);
   datos.append("fin",fin);
   datos.append("message",message);
+  datos.append("id_res",id_res);
 
-  enviar_datos(url, datos).then((resultado) =>alert(JSON.stringify(resultado)));
+  const res = await enviar_datos(url, datos);
 
+  const qwerty = res.id_res;
+  window.location = "../admin/restaurante_ver.php?r="+ qwerty;
 
 }

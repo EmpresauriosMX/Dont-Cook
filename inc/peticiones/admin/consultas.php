@@ -301,32 +301,36 @@ function agregar_promocion(): array
     $sabado = $_POST['sabado'];
     $domingo = $_POST['domingo'];
     $todos = $_POST['todos'];
-    $dia = $_POST['dia'];
+    $diai = $_POST['diai'];
+    $diaf = $_POST['diaf'];
     $inicio = $_POST['inicio'];
     $fin = $_POST['fin'];
     $message = $_POST['message'];
+    $id_res = $_POST['id_res'];
 
     require '../../../conexion.php';
     $sql = "INSERT INTO promociones (id_promocion, id_restaurante, imagen, descripcion, Dias, Nombre, fecha, horario) 
-                             VALUES (NULL, '1', '$foto', '$message', '$lunes$martes$miercoles$jueves$viernes$sabado$domingo$todos', '$nombre', '$dia','$inicio - $fin')";
+                             VALUES (NULL, '$id_res', '$foto', '$message', '$lunes$martes$miercoles$jueves$viernes$sabado$domingo$todos', '$nombre', '$diai - $diaf','$inicio - $fin')";
     $consulta = mysqli_query($conn, $sql);
 
     $respuesta = array(
         'respuesta' => "Ingresaron datos",
-        'ver respuesta nombre' => $nombre ,
-        'ver respuesta foto' => $foto ,
-        'ver respuesta lunes' => $lunes ,
-        'ver respuesta martes' => $martes ,
-        'ver respuesta miercoles' => $miercoles ,
-        'ver respuesta jueves' => $jueves ,
-        'ver respuesta viernes' => $viernes ,
-        'ver respuesta sabado' => $sabado ,
-        'ver respuesta domingo' => $domingo ,
-        'ver respuesta todos' => $todos ,
-        'ver respuesta dia' => $dia ,
-        'ver respuesta incio' => $inicio ,
-        'ver respuesta fin' => $fin ,
-        'ver respuesta message' => $message
+        'nombre' => $nombre ,
+        'id_res' => $id_res ,
+        'foto' => $foto ,
+        'lunes' => $lunes ,
+        'martes' => $martes ,
+        'miercoles' => $miercoles ,
+        'jueves' => $jueves ,
+        'viernes' => $viernes ,
+        'sabado' => $sabado ,
+        'domingo' => $domingo ,
+        'todos' => $todos ,
+        'dia1' => $diai ,
+        'dia2' => $diaf ,
+        'incio' => $inicio ,
+        'fin' => $fin ,
+        'message' => $message
     );
 
     return $respuesta;
@@ -335,7 +339,7 @@ function agregar_promocion(): array
 function ver_promocion(): array
 {
     require '../../../conexion.php';
-    $sql = "SELECT * FROM `promociones`";
+    $sql = "SELECT * FROM `promociones` WHERE id.restaurante = 'variable";
     $consulta = mysqli_query($conn, $sql);
 
     $row = mysqli_fetch_assoc($consulta);
