@@ -15,12 +15,12 @@
 <!--contenido de la plantilla -->
 
 <container>
-    <div class="card text-center">
+    <div class="card text-center m-5">
         <div class="card-header">
             <h1>Aviso de privacidad simplificado</h1>
         </div>
         <div class="card-body">
-            <h5 class="card-text">Daniel Gonzalez Mejia mejor conocido como Don't Cook, con domicilio en Cerrada Faro, es el responsable del uso y protección de sus datos personales, y al respecto le informamos lo siguiente:</h5>
+            <h5 class="card-text">Daniel Gonzalez Mejia mejor conocido como Don't Cook, con domicilio en Quintana Roo, es el responsable del uso y protección de sus datos personales, y al respecto le informamos lo siguiente:</h5>
             <h3 class="card-title">¿Para qué fines utilizaremos sus datos personales?</h3>
             <h5 class="card-text">Los datos personales que recabamos de usted, los utilizaremos para las siguientes finalidades que son necesarias para el servicio que solicita:</h5>
             <h3 class="card-tittle">¿Dónde puedo consultar el aviso de privacidad integral?</h3>
@@ -33,26 +33,26 @@
         </div>
     </div>
 <br>
-    <div class="card">
+    <div class="card m-5">
         <div class="card-header text-center">
             <h1>Aviso de privacidad integral</h1>
         </div>
         <div class="card-body">
-            <h5 class="card-text">Daniel Gonzalez Mejia mejor conocido como Don\'t Cook, con domicilio en Cerrada Faro #112, Puerto Maya, Solidaridad, Quintana Roo, México y portal de internet dontcook.mx, es el responsable del uso y protección de sus datos personales, y al respecto le informamos lo siguiente:</h5>
+            <h5 class="card-text">Daniel Gonzalez Mejia mejor conocido como Don't Cook, con domicilio en Solidaridad, Quintana Roo, México y portal de internet <a href="../home/home.php">dontcook.mx</a> , es el responsable del uso y protección de sus datos personales, y al respecto le informamos lo siguiente:</h5>
             
             <h3 class="card-title text-center">¿Para qué fines utilizaremos sus datos personales?</h3>
             <h5 class="card-text">Los datos personales que recabamos de usted, los utilizaremos para las siguientes finalidades que son necesarias para el servicio que solicita:</h5>
-            <h5 class="card-text">Respuesta a mensajes del formulario de contacto</h5>
-            <h5 class="card-text">Comerciales, Publicidad</h5>
+            <h5 class="card-text">· Respuesta a mensajes del formulario de contacto</h5>
+            <h5 class="card-text">· Comerciales, Publicidad</h5>
 
             <h3 class="card-tittle text-center">¿Qué datos personales utilizaremos para estos fines?</h3>
             <h5 class="card-text">Para llevar a cabo las finalidades descritas en el presente aviso de privacidad, utilizaremos los siguientes datos personales:</h5>
-            <h5 class="cart-text">Datos de identificación y contacto, Datos laborales</h5>
+            <h5 class="cart-text">· Datos de identificación y contacto, Datos laborales</h5>
 
             <h3 class="card-tittle text-center">¿Con quién compartimos su información personal y para qué fines?</h3>
             <h5 class="card-text">Le informamos que sus datos personales son compartidos fuera del país con las siguientes personas, empresas, organizaciones o autoridades distintas a nosotros, para los siguientes fines:</h5>
-            <h5 class="card-text">Dentro del país</h5>
-            <h5 class="card-text">Usuarios no registrados en la página</h5>
+            <h5 class="card-text">· Dentro del país</h5>
+            <h5 class="card-text">· Usuarios no registrados en la página</h5>
 
             <h3 class="card-tittle text-center">¿Cómo puede acceder, rectificar o cancelar sus datos personales, u oponerse a su uso o ejercer la revocación de consentimiento?</h3>
             <h5 class="card-text">Usted tiene derecho a conocer qué datos personales tenemos de usted, para qué los utilizamos y las condiciones del uso que les damos (Acceso). Asimismo, es su derecho solicitar la corrección de su información personal en caso de que esté desactualizada, sea inexacta o incompleta (Rectificación); que la eliminemos de nuestros registros o bases de datos cuando considere que la misma no está siendo utilizada adecuadamente (Cancelación); así como oponerse al uso de sus datos personales para fines específicos (Oposición). Estos derechos se conocen como derechos ARCO.</h5>
@@ -81,17 +81,14 @@
 
         </div>
         <div class="card-footer text-muted">
-            <h5 class="card-text text-center">Última actualización de este aviso de privacidad: 03/07/2021</h5>
+            <h5 class="card-text text-center">Última actualización de este aviso de privacidad: 05/07/2021</h5>
         </div>
     </div>
 </container>
 
 
 <!--contenido de la plantilla -->
-    <script src="../../inc/funciones/home/home.js" type="module"></script>
-    <script src="../../inc/funciones/home/categorias.js" type="module"></script>
-    <!--script src="../../inc/funciones/restaurantes/app.js" type="module"></script-->
-
+    
     <?php 
     include '../../templates/componentes/footer.html';
     include '../../templates/componentes/scripts.html';
