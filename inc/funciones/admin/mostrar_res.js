@@ -139,7 +139,14 @@ function imprime_menu_config(datos){
 
 function config_promociones(datos){
     //aqui va tu codigo para obtener las promociones
+    const datos = new FormData();
+    datos.append("id", id);
+    datos.append("accion","ver_promo");
+    //SE BUSCA EL RESTAURANTE CON SU ID
+    const res = await enviar_datos(url, datos);
+    console.log (res);
     let div_promociones = document.querySelector("#tabs-1");
+    const { id_restaurante, id_promocion, descripcion, Dias, Nombre, fecha, horario} = datos;
     div_promociones.innerHTML+=`
     <div class="product__details__tab__desc">
             <h3>Promociones</h3>
@@ -148,14 +155,13 @@ function config_promociones(datos){
                 <div class="card">
                     <img class="card-img-top" src="../../src/img/banner/banner-1.jpg" alt="Card image cap">
                     <div class="card-img-overlay">
-                        <h4 class="card-title">Restaurante</h4>
+                        <h4 class="card-title">${Nombre}</h4>
                     </div>
                     <div class="card-body">
                         <h6>Nombre de la Promoción</h6>
-                        <p class="card-text">Descripción de la promocion... <br>
-                        Chelas 2x1 xdxd <br>
-                        De Lunes a Jueves <br>
-                        Con Horario de 12:00 a 16:00</p>
+                        <p class="card-text">${descripcion}<br>
+                        De ${fecha}<br>
+                        Con Horario de ${horario}</p>
                     </div>
                 </div>
 
