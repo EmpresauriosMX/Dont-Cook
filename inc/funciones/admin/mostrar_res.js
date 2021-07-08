@@ -1,6 +1,7 @@
 import {mostrar_ubicacion, enviar_datos, mostrar_mensaje} from "../funciones_generales.js";
 const url = "../../inc/peticiones/admin/funciones.php";
 var id_restaurante = "";
+var ID_RESTAURANTE_P = "";
 //CON ESTO OBTENEMOS EL ID DEL RESTAURANTE POR LA URL
 document.addEventListener("DOMContentLoaded", () => {
     const parametrosURL = new URLSearchParams(window.location.search);
@@ -9,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (restaurante) {
         //LE PASAMOS EL ID DE RESUTAURANTE
         id_restaurante = restaurante;
+        ID_RESTAURANTE_P = restaurante;
         mostrar_restaurante(restaurante);
     }
     //SI NO LE PASAMOS NADA CARGARA UN MENSAJE DE ERROR
@@ -137,46 +139,52 @@ function imprime_menu_config(datos){
     config_menu();
 }
 
-function config_promociones(datos){
+async function config_promociones(){
     //aqui va tu codigo para obtener las promociones
     const datos = new FormData();
-    datos.append("id", id);
+    datos.append("id", ID_RESTAURANTE_P);
     datos.append("accion","ver_promo");
     //SE BUSCA EL RESTAURANTE CON SU ID
     const res = await enviar_datos(url, datos);
     console.log (res);
-    let div_promociones = document.querySelector("#tabs-1");
-    const { id_restaurante, id_promocion, descripcion, Dias, Nombre, fecha, horario} = datos;
-    div_promociones.innerHTML+=`
-    <div class="product__details__tab__desc">
-            <h3>Promociones</h3>
-            <div class="card-columns mt-3 ">
-                
-                <div class="card">
-                    <img class="card-img-top" src="../../src/img/banner/banner-1.jpg" alt="Card image cap">
-                    <div class="card-img-overlay">
-                        <h4 class="card-title">${Nombre}</h4>
-                    </div>
-                    <div class="card-body">
-                        <h6>Nombre de la Promoción</h6>
-                        <p class="card-text">${descripcion}<br>
-                        De ${fecha}<br>
-                        Con Horario de ${horario}</p>
-                    </div>
-                </div>
 
-            </div>
+    res.forEach(promocion => {
+        
+        let div_promociones = document.querySelector("#tabs-1");
+        const { id_restaurante, id_promocion, descripcion, Dias, Nombre, fecha, horario} = promocion;
+        console.log (promocion);
+        div_promociones.innerHTML+=`
+            <div class="product__details__tab__desc">
+                <h3>Promociones</h3>
+                <div class="card-columns mt-3 ">
+                
+                    <div class="card">
+                        <img class="card-img-top" src="../../src/img/banner/banner-1.jpg" alt="Card image cap">
+                        <div class="card-img-overlay">
+                            <h4 class="card-title">${Nombre}</h4>
+                        </div>
+                        <div class="card-body">
+                            <h6>Nombre de la Promoción</h6>
+                            <p class="card-text">${descripcion}<br>
+                            De ${fecha}<br>
+                            Con Horario de ${horario}</p>
+                        </div>
+                    </div>
+
+                </div>
             
-            <div class="col-md-3 col-sm-6 col-lg-4  mt-3">
-                <div class="card">
-                    <div class="card-body text-center">
-                        <p><strong>Agregar</strong></p>
-                        <a href="agregar_promocion.php?r=${id_restaurante}" class="fa fa-plus btm btn site-btn mx-auto"></a>
+                <div class="col-md-3 col-sm-6 col-lg-4  mt-3">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <p><strong>Agregar</strong></p>
+                            <a href="agregar_promocion.php?r=${id_restaurante}" class="fa fa-plus btm btn site-btn mx-auto"></a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    `
+        `
+    });
+    
 }
 
 function config_galeria(datos){
