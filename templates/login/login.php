@@ -19,9 +19,9 @@ border-radius: 10px;
 border: 1px solid rgba( 255, 255, 255, 0.18 ); color:white; font-weight:bold; padding:15px; margin-top:40px; margin-bottom:40px; text-align:center; font-size:22px; border-radius:10px;">
                 <h1>Iniciar sesión</h1>
                 <form id="login_inicio">
-                    <input type="text" id="usuario" placeholder="usuario">
+                    <input type="text" id="usuario" placeholder="usuario" required="required">
                     <br>
-                    <input type="password" id="contraseña" placeholder="contraseña">
+                    <input type="password" id="contraseña" placeholder="contraseña" required="required">
                     <br><br>
                     <input type="submit" value="Ingresar">
                 </form>

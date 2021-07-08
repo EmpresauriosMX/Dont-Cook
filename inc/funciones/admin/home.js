@@ -83,7 +83,7 @@ async function mostrarServicios(){
                 `;
             });
             div_restaurantes.innerHTML += `
-                <div class="row mx-auto mt-3">
+                <div class="row justify-content-center mt-3">
                     <div class="col-md-3 ">
                         <a href="agregar_restaurante.php" class="btn btn-sm primary-btn  "> Agregar restaurante</a>
                     </div> 

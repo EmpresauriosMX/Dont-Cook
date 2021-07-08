@@ -72,12 +72,13 @@ function buscar_usuario(): array
                 );
             } else {
                 $respuesta = array(
-                    'respuesta' => 'contraseña incorrecta'
+                    'respuesta' => 'Contraseña Incorrecta'
+                    
                 );
             }
         }else{
             $respuesta = array(
-                'respuesta' => "no existe el usuario"
+                'respuesta' => "El Usuario No Existe, Registrate Como Nuevo!"
             );
         }
 
