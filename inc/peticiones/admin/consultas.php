@@ -356,19 +356,21 @@ function ver_promocion(): array
                 $i++;
             }
         }
+        $respuesta = array(
+            'id_promo'        => $row['id_promocion'],
+            'id_rest'    => $row['id_restaurante'],
+            'imagen'    => $row['imagen'],
+            'descripcion'    => $row['descripcion'],
+            'dias'    => $row['Dias'] ,
+            'nombre'    => $row['Nombre'] ,
+            'fecha'    => $row['fecha'] ,
+            'horario'    => $row['horario']
+        );
+    
+        return $respuesta;
+    } catch (\Throwable $th) {
+        //throw $th;
     }
-    $respuesta = array(
-        'id_promo'        => $row['id_promocion'],
-        'id_rest'    => $row['id_restaurante'],
-        'imagen'    => $row['imagen'],
-        'descripcion'    => $row['descripcion'],
-        'dias'    => $row['Dias'] ,
-        'nombre'    => $row['Nombre'] ,
-        'fecha'    => $row['fecha'] ,
-        'horario'    => $row['horario']
-    );
-
-    return $respuesta;
 }
 
 //categorias
