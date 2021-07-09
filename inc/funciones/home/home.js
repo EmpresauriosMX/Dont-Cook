@@ -68,7 +68,7 @@ async function mostrar_restaurantes() {
                               
                           </div>
                       <div class="read-more mt-2">
-                          <a href="restaurante_especifico.php?r=${id}" class="btn btn-outline-secondary btn-sm">
+                          <a href="../restaurantes/restaurante_especifico.php?r=${id}" class="btn btn-outline-secondary btn-sm">
                               <span class="fa fa-eye" ></span> Visitar
                           </a>
                       </div>
