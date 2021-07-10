@@ -135,7 +135,7 @@
     <!--Fin de todo de home-->
 <!--contenido de la plantilla -->
     <script src="../../inc/funciones/home/home.js" type="module"></script>
-    <script src="../../inc/funciones/home/categorias.js" type="module"></script>
+    <!--script src="../../inc/funciones/home/categorias.js" type="module"></script-->
     <!--script src="../../inc/funciones/restaurantes/app.js" type="module"></script-->
 
     <?php 

@@ -39,7 +39,7 @@
         include '../componentes/res_especifico.html';
      ?>
     <!--Fin contenido de la plantilla -->
-   
+    <!--script src="../../inc/funciones/home/categorias.js" type="module"></script-->
     <script src="../../inc/funciones/restaurantes/mostrar_res.js" type="module"></script>
     <br>
     <?php 
