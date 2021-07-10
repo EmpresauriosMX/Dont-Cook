@@ -42,7 +42,7 @@ include '../../inc/peticiones/login/sesion.php';
 
 
 
-    <div class="container mb-5 mx-auto ">
+    <div class="container mb-5">
 
         <form id="form_agregar_restaurante" name="form_agregar_restaurante" action="#">
             <div class="row">
@@ -57,7 +57,7 @@ include '../../inc/peticiones/login/sesion.php';
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1"><img style="height: 20px;" src="../../src/img/iconos/restaurante.png" alt=""></span>
                             </div>
-                            <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1" required="required">
+                            <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre de tu restaurante" aria-label="Nombre" aria-describedby="basic-addon1" required="required">
                         </div>
 
                         <div class="col-lg-6 input-group mb-3">
