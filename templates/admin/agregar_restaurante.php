@@ -145,14 +145,14 @@ include '../../inc/peticiones/login/sesion.php';
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1"><img style="height: 20px;" src="../../src/img/iconos/facebook.png" alt=""></span>
                             </div>
-                            <input type="text" placeholder="URL o link de Facebook" id="facebook" name="facebook" class="form-control" aria-label="facebook" aria-describedby="basic-addon1" required="required">
+                            <input type="text" placeholder="URL o link de Facebook" id="facebook" name="facebook" class="form-control" aria-label="facebook" aria-describedby="basic-addon1">
                         </div>
 
                         <div class="col-lg-6 input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1"><img style="height: 20px;" src="../../src/img/iconos/instagram.png" alt=""></span>
                             </div>
-                            <input type="text" placeholder="URL o link de Instagram" id="instagram" name="instagram" class="form-control"  aria-label="instagram" aria-describedby="basic-addon1" required="required">
+                            <input type="text" placeholder="URL o link de Instagram" id="instagram" name="instagram" class="form-control"  aria-label="instagram" aria-describedby="basic-addon1">
                         </div>
 
                     </div>
