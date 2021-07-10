@@ -163,6 +163,40 @@ function res_especifico(): array
         }
     return $respuesta;
 
+}
+function obtener_horarios(): array
+{
+    $ciudad = $_POST['ciudad'];
+    $dia = (int) $_POST['dia'];
+
+    $sql = "SELECT restaurantes.id_restaurante,restaurantes.serv_dom,fechas.dia,fechas.hora_inicio,fechas.hora_fin
+     FROM restaurantes,fechas WHERE fechas.id_restaurante = restaurantes.id_restaurante
+      AND fechas.dia = $dia AND restaurantes.ciudad ='$ciudad' ";
+
+    try {
+        require '../../../conexion.php';
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('is', $dia, $ciudad);
+        $stmt->execute();
+
+        // Loguear el usuario
+        $stmt->bind_result($id, $servicio_domicilio, $dia_registrado, $apertura, $cierre);
+
+        $respuesta = [];
+        $i = 0;
+
+        while ($stmt->fetch()) {
+            $respuesta[$i]['id'] = $id;
+            $respuesta[$i]['servicio_domicilio'] = $servicio_domicilio;
+            $respuesta[$i]['dia_registro'] = $dia_registrado;
+            $respuesta[$i]['apertura'] = $apertura;
+            $respuesta[$i]['cierre'] = $cierre;
+            $i++;
+        }
+        $stmt->close();
+    } catch (\Throwable $th) {
+    }
 
 
+    return $respuesta;
 }
