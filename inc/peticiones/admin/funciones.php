@@ -27,6 +27,9 @@ switch ($accion) {
     case "horario_restaurante":
         $resultado = horario_restaurante();
         break;
+    case 'subir_menu':
+        $resultado = subir_menu();
+        break;
 }
 
 

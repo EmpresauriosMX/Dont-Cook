@@ -2,10 +2,16 @@ import {mostrar_ubicacion, enviar_datos, mostrar_mensaje} from "../funciones_gen
 const url = "../../inc/peticiones/admin/funciones.php";
 var id_restaurante = "";
 var ID_RESTAURANTE_P = "";
+var enviar_menu = document.querySelector("#enviar_el_menu");
+var quill = new Quill('#editor', {
+    theme: 'snow'
+});
+
 //CON ESTO OBTENEMOS EL ID DEL RESTAURANTE POR LA URL
 document.addEventListener("DOMContentLoaded", () => {
     const parametrosURL = new URLSearchParams(window.location.search);
     let restaurante = parametrosURL.get("r");
+    enviar_menu.addEventListener("click",jssave);
     //SI LE PASAMOS UN RESTAURANTE LO BUSCARA
     if (restaurante) {
         //LE PASAMOS EL ID DE RESUTAURANTE
@@ -36,103 +42,42 @@ async function mostrar_restaurante(id){
     }
 }
 
-function imprime_restaurante(datos){
-    let contenido1 = document.querySelector("#form_contenido_restaurante");
-    const { id, nombre, telefono, descripcion, descripcion_larga, horario, correo, cp, direccion, ciudad,foto, fb} = datos;
+function imprime_restaurante(datos) {
+  let contenido1 = document.querySelector("#form_contenido_restaurante");
+  const { id, nombre, telefono, descripcion, descripcion_larga,horario, correo, cp, direccion, ciudad, foto, fb} = datos;
 
-    contenido1.innerHTML += `
-            <div class="row">
-            <div class="col-lg-6 col-md-6">
-                <div class="product__details__pic">
-                    <div class="product__details__pic__item">
-                        <img id="img_restaurante" class="img-fluid" src="../../src/img/restaurantes/${foto}" alt="">
-                        <button class="btn btn-dark btn-sm btn-block"> Cambiar logo      <i class="fa fa-image"></i> </button> 
-                    </div>
+  const text_nombre_restaurante = document.querySelector("#nombre_restaurante");
+  const text_descripcion_larga = document.querySelector("#descripcion_larga");
+  const img_restaurante = document.querySelector("#img_restaurante");
+  const facebook = document.querySelector("#facebook");
+  const enlace_editar_restaurante = document.querySelector("#editar");
+  const texto_telefono = document.querySelector("#telefono");
+  const texto_direccion = document.querySelector("#direccion");
+  const texto_horarios = document.querySelector("#horarios");
+  const texto_correo = document.querySelector("#correo");
 
-                </div>
-            </div>
+  text_nombre_restaurante.innerHTML = `${nombre}`;
 
-            <div class="col-lg-6 col-md-6">
-                <div class="product__details__text">
-                    <h1 id="nombre_restaurante">${nombre}</h1>
+  text_descripcion_larga.innerHTML = `${descripcion_larga}`;
 
-                    <p id="descripcion_larga">${descripcion_larga}</p>
-                    <div class="row mx-auto">
-                        <a id="facebook" target="blank" href="${fb}" class="fa fa-facebook btn site-btn mx-auto ml-2"></a>
-                        <a id="instagram" href="#" class="fa fa-instagram btn site-btn mx-auto ml-2"></a>
-                        <a id="favorito" href="#" class="fa fa-heart btn site-btn mx-auto ml-2"></a>
-                        <a id="editar" href="editar_restaurante.php?r=${id}" class="fa fa-edit btm btn site-btn mx-auto ml-2"></a>
-                    </div>
-                    <br>
+  texto_telefono.innerHTML = `${telefono}`;
 
-                </div>
-            </div>
+  texto_direccion.innerHTML = `${direccion}`;
 
-        </div>
-        <div class="row mt-3">
-            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                <div class="contact__widget">
-                    <span class="icon_phone"></span>
-                    <h4>Telefono</h4>
-                    <p id="telefono">${telefono}</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                <div class="contact__widget">
-                    <span class="icon_pin_alt"></span>
-                    <h4>Dirección</h4>
-                    <p id="direccion">${direccion}</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                <div class="contact__widget">
-                    <span class="icon_clock_alt"></span>
-                    <h4>Horarios</h4>
-                    <p id="horarios">${horario}</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                <div class="contact__widget">
-                    <span class="icon_mail_alt"></span>
-                    <h4>Correo</h4>
-                    <p id="correo">${correo}</p>
-                </div>
-            </div>
-        </div>
-            `;
+  texto_horarios.innerHTML = `${horario}`;
+
+  texto_correo.innerHTML = `${correo}`;
+
+  img_restaurante.setAttribute("src", `../../src/img/restaurantes/${foto}`);
+  facebook.setAttribute("href", `${fb}`);
+  enlace_editar_restaurante.setAttribute("href",`editar_restaurante.php?r=${id}`);
 }
 
 
 function imprime_menu_config(datos){
     let div_config = document.querySelector("#form_segundo_contenido");
     const { id_restaurante, nombre, telefono, descripcion, descripcion_larga, horario, correo, cp, direccion, ciudad} = datos;
-    div_config.innerHTML+=`
-            <div class="row">
-            <div class="col-lg-12">
-                <div class="product__details__tab">
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab" aria-selected="true">Promociones</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab" aria-selected="false">Galeria</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab" aria-selected="false">Menús y platillos</a>
-                        </li>
-                    </ul>
-                    
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="tabs-1" role="tabpanel"></div>
-                        <div class="tab-pane" id="tabs-2" role="tabpanel"></div>
-                        <div class="tab-pane" id="tabs-3" role="tabpanel"></div>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-        <br>
-    `;
+  
     //Imprime cada una de las configuraciones 
     config_promociones();
     config_galeria();
@@ -228,46 +173,25 @@ function config_galeria(datos){
 
 function config_menu(datos){
     let div_menu = document.querySelector("#tabs-3");
-    div_menu.innerHTML+=`
-        
-        <div class="product__details__tab__desc">
-                <h3>Agrega tu menú en forma de texto!</h3>
-                <br>
-                <div id="editor">
-                    <p>Agrega tu delicioso menú!</p>
-                    <p>Agrega tu propio diseño!</p>
-                    <p>Rico menú! <strong> $20.00</strong> <em>
-                            <-Empieza a agregar tus deliciosos platillos</em>
-                    </p>
-                    <p><strong>(borra el texto anterior para empezar a escribir tu menú)</strong>...</p>
-                    <p><br></p>
-                </div>
-                <br>
-                <div>
-                    <button type="button" value="contenido" onclick="jssave()" class="btn btn-warning">Guardar Menu!</button>
-                </div>
-                <br>
 
-                <h3>O si prefieres agrega imagenes de tu menú!</h3>
+}
 
-                <div class="row mt-3">
-                    <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg" class="w-100 shadow-1-strong rounded mb-4" alt="" />
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-lg-4 ">
-                        <div class="card">
-                            <div class="card-body text-center">
 
-                                <form action="../../inc/peticiones/admin/upload.php" method="post" enctype="multipart/form-data">
-                                    Select image to upload:
-                                    <input type="file" name="fileToUpload" id="fileToUpload">
-                                    <input type="submit" value="Subir" name="submit">
-                                </form>
-                            </div>
-                        </div>
-                    </div>
 
-                </div>
-            </div>
-    `;
+async function jssave() {
+  let contenido = quill.container.firstChild.innerHTML;
+  console.log(contenido);
+  console.log(id_restaurante);
+  const datos = new FormData();
+  datos.append("texto", contenido);
+  datos.append("id", id_restaurante);
+  datos.append("accion", "subir_menu");
+  const url = "../../inc/peticiones/admin/funciones.php";
+  try {
+    const res = await fetch(url, { method: "POST", body: datos });
+    const data = await res.json();
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
 }
