@@ -296,18 +296,6 @@
 
 
 <!-- Initialize Quill editor-->
-<script>
-    var quill = new Quill('#editor', {
-        theme: 'snow'
-    });
-
-    function jssave() {
-
-        let contenido = quill.container.firstChild.innerHTML;
-        fetch("../../inc/peticiones/admin/consultas.php?contenido=" + contenido);
-        alert("El menú se a guardado");
-
-    }
-</script>
+<script src="subir_menu.js"></script>
 
 </html>

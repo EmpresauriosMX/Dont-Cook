@@ -469,3 +469,22 @@ function obtener_categorias(): array
     }
     return $respuesta;
 }
+
+function subir_menu(): array
+{
+    $texto = $_POST['texto'];
+    $id = (int)$_POST['id'];
+    try {
+        require '../../../conexion.php';
+        $ingresar_horario = $conn->prepare("INSERT INTO menus (id_restaurante,descripcion) VALUES (?,?)");
+        $ingresar_horario->bind_param('is', $id,$texto);
+        $ingresar_horario->execute();
+
+    } catch (\Throwable $th) {
+    }
+    $respuesta = array (
+        'recibo' => $texto,
+        'id_recibido' => $id
+    );
+    return $respuesta;
+}
