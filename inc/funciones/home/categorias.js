@@ -16,10 +16,12 @@ async function mostrar_categorias(){
 
 function imprime_categorias(categorias){
     const div_categorias = document.querySelector("#categorias_list");
-    categorias.forEach(categoria => {
-        const {id, nombre} = categoria;
-        div_categorias.innerHTML += `
-            <li><a href="../restaurantes/restaurantes.php?c=${nombre}">${nombre}</a></li>
-        `; 
-    }); 
+    if (div_categorias){
+        categorias.forEach(categoria => {
+            const {id, nombre} = categoria;
+            div_categorias.innerHTML += `
+                <li><a href="../restaurantes/restaurantes.php?c=${nombre}">${nombre}</a></li>
+            `; 
+        }); 
+    }
 }
