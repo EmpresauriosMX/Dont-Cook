@@ -133,7 +133,7 @@ async function config_promociones(){
     div_promociones.innerHTML+=`
         <div class="row justify-content-center mt-3">
             <div class="col-md-3 mt-3">
-                <a href="agregar_promocion.php?r=${id}" class="btn btn-sm primary-btn  "> Agregar restaurante</a>
+                <a href="agregar_promocion.php?r=${id}" class="btn btn-sm primary-btn  "> Agregar promoción</a>
             </div> 
         </div>
     
@@ -188,19 +188,19 @@ function config_menu(datos){
 
 
 async function jssave() {
-  let contenido = quill.container.firstChild.innerHTML;
-  console.log(contenido);
-  console.log(id_restaurante);
-  const datos = new FormData();
-  datos.append("texto", contenido);
-  datos.append("id", id_restaurante);
-  datos.append("accion", "subir_menu");
-  const url = "../../inc/peticiones/admin/funciones.php";
-  try {
-    const res = await fetch(url, { method: "POST", body: datos });
-    const data = await res.json();
-    console.log(data);
-  } catch (error) {
-    console.log(error);
-  }
+    let contenido = quill.container.firstChild.innerHTML;
+    console.log(contenido);
+    console.log(id_restaurante);
+    const datos = new FormData();
+    datos.append("texto", contenido);
+    datos.append("id", id_restaurante);
+    datos.append("accion", "subir_menu");
+    const url = "../../inc/peticiones/admin/funciones.php";
+    try {
+        const res = await fetch(url, { method: "POST", body: datos });
+        const data = await res.json();
+        console.log(data);
+    } catch (error) {
+        console.log(error);
+    }
 }
