@@ -96,6 +96,88 @@ function enviar(): array
     return $respuesta;
 }
 
+function actualiza_datos_generales(): array
+{
+    $cuenta_existente = false;
+    //-----------SE ABRE LA SESIÓN DEL USUARIO
+    session_start();
+    $id_user = $_SESSION['id'];
+    //$cuenta_existente = $id_user ? 'true' : 'false';
+    if ($id_user != "") { //si la variable de sesión está vacia entonces se redirige al login
+        $cuenta_existente = true;
+    }
+    //SE VALIDA DE QUE TENGA UNA CUENTA EXISTENTE
+    if ($cuenta_existente) {
+        $nombre = $_POST['nombre'];
+        $des_corta = $_POST['desc_corta'];
+        $des_larga = $_POST['desc_larga'];
+        $serv_domicilio = (int) $_POST['servicio'];
+        try {
+            require '../../../conexion.php';
+
+            //ingreso del restaurante           
+            $stmt = $conn->prepare("UPDATE `restaurantes` SET `nombre`='[value-3]',`descripcion_corta`='[value-6]',`des_larga`='[value-7]',`serv_dom`='[value-19]' WHERE `id_restaurante` = 
+            VALUES (?,?,?,?)");
+            $stmt->bind_param('sssi', $nombre, $des_corta, $des_larga, $serv_domicilio);
+            $stmt->execute();
+            $stmt->close();
+
+            //ingreso del horario
+            $ingresar_horario = $conn->prepare("INSERT INTO fechas ( id_restaurante, dia, hora_inicio, hora_fin) VALUES (?,?,?,?)");
+            $ingresar_horario->bind_param('iiss', $nuevo_id, $dia, $inicio, $fin);
+
+            //ingreso de las categorias
+
+            $ingresar_categoria = $conn->prepare("INSERT INTO categorias_restaurantes ( id_categoria, id_restaurante) VALUES (?,?)");
+            $ingresar_categoria->bind_param('ii', $id_categoria, $nuevo_id);
+
+
+            //variables
+            /*  $dia = 2;
+            $inicio = "14:28";
+            $fin = "03:11"; 
+            $ingresar_horario -> execute();*/
+            $nuevo_id = mysqli_insert_id($conn); // id del restaurante insertado
+
+
+            $fechas = json_decode($_POST['horarios']);
+            foreach ($fechas as $value) {
+                $dia = (int) $value->id_dia;
+                $inicio = $value->hora_inicio;
+                $fin = $value->hora_fin;
+                $ingresar_horario->execute();
+            }
+
+            $categorias = json_decode($_POST['categorias']);
+
+            foreach ($categorias as $value) {
+                $id_categoria = (int) $value -> id;
+                $ingresar_categoria->execute();
+            }
+
+            $respuesta = array(
+                'estado' => $tiene_imagen,
+                'imagen' => $nueva_imagen,
+                'estado' => 'correcto',
+                'id' => mysqli_insert_id($conn),
+                'nuevo id' => $nuevo_id,
+                'servicio' => $serv_domicilio,
+                'fechas' => $_POST['horarios'],
+                'categoria' => $_POST['categorias']
+            );
+
+            return $respuesta;
+        } catch (\Throwable $th) {
+            $respuesta = array(
+                'respuesta' => $th
+            );
+            return $respuesta;
+        }
+    }
+    return $respuesta;
+}
+
+
 function restaurantes_home(): array
 {
 

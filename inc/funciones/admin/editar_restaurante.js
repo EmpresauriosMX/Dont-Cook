@@ -2,7 +2,7 @@ import { enviar_datos, mostrar_ubicacion, mostrar_mensaje } from "../funciones_g
 import { Ubicacion, select_ciudad, obj } from "../ubicacion.js";
 
 const url = "../../inc/peticiones/admin/funciones.php";
-
+var id_res;
 const fechas = [];
 //Documento del formulario
 const listado_restaurante = document.querySelector("#form_agregar_restaurante");
@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //SI LE PASAMOS UN RESTAURANTE LO BUSCARA
   if (restaurante) {
       //LE PASAMOS EL ID DE RESUTAURANTE
+      id_res = restaurante;
       mostrar_restaurante(restaurante);
   }
   //SI NO LE PASAMOS NADA CARGARA UN MENSAJE DE ERROR
@@ -112,10 +113,26 @@ document.addEventListener("DOMContentLoaded", () => {
   const ubicacion = new Ubicacion();
   ubicacion.buscar();
   select_ciudad.addEventListener("change", ubicacion.obtener);
-  listado_restaurante.addEventListener("submit", registro_restaurante);
+  //listado_restaurante.addEventListener("submit", registro_restaurante);
   lista_dias.addEventListener("change", agregar_dia);
 });
 
+async function registro_datos_generales(){
+  //VARIABLE
+  const nombre = document.querySelector("#nombre").value;
+  const desc_corta = document.querySelector("#desc_corta").value;
+  const desc_larga = document.querySelector("#desc_larga").value;
+  const acc = document.querySelector("#acc").checked;
+  const servicio_domicilio = acc ? 1 : 0;
+   //envio de variables
+  const datos = new FormData();
+  datos.append("nombre", nombre);
+  datos.append("desc_corta", desc_corta);
+  datos.append("desc_larga", desc_larga);
+  datos.append("accion", "actualiza_datos_generales");
+  const res = await enviar_datos(url, datos);
+  consol.log(res);
+}
 
 function registro_restaurante(e) {
   e.preventDefault();
