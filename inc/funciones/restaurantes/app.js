@@ -144,22 +144,21 @@ async function buscar_todos_los_restaurantes() {
 //plantilla para pintar  mostrar los restaurantes
 function pintar_restaurantes_html(res) {
   limpiar_contenedor();
-  titulo.innerHTML = `<h2>Todos los restaurantes de ${tienes_ciudad}</h2>`;
+  titulo.innerHTML = `<h2>Todes los restaurantes de ${tienes_ciudad}</h2>`;
 
   res.forEach((restaurante) => {
     //console.log(restaurante);
-    const { id, nombre, lugar, horario, descripcion, imagen } = restaurante;
+    const { id, nombre, lugar, horario, descripcion, imagen, correo, fb, insta } = restaurante;
     contenedor.innerHTML += `
                 <div class="blog-card col-md-12 col-sm-12 col-xs-12 col-lg-5 mx-auto">
                     <div class="meta">
                         <div class="photo" style="background-image: url(../../src/img/restaurantes/${imagen}"></div>
                         <ul class="details">
-                            <li class="author"><a href="#">Correo@mail.com</a></li>
+                            <li class="author">Correo: <a href="#">${correo}</a></li>
                             <li class="tags">
                             <ul>
-                                <li><a href="#">Facebook</a></li>
-                                <li><a href="#">Instagram</a></li>
-                                <li><a href="#">Twitter</a></li>
+                                <li>Facebook: <a href="${fb}">${fb}</a></li>
+                                <li>Instagram: <a href="${insta}">${insta}</a></li>
                             </ul>
                             </li>
                         </ul>
