@@ -88,15 +88,16 @@ async function imprime_restaurante(restaurante){
   //INFORMACION DE HORARIO
   const res_horario = await obtener_horario_restaurante(id);
   console.log(res_horario);
+  if(res_horario.respuesta != "sin_horario"){
+    res_horario.forEach((respuesta) => {
+      console.log(respuesta);
+      const {id_fechas, dia, hora_inicio, hora_fin} = respuesta;
+        console.log(dia);
+        const dia_div = document.getElementById(dia.toString());
+        dia_div.checked = true;
+      });
+  }
   
-  
-  res_horario.forEach((respuesta) => {
-  console.log(respuesta);
-  const {id_fechas, dia, hora_inicio, hora_fin} = respuesta;
-    console.log(dia);
-    const dia_div = document.getElementById(dia.toString());
-    dia_div.checked = true;
-  });
 }
 async function obtener_horario_restaurante(restaurante){
   const datos = new FormData();
@@ -104,9 +105,10 @@ async function obtener_horario_restaurante(restaurante){
   datos.append("accion","horario_restaurante");
   //SE BUSCA EL HORARIO CON SU ID DE RESTAURANTE
   const horario = await enviar_datos(url, datos);
-  console.log(horario);
+  //console.log(horario);
   return horario;
 }
+
 
 //------------------ENVIO DE LA ACTUALIZACION DEL RESTAURANTE------------
 document.addEventListener("DOMContentLoaded", () => {
