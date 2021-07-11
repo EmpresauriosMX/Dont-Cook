@@ -77,7 +77,6 @@ function imprime_restaurante(datos) {
 function imprime_menu_config(datos){
     let div_config = document.querySelector("#form_segundo_contenido");
     const { id_restaurante, nombre, telefono, descripcion, descripcion_larga, horario, correo, cp, direccion, ciudad} = datos;
-  
     //Imprime cada una de las configuraciones 
     config_promociones();
     config_galeria();
@@ -87,15 +86,16 @@ function imprime_menu_config(datos){
 async function config_promociones(){
     //aqui va tu codigo para obtener las promociones
     const datos = new FormData();
+    var id = ID_RESTAURANTE_P;
     datos.append("id", ID_RESTAURANTE_P);
     datos.append("accion","ver_promo");
     //SE BUSCA EL RESTAURANTE CON SU ID
     const res = await enviar_datos(url, datos);
     console.log (res);
-
+    var div_promociones = document.querySelector("#tabs-1");
     res.forEach(promocion => {
         
-        let div_promociones = document.querySelector("#tabs-1");
+        
         const { id_restaurante, id_promocion, descripcion, Dias, Nombre, fecha, horario} = promocion;
         console.log (promocion);
         div_promociones.innerHTML+=`
@@ -129,6 +129,15 @@ async function config_promociones(){
             </div>
         `
     });
+    console.log(id);
+    div_promociones.innerHTML+=`
+        <div class="row justify-content-center mt-3">
+            <div class="col-md-3 mt-3">
+                <a href="agregar_promocion.php?r=${id}" class="btn btn-sm primary-btn  "> Agregar restaurante</a>
+            </div> 
+        </div>
+    
+`;
     
 }
 

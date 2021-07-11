@@ -35,8 +35,9 @@
   <!--contenido de la plantilla -->
   <div class="container mb-5">
     <br>
+    <div id="mensaje"></div>
     <div class="row">
-
+    
       <div class="col-lg-8 col-md-6 mx-auto">
         <form id="demo-form" data-parsley-validate>
 

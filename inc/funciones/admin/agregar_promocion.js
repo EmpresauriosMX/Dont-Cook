@@ -13,8 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
     //SI NO LE PASAMOS NADA CARGARA UN MENSAJE DE ERROR
     else{
         mostrar_mensaje("error");
-        //let contenido1 = document.querySelector("#demo-form");
-        //contenido1.innerHTML = "";
+        let contenido1 = document.querySelector("#demo-form");
+        contenido1.innerHTML = "";
     }
     console.log (restaurante);
 });
