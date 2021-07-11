@@ -118,14 +118,6 @@ async function config_promociones(){
 
                 </div>
             
-                <div class="col-md-3 col-sm-6 col-lg-4  mt-3">
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <p><strong>Agregar</strong></p>
-                            <a href="agregar_promocion.php?r=${id_restaurante}" class="fa fa-plus btm btn site-btn mx-auto"></a>
-                        </div>
-                    </div>
-                </div>
             </div>
         `
     });
