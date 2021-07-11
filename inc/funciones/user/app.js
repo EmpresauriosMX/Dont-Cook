@@ -50,22 +50,22 @@ async function imprime_user_card(){
             <div id='states'>
                 <ul class='info'>
                     <li>
-                        Correo
+                        Correo:
                     </li>
-                    <!--<li>
-                        Edad
-                    </li>-->
                     <li>
-                        Ubicación
+                        Usuario:
+                    </li>
+                    <li>
+                        Ubicación:
                     </li> 
                 </ul>
                 <ul class='values'>
                     <li>${correo}</li>
-                    <!--<li>${edad}</li>-->
+                    <li>${usuario}</li>
                     <li>${tienes_ciudad}</li>
                 </ul>
             </div>
-            <div class=" mx-auto">
+            <div class="mx-auto">
                 <!--<a href='#' class='btn btn-dark mt-1'>
                     <i class='fa fa-edit'></i>
                     Editar

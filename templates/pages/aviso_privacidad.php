@@ -20,7 +20,7 @@
             <h1>Aviso de privacidad simplificado</h1>
         </div>
         <div class="card-body">
-            <h5 class="card-text">Daniel Gonzalez Mejia mejor conocido como Don't Cook, con domicilio en Quintana Roo, es el responsable del uso y protección de sus datos personales, y al respecto le informamos lo siguiente:</h5>
+            <h5 class="card-text">Daniel Gonzalez, Saul Gogora, Luis Tzun, Osly Rodriguez mejores conocidos como Don't Cook, con domicilio en Quintana Roo, México son los responsables del uso y protección de sus datos personales, y al respecto le informamos lo siguiente:</h5>
             <h3 class="card-title">¿Para qué fines utilizaremos sus datos personales?</h3>
             <h5 class="card-text">Los datos personales que recabamos de usted, los utilizaremos para las siguientes finalidades que son necesarias para el servicio que solicita:</h5>
             <h3 class="card-tittle">¿Dónde puedo consultar el aviso de privacidad integral?</h3>
@@ -29,7 +29,7 @@
 
         </div>
         <div class="card-footer text-muted">
-            <h5 class="card-text text-center">Última actualización de este aviso de privacidad: 03/07/2021</h5>
+            <h5 class="card-text text-center">Última actualización de este aviso de privacidad: 10/07/2021</h5>
         </div>
     </div>
 <br>
@@ -38,7 +38,7 @@
             <h1>Aviso de privacidad integral</h1>
         </div>
         <div class="card-body">
-            <h5 class="card-text">Daniel Gonzalez Mejia mejor conocido como Don't Cook, con domicilio en Solidaridad, Quintana Roo, México y portal de internet <a href="../home/home.php">dontcook.mx</a> , es el responsable del uso y protección de sus datos personales, y al respecto le informamos lo siguiente:</h5>
+            <h5 class="card-text">Daniel Gonzalez, Saul Gogora, Luis Tzun, Osly Rodriguez mejores conocidos como Don't Cook, con domicilio en Solidaridad, Quintana Roo, México y portal de internet <a href="../home/home.php">dontcook.mx</a> , son los responsables del uso y protección de sus datos personales, y al respecto le informamos lo siguiente:</h5>
             
             <h3 class="card-title text-center">¿Para qué fines utilizaremos sus datos personales?</h3>
             <h5 class="card-text">Los datos personales que recabamos de usted, los utilizaremos para las siguientes finalidades que son necesarias para el servicio que solicita:</h5>
@@ -81,7 +81,7 @@
 
         </div>
         <div class="card-footer text-muted">
-            <h5 class="card-text text-center">Última actualización de este aviso de privacidad: 05/07/2021</h5>
+            <h5 class="card-text text-center">Última actualización de este aviso de privacidad: 10/07/2021</h5>
         </div>
     </div>
 </container>
