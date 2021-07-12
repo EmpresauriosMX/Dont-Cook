@@ -29,6 +29,7 @@ switch ($accion) {
         break;
     case "actualiza_datos_generales":
         $resultado = actualiza_datos_generales();
+        break;
     case 'subir_menu':
         $resultado = subir_menu();
         break;
