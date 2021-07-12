@@ -114,7 +114,7 @@
             </div>
             <div class="col-md-8 col-sm-12">
                 <div class="section-title mt-3">
-                    <h2>Mi Perfil!</h2>        
+                    <h2>Mi Perfil</h2>        
                 </div>
                 <!--En caso de no tener usuario-->
                 <div id="mensaje"></div>
