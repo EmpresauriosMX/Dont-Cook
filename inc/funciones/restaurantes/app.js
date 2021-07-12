@@ -210,7 +210,7 @@ async function pintar_horario_html() {
       if (servicio_domicilio === 1) {
         lista.innerHTML = `
         <div class = "text-success">
-        <i class="fa fa-car" aria-hidden="true"></i>
+        <i class="fa fa-car"></i>
            De ${apertura} a ${cierre} </div> `;
       } else {
         lista.innerHTML = `
