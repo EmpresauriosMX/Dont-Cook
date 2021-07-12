@@ -62,6 +62,9 @@ async function mostrar_restaurantes() {
                   </div>
                   <div class="description">
                       <h4>${nombre}</b></h4>
+                      <div id = "restaurante_horario_${id}"> 
+                          <div class ="text-danger"> Cerrado!</div>
+                      </div>
                       <p class=""><small class="text-muted">${descripcion}</small></p>
                           <div class="row">
                               
@@ -75,11 +78,45 @@ async function mostrar_restaurantes() {
               </div>
               `;
   });
+  pintar_horario_html(); //los horarios disponibles hoy
+
 }
 
 function limpiar_contenedor() {
   contenedor.innerHTML = "";
   titulo.innerHTML = "";
+}
+
+async function pintar_horario_html() {
+  const dia_hoy = moment().format("d");
+  const ciudad = mostrar_ubicacion().ciudad;
+  // console.log(dia_hoy);
+  //console.log(ciudad);
+
+  const datos = new FormData();
+  datos.append("dia", dia_hoy);
+  datos.append("ciudad", ciudad);
+  datos.append("accion", "obtener_horarios");
+
+  const res = await enviar_datos(url, datos);
+  console.log(res);
+  res.forEach((horario) => {
+    const { id, apertura, cierre, servicio_domicilio } = horario;
+    const lista = document.querySelector(`#restaurante_horario_${id}`);
+    if (lista) {
+      lista.innerHTML = "";
+      if (servicio_domicilio === 1) {
+        lista.innerHTML = `
+        <div class = "text-success">
+        <i class="fa fa-car" aria-hidden="true"></i>
+           De ${apertura} a ${cierre} </div> `;
+      } else {
+        lista.innerHTML = `
+        <div class = "text-warning">Sin Servicio a Domicilio! :/</div>
+        <div class = "text-success">De ${apertura} a ${cierre} </div> `;
+      }
+    }
+  });
 }
 
 
