@@ -88,6 +88,15 @@
     <!--contenido de la plantilla -->
     <div class="container">
         <div class="row">
+            <div class="col-md-8 col-sm-12">
+                <div class="section-title mt-3">
+                    <h2>Mi Perfil</h2>        
+                </div>
+                <!--En caso de no tener usuario-->
+                <div id="mensaje"></div>
+                <!--En caso de tener usuario-->
+                <div id="user_card"></div>
+            </div>
             <div class="col-md-4 col-sm-12">
                 <div class="section-title mt-3">
                     <h2>Mi ciudad</h2>        
@@ -112,15 +121,7 @@
                 </div>
                 
             </div>
-            <div class="col-md-8 col-sm-12">
-                <div class="section-title mt-3">
-                    <h2>Mi Perfil</h2>        
-                </div>
-                <!--En caso de no tener usuario-->
-                <div id="mensaje"></div>
-                <!--En caso de tener usuario-->
-                <div id="user_card"></div>
-            </div>
+            
         </div>
     </div>
 
