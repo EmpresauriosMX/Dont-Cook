@@ -87,55 +87,41 @@
 ?>
     <!--contenido de la plantilla -->
     <div class="container">
-        
-        
-
-
-        <div class="section-title mt-3">
-            <h2>Mi Ciudad!</h2>        
-        </div>
-
         <div class="row">
-            <div class="col-sm-12 col-md-6 mx-auto">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="card_tittle text-center">Configuración de localidad</h5>
-                    </div>
-                    <form class="mx-auto mt-3 "id="eleccion_ciudad">
-                        <div class="input-group mb-3">
-                            <select class="custom-select " name="cbx" id="cbx">
-                                <option value="">Selecciona tu ciudad</option>
-                            </select>
-                            <div class="input-group-append">
-                                <button id="enviar" name="enviar" value="Guardar" class="btn btn-dark" type="button">Guardar</button>
-                            </div>
+            <div class="col-md-4 col-sm-12">
+                <div class="section-title mt-3">
+                    <h2>Mi ciudad</h2>        
+                </div>
+                <div class="col-sm-12 col-md-12 mx-auto">
+                    <div class="card">
+                        <div class="card-header ">
+                            <h5 class="card_tittle text-center">Configuración de localidad</h5>
                         </div>
-                            <!--<input type="submit" id="enviar" name="enviar" value="Guardar" />-->
-                    </form>
-
+                        <form class="mx-auto mt-3 "id="eleccion_ciudad">
+                            <div class="input-group mb-3">
+                                <select class="custom-select " name="cbx" id="cbx">
+                                    <option value="">Selecciona tu ciudad</option>
+                                </select>
+                                <div class="input-group-append">
+                                    <button id="enviar" name="enviar" value="Guardar" class="btn btn-dark" type="button">Guardar</button>
+                                </div>
+                            </div>
+                                <!--<input type="submit" id="enviar" name="enviar" value="Guardar" />-->
+                        </form>
+                    </div>
                 </div>
                 
             </div>
+            <div class="col-md-8 col-sm-12">
+                <div class="section-title mt-3">
+                    <h2>Mi Perfil!</h2>        
+                </div>
+                <!--En caso de no tener usuario-->
+                <div id="mensaje"></div>
+                <!--En caso de tener usuario-->
+                <div id="user_card"></div>
+            </div>
         </div>
-
-
-
-
-        <div class="section-title mt-3">
-            <h2>Mi Perfil!</h2>        
-        </div>
-        <!---EN CASO DE QUE NO CUENTE CON UNA CUENTA -->
-        <?php
-            //include '../pages/sin_cuenta.html';
-        ?>
-        <div id="mensaje"></div>
-        <!---EN CASO DE QUE SI TENGA UNA CUENTA-->
-        <!---AQUI VA LO DE CONFIGURACIÓN DE USUARIO-->
-        <!--USER CARD-->
-        <div id="user_card">
-            
-        </div>
-        <!---AQUI VA LO DE CONFIGURACIÓN DE USUARIO /-->
     </div>
 
 
