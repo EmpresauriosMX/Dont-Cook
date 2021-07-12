@@ -12,9 +12,9 @@ switch ($accion) {
     case "mostrar_restaurante":
         $resultado = res_especifico();
         break;
-        case 'obtener_horarios':
-            $resultado = obtener_horarios();
-            break;
+    case "obtener_horarios":
+        $resultado = obtener_horarios();
+        break;
 }
 
 
