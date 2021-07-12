@@ -88,7 +88,7 @@ function imprime_restaurante(datos){
                 <div class="row mx-auto">
                     <a id="facebook" href="${fb}" class="fa fa-facebook btn site-btn mx-auto ml-2"></a>
                     <a id="instagram" href="${inst}" class="fa fa-instagram btn site-btn mx-auto ml-2"></a>
-                    <a id="favorito" href="#" class="fa fa-heart btn site-btn mx-auto ml-2"></a>
+                    <!--<a id="favorito" href="#" class="fa fa-heart btn site-btn mx-auto ml-2"></a>-->
                 </div>
                 <br>
                 
@@ -111,14 +111,14 @@ function imprime_restaurante(datos){
             <div class="contact__widget">
                 <span class="icon_pin_alt"></span>
                 <h4>Dirección</h4>
-                <p id="direccion">${direccion}</p>
+                <p id="direccion">${ciudad}, ${direccion}</p>
             </div>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-6 text-center">
             <div class="contact__widget">
                 <span class="icon_clock_alt"></span>
                 <h4>Horario</h4>
-                <p id="horarios">${horario}</p>
+                <p id="horarios">De -- a --</p>
             </div>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-6 text-center">
@@ -128,6 +128,39 @@ function imprime_restaurante(datos){
                 <p id="correo">${correo}</p>
             </div>
         </div>
+        
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-6 text-center">
+            <div class="contact__widget">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-calendar3" viewBox="0 0 16 16">
+                <path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"/>
+                <path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+            </svg>
+                <h4>Días habiles</h4>
+                <p id="dias">Lunes/Martes/Miercoles</p>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6 text-center">
+            <div class="contact__widget">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-shop" viewBox="0 0 16 16">
+                <path d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z"/>
+            </svg>
+                <h4>Disponibilidad</h4>
+                <p id="dias">Abierto/Cerrado</p>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6 text-center">
+            <div class="contact__widget">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-card-list" viewBox="0 0 16 16">
+                <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                <path d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
+            </svg>
+                <h4>Categorias</h4>
+                <p id="dias">Cat1/Cat2</p>
+            </div>
+        </div>
+    
     </div>
     <!--Fin redes sociales-->
     `;
@@ -186,7 +219,7 @@ function config_promociones(datos){
                     <div class="card-body">
                         <h6>Nombre de la Promoción</h6>
                         <p class="card-text">Descripción de la promocion... <br>
-                        Chelas 2x1 xdxd <br>
+                         <br>
                         De Lunes a Jueves <br>
                         Con Horario de 12:00 a 16:00</p>
                     </div>
