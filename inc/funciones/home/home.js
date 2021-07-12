@@ -61,9 +61,9 @@ async function mostrar_restaurantes() {
                       </ul>
                   </div>
                   <div class="description">
-                      <h4>${nombre}</b></h4>
+                      <h3>${nombre}</b></h3>
                       <div id = "restaurante_horario_${id}"> 
-                          <div class ="text-danger"> Cerrado!</div>
+                          <small class ="text-danger"> <strong> Cerrado </strong></small>
                       </div>
                       <p class=""><small class="text-muted">${descripcion}</small></p>
                           <div class="row">
@@ -107,13 +107,13 @@ async function pintar_horario_html() {
       lista.innerHTML = "";
       if (servicio_domicilio === 1) {
         lista.innerHTML = `
-        <div class = "text-success">
+        <small class = "text-success">
         <i class="fa fa-car"></i>
-           De ${apertura} a ${cierre} </div> `;
+          De ${apertura} a ${cierre} </small> `;
       } else {
         lista.innerHTML = `
-        <div class = "text-warning">Sin Servicio a Domicilio! :/</div>
-        <div class = "text-success">De ${apertura} a ${cierre} </div> `;
+        <small class = "text-warning">Sin servicio a domicilio</small>
+        <small class = "text-success">De ${apertura} a ${cierre} </small> `;
       }
     }
   });
