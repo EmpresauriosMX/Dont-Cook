@@ -392,7 +392,7 @@ function agregar_promocion(): array
 
     require '../../../conexion.php';
     $sql = "INSERT INTO promociones (id_promocion, id_restaurante, imagen, descripcion, Dias, Nombre, fecha, horario) 
-                             VALUES (NULL, '$id_res', '$foto', '$message', '$lunes$martes$miercoles$jueves$viernes$sabado$domingo$todos', '$nombre', '$diai - $diaf','$inicio - $fin')";
+                             VALUES (NULL, '$id_res', '$foto', '$message', '$lunes,$martes,$miercoles,$jueves,$viernes,$sabado,$domingo,$todos', '$nombre', '$diai - $diaf','$inicio - $fin')";
     $consulta = mysqli_query($conn, $sql);
 
     $respuesta = array(

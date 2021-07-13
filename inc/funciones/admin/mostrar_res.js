@@ -93,11 +93,37 @@ async function config_promociones(){
     const res = await enviar_datos(url, datos);
     console.log (res);
     var div_promociones = document.querySelector("#tabs-1");
+
     res.forEach(promocion => {
-        
         
         const { id_restaurante, id_promocion, descripcion, Dias, Nombre, fecha, horario} = promocion;
         console.log (promocion);
+        console.log (Dias);
+        var cadenadias = Dias;
+        var coma = ",";
+        var arrayDeCadenas = "";
+
+        function dividirCadena(cadenaADividir,separador) {
+            arrayDeCadenas = cadenaADividir.split(separador);
+    
+            for (var i=0; i < arrayDeCadenas.length; i++) {
+                console.log ("arrayDeCadenas[" +i + "]" + "= "+ arrayDeCadenas[i] + "<br>");
+            }
+            
+            if(arrayDeCadenas[0] == 1){arrayDeCadenas[0] = "Lunes";}
+            if(arrayDeCadenas[1] == 2){arrayDeCadenas[1] = "Martes";}
+            if(arrayDeCadenas[2] == 3){arrayDeCadenas[2] = "Miercoles";}
+            if(arrayDeCadenas[3] == 4){arrayDeCadenas[3] = "Jueves";}
+            if(arrayDeCadenas[4] == 5){arrayDeCadenas[4] = "Viernes";}
+            if(arrayDeCadenas[5] == 6){arrayDeCadenas[5] = "Sabado";}
+            if(arrayDeCadenas[6] == 7){arrayDeCadenas[6] = "Domingo";}
+            if(arrayDeCadenas[7] == 8){arrayDeCadenas[7] = "Todos";}
+            
+        }
+        dividirCadena(cadenadias, coma);
+        console.log(arrayDeCadenas);
+
+
         div_promociones.innerHTML+=`
             <div class="product__details__tab__desc">
                 <h3>Promociones</h3>
@@ -109,10 +135,11 @@ async function config_promociones(){
                             <h4 class="card-title">${Nombre}</h4>
                         </div>
                         <div class="card-body">
-                            <h6>Nombre de la Promoción</h6>
+                            <h6>${Nombre}</h6>
                             <p class="card-text">${descripcion}<br>
-                            De ${fecha}<br>
-                            Con Horario de ${horario}</p>
+                            Con Horario de ${arrayDeCadenas}<br>
+                            Con Horario de ${horario}<br>
+                            De ${fecha}</p>
                         </div>
                     </div>
 
