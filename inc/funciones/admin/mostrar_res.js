@@ -96,7 +96,7 @@ async function config_promociones(){
 
     res.forEach(promocion => {
         
-        const { id_restaurante, id_promocion, descripcion, Dias, Nombre, fecha, horario} = promocion;
+        const { id_restaurante, id_promocion, descripcion, Dias, Nombre, fecha, horario, foto} = promocion;
         console.log (promocion);
         console.log (Dias);
         var cadenadias = Dias;
@@ -126,20 +126,20 @@ async function config_promociones(){
 
         div_promociones.innerHTML+=`
             <div class="product__details__tab__desc">
-                <h3>Promociones</h3>
                 <div class="card-columns mt-3 ">
                 
                     <div class="card">
-                        <img class="card-img-top" src="../../src/img/banner/banner-1.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="${foto}" alt="Card image cap">
                         <div class="card-img-overlay">
                             <h4 class="card-title">${Nombre}</h4>
                         </div>
                         <div class="card-body">
                             <h6>${Nombre}</h6>
                             <p class="card-text">${descripcion}<br>
-                            Con Horario de ${arrayDeCadenas}<br>
+                            Disponible los dias: ${arrayDeCadenas[0]} ${arrayDeCadenas[1]} ${arrayDeCadenas[2]} 
+                            ${arrayDeCadenas[3]} ${arrayDeCadenas[4]} ${arrayDeCadenas[5]} ${arrayDeCadenas[6]} ${arrayDeCadenas[7]}<br>
                             Con Horario de ${horario}<br>
-                            De ${fecha}</p>
+                            Fecha de disponibilidad ${fecha}</p>
                         </div>
                     </div>
 
