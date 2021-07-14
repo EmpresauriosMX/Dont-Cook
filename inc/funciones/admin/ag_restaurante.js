@@ -68,8 +68,14 @@ function registro_restaurante(e) {
   datos.append("categorias", array_categorias);
 
   datos.append("accion", "registrar_restaurante");
-  enviar_datos(url, datos).then((re) =>alert(JSON.stringify(re)));
+  enviar_datos(url, datos).then((re));
+  //setInterval("actualizar()",1000);
 }
+
+function actualizar(){location.reload(true);}
+//Función para actualizar cada 4 segundos(4000 milisegundos)
+  //setInterval("actualizar()",4000);
+
 
 function agregar_dia(e) {
   // console.log(e.target);
