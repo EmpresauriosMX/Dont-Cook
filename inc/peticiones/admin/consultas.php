@@ -390,6 +390,24 @@ function agregar_promocion(): array
     $message = $_POST['message'];
     $id_res = $_POST['id_res'];
 
+    try {
+        $tiene_foto = getimagesize($_FILES["foto"]["tmp_name"]);
+        if ($tiene_foto) {
+            $temp = explode(".", $_FILES["foto"]["name"]);
+            $nueva_foto = round(microtime(true)) . '.' . end($temp);
+            move_uploaded_file($_FILES["foto"]["tmp_name"], "../../../src/img/promos/" . $nueva_foto);
+        } else {
+            $nueva_foto = "fondo.png";
+
+        } catch (\Throwable $th) {
+            $respuesta = array(
+                'respuesta' => $th
+            );
+            return $respuesta;
+        }
+    }
+    
+
     require '../../../conexion.php';
     $sql = "INSERT INTO promociones (id_promocion, id_restaurante, imagen, descripcion, Dias, Nombre, fecha, horario) 
                              VALUES (NULL, '$id_res', '$foto', '$message', '$lunes,$martes,$miercoles,$jueves,$viernes,$sabado,$domingo,$todos', '$nombre', '$diai - $diaf','$inicio - $fin')";
