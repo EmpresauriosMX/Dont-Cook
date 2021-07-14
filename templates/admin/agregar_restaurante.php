@@ -33,7 +33,7 @@ include '../../inc/peticiones/login/sesion.php';
     function actualizar(){location.reload(true);}
     //Función para actualizar cada 4 segundos(4000 milisegundos)
     function esperar(){
-        setInterval("actualizar()",3000);
+        setInterval("actualizar()",2000);
     }
 
     
