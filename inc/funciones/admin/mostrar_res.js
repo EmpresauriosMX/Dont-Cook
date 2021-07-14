@@ -96,7 +96,7 @@ async function config_promociones(){
 
     res.forEach(promocion => {
         
-        const { id_restaurante, id_promocion, descripcion, Dias, Nombre, fecha, horario, foto} = promocion;
+        const { id_restaurante, id_promocion, descripcion, Dias, Nombre, fecha, horario, imagen} = promocion;
         console.log (promocion);
         console.log (Dias);
         var cadenadias = Dias;
@@ -129,7 +129,7 @@ async function config_promociones(){
                 <div class="card-columns mt-3 ">
                 
                     <div class="card">
-                        <img class="card-img-top" src="${foto}" alt="Card image cap">
+                        <img class="card-img-top" src="../../src/img/promos/${imagen}" alt="Card image cap">
                         <div class="card-img-overlay">
                             <h4 class="card-title">${Nombre}</h4>
                         </div>

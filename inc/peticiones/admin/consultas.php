@@ -374,7 +374,7 @@ function info_restaurante(): array
 function agregar_promocion(): array
 {
     $nombre = $_POST['nombre'];
-    $foto = $_POST['foto'];
+    //$foto = $_POST['foto'];
     $lunes = $_POST['lunes'];
     $martes = $_POST['martes'];
     $miercoles = $_POST['miercoles'];
@@ -398,40 +398,40 @@ function agregar_promocion(): array
             move_uploaded_file($_FILES["foto"]["tmp_name"], "../../../src/img/promos/" . $nueva_foto);
         } else {
             $nueva_foto = "fondo.png";
+        }
+
+            require '../../../conexion.php';
+            $sql = "INSERT INTO promociones (id_promocion, id_restaurante, imagen, descripcion, Dias, Nombre, fecha, horario) 
+                             VALUES (NULL, '$id_res', '$nueva_foto', '$message', '$lunes,$martes,$miercoles,$jueves,$viernes,$sabado,$domingo,$todos', '$nombre', '$diai - $diaf','$inicio - $fin')";
+            $consulta = mysqli_query($conn, $sql);
+
+
+            $respuesta = array(
+                'respuesta' => "Ingresaron datos",
+                'nombre' => $nombre ,
+                'id_res' => $id_res ,
+                'foto' => $nueva_foto ,
+                'lunes' => $lunes ,
+                'martes' => $martes ,
+                'miercoles' => $miercoles ,
+                'jueves' => $jueves ,
+                'viernes' => $viernes ,
+                'sabado' => $sabado ,
+                'domingo' => $domingo ,
+                'todos' => $todos ,
+                'dia1' => $diai ,
+                'dia2' => $diaf ,
+                'incio' => $inicio ,
+                'fin' => $fin ,
+                'message' => $message
+            );
 
         } catch (\Throwable $th) {
             $respuesta = array(
                 'respuesta' => $th
             );
-            return $respuesta;
+            
         }
-    }
-    
-
-    require '../../../conexion.php';
-    $sql = "INSERT INTO promociones (id_promocion, id_restaurante, imagen, descripcion, Dias, Nombre, fecha, horario) 
-                             VALUES (NULL, '$id_res', '$foto', '$message', '$lunes,$martes,$miercoles,$jueves,$viernes,$sabado,$domingo,$todos', '$nombre', '$diai - $diaf','$inicio - $fin')";
-    $consulta = mysqli_query($conn, $sql);
-
-    $respuesta = array(
-        'respuesta' => "Ingresaron datos",
-        'nombre' => $nombre ,
-        'id_res' => $id_res ,
-        'foto' => $foto ,
-        'lunes' => $lunes ,
-        'martes' => $martes ,
-        'miercoles' => $miercoles ,
-        'jueves' => $jueves ,
-        'viernes' => $viernes ,
-        'sabado' => $sabado ,
-        'domingo' => $domingo ,
-        'todos' => $todos ,
-        'dia1' => $diai ,
-        'dia2' => $diaf ,
-        'incio' => $inicio ,
-        'fin' => $fin ,
-        'message' => $message
-    );
 
     return $respuesta;
 }
@@ -453,6 +453,7 @@ function ver_promocion(): array
                 $respuesta[$i]['Nombre'] = $row['Nombre'];
                 $respuesta[$i]['fecha'] = $row['fecha'];
                 $respuesta[$i]['horario'] = $row['horario'];
+                $respuesta[$i]['imagen'] = $row['imagen'];
                 $i++;
             }
         }
