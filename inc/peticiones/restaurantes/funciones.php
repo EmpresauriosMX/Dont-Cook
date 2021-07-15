@@ -15,6 +15,9 @@ switch ($accion) {
     case "obtener_horarios":
         $resultado = obtener_horarios();
         break;
+    case "ver_promo":
+        $resultado = ver_promocion();
+        break;
 }
 
 

@@ -203,3 +203,30 @@ function obtener_horarios(): array
 
     return $respuesta;
 }
+
+function ver_promocion(): array
+{
+    $id_restaurante = $_POST['id'];
+    try {
+        require '../../../conexion.php';
+        $sql = "SELECT * FROM `promociones` WHERE `id_restaurante` = $id_restaurante";
+        $consulta = mysqli_query($conn, $sql);
+        $respuesta = [];
+        $i = 0;
+        //SI CUENTA CON RESTAURANTES
+        if (mysqli_num_rows($consulta) != 0) {
+            while ($row = mysqli_fetch_assoc($consulta)) {
+                $respuesta[$i]['descripcion'] = $row['descripcion'];
+                $respuesta[$i]['Dias'] = $row['Dias'];
+                $respuesta[$i]['Nombre'] = $row['Nombre'];
+                $respuesta[$i]['fecha'] = $row['fecha'];
+                $respuesta[$i]['horario'] = $row['horario'];
+                $respuesta[$i]['imagen'] = $row['imagen'];
+                $i++;
+            }
+        }
+        return $respuesta;
+    } catch (\Throwable $th) {
+        //throw $th;
+    }
+}

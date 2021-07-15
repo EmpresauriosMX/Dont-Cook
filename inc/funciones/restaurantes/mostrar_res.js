@@ -1,5 +1,7 @@
 import {mostrar_ubicacion, enviar_datos, mostrar_mensaje} from "../funciones_generales.js";
 const url = "../../inc/peticiones/restaurantes/funciones.php";
+var id_restaurante = "";
+var ID_RESTAURANTE_P = "";
 //CON ESTO OBTENEMOS EL ID DEL RESTAURANTE POR LA URL
 document.addEventListener("DOMContentLoaded", () => {
     const parametrosURL = new URLSearchParams(window.location.search);
@@ -7,6 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
     //SI LE PASAMOS UN RESTAURANTE LO BUSCARA
     if (restaurante) {
         //LE PASAMOS EL ID DE RESUTAURANTE
+        id_restaurante = restaurante;
+        ID_RESTAURANTE_P = restaurante;
         mostrar_restaurante(restaurante);
     }
     //SI NO LE PASAMOS NADA CARGARA UN MENSAJE DE ERROR
@@ -203,40 +207,72 @@ function imprime_menu_config(datos){
     config_menu();
 }
 
-function config_promociones(datos){
+async function config_promociones(){
+
     //aqui va tu codigo para obtener las promociones
-    let div_promociones = document.querySelector("#tabs-1");
-    div_promociones.innerHTML+=`
-    <div class="product__details__tab__desc">
-            <h3>Promociones</h3>
+    const datos = new FormData();
+    var id = ID_RESTAURANTE_P;
+    datos.append("id", ID_RESTAURANTE_P);
+    datos.append("accion","ver_promo");
+    //SE BUSCA EL RESTAURANTE CON SU ID
+    const res = await enviar_datos(url, datos);
+    console.log (res);
+    var div_promociones = document.querySelector("#tabs-1");
+
+    res.forEach(promocion => {
+        
+        const { id_restaurante, id_promocion, descripcion, Dias, Nombre, fecha, horario, imagen} = promocion;
+        console.log (promocion);
+        console.log (Dias);
+        var cadenadias = Dias;
+        var coma = ",";
+        var arrayDeCadenas = "";
+
+        function dividirCadena(cadenaADividir,separador) {
+            arrayDeCadenas = cadenaADividir.split(separador);
+    
+            for (var i=0; i < arrayDeCadenas.length; i++) {
+                console.log ("arrayDeCadenas[" +i + "]" + "= "+ arrayDeCadenas[i] + "<br>");
+            }
+            
+            if(arrayDeCadenas[0] == 1){arrayDeCadenas[0] = "Lunes";}
+            if(arrayDeCadenas[1] == 2){arrayDeCadenas[1] = "Martes";}
+            if(arrayDeCadenas[2] == 3){arrayDeCadenas[2] = "Miercoles";}
+            if(arrayDeCadenas[3] == 4){arrayDeCadenas[3] = "Jueves";}
+            if(arrayDeCadenas[4] == 5){arrayDeCadenas[4] = "Viernes";}
+            if(arrayDeCadenas[5] == 6){arrayDeCadenas[5] = "Sabado";}
+            if(arrayDeCadenas[6] == 7){arrayDeCadenas[6] = "Domingo";}
+            if(arrayDeCadenas[7] == 8){arrayDeCadenas[7] = "Todos";}
+            
+        }
+        dividirCadena(cadenadias, coma);
+        console.log(arrayDeCadenas);
+
+        div_promociones.innerHTML+=`
+        <div class="product__details__tab__desc">
             <div class="card-columns mt-3 ">
-                
+            
                 <div class="card">
-                    <img class="card-img-top" src="../../src/img/banner/banner-1.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="../../src/img/promos/${imagen}" alt="Card image cap">
                     <div class="card-img-overlay">
-                        <h4 class="card-title">Restaurante</h4>
+                        <h4 class="card-title">${Nombre}</h4>
                     </div>
                     <div class="card-body">
-                        <h6>Nombre de la Promoción</h6>
-                        <p class="card-text">Descripción de la promocion... <br>
-                         <br>
-                        De Lunes a Jueves <br>
-                        Con Horario de 12:00 a 16:00</p>
+                        <h6>${Nombre}</h6>
+                        <p class="card-text">${descripcion}<br>
+                        Disponible los dias: ${arrayDeCadenas[0]} ${arrayDeCadenas[1]} ${arrayDeCadenas[2]} 
+                        ${arrayDeCadenas[3]} ${arrayDeCadenas[4]} ${arrayDeCadenas[5]} ${arrayDeCadenas[6]} ${arrayDeCadenas[7]}<br>
+                        Con Horario de ${horario}<br>
+                        Fecha de disponibilidad ${fecha}</p>
                     </div>
                 </div>
 
             </div>
-            
-            <div class="col-md-3 col-sm-6 col-lg-4  mt-3">
-                <div class="card">
-                    <div class="card-body text-center">
-                        <p><strong>Agregar</strong></p>
-                        <a href="agregar_promocion.php" class="fa fa-plus btm btn site-btn mx-auto"></a>
-                    </div>
-                </div>
-            </div>
+        
         </div>
     `
+    });
+
 }
 
 function config_galeria(datos){
