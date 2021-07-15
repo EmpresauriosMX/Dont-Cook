@@ -125,27 +125,31 @@ async function config_promociones(){
 
 
         div_promociones.innerHTML+=`
-            <div class="product__details__tab__desc">
-                <div class="card-columns mt-3 ">
-                
-                    <div class="card">
-                        <img class="card-img-top" src="../../src/img/promos/${imagen}" alt="Card image cap">
-                        <div class="card-img-overlay">
-                            <h4 class="card-title">${Nombre}</h4>
-                        </div>
-                        <div class="card-body">
-                            <h6>${Nombre}</h6>
-                            <p class="card-text">${descripcion}<br>
-                            Disponible los dias: ${arrayDeCadenas[0]} ${arrayDeCadenas[1]} ${arrayDeCadenas[2]} 
-                            ${arrayDeCadenas[3]} ${arrayDeCadenas[4]} ${arrayDeCadenas[5]} ${arrayDeCadenas[6]} ${arrayDeCadenas[7]}<br>
-                            Con Horario de ${horario}<br>
-                            Fecha de disponibilidad ${fecha}</p>
-                        </div>
-                    </div>
 
-                </div>
+        <div class="product__details__tab__desc">
+            <div class="card-columns mt-3 ">
             
+                <div class="card m-4" style="width: 23rem;">
+                    <img class="card-img-top" src="../../src/img/promos/${imagen}" alt="Card image cap">
+                    <div class="card-img-overlay">
+                        <h3 class="card-title">${Nombre}</h3>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">${Nombre}</h5>
+                        <p class="card-text">${descripcion}</p>
+                        <h6 class="h6">Disponible los días: 
+                            <p>${arrayDeCadenas[0]}/${arrayDeCadenas[1]}/${arrayDeCadenas[2]}/${arrayDeCadenas[3]}/${arrayDeCadenas[4]}/${arrayDeCadenas[5]}/${arrayDeCadenas[6]}/${arrayDeCadenas[7]}</p>
+                        </h6>
+                        <h6 class="h6">Horario de disponibilidad: <p>${horario}</p></h6>
+                        <h6 class="h6">Fecha de vencimiento: <p>${fecha}</p></h6>
+                    </div>
+                    
+                </div>
+                
             </div>
+        </div>
+
+
         `
     });
     console.log(id);
