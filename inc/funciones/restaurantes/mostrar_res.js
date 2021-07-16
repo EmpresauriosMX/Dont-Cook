@@ -202,10 +202,26 @@ function imprime_menu_config(datos){
         <br>
     `;
     //Imprime cada una de las configuraciones 
-    config_promociones();
+    //config_promociones();
+    apartado_promociones();
     config_galeria();
     config_menu();
 }
+
+async function apartado_promociones(){
+
+    var div_promociones = document.querySelector("#tabs-1");
+    div_promociones.innerHTML+=`
+        <div class="product__details__tab__desc">
+            <div id="promos" class="card-columns mt-3 ">
+
+            </div>
+        </div>
+    `;
+    config_promociones();
+
+}
+
 
 async function config_promociones(){
 
@@ -217,7 +233,11 @@ async function config_promociones(){
     //SE BUSCA EL RESTAURANTE CON SU ID
     const res = await enviar_datos(url, datos);
     console.log (res);
-    var div_promociones = document.querySelector("#tabs-1");
+    var promociones = document.querySelector("#promos");
+
+    //apartado_promociones();
+
+    
 
     res.forEach(promocion => {
         
@@ -248,11 +268,11 @@ async function config_promociones(){
         dividirCadena(cadenadias, coma);
         console.log(arrayDeCadenas);
 
-        div_promociones.innerHTML+=`
-        <div class="product__details__tab__desc">
-            <div class="card-columns mt-3 ">
+        
+
+        promociones.innerHTML+=`
             
-                <div class="card m-4" style="width: 23rem;">
+                <div class="card" style="width: 23rem;">
                     <img class="card-img-top" src="../../src/img/promos/${imagen}" alt="Card image cap">
                     <div class="card-img-overlay">
                         <h3 class="card-title">${Nombre}</h3>
@@ -269,10 +289,8 @@ async function config_promociones(){
                     
                 </div>
                 
-            </div>
-        </div>
 
-    `
+    `;
     });
 
 }

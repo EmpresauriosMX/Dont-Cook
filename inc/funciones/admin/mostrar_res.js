@@ -78,9 +78,24 @@ function imprime_menu_config(datos){
     let div_config = document.querySelector("#form_segundo_contenido");
     const { id_restaurante, nombre, telefono, descripcion, descripcion_larga, horario, correo, cp, direccion, ciudad} = datos;
     //Imprime cada una de las configuraciones 
-    config_promociones();
+    //config_promociones();
+    apartado_promociones();
     config_galeria();
     config_menu();
+}
+
+async function apartado_promociones(){
+
+    var div_promociones = document.querySelector("#tabs-1");
+    div_promociones.innerHTML+=`
+        <div class="product__details__tab__desc">
+            <div id="promos" class="card-columns mt-3 ">
+
+            </div>
+        </div>
+    `;
+    config_promociones();
+
 }
 
 async function config_promociones(){
@@ -92,7 +107,9 @@ async function config_promociones(){
     //SE BUSCA EL RESTAURANTE CON SU ID
     const res = await enviar_datos(url, datos);
     console.log (res);
+    var promociones = document.querySelector("#promos");
     var div_promociones = document.querySelector("#tabs-1");
+
 
     res.forEach(promocion => {
         
@@ -124,33 +141,26 @@ async function config_promociones(){
         console.log(arrayDeCadenas);
 
 
-        div_promociones.innerHTML+=`
+        promociones.innerHTML+=`
 
-        <div class="product__details__tab__desc">
-            <div class="card-columns mt-3 ">
             
-                <div class="card m-4" style="width: 23rem;">
-                    <img class="card-img-top" src="../../src/img/promos/${imagen}" alt="Card image cap">
-                    <div class="card-img-overlay">
-                        <h3 class="card-title">${Nombre}</h3>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title text-center">${Nombre}</h5>
-                        <p class="card-text">${descripcion}</p>
-                        <h6 class="h6">Disponible los días: 
-                            <p>${arrayDeCadenas[0]}/${arrayDeCadenas[1]}/${arrayDeCadenas[2]}/${arrayDeCadenas[3]}/${arrayDeCadenas[4]}/${arrayDeCadenas[5]}/${arrayDeCadenas[6]}/${arrayDeCadenas[7]}</p>
-                        </h6>
-                        <h6 class="h6">Horario de disponibilidad: <p>${horario}</p></h6>
-                        <h6 class="h6">Fecha de vencimiento: <p>${fecha}</p></h6>
-                    </div>
-                    
-                </div>
-                
+        <div class="card" style="width: 23rem;">
+            <img class="card-img-top" src="../../src/img/promos/${imagen}" alt="Card image cap">
+            <div class="card-img-overlay">
+                <h3 class="card-title">${Nombre}</h3>
             </div>
+            <div class="card-body">
+                <h5 class="card-title text-center">${Nombre}</h5>
+                <p class="card-text">${descripcion}</p>
+                <h6 class="h6">Disponible los días: 
+                    <p>${arrayDeCadenas[0]}/${arrayDeCadenas[1]}/${arrayDeCadenas[2]}/${arrayDeCadenas[3]}/${arrayDeCadenas[4]}/${arrayDeCadenas[5]}/${arrayDeCadenas[6]}/${arrayDeCadenas[7]}</p>
+                </h6>
+                <h6 class="h6">Horario de disponibilidad: <p>${horario}</p></h6>
+                <h6 class="h6">Fecha de vencimiento: <p>${fecha}</p></h6>
+            </div>
+            
         </div>
-
-
-        `
+        `;
     });
     console.log(id);
     div_promociones.innerHTML+=`
