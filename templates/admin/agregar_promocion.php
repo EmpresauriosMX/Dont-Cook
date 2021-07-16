@@ -6,6 +6,7 @@
 
 <head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
   <?php
   include '../componentes/header.html';
@@ -13,6 +14,29 @@
 </head>
 
 <body>
+
+
+    <script type="text/javascript">
+
+        function mostrar(){
+
+            swal({
+                title: "Guardado!",
+                text: "Promoción Guardada Éxitosamente!",
+                icon: "success",
+            });
+            esperar();
+        }
+
+        function actualizar(){location.reload(true);}
+        //Función para actualizar cada 4 segundos(4000 milisegundos)
+        function esperar(){
+            setInterval("actualizar()",4000);
+        }
+
+    
+
+    </script>
   <?php
   include '../componentes/head.html';
 
@@ -190,7 +214,7 @@
           </div>
 
 
-          <button type="submit" id="btn" class="site-btn btn-block">Guardar Promoción</button>
+          <button type="submit" onclick="mostrar()" id="btn"  class="site-btn btn-block">Guardar Promoción</button>
 
 
         </form>

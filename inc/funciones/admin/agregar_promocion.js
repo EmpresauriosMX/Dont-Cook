@@ -113,7 +113,5 @@ async function promociones (){
   const res = await enviar_datos(url, datos);
   console.log(res);
   console.log(foto.file[0]);
-  const qwerty = res.id_res;
-  window.location = "../admin/restaurante_ver.php?r="+ qwerty;
 
 }
