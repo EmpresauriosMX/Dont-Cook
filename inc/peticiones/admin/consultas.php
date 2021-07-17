@@ -401,8 +401,8 @@ function agregar_promocion(): array
         }
 
             require '../../../conexion.php';
-            $sql = "INSERT INTO promociones (id_promocion, id_restaurante, imagen, descripcion, Dias, Nombre, fecha, horario) 
-                             VALUES (NULL, '$id_res', '$nueva_foto', '$message', '$lunes,$martes,$miercoles,$jueves,$viernes,$sabado,$domingo,$todos', '$nombre', '$diai - $diaf','$inicio - $fin')";
+            $sql = "INSERT INTO promociones (id_promocion, id_restaurante, imagen, descripcion, Dias, Nombre, fecha, fecha_f, horario) 
+                             VALUES (NULL, '$id_res', '$nueva_foto', '$message', '$lunes,$martes,$miercoles,$jueves,$viernes,$sabado,$domingo,$todos', '$nombre', '$diai', '$diaf','de $inicio a $fin')";
             $consulta = mysqli_query($conn, $sql);
 
 
@@ -452,6 +452,7 @@ function ver_promocion(): array
                 $respuesta[$i]['Dias'] = $row['Dias'];
                 $respuesta[$i]['Nombre'] = $row['Nombre'];
                 $respuesta[$i]['fecha'] = $row['fecha'];
+                $respuesta[$i]['fecha_f'] = $row['fecha_f'];
                 $respuesta[$i]['horario'] = $row['horario'];
                 $respuesta[$i]['imagen'] = $row['imagen'];
                 $i++;

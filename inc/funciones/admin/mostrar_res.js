@@ -113,9 +113,10 @@ async function config_promociones(){
 
     res.forEach(promocion => {
         
-        const { id_restaurante, id_promocion, descripcion, Dias, Nombre, fecha, horario, imagen} = promocion;
+        const { id_restaurante, id_promocion, descripcion, Dias, Nombre, fecha, fecha_f, horario, imagen} = promocion;
         console.log (promocion);
         console.log (Dias);
+        console.log (fecha_f);
         var cadenadias = Dias;
         var coma = ",";
         var arrayDeCadenas = "";
@@ -156,7 +157,8 @@ async function config_promociones(){
                     <p>${arrayDeCadenas[0]}/${arrayDeCadenas[1]}/${arrayDeCadenas[2]}/${arrayDeCadenas[3]}/${arrayDeCadenas[4]}/${arrayDeCadenas[5]}/${arrayDeCadenas[6]}/${arrayDeCadenas[7]}</p>
                 </h6>
                 <h6 class="h6">Horario de disponibilidad: <p>${horario}</p></h6>
-                <h6 class="h6">Fecha de vencimiento: <p>${fecha}</p></h6>
+                <h6 class="h6">Fecha de inicio: <p>${fecha}</p></h6>
+                <h6 class="h6">Fecha de vencimiento: <p>${fecha_f}</p></h6>
             </div>
             
         </div>
