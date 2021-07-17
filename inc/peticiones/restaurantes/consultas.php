@@ -220,6 +220,7 @@ function ver_promocion(): array
                 $respuesta[$i]['Dias'] = $row['Dias'];
                 $respuesta[$i]['Nombre'] = $row['Nombre'];
                 $respuesta[$i]['fecha'] = $row['fecha'];
+                $respuesta[$i]['fecha_f'] = $row['fecha_f'];
                 $respuesta[$i]['horario'] = $row['horario'];
                 $respuesta[$i]['imagen'] = $row['imagen'];
                 $i++;
