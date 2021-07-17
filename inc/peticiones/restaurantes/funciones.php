@@ -18,6 +18,9 @@ switch ($accion) {
     case "ver_promo":
         $resultado = ver_promocion();
         break;
+        case 'obtener_menu':
+            $resultado = obtener_menu();
+            break;
 }
 
 

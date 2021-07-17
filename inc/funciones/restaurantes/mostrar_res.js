@@ -334,48 +334,34 @@ function config_galeria(datos){
     `;
 }
 
-function config_menu(datos){
+async function config_menu(){
     let div_menu = document.querySelector("#tabs-3");
+
+    const datos = new FormData();
+    datos.append("id",id_restaurante);
+    datos.append("accion","obtener_menu");
+    
+    const res = await enviar_datos(url,datos);
+    console.log(res); 
+
+res.forEach(element => {
     div_menu.innerHTML+=`
-        
-        <div class="product__details__tab__desc">
-                <h3>Agrega tu menú en forma de texto!</h3>
-                <br>
-                <div id="editor">
-                    <p>Agrega tu delicioso menú!</p>
-                    <p>Agrega tu propio diseño!</p>
-                    <p>Rico menú! <strong> $20.00</strong> <em>
-                            <-Empieza a agregar tus deliciosos platillos</em>
-                    </p>
-                    <p><strong>(borra el texto anterior para empezar a escribir tu menú)</strong>...</p>
-                    <p><br></p>
-                </div>
-                <br>
-                <div>
-                    <button type="button" value="contenido" onclick="jssave()" class="btn btn-warning">Guardar Menu!</button>
-                </div>
-                <br>
-
-                <h3>O si prefieres agrega imagenes de tu menú!</h3>
-
-                <div class="row mt-3">
-                    <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg" class="w-100 shadow-1-strong rounded mb-4" alt="" />
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-lg-4 ">
-                        <div class="card">
-                            <div class="card-body text-center">
-
-                                <form action="../../inc/peticiones/admin/upload.php" method="post" enctype="multipart/form-data">
-                                    Select image to upload:
-                                    <input type="file" name="fileToUpload" id="fileToUpload">
-                                    <input type="submit" value="Subir" name="submit">
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+    <div class="product__details__tab__desc">
+            <div id="editor">
+               ${element.descripcion}
             </div>
-    `;
+
+            <h4>imagen del menu</h4>
+
+            <div class="row mt-3">
+                <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg" class="w-100 shadow-1-strong rounded mb-4" alt="" />
+                </div>
+          
+
+            </div>
+        </div>
+`;
+});
+
 }
