@@ -115,8 +115,6 @@ async function config_promociones(){
         
         const { id_restaurante, id_promocion, descripcion, Dias, Nombre, fecha, fecha_f, horario, imagen} = promocion;
         console.log (promocion);
-        console.log (Dias);
-        console.log (fecha_f);
         var cadenadias = Dias;
         var coma = ",";
         var arrayDeCadenas = "";
@@ -125,7 +123,6 @@ async function config_promociones(){
             arrayDeCadenas = cadenaADividir.split(separador);
     
             for (var i=0; i < arrayDeCadenas.length; i++) {
-                console.log ("arrayDeCadenas[" +i + "]" + "= "+ arrayDeCadenas[i] + "<br>");
             }
             
             if(arrayDeCadenas[0] == 1){arrayDeCadenas[0] = "Lunes";}
@@ -139,7 +136,6 @@ async function config_promociones(){
             
         }
         dividirCadena(cadenadias, coma);
-        console.log(arrayDeCadenas);
 
 
         promociones.innerHTML+=`
