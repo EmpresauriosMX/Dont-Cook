@@ -494,16 +494,25 @@ function subir_menu(): array
     $texto = $_POST['texto'];
     $id = (int)$_POST['id'];
     try {
+        $tiene_imagen = getimagesize($_FILES["imagen"]["tmp_name"]);
+        if ($tiene_imagen) {
+            $temp = explode(".", $_FILES["imagen"]["name"]);
+            $nueva_imagen = round(microtime(true)) . '.' . end($temp);
+            move_uploaded_file($_FILES["imagen"]["tmp_name"], "../../../src/img/menus/" . $nueva_imagen);
+        } else {
+            $nueva_imagen = "fondo.png";
+        }
         require '../../../conexion.php';
-        $ingresar_horario = $conn->prepare("INSERT INTO menus (id_restaurante,descripcion) VALUES (?,?)");
-        $ingresar_horario->bind_param('is', $id,$texto);
+        $ingresar_horario = $conn->prepare("INSERT INTO menus (id_restaurante,descripcion,imagen) VALUES (?,?,?)");
+        $ingresar_horario->bind_param('iss', $id,$texto,$nueva_imagen);
         $ingresar_horario->execute();
 
     } catch (\Throwable $th) {
     }
     $respuesta = array (
         'recibo' => $texto,
-        'id_recibido' => $id
+        'id_recibido' => $id,
+        'nueva_imagen' => $nueva_imagen
     );
     return $respuesta;
 }

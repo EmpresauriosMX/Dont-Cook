@@ -245,6 +245,7 @@ function obtener_menu(): array
         if (mysqli_num_rows($consulta) != 0) {
             while ($row = mysqli_fetch_assoc($consulta)) {
                 $respuesta[$i]['descripcion'] = $row['descripcion'];
+                $respuesta[$i]['imagen'] = $row['imagen'];
                 $i++;
             }
         }

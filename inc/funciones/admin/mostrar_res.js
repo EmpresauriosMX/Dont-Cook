@@ -222,10 +222,11 @@ function config_menu(datos){
 
 async function jssave() {
     let contenido = quill.container.firstChild.innerHTML;
-    console.log(contenido);
-    console.log(id_restaurante);
+    const imagen = document.querySelector("#imagen");
+
     const datos = new FormData();
     datos.append("texto", contenido);
+    datos.append("imagen", imagen.files[0]);
     datos.append("id", id_restaurante);
     datos.append("accion", "subir_menu");
     const url = "../../inc/peticiones/admin/funciones.php";

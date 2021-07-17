@@ -204,6 +204,9 @@ async function pintar_horario_html() {
   console.log(res);
   res.forEach((horario) => {
     const { id, apertura, cierre, servicio_domicilio } = horario;
+
+    const apuerta_formato_12h = moment(apertura, "hh:mm").format("h:mm a");
+    const cierre_formato_12h = moment(cierre, "hh:mm").format("h:mm a");
     const lista = document.querySelector(`#restaurante_horario_${id}`);
     if (lista) {
       lista.innerHTML = "";
@@ -211,11 +214,11 @@ async function pintar_horario_html() {
         lista.innerHTML = `
         <div class = "text-success">
         <i class="fa fa-car"></i>
-           De ${apertura} a ${cierre} </div> `;
+           De ${apuerta_formato_12h} a ${cierre_formato_12h} </div> `;
       } else {
         lista.innerHTML = `
         <div class = "text-warning">Sin Servicio a Domicilio! :/</div>
-        <div class = "text-success">De ${apertura} a ${cierre} </div> `;
+        <div class = "text-success">De ${apuerta_formato_12h} a ${cierre_formato_12h} </div> `;
       }
     }
   });
