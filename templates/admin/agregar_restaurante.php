@@ -8,7 +8,7 @@ include '../../inc/peticiones/login/sesion.php';
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
     <a href="javascript:location.reload()"></a>
     <?php
     include '../componentes/header.html';
@@ -18,27 +18,6 @@ include '../../inc/peticiones/login/sesion.php';
 
 <body>
 
-    <script type="text/javascript">
-
-    function mostrar(){
-
-        swal({
-            title: "Guardado!",
-            text: "Restaurante Guardado Éxitosamente!",
-            icon: "success",
-        });
-        esperar();
-    }
-
-    function actualizar(){location.reload(true);}
-    //Función para actualizar cada 4 segundos(4000 milisegundos)
-    function esperar(){
-        setInterval("actualizar()",2000);
-    }
-
-    
-
-    </script>
 
     <?php
     include '../componentes/head.html';
@@ -318,7 +297,7 @@ include '../../inc/peticiones/login/sesion.php';
                     </div>
 
                     <br>
-                    <button type="submit" onclick="mostrar()" class="site-btn btn-block">Guardar</button>
+                    <button type="submit" class="site-btn btn-block">Guardar</button>
                 </div>
             </div>
         </form>

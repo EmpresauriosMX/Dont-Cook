@@ -1,6 +1,7 @@
 import { enviar_datos, mostrar_ubicacion } from "../funciones_generales.js";
 import { Ubicacion, select_ciudad, obj } from "../ubicacion.js";
 
+
 const url = "../../inc/peticiones/admin/funciones.php";
 
 const fechas = [];
@@ -68,13 +69,13 @@ function registro_restaurante(e) {
   datos.append("categorias", array_categorias);
 
   datos.append("accion", "registrar_restaurante");
+  alert("Restaurante Guardado Éxitosamente");
   enviar_datos(url, datos).then((re));
-  //setInterval("actualizar()",1000);
+ 
+  
+  
 }
 
-function actualizar(){location.reload(true);}
-//Función para actualizar cada 4 segundos(4000 milisegundos)
-  //setInterval("actualizar()",4000);
 
 
 function agregar_dia(e) {
@@ -149,14 +150,17 @@ function eliminar_categoria (e){
   if (e.target.classList.contains('fa-trash') || e.target.classList.contains('close') ) {
     const id = e.target.id;
     const is_categoria = categorias.findIndex((Element) => Element.id == id);
-console.log(is_categoria);
-console.log(id);
+  console.log(is_categoria);
+  console.log(id);
       if (is_categoria != -1) {
         categorias.splice(is_categoria,1)
       } 
       console.log(categorias);
     }
-  }
+}
+
+
+
 
 /*
 let contador = 0;

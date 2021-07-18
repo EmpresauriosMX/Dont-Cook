@@ -16,27 +16,6 @@
 <body>
 
 
-    <script type="text/javascript">
-
-        function mostrar(){
-
-            swal({
-                title: "Guardado!",
-                text: "Promoción Guardada Éxitosamente!",
-                icon: "success",
-            });
-            esperar();
-        }
-
-        function actualizar(){location.reload(true);}
-        //Función para actualizar cada 4 segundos(4000 milisegundos)
-        function esperar(){
-            setInterval("actualizar()",4000);
-        }
-
-    
-
-    </script>
   <?php
   include '../componentes/head.html';
 
@@ -214,7 +193,7 @@
           </div>
 
 
-          <button type="submit" onclick="mostrar()" id="btn"  class="site-btn btn-block">Guardar Promoción</button>
+          <button type="submit" id="btn"  class="site-btn btn-block">Guardar Promoción</button>
 
 
         </form>

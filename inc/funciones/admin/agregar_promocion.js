@@ -113,5 +113,6 @@ async function promociones (){
   const res = await enviar_datos(url, datos);
   console.log(res);
   console.log(foto.file[0]);
-
+  alert("Promoción Guardada Éxitosamente!");
+ 
 }
