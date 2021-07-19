@@ -1,4 +1,4 @@
-import { enviar_datos, mostrar_ubicacion, mostrar_mensaje } from "../funciones_generales.js";
+import { enviar_datos, mostrar_ubicacion, mostrar_mensaje , mostrar_alert} from "../funciones_generales.js";
 import { Ubicacion, select_ciudad, obj } from "../ubicacion.js";
 
 const url = "../../inc/peticiones/admin/funciones.php";
@@ -148,6 +148,10 @@ async function editar_datos_generales(e){
   datos.append("accion", "actualiza_datos_generales");
   const res = await enviar_datos(url, datos);
   console.log(res);
+  if(res.respuesta = "ok"){
+    let div_alert2 = document.querySelector("#alert2");
+    mostrar_alert("success", "Los datos generales han sido actualizados", div_alert2);
+  }
 }
 
 function registro_restaurante(e) {

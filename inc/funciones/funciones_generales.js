@@ -88,16 +88,17 @@ export function mostrar_mensaje(mensaje) {
   div.innerHTML += muestra;
 }
 
-export function mostrar_alert(tipo, mensaje) {
+export function mostrar_alert(tipo, mensaje ,div) {
   //ESTA FUNCION ES USABLE EN DONDE SEA LLAMADO
   //PARA USARLO:
   //1. Declarar un div con id llamado "alert"
   //2. como primera linea de codigo llamar a la funcion como:
   //  2.1 import { mostrar_alert } from "../funciones_generales.js";
   //3. Donde se vaya a usar llamar a la funcion como:
-  //  3.1 mostrar_alert(tipo_alert, mensaje)
-  //  en tipo_alert reemplzar por el tipo de alrta que se desee y en mensaje el mensaje dentro del alert
-  let div_alert = document.querySelector("#alert");
+  //  3.1 mostrar_alert(tipo_alert, mensaje, div_donde_Se_usara)
+  //  en tipo_alert reemplzar por el tipo de alrta que se desee
+  //  en mensaje el mensaje dentro del alert
+  //  en el div va el div en el que se usara por ejemplo 
   const ALERTS_POR_MOSTRAR = {
     primary: `<div class="alert alert-primary" role="alert">
                   ${mensaje}
@@ -146,5 +147,16 @@ export function mostrar_alert(tipo, mensaje) {
               </div>`,
   };
   const muestra = ALERTS_POR_MOSTRAR[tipo];
-  div_alert.innerHTML += muestra;
+  //si le pasamos un div lo imprime ahi
+  if(div){
+    div.innerHTML += muestra;
+  }
+  //si no, lo improme en el div alert
+  else{
+    let div_alert = document.querySelector("#alert");
+    div_alert.innerHTML += muestra;
+  }
+  
 }
+
+

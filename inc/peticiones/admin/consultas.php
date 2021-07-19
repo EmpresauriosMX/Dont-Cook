@@ -122,33 +122,10 @@ function actualiza_datos_generales(): array
                         WHERE `id_propietario` = $id_user and `id_restaurante` = $id_res";
             $consulta = mysqli_query($conn, $sql);
             $respuesta = [];
-            if (mysqli_num_rows($consulta) != 0) {
-                $row = mysqli_fetch_assoc($consulta);
-                $respuesta = array(
-                    'id'        => $row['id_restaurante'],
-                    'nombre'    => $row['nombre'],
-                    'telefono'  => $row['telefono'],
-                    'descripcion' => $row['descripcion_corta'],
-                    'descripcion_larga' => $row['des_larga'],
-                    'horario'   => $row['horario'],
-                    'correo'    => $row['correo'],
-                    'cp'        => $row['codigo_postal'],
-                    'direccion' => $row['direccion'],
-                    'ciudad'    => $row['ciudad'],
-                    'foto'      => $row['foto'],
-                    'serv_dom'  => $row['serv_dom'],
-                    'fb'  => $row['fb'],
-                    'inst'  => $row['inst']
-                );
-            } else {
-                //SI NO CUENTA CON RESTAURANTES
-                $respuesta = array(
-                    'respuesta' => "error",
-                    'consulta' => mysqli_num_rows($consulta)
-                );
-            }
-
-            return $respuesta;
+            $respuesta = array(
+                'respuesta' => "ok",
+            );
+            
         } catch (\Throwable $th) {
             $respuesta = array(
                 'respuesta' => $th
