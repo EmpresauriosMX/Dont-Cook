@@ -5,7 +5,8 @@ const url = "../../inc/peticiones/admin/funciones.php";
 var id_res;
 const fechas = [];
 //Documento del formulario
-const listado_restaurante = document.querySelector("#form_agregar_restaurante");
+const form_edit_general = document.querySelector("#form_edit_general");
+const btn_edit_general = document.getElementById("btn_edit_general");
 const lista_dias = document.querySelector("#lista_lista");
 
 //------------OBTENER EL ID DEL RESTAURANTE-------------
@@ -17,6 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
       //LE PASAMOS EL ID DE RESUTAURANTE
       id_res = restaurante;
       mostrar_restaurante(restaurante);
+      //form_edit_general.addEventListener("submit", editar_datos_generales);
+      btn_edit_general.addEventListener("click", editar_datos_generales);
   }
   //SI NO LE PASAMOS NADA CARGARA UN MENSAJE DE ERROR
   else{
@@ -24,6 +27,12 @@ document.addEventListener("DOMContentLoaded", () => {
       listado_restaurante.innerHTML = "";
   }
 });
+
+/*/-----ESCUCHA DE LOS BOTONES DE SUBMIT DE LOS FORMULARIOS
+document.addEventListener("DOMContentLoaded", () => {
+  //ACTUALIZA DATOS GENERALES
+  
+});*/
 
 //----------------------MOSTRAR LOS DATOS QUE YA TENIA EL RESTAURANTE--------
 async function mostrar_restaurante(id){
@@ -99,6 +108,7 @@ async function imprime_restaurante(restaurante){
   }
   
 }
+
 async function obtener_horario_restaurante(restaurante){
   const datos = new FormData();
   datos.append("id", restaurante);
@@ -111,15 +121,17 @@ async function obtener_horario_restaurante(restaurante){
 
 
 //------------------ENVIO DE LA ACTUALIZACION DEL RESTAURANTE------------
-document.addEventListener("DOMContentLoaded", () => {
+/*document.addEventListener("DOMContentLoaded", () => {
   const ubicacion = new Ubicacion();
   ubicacion.buscar();
   select_ciudad.addEventListener("change", ubicacion.obtener);
   //listado_restaurante.addEventListener("submit", registro_restaurante);
   lista_dias.addEventListener("change", agregar_dia);
 });
-
-async function editar_datos_generales(){
+*/
+async function editar_datos_generales(e){
+  e.preventDefault();
+  console.log("entre con click");
   //VARIABLE
   const nombre = document.querySelector("#nombre").value;
   const desc_corta = document.querySelector("#desc_corta").value;
@@ -128,12 +140,14 @@ async function editar_datos_generales(){
   const servicio_domicilio = acc ? 1 : 0;
    //envio de variables
   const datos = new FormData();
+  datos.append("id", id_res);
   datos.append("nombre", nombre);
   datos.append("desc_corta", desc_corta);
   datos.append("desc_larga", desc_larga);
+  datos.append("servicio", servicio_domicilio);
   datos.append("accion", "actualiza_datos_generales");
   const res = await enviar_datos(url, datos);
-  consol.log(res);
+  console.log(res);
 }
 
 function registro_restaurante(e) {

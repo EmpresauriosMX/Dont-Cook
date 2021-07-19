@@ -64,7 +64,7 @@ include '../../inc/peticiones/login/sesion.php';
             <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="home-tab">
                 <div class="row">
                     <div class="col-md-12 mx-auto">
-                        <form id="" name="" action="#">
+                        <form id="form_edit_general" name="" action="#">
                             <div class="row">
                                 <div class="col-lg-8 col-md-6 mx-auto">
                                     <div class="row">
@@ -96,7 +96,7 @@ include '../../inc/peticiones/login/sesion.php';
                                     </div>
 
                                     <br>
-                                    <button type="button" onclick="editar_datos_generales()" class="site-btn btn-block">Guardar</button>
+                                    <button type="submit" class="site-btn btn-block" id="btn_edit_general">Guardar</button>
                                 </div>
                             </div>
                         </form>
@@ -108,7 +108,7 @@ include '../../inc/peticiones/login/sesion.php';
             <div class="tab-pane fade" id="contacto" role="tabpanel" aria-labelledby="profile-tab">
                 <div class="row">
                     <div class="col-md-12 mx-auto">
-                        <form id="" name="" action="#">
+                        <form id="form_edit_contacto" name="" action="#">
                             <div class="row">
                                 <div class="col-lg-8 col-md-6 mx-auto">
                                     <div class="row">

@@ -143,7 +143,7 @@ function actualiza_datos_generales(): array
             } else {
                 //SI NO CUENTA CON RESTAURANTES
                 $respuesta = array(
-                    'respuesta' => "sin_restaurantes",
+                    'respuesta' => "error",
                     'consulta' => mysqli_num_rows($consulta)
                 );
             }
