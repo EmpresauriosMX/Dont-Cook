@@ -96,7 +96,7 @@ include '../../inc/peticiones/login/sesion.php';
                                     </div>
 
                                     <br>
-                                    <button type="button" onclick="registro_datos_generales()" class="site-btn btn-block">Guardar</button>
+                                    <button type="button" onclick="editar_datos_generales()" class="site-btn btn-block">Guardar</button>
                                 </div>
                             </div>
                         </form>

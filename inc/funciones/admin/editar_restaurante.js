@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
   lista_dias.addEventListener("change", agregar_dia);
 });
 
-async function registro_datos_generales(){
+async function editar_datos_generales(){
   //VARIABLE
   const nombre = document.querySelector("#nombre").value;
   const desc_corta = document.querySelector("#desc_corta").value;
