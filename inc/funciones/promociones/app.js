@@ -26,8 +26,8 @@ function sin_ciudad() {
     "#titulo_promociones_todas"
   );
   contenido_promociones.innerHTML = "";
-  titulo_promociones_todas.innerHTML = "";
-  titulo_promociones.innerHTML = ``;
+ // titulo_promociones_todas.innerHTML = "";
+  //titulo_promociones.innerHTML = ``;
 }
 
 async function mostrar_promocion() {
@@ -36,7 +36,7 @@ async function mostrar_promocion() {
   datos.append("ciudad", ciudad);
   datos.append("accion", "obtener_promociones_todos");
   const res = await enviar_datos(url, datos);
-  llenado_contenedor_html(contenido_promociones,res);
+ res.length != 0 ? llenado_contenedor_html(contenido_promociones,res) : alert ("no hay promociones");
 }
 async function mostrar_promocion_dia_actual() {
     const datos = new FormData();
@@ -46,7 +46,7 @@ async function mostrar_promocion_dia_actual() {
     datos.append("ciudad", ciudad);
     datos.append("accion", "obtener_promocion_dia");
     const res = await enviar_datos(url, datos);
-    llenado_contenedor_html(contenido_promociones_hoy,res);
+    res.length != 0 ? llenado_contenedor_html(contenido_promociones_hoy,res) : alert ("no hay promociones el dia hoy");
   }
 
 
