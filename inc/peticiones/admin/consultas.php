@@ -118,7 +118,7 @@ function actualiza_datos_generales(): array
             require '../../../conexion.php';
             $sql = "UPDATE `restaurantes` 
                     SET `nombre`='$nombre',`descripcion_corta`='$des_corta',
-                        `des_larga`='$des_larga',`serv_dom`=$serv_domicilio 
+                        `des_larga`='$des_larga',`serv_dom`= $serv_domicilio 
                         WHERE `id_propietario` = $id_user and `id_restaurante` = $id_res";
             $consulta = mysqli_query($conn, $sql);
             $respuesta = [];

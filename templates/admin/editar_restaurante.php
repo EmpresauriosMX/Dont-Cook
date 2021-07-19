@@ -94,8 +94,8 @@ include '../../inc/peticiones/login/sesion.php';
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
-
                                     <br>
+                                    <div class="alert"></div>
                                     <button type="submit" class="site-btn btn-block" id="btn_edit_general">Guardar</button>
                                 </div>
                             </div>
