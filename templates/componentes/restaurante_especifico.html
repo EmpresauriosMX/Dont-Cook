@@ -137,9 +137,6 @@
                                 </div>
                                 <br />
                                 <div>
-                                    <button type="button" id="enviar_el_menu" value="contenido" class="btn site-btn btn-block">
-                                        Guardar Menu!
-                                    </button>
                                 </div>
                                 <br />
 
@@ -147,7 +144,7 @@
 
                                 <div class="row mt-3">
                                     <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-                                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg"
+                                        <img id="img_previa" src=""
                                             class="w-100 shadow-1-strong rounded mb-4" alt="" />
                                     </div>
                                     <div class="col-md-3 col-sm-6 col-lg-4">
@@ -155,12 +152,14 @@
                                             <div class="card-body text-center">
                                                 <form action="../../inc/peticiones/admin/upload.php" method="post" enctype="multipart/form-data">
                                                     <input type="file" class="custom-file-input" id="imagen" lang="es" accept=".png,.jpg">
-                                                    <label class="custom-file-label" for="customFileLang">Agrega imagenes de tu menú o platillos</label>
-                                                    <button type="submit" class="site-btn btn-block">Guardar Menú!</button>
+                                                    <label class="custom-file-label" for="customFileLang">seleccionar imagen</label>
                                                 </form>
                                             </div>
                                         </div>
                                     </div>
+                                    <button type="button" id="enviar_el_menu" value="contenido" class="btn site-btn btn-block">
+                                        Guardar Menu!
+                                    </button>
                                 </div>
                             </div>
                         </div>

@@ -3,6 +3,13 @@ const url = "../../inc/peticiones/admin/funciones.php";
 var id_restaurante = "";
 var ID_RESTAURANTE_P = "";
 var enviar_menu = document.querySelector("#enviar_el_menu");
+
+
+//imagen previa
+let imagen_a_enviar = document.querySelector("#imagen"); //input
+let imagen_previa = document.querySelector("#img_previa");
+
+
 var quill = new Quill('#editor', {
     theme: 'snow'
 });
@@ -12,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const parametrosURL = new URLSearchParams(window.location.search);
     let restaurante = parametrosURL.get("r");
     enviar_menu.addEventListener("click",jssave);
+    imagen_a_enviar.addEventListener("change",mostrar_imagen_seleccionada);
     //SI LE PASAMOS UN RESTAURANTE LO BUSCARA
     if (restaurante) {
         //LE PASAMOS EL ID DE RESUTAURANTE
@@ -216,21 +224,32 @@ function config_menu(datos){
 
 }
 
+//apartado del menu
+function mostrar_imagen_seleccionada() {
+    const files = imagen_a_enviar.files[0];
+    if (files) {
 
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(files);
+      fileReader.addEventListener("load", function () {
+        imagen_previa.src = this.result;
+      });    
+    }
+}
 
 async function jssave() {
     let contenido = quill.container.firstChild.innerHTML;
-    const imagen = document.querySelector("#imagen");
 
     const datos = new FormData();
     datos.append("texto", contenido);
-    datos.append("imagen", imagen.files[0]);
+    datos.append("imagen", imagen_a_enviar.files[0]);
     datos.append("id", id_restaurante);
     datos.append("accion", "subir_menu");
     const url = "../../inc/peticiones/admin/funciones.php";
     try {
         const res = await fetch(url, { method: "POST", body: datos });
         const data = await res.json();
+        alert("su menu se ha agregado");
         console.log(data);
     } catch (error) {
         console.log(error);
