@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
   else{
       mostrar_mensaje("error");
       listado_restaurante.innerHTML = "";
+      //solo agregaré un comentario
   }
 });
 
