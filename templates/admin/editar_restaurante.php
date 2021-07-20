@@ -161,21 +161,33 @@ include '../../inc/peticiones/login/sesion.php';
                                         <div class="hero__search">
                                             <form id="eleccion_ciudad">
                                                 <h5 id="ciudad_actual" class="text-center">Ciudad actual: </h5>
-                                                <p class="">Selecciona tu ciudad:<span>*</span></p>
+                                                <br>
+                                                <p class="">Selecciona la nueva localidad del restaurante</p>
                                                 <div class="row">
-                                                    <div class="col-md-6 ">
-                                                        <select placeholder="Ciudad" class="custom-select" name="cbx" id="cbx"></select>
+                                                    <div class="col-md-11">
+                                                    <form class="mx-auto mt-3 "id="eleccion_ciudad">
+                                                        <div class="input-group mb-3">
+                                                            <select class="custom-select " name="cbx" id="cbx">
+                                                                
+                                                            </select>
+                                                            <div class="input-group-append">
+                                                                <button id="enviar" name="enviar" value="Guardar" class="btn btn-dark" type="button">Guardar solo la ciudad</button>
+                                                            </div>
+                                                        </div>
+                                                            <!--<input type="submit" id="enviar" name="enviar" value="Guardar" />-->
+                                                    </form>
                                                     </div>
                                                 </div>
                                             </form>
                                         </div>
+                                        <p>Dirección</p>
                                         <input placeholder="Dirección" id="direccion" name="direccion" type="text" class="checkout__input__add" required="required">
-
+                                        <p>Código postal</p>
                                         <input placeholder="Codigo Postal" id="cp" name="cp" type="text" class="checkout__input__add" required="required">
                                     </div>
 
                                     <br>
-                                    <button type="submit" class="site-btn btn-block">Guardar</button>
+                                    <button type="submit" class="site-btn btn-block">Guardar la dirección</button>
                                 </div>
                             </div>
                         </form>

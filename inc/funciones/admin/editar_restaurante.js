@@ -1,9 +1,10 @@
 import { enviar_datos, mostrar_ubicacion, mostrar_mensaje , mostrar_alert} from "../funciones_generales.js";
-import { Ubicacion, select_ciudad, obj } from "../ubicacion.js";
+import { Ubicacion, select_ciudad, btn_confirmar_ciudad} from "../ubicacion.js";
 
 const url = "../../inc/peticiones/admin/funciones.php";
 var id_res;
 const fechas = [];
+const tienes_ciudad = mostrar_ubicacion().ciudad;
 //Documento del formulario
 const form_edit_general = document.querySelector("#form_edit_general");
 const btn_edit_general = document.getElementById("btn_edit_general");
@@ -19,6 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
       //LE PASAMOS EL ID DE RESUTAURANTE
       id_res = restaurante;
       mostrar_restaurante(restaurante);
+      const ubicacion = new Ubicacion();
+      select_ciudad.addEventListener("change", ubicacion.obtener);
+      btn_confirmar_ciudad.addEventListener("click", ubicacion.guardar);
+      btn_confirmar_ciudad.addEventListener("click", ir_restaurantes)
+      ubicacion.buscar();
       //form_edit_general.addEventListener("submit", editar_datos_generales);
       //ESCUCHA LOS CLICK PARA EDITAR LOS DATOS
       btn_edit_general.addEventListener("click", editar_datos_generales);
@@ -31,6 +37,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+function ir_restaurantes() {
+  window.location.href ="../restaurantes/restaurantes.php";
+}
 /*/-----ESCUCHA DE LOS BOTONES DE SUBMIT DE LOS FORMULARIOS
 document.addEventListener("DOMContentLoaded", () => {
   //ACTUALIZA DATOS GENERALES

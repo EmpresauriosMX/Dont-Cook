@@ -97,6 +97,7 @@
                 <!--En caso de tener usuario-->
                 <div id="user_card"></div>
             </div>
+            <!---CARTA DE LA CIUDAD-->
             <div class="col-md-4 col-sm-12">
                 <div class="section-title mt-3">
                     <h2>Mi ciudad</h2>        
@@ -109,7 +110,6 @@
                         <form class="mx-auto mt-3 "id="eleccion_ciudad">
                             <div class="input-group mb-3">
                                 <select class="custom-select " name="cbx" id="cbx">
-                                    <option value="">Selecciona tu ciudad</option>
                                 </select>
                                 <div class="input-group-append">
                                     <button id="enviar" name="enviar" value="Guardar" class="btn btn-dark" type="button">Guardar</button>
