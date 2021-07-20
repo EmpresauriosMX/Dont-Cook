@@ -7,6 +7,7 @@ const fechas = [];
 //Documento del formulario
 const form_edit_general = document.querySelector("#form_edit_general");
 const btn_edit_general = document.getElementById("btn_edit_general");
+const btn_edit_contacto = document.getElementById("btn_edit_contacto");
 const lista_dias = document.querySelector("#lista_lista");
 
 //------------OBTENER EL ID DEL RESTAURANTE-------------
@@ -19,7 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
       id_res = restaurante;
       mostrar_restaurante(restaurante);
       //form_edit_general.addEventListener("submit", editar_datos_generales);
+      //ESCUCHA LOS CLICK PARA EDITAR LOS DATOS
       btn_edit_general.addEventListener("click", editar_datos_generales);
+      btn_edit_contacto.addEventListener("click", editar_datos_contato);
   }
   //SI NO LE PASAMOS NADA CARGARA UN MENSAJE DE ERROR
   else{
@@ -153,6 +156,38 @@ async function editar_datos_generales(e){
     mostrar_alert("success", "Los datos generales han sido actualizados", div_alert2);
   }
 }
+
+async function editar_datos_contato(e){
+  e.preventDefault();
+  console.log("entre con click");
+  //VARIABLE
+  const telefono = document.querySelector("#telefono").value;
+  const email = document.querySelector("#email").value;
+  const facebook = document.querySelector("#facebook").value;
+  const instagram = document.querySelector("#instagram").value;
+   //envio de variables
+  const datos = new FormData();
+  datos.append("id", id_res);
+  datos.append("telefono", telefono);
+  datos.append("email", email);
+  datos.append("face", facebook);
+  datos.append("insta", instagram);
+  datos.append("accion", "actualiza_datos_contacto");
+  const res = await enviar_datos(url, datos);
+  console.log(res);
+  if(res.respuesta = "ok"){
+    let div_alert2 = document.querySelector("#alert2");
+    mostrar_alert("success", "Los datos generales han sido actualizados", div_alert2);
+  }
+}
+
+
+
+
+
+
+
+
 
 function registro_restaurante(e) {
   e.preventDefault();

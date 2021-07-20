@@ -95,7 +95,7 @@ include '../../inc/peticiones/login/sesion.php';
                                         </label>
                                     </div>
                                     <br>
-                                    <div id="alert2"></div>
+                                    <div id="alert"></div>
                                     <button type="submit" class="site-btn btn-block" id="btn_edit_general">Guardar</button>
                                 </div>
                             </div>
@@ -140,9 +140,9 @@ include '../../inc/peticiones/login/sesion.php';
                                             </div>
                                         </div>
                                     </div>
-
+                                    <div id="alert2"></div>
                                     <br>
-                                    <button type="submit" class="site-btn btn-block">Guardar</button>
+                                    <button type="submit" id="btn_edit_contacto" class="site-btn btn-block">Guardar</button>
                                 </div>
                             </div>
                         </form>

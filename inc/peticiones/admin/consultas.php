@@ -96,6 +96,7 @@ function enviar(): array
     return $respuesta;
 }
 
+//--------ACTUALIZACION DE DATOS EN EDIT RESTAURANTE
 function actualiza_datos_generales(): array
 {
     $cuenta_existente = false;
@@ -135,6 +136,49 @@ function actualiza_datos_generales(): array
     }
     return $respuesta;
 }
+
+
+function actualiza_datos_contacto(): array
+{
+    $cuenta_existente = false;
+    //-----------SE ABRE LA SESIÓN DEL USUARIO
+    session_start();
+    $id_user = $_SESSION['id'];
+    //$cuenta_existente = $id_user ? 'true' : 'false';
+    if ($id_user != "") { //si la variable de sesión está vacia entonces se redirige al login
+        $cuenta_existente = true;
+    }
+    //SE VALIDA DE QUE TENGA UNA CUENTA EXISTENTE
+    if ($cuenta_existente) {
+        $id_res = $_POST['id'];
+        $telefono = $_POST['telefono'];
+        $email = $_POST['email'];
+        $face = $_POST['face'];
+        $insta = $_POST['insta'];
+        try {
+            //ACTUALIZACION DEL RESTAURANTE GENERAL
+            require '../../../conexion.php';
+            $sql = "UPDATE `restaurantes` 
+                    SET `telefono`='$telefono',`correo`='$email',
+                        `fb`='$face',`inst`='$insta' 
+                    WHERE  `id_propietario` = $id_user and `id_restaurante` = $id_res";
+            $consulta = mysqli_query($conn, $sql);
+            $respuesta = [];
+            $respuesta = array(
+                'respuesta' => "ok",
+            );
+            
+        } catch (\Throwable $th) {
+            $respuesta = array(
+                'respuesta' => $th
+            );
+            return $respuesta;
+        }
+    }
+    return $respuesta;
+}
+
+//--------ACTUALIZACION DE DATOS EN EDIT RESTAURANTE
 
 
 function restaurantes_home(): array
