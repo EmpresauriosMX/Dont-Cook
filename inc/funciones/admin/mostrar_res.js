@@ -219,12 +219,24 @@ function config_galeria(datos){
     `;
 }
 
+//apartado del menu
 function config_menu(datos){
     let div_menu = document.querySelector("#tabs-3");
+    llenado_menu();
 
 }
+async function llenado_menu(){
+    const editor = document.querySelector("#editor");
+    const datos = new FormData();
+    datos.append("id", id_restaurante);
+    datos.append("accion", "mostrar_menu");
+    const res = await enviar_datos(url, datos);
+    console.log (res);
+    console.log(res[0].descripcion);
+    editor.innerHTML = `${res[0].descripcion} `;
+    imagen_previa.src = `../../src/img/menus/${res[0].imagen}`;
+}
 
-//apartado del menu
 function mostrar_imagen_seleccionada() {
     const files = imagen_a_enviar.files[0];
     if (files) {
@@ -244,7 +256,7 @@ async function jssave() {
     datos.append("texto", contenido);
     datos.append("imagen", imagen_a_enviar.files[0]);
     datos.append("id", id_restaurante);
-    datos.append("accion", "subir_menu");
+    datos.append("accion", "actualizar_menu");
     const url = "../../inc/peticiones/admin/funciones.php";
     try {
         const res = await fetch(url, { method: "POST", body: datos });

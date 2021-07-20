@@ -36,7 +36,13 @@ switch ($accion) {
     case 'subir_menu':
         $resultado = subir_menu();
         break;
-}
+        case 'actualizar_menu':
+            $resultado = actualizar_menu();
+            break;
+            case 'mostrar_menu':
+    $resultado = mostrar_menu();
+                break;
+    }
 
 
 echo json_encode(($resultado)/*, JSON_UNESCAPED_UNICODE*/);// envio el retorno del array a donde se me pide

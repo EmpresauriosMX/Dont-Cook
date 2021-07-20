@@ -493,6 +493,7 @@ function obtener_categorias(): array
     return $respuesta;
 }
 
+// seccion del menu
 function subir_menu(): array
 {
     $texto = $_POST['texto'];
@@ -508,15 +509,82 @@ function subir_menu(): array
         }
         require '../../../conexion.php';
         $ingresar_horario = $conn->prepare("INSERT INTO menus (id_restaurante,descripcion,imagen) VALUES (?,?,?)");
-        $ingresar_horario->bind_param('iss', $id,$texto,$nueva_imagen);
+        $ingresar_horario->bind_param('iss', $id, $texto, $nueva_imagen);
         $ingresar_horario->execute();
-
     } catch (\Throwable $th) {
     }
-    $respuesta = array (
+    $respuesta = array(
         'recibo' => $texto,
         'id_recibido' => $id,
         'nueva_imagen' => $nueva_imagen
     );
+    return $respuesta;
+}
+
+
+function actualizar_menu(): array
+{
+    $texto = $_POST['texto'];
+    $id = (int)$_POST['id'];
+    try {
+
+        require '../../../conexion.php';
+        $selecionar = "SELECT imagen FROM menus WHERE id_restaurante = $id";
+        $resultado_seleccionar = mysqli_query($conn, $selecionar);
+        $foto_db = mysqli_fetch_array($resultado_seleccionar);
+        $ruta_foto_db = "../../../src/img/menus/" . $foto_db['imagen'];
+        // buscar si ya existe un menu en la base de datos
+
+        //guardar la imagen recibida en forma de espera
+        $tiene_imagen = getimagesize($_FILES["imagen"]["tmp_name"]);
+        if ($tiene_imagen) {
+            $temp = explode(".", $_FILES["imagen"]["name"]);
+            $nueva_imagen = round(microtime(true)) . '.' . end($temp);
+        } else {
+            $nueva_imagen = "fondo.png";
+        }
+        if ($foto_db) { //existe la imagen y es difrente al fondo
+            if ($foto_db['imagen'] != "fondo.png") {
+                unlink($ruta_foto_db);
+            }
+            $sql = "UPDATE `menus` SET `descripcion`='$texto',`imagen`='$nueva_imagen' WHERE id_restaurante = $id";
+        } else {            //agregar nuevo menu
+            $sql = "INSERT INTO `menus` (`id_menu`, `id_restaurante`, `descripcion`, `imagen`) VALUES (NULL, '$id', '$texto', '$nueva_imagen')";
+        }
+        move_uploaded_file($_FILES["imagen"]["tmp_name"], "../../../src/img/menus/" . $nueva_imagen);
+
+        $consulta = mysqli_query($conn, $sql);
+
+        $respuesta = array(
+            'recibo' => $texto,
+            'id_recibido' => $id,
+            'nueva_imagen' => $nueva_imagen
+        );
+    } catch (\Throwable $th) {
+    }
+
+    return $respuesta;
+};
+
+function mostrar_menu(): array
+{
+    $id = (int)$_POST['id'];
+    try {
+        require '../../../conexion.php';
+
+        $sql = "SELECT * FROM `menus` WHERE `id_restaurante` = $id";
+        $consulta = mysqli_query($conn, $sql);
+        $respuesta = [];
+        $i = 0;
+        //SI CUENTA CON RESTAURANTES
+        if (mysqli_num_rows($consulta) != 0) {
+            while ($row = mysqli_fetch_assoc($consulta)) {
+                $respuesta[$i]['descripcion'] = $row['descripcion'];
+                $respuesta[$i]['imagen'] = $row['imagen'];
+                $i++;
+            }
+        }
+    } catch (\Throwable $th) {
+    }
     return $respuesta;
 }
