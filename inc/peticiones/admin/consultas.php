@@ -177,6 +177,40 @@ function actualiza_datos_contacto(): array
     }
     return $respuesta;
 }
+function actualiza_datos_ciudad(): array
+{
+    $cuenta_existente = false;
+    session_start();
+    $id_user = $_SESSION['id'];
+    if ($id_user != "") { 
+        $cuenta_existente = true;
+    }
+    if ($cuenta_existente) {
+        $id_res = $_POST['id'];
+        $direccion = $_POST['direccion'];
+        $codigo_postal = $_POST['codigo_postal'];
+        $ciudad = $_POST['ciudad'];
+        try {
+            require '../../../conexion.php';
+            $sql = "UPDATE `restaurantes` 
+                    SET `ciudad`='$ciudad',`direccion`='$direccion',
+                        `codigo_postal`='$codigo_postal'
+                    WHERE  `id_propietario` = $id_user and `id_restaurante` = $id_res";
+            $consulta = mysqli_query($conn, $sql);
+            $respuesta = [];
+            $respuesta = array(
+                'respuesta' => "ok",
+            );
+            
+        } catch (\Throwable $th) {
+            $respuesta = array(
+                'respuesta' => $th
+            );
+            return $respuesta;
+        }
+    }
+    return $respuesta;
+}
 
 //--------ACTUALIZACION DE DATOS EN EDIT RESTAURANTE
 

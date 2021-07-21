@@ -33,16 +33,25 @@ switch ($accion) {
     case "actualiza_datos_contacto":
         $resultado = actualiza_datos_contacto();
         break;
+    case "actualiza_datos_ciudad":
+        $resultado = actualiza_datos_ciudad();
+        break;
+    case "actualiza_datos_horario":
+        $resultado = actualiza_datos_horario();
+        break;
+    case "actualiza_datos_categoria":
+        $resultado = actualiza_datos_categoria();
+        break;
     case 'subir_menu':
         $resultado = subir_menu();
         break;
-        case 'actualizar_menu':
-            $resultado = actualizar_menu();
-            break;
-            case 'mostrar_menu':
-    $resultado = mostrar_menu();
-                break;
-    }
+    case 'actualizar_menu':
+        $resultado = actualizar_menu();
+        break;
+    case 'mostrar_menu':
+        $resultado = mostrar_menu();
+        break;
+}
 
 
 echo json_encode(($resultado)/*, JSON_UNESCAPED_UNICODE*/);// envio el retorno del array a donde se me pide

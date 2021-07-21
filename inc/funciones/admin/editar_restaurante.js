@@ -1,5 +1,5 @@
 import { enviar_datos, mostrar_ubicacion, mostrar_mensaje , mostrar_alert} from "../funciones_generales.js";
-import { Ubicacion, select_ciudad, btn_confirmar_ciudad} from "../ubicacion.js";
+import { Ubicacion, select_ciudad, btn_confirmar_ciudad, obj} from "../ubicacion.js";
 
 const url = "../../inc/peticiones/admin/funciones.php";
 var id_res;
@@ -7,9 +7,15 @@ const fechas = [];
 const tienes_ciudad = mostrar_ubicacion().ciudad;
 //Documento del formulario
 const form_edit_general = document.querySelector("#form_edit_general");
-const btn_edit_general = document.getElementById("btn_edit_general");
-const btn_edit_contacto = document.getElementById("btn_edit_contacto");
 const lista_dias = document.querySelector("#lista_lista");
+
+
+//boton para enviar la informacion
+const btn_enviar_informacion_general = document.getElementById("btn_edit_general");
+const btn_enviar_informacion_contacto = document.getElementById("btn_edit_contacto");
+const btn_enviar_informacion_ciudad = document.getElementById("btn_edit_ubicacion");
+const btn_enviar_informacion_horario = document.getElementById("btn_edit_horario");
+const btn_enviar_informacion_categorias = document.getElementById("btn_edit_categorias");
 
 //------------OBTENER EL ID DEL RESTAURANTE-------------
 document.addEventListener("DOMContentLoaded", () => {
@@ -19,16 +25,24 @@ document.addEventListener("DOMContentLoaded", () => {
   if (restaurante) {
       //LE PASAMOS EL ID DE RESUTAURANTE
       id_res = restaurante;
+
+    // se obtiene y se guardar cuando se tiene que ser enviado se llamada desde el objeto 
       mostrar_restaurante(restaurante);
       const ubicacion = new Ubicacion();
-      select_ciudad.addEventListener("change", ubicacion.obtener);
-      btn_confirmar_ciudad.addEventListener("click", ubicacion.guardar);
-      btn_confirmar_ciudad.addEventListener("click", ir_restaurantes)
       ubicacion.buscar();
+      select_ciudad.addEventListener("change", ubicacion.obtener);
+
+      btn_confirmar_ciudad.addEventListener("click", ir_restaurantes)
+
       //form_edit_general.addEventListener("submit", editar_datos_generales);
+
       //ESCUCHA LOS CLICK PARA EDITAR LOS DATOS
-      btn_edit_general.addEventListener("click", editar_datos_generales);
-      btn_edit_contacto.addEventListener("click", editar_datos_contato);
+      btn_enviar_informacion_general.addEventListener("click", editar_datos_generales);
+      btn_enviar_informacion_contacto.addEventListener("click", editar_datos_contato);
+      btn_enviar_informacion_ciudad.addEventListener("click", editar_datos_ciudad);
+      btn_enviar_informacion_horario.addEventListener("click", editar_datos_horario);
+      btn_enviar_informacion_categorias.addEventListener("click", editar_datos_categorias);
+
   }
   //SI NO LE PASAMOS NADA CARGARA UN MENSAJE DE ERROR
   else{
@@ -144,7 +158,7 @@ async function obtener_horario_restaurante(restaurante){
 */
 async function editar_datos_generales(e){
   e.preventDefault();
-  console.log("entre con click");
+  console.log("editar datos general");
   //VARIABLE
   const nombre = document.querySelector("#nombre").value;
   const desc_corta = document.querySelector("#desc_corta").value;
@@ -169,7 +183,7 @@ async function editar_datos_generales(e){
 
 async function editar_datos_contato(e){
   e.preventDefault();
-  console.log("entre con click");
+  console.log("editar datos contacto");
   //VARIABLE
   const telefono = document.querySelector("#telefono").value;
   const email = document.querySelector("#email").value;
@@ -189,6 +203,71 @@ async function editar_datos_contato(e){
     let div_alert2 = document.querySelector("#alert2");
     mostrar_alert("success", "Los datos generales han sido actualizados", div_alert2);
   }
+}
+
+async function editar_datos_ciudad(e){
+  e.preventDefault();
+  console.log("editar datos ciudad");
+  //VARIABLE
+  const direccion = document.querySelector("#direccion").value;
+  const codigo_postal = document.querySelector("#cp").value;
+  const ciudad = obj.ciudad;
+   //envio de variables
+  const datos = new FormData();
+  datos.append("id", id_res);
+  datos.append("direccion", direccion);
+  datos.append("codigo_postal", codigo_postal);
+  datos.append("ciudad", ciudad);
+  datos.append("accion", "actualiza_datos_ciudad");
+  const res = await enviar_datos(url, datos);
+  console.log(res);
+  if(res.respuesta = "ok"){
+    let div_alert2 = document.querySelector("#alert2");
+    mostrar_alert("success", "Los datos generales han sido actualizados", div_alert2);
+  }
+}
+
+async function editar_datos_horario(e){
+  e.preventDefault();
+  console.log("editar datos horario");
+  //VARIABLE
+  const telefono = document.querySelector("#telefono").value;
+  const email = document.querySelector("#email").value;
+  const facebook = document.querySelector("#facebook").value;
+  const instagram = document.querySelector("#instagram").value;
+   //envio de variables
+  const datos = new FormData();
+  datos.append("id", id_res);
+  datos.append("telefono", telefono);
+  datos.append("email", email);
+  datos.append("face", facebook);
+  datos.append("insta", instagram);
+  datos.append("accion", "actualiza_datos_contacto");/*
+  const res = await enviar_datos(url, datos);
+  console.log(res);
+  if(res.respuesta = "ok"){
+    let div_alert2 = document.querySelector("#alert2");
+    mostrar_alert("success", "Los datos generales han sido actualizados", div_alert2);
+  }*/
+}
+
+async function editar_datos_categorias(e){
+  e.preventDefault();
+  console.log("editar datos categoria");
+  //VARIABLE
+  const telefono = document.querySelector("#telefono").value;
+  const email = document.querySelector("#email").value;
+  const facebook = document.querySelector("#facebook").value;
+  const instagram = document.querySelector("#instagram").value;
+   //envio de variables
+  const datos = new FormData();
+  datos.append("id", id_res);
+  datos.append("telefono", telefono);
+  datos.append("email", email);
+  datos.append("face", facebook);
+  datos.append("insta", instagram);
+  datos.append("accion", "actualiza_datos_contacto");
+
 }
 
 

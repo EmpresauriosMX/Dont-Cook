@@ -187,7 +187,7 @@ include '../../inc/peticiones/login/sesion.php';
                                     </div>
 
                                     <br>
-                                    <button type="submit" class="site-btn btn-block">Guardar la dirección</button>
+                                    <button type="submit" id="btn_edit_ubicacion" class="site-btn btn-block">Guardar la dirección</button>
                                 </div>
                             </div>
                         </form>
@@ -271,7 +271,7 @@ include '../../inc/peticiones/login/sesion.php';
 
 
                                     <br>
-                                    <button type="submit" class="site-btn btn-block">Guardar</button>
+                                    <button type="submit" id="btn_edit_horario" class="site-btn btn-block">Guardar Horario</button>
                                 </div>
                             </div>
                         </form>
@@ -344,6 +344,8 @@ include '../../inc/peticiones/login/sesion.php';
                                                     </div>
                                                     
                                                 </div>
+                                                <button type="submit" id="btn_edit_categorias" class="site-btn btn-block">Guardar Categorias</button>
+
                                             </form>
                                         </div>
                                     </div>
