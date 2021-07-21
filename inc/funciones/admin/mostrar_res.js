@@ -70,7 +70,7 @@ function imprime_restaurante(datos) {
 
   texto_telefono.innerHTML = `${telefono}`;
 
-  texto_direccion.innerHTML = `${direccion}`;
+  texto_direccion.innerHTML = `${ciudad}, ${direccion}, ${cp}`;
 
   texto_horarios.innerHTML = `${horario}`;
 
@@ -79,8 +79,42 @@ function imprime_restaurante(datos) {
   img_restaurante.setAttribute("src", `../../src/img/restaurantes/${foto}`);
   facebook.setAttribute("href", `${fb}`);
   enlace_editar_restaurante.setAttribute("href",`editar_restaurante.php?r=${id}`);
+
+  const url_datos_externos = "../../inc/peticiones/restaurantes/funciones.php";
+  imprime_restaurante_categorias(url_datos_externos);
+  imprime_restaurante_dias(url_datos_externos);
+
+}
+async function imprime_restaurante_categorias(url_externo){
+    const text_categorias = document.querySelector("#categorias");
+    const datos = new FormData();
+    datos.append("id", id_restaurante)
+    datos.append("accion", "obtener_categorias_restaurante_especifico");
+    const res = await enviar_datos(url_externo,datos);
+    res.forEach((categoria) => text_categorias.innerHTML += `${categoria.nombre} /`);
 }
 
+async function imprime_restaurante_dias(url_externo){
+    const text_dias = document.querySelector("#dias");
+    const texto_horarios = document.querySelector("#horarios");
+
+    const datos = new FormData();
+    datos.append("id", id_restaurante)
+    datos.append("accion", "obtener_horario_restaurante_especifico");
+    const res = await enviar_datos(url_externo,datos);
+    console.log(res)
+    res.forEach((dias) =>{ 
+        const {dia,hora_inicio,hora_fin} = dias;
+         const apuerta_formato_12h = moment(hora_inicio, "hh:mm").format("h:mm a");
+         const cierre_formato_12h = moment(hora_fin, "hh:mm").format("h:mm a");
+        const dia_semana = moment(dia, "d").format("dddd");
+
+
+         text_dias.innerHTML += `${dia_semana} /`;
+         texto_horarios.innerHTML = `${apuerta_formato_12h} - ${cierre_formato_12h}`;
+
+});
+}
 
 function imprime_menu_config(datos){
     let div_config = document.querySelector("#form_segundo_contenido");
@@ -124,8 +158,8 @@ async function config_promociones(){
         const {nombre_res,Nombre,descripcion,fecha,fecha_f,horario,id_promocion,id_restaurante,imagen} = element;
         promociones.innerHTML += `
     <div class="card">
-        <img class="card-img-top" src="../../src/img/promos/${imagen}" alt="Card image cap">
-        <div class="card-img-overlay">
+            <img class="card-img-top" src="../../src/img/promos/${imagen}" alt="Card image cap">
+            <div class="card-img-overlay">
             <h4 class="card-title">${nombre_res}</h4>
         </div>
         <div class="card-body">
@@ -136,8 +170,7 @@ async function config_promociones(){
         <div class="card-footer">
             
         </div>
-    </div>
-    `;
+        `;
     });
     
     console.log(id);
@@ -198,21 +231,19 @@ function config_menu(datos){
 
 }
 async function llenado_menu(){
-    const editor = document.querySelector("#editor");
     const datos = new FormData();
     datos.append("id", id_restaurante);
     datos.append("accion", "mostrar_menu");
     const res = await enviar_datos(url, datos);
-    console.log (res);
-    console.log(res[0].descripcion);
-    editor.innerHTML = `${res[0].descripcion} `;
+    const veamos = document.querySelector(".ql-editor");
+
+    veamos.innerHTML =`${res[0].descripcion}`;
     imagen_previa.src = `../../src/img/menus/${res[0].imagen}`;
 }
 
 function mostrar_imagen_seleccionada() {
     const files = imagen_a_enviar.files[0];
     if (files) {
-
       const fileReader = new FileReader();
       fileReader.readAsDataURL(files);
       fileReader.addEventListener("load", function () {
