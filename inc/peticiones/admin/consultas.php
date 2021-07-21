@@ -212,6 +212,54 @@ function actualiza_datos_ciudad(): array
     return $respuesta;
 }
 
+function actualiza_datos_horario(): array
+{
+    $cuenta_existente = false;
+    session_start();
+    $id_user = $_SESSION['id'];
+    if ($id_user != "") { 
+        $cuenta_existente = true;
+    }
+    if ($cuenta_existente) {
+
+        
+        $id_res = (int) $_POST['id'];
+        try {
+            require '../../../conexion.php';
+            $selecionar = "SELECT  * FROM `fechas` WHERE id_restaurante = $id_res";
+            $resultado_seleccionar = mysqli_query($conn, $selecionar);  
+            $row = mysqli_fetch_assoc($resultado_seleccionar);   
+
+            if ($row) {
+                $sentencia_eliminar = "DELETE FROM `fechas` WHERE id_restaurante = $id_res";
+                mysqli_query($conn, $sentencia_eliminar);  
+                $respuestaaaaaa = true;
+            }else {
+                $respuestaaaaaa = false;
+            }
+
+            $ingresar_horario = $conn->prepare("INSERT INTO fechas ( id_restaurante, dia, hora_inicio, hora_fin) VALUES (?,?,?,?)");
+            $ingresar_horario->bind_param('iiss', $id_res, $dia, $inicio, $fin);
+
+            $fechas = json_decode($_POST['horarios']);
+            foreach ($fechas as $value) {
+                $dia = (int) $value->id_dia;
+                $inicio = $value->hora_inicio;
+                $fin = $value->hora_fin;
+                $ingresar_horario->execute();
+            }
+            $respuesta = array(
+                'nombre' => $respuestaaaaaa,
+            );
+            
+        } catch (\Throwable $th) {
+            $respuesta = array(
+                'respuesta' => $th
+            );
+        }
+    }
+    return $respuesta;
+}
 //--------ACTUALIZACION DE DATOS EN EDIT RESTAURANTE
 
 

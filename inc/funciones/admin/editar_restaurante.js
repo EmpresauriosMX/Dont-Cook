@@ -5,7 +5,6 @@ const url = "../../inc/peticiones/admin/funciones.php";
 var id_res;
 const fechas = [];
 const tienes_ciudad = mostrar_ubicacion().ciudad;
-//Documento del formulario
 const form_edit_general = document.querySelector("#form_edit_general");
 const lista_dias = document.querySelector("#lista_lista");
 
@@ -31,10 +30,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const ubicacion = new Ubicacion();
       ubicacion.buscar();
       select_ciudad.addEventListener("change", ubicacion.obtener);
+      //obtener las dias a escoger
+      lista_dias.addEventListener("change", agregar_dia);
 
       btn_confirmar_ciudad.addEventListener("click", ir_restaurantes)
 
       //form_edit_general.addEventListener("submit", editar_datos_generales);
+
 
       //ESCUCHA LOS CLICK PARA EDITAR LOS DATOS
       btn_enviar_informacion_general.addEventListener("click", editar_datos_generales);
@@ -231,24 +233,22 @@ async function editar_datos_horario(e){
   e.preventDefault();
   console.log("editar datos horario");
   //VARIABLE
-  const telefono = document.querySelector("#telefono").value;
-  const email = document.querySelector("#email").value;
-  const facebook = document.querySelector("#facebook").value;
-  const instagram = document.querySelector("#instagram").value;
+  const dias_validos = preparar_dias_a_enviar();
+
+  const array_horarios = JSON.stringify(dias_validos);
+
+
    //envio de variables
   const datos = new FormData();
   datos.append("id", id_res);
-  datos.append("telefono", telefono);
-  datos.append("email", email);
-  datos.append("face", facebook);
-  datos.append("insta", instagram);
-  datos.append("accion", "actualiza_datos_contacto");/*
+  datos.append("horarios", array_horarios);
+  datos.append("accion", "actualiza_datos_horario");
   const res = await enviar_datos(url, datos);
   console.log(res);
   if(res.respuesta = "ok"){
     let div_alert2 = document.querySelector("#alert2");
     mostrar_alert("success", "Los datos generales han sido actualizados", div_alert2);
-  }*/
+  }
 }
 
 async function editar_datos_categorias(e){
@@ -269,12 +269,6 @@ async function editar_datos_categorias(e){
   datos.append("accion", "actualiza_datos_contacto");
 
 }
-
-
-
-
-
-
 
 
 
@@ -320,7 +314,8 @@ function registro_restaurante(e) {
   enviar_datos(url, datos).then((re) =>alert(JSON.stringify(re)));
 }
 
-function agregar_dia(e) {
+//* funciones de recoleccion de datos
+function agregar_dia(e) { // obtiene el dia que se selecciona de los selects y los guarda en un array
   // console.log(e.target);
   const id = e.target.id; // id del input;
   const is_day = fechas.findIndex((Element) => Element.id_dia == id);
@@ -335,6 +330,7 @@ function agregar_dia(e) {
   }
   console.table(fechas);
 }
+
 
 function preparar_dias_a_enviar() {
   const horario_abrir = document.querySelector("#horario_abrir").value;
