@@ -144,7 +144,7 @@ async function buscar_todos_los_restaurantes() {
 //plantilla para pintar  mostrar los restaurantes
 function pintar_restaurantes_html(res) {
   limpiar_contenedor();
-  titulo.innerHTML = `<h2>Todes los restaurantes de ${tienes_ciudad}</h2>`;
+  titulo.innerHTML = `<h2>Todos los restaurantes de ${tienes_ciudad}</h2>`;
 
   res.forEach((restaurante) => {
     //console.log(restaurante);
