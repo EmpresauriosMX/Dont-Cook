@@ -40,8 +40,10 @@
      ?>
     <!--Fin contenido de la plantilla -->
     <!--script src="../../inc/funciones/home/categorias.js" type="module"></script-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="../../inc/funciones/restaurantes/mostrar_res.js" type="module"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/locale/es.js"></script>
+        <script src="../../inc/funciones/restaurantes/mostrar_res.js" type="module"></script>
     <br>
     <?php 
     include '../componentes/footer.html';
