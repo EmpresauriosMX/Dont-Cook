@@ -168,7 +168,12 @@ async function config_promociones(){
             Horario: ${horario}</p>
         </div>
         <div class="card-footer">
-            
+            <a href="agregar_promocion.php" class="btn btn-dark mt-1">
+                <i class="fa fa-edit"></i>
+            </a>
+            <a href="../admin/home_admin.php" class="btn btn-danger mt-1">
+                <i class="fa fa-trash"></i>
+            </a>
         </div>
         `;
     });
