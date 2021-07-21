@@ -18,9 +18,15 @@ switch ($accion) {
     case "ver_promo":
         $resultado = ver_promocion();
         break;
-        case 'obtener_menu':
-            $resultado = obtener_menu();
-            break;
+    case 'obtener_menu':
+        $resultado = obtener_menu();
+        break;
+    case 'obtener_horario_restaurante_especifico':
+        $resultado = obtener_horario_restaurante_especifico();
+        break;
+    case 'obtener_categorias_restaurante_especifico':
+        $resultado = obtener_categorias_restaurante_especifico();
+        break;
 }
 
 

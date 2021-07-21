@@ -126,6 +126,8 @@ function obtener_restaurantes_categoria(): array
     return $respuesta;
 }
 */
+
+// informacion de un solo restaurante
 function res_especifico(): array
 {
     $id_restaurante = $_POST['id'];
@@ -255,4 +257,51 @@ function obtener_menu(): array
         //throw $th;
     }
 }
+
+function obtener_horario_restaurante_especifico(): array
+{
+    $id_restaurante = $_POST['id'];
+    try {
+        require '../../../conexion.php';
+        $sql = "SELECT * FROM `fechas` WHERE `id_restaurante` = $id_restaurante";
+        $consulta = mysqli_query($conn, $sql);
+        $respuesta = [];
+        $i = 0;
+        //SI CUENTA CON RESTAURANTES
+        if (mysqli_num_rows($consulta) != 0) {
+            while ($row = mysqli_fetch_assoc($consulta)) {
+                $respuesta[$i]['dia'] = $row['dia'];
+                $respuesta[$i]['hora_inicio'] = $row['hora_inicio'];
+                $respuesta[$i]['hora_fin'] = $row['hora_fin'];
+                $i++;
+            }
+        }
+        return $respuesta;
+    } catch (\Throwable $th) {
+        //throw $th;
+    }
+}
+
+function obtener_categorias_restaurante_especifico(): array
+{
+    $id_restaurante = $_POST['id'];
+    try {
+        require '../../../conexion.php';
+        $sql = "SELECT categorias.nombre FROM `categorias_restaurantes`,`categorias` WHERE categorias_restaurantes.id_categoria = categorias.id_categoria AND categorias_restaurantes.id_restaurante = $id_restaurante";
+        $consulta = mysqli_query($conn, $sql);
+        $respuesta = [];
+        $i = 0;
+        //SI CUENTA CON RESTAURANTES
+        if (mysqli_num_rows($consulta) != 0) {
+            while ($row = mysqli_fetch_assoc($consulta)) {
+                $respuesta[$i]['nombre'] = $row['nombre'];
+                $i++;
+            }
+        }
+        return $respuesta;
+    } catch (\Throwable $th) {
+        //throw $th;
+    }
+}
+
 
