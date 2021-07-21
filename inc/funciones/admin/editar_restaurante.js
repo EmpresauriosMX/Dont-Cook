@@ -4,11 +4,15 @@ import { Ubicacion, select_ciudad, btn_confirmar_ciudad, obj} from "../ubicacion
 const url = "../../inc/peticiones/admin/funciones.php";
 var id_res;
 const fechas = [];
+const categorias = [];
+
 const tienes_ciudad = mostrar_ubicacion().ciudad;
 const form_edit_general = document.querySelector("#form_edit_general");
 const lista_dias = document.querySelector("#lista_lista");
 
-
+const select_categorias  = document.querySelector("#cbx_categoria");
+const btn_categoria = document.querySelector("#boton_agregar_categoria");
+const contenedor_categorias = document.querySelector( "#contenedor_categorias" );
 //boton para enviar la informacion
 const btn_enviar_informacion_general = document.getElementById("btn_edit_general");
 const btn_enviar_informacion_contacto = document.getElementById("btn_edit_contacto");
@@ -44,6 +48,10 @@ document.addEventListener("DOMContentLoaded", () => {
       btn_enviar_informacion_ciudad.addEventListener("click", editar_datos_ciudad);
       btn_enviar_informacion_horario.addEventListener("click", editar_datos_horario);
       btn_enviar_informacion_categorias.addEventListener("click", editar_datos_categorias);
+
+      btn_categoria.addEventListener("click", valor_select_categorias);
+      contenedor_categorias.addEventListener("click", eliminar_categoria);
+      obtener_categorias();
 
   }
   //SI NO LE PASAMOS NADA CARGARA UN MENSAJE DE ERROR
@@ -255,63 +263,20 @@ async function editar_datos_categorias(e){
   e.preventDefault();
   console.log("editar datos categoria");
   //VARIABLE
-  const telefono = document.querySelector("#telefono").value;
-  const email = document.querySelector("#email").value;
-  const facebook = document.querySelector("#facebook").value;
-  const instagram = document.querySelector("#instagram").value;
+  const array_categorias  = JSON.stringify(categorias);
+
    //envio de variables
   const datos = new FormData();
   datos.append("id", id_res);
-  datos.append("telefono", telefono);
-  datos.append("email", email);
-  datos.append("face", facebook);
-  datos.append("insta", instagram);
-  datos.append("accion", "actualiza_datos_contacto");
+  datos.append("categorias", array_categorias);
+  datos.append("accion", "actualiza_datos_categoria");
+  const res = await enviar_datos(url, datos);
+  console.log(res);
+  if(res.respuesta = "ok"){
+    let div_alert2 = document.querySelector("#alert2");
+    mostrar_alert("success", "Los datos generales han sido actualizados", div_alert2);
+  }
 
-}
-
-
-
-function registro_restaurante(e) {
-  e.preventDefault();
-  const datos = new FormData();
-
-  const dias_validos = preparar_dias_a_enviar();
-
-  //VARIABLE
-  const nombre = document.querySelector("#nombre").value;
-  const desc_corta = document.querySelector("#desc_corta").value;
-  const desc_larga = document.querySelector("#desc_larga").value;
-  const ciudad = obj.ciudad;
-  const direccion = document.querySelector("#direccion").value;
-  const cp = document.querySelector("#cp").value;
-  const telefono = document.querySelector("#telefono").value;
-  const email = document.querySelector("#email").value;
-  const acc = document.querySelector("#acc").checked;
-  const facebook = document.querySelector("#facebook").value;
-  const instagram = document.querySelector("#instagram").value;
-  const imagen = document.querySelector("#imagen");
-  const array_horarios = JSON.stringify(dias_validos);
-
-  const servicio_domicilio = acc ? 1 : 0;
-
-  //envio de variables
-  datos.append("nombre", nombre);
-  datos.append("desc_corta", desc_corta);
-  datos.append("desc_larga", desc_larga);
-  datos.append("ciudad", ciudad);
-  datos.append("direccion", direccion);
-  datos.append("cp", cp);
-  datos.append("telefono", telefono);
-  datos.append("email", email);
-  datos.append("servicio", servicio_domicilio);
-  datos.append("face", facebook);
-  datos.append("insta", instagram);
-  datos.append("imagen", imagen.files[0]);
-  datos.append("horarios", array_horarios);
-
-  datos.append("accion", "registrar_restaurante");
-  enviar_datos(url, datos).then((re) =>alert(JSON.stringify(re)));
 }
 
 //* funciones de recoleccion de datos
@@ -331,7 +296,6 @@ function agregar_dia(e) { // obtiene el dia que se selecciona de los selects y l
   console.table(fechas);
 }
 
-
 function preparar_dias_a_enviar() {
   const horario_abrir = document.querySelector("#horario_abrir").value;
   const horario_cerrar = document.querySelector("#horario_cerrar").value;
@@ -342,4 +306,56 @@ function preparar_dias_a_enviar() {
   });
 
   return fechas.filter((elem) => elem.estado == true);
+}
+//categorias
+async function obtener_categorias() {
+  const datos = new FormData();
+  datos.append("accion", "obtener_categorias");
+
+  const res = await enviar_datos(url, datos);
+  console.log(res);
+  res.forEach((e) => {
+    select_categorias.innerHTML += `<option value=${e.id} name="ciudad">${e.nombre}</option>  `;
+  });
+}
+
+
+function valor_select_categorias() {
+ 
+    const opcion_id = select_categorias.value;
+    var opcion_texto = select_categorias.options[select_categorias.selectedIndex].text;
+   categorias.push({ id:parseInt(opcion_id), nombre: opcion_texto } );
+   console.log(categorias);
+
+   categorias_html();
+}
+
+function categorias_html() {
+  const contenedor_categorias = document.querySelector( "#contenedor_categorias" );
+  contenedor_categorias.innerHTML  = "";
+  categorias.forEach((categoria) => {
+    contenedor_categorias.innerHTML += `
+    <div class="col">
+    <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+        <small>${categoria.nombre}</small>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close" id="${categoria.id}">
+            <span class="fa fa-trash" aria-hidden="true" id ="${categoria.id}"></span>
+        </button>
+    </div>
+</div>`;
+  });
+}
+
+
+function eliminar_categoria (e){
+  if (e.target.classList.contains('fa-trash') || e.target.classList.contains('close') ) {
+    const id = e.target.id;
+    const is_categoria = categorias.findIndex((Element) => Element.id == id);
+  console.log(is_categoria);
+  console.log(id);
+      if (is_categoria != -1) {
+        categorias.splice(is_categoria,1)
+      } 
+      console.log(categorias);
+    }
 }

@@ -260,6 +260,52 @@ function actualiza_datos_horario(): array
     }
     return $respuesta;
 }
+function actualiza_datos_categoria(): array
+{
+    $cuenta_existente = false;
+    session_start();
+    $id_user = $_SESSION['id'];
+    if ($id_user != "") { 
+        $cuenta_existente = true;
+    }
+    if ($cuenta_existente) {
+
+        
+        $id_res = (int) $_POST['id'];
+        try {
+            require '../../../conexion.php';
+            $selecionar = "SELECT  * FROM `categorias_restaurantes` WHERE id_restaurante = $id_res";
+            $resultado_seleccionar = mysqli_query($conn, $selecionar);  
+            $row = mysqli_fetch_assoc($resultado_seleccionar);   
+
+            if ($row) {
+                $sentencia_eliminar = "DELETE FROM `categorias_restaurantes` WHERE id_restaurante = $id_res";
+                mysqli_query($conn, $sentencia_eliminar);  
+                $respuestaaaaaa = true;
+            }else {
+                $respuestaaaaaa = false;
+            }
+            $ingresar_categoria = $conn->prepare("INSERT INTO categorias_restaurantes ( id_categoria, id_restaurante) VALUES (?,?)");
+            $ingresar_categoria->bind_param('ii', $id_categoria, $id_res);
+
+            $categorias = json_decode($_POST['categorias']);
+
+            foreach ($categorias as $value) {
+                $id_categoria = (int) $value -> id;
+                $ingresar_categoria->execute();
+            }
+            $respuesta = array(
+                'nombre' => $respuestaaaaaa,
+            );
+            
+        } catch (\Throwable $th) {
+            $respuesta = array(
+                'respuesta' => $th
+            );
+        }
+    }
+    return $respuesta;
+}
 //--------ACTUALIZACION DE DATOS EN EDIT RESTAURANTE
 
 

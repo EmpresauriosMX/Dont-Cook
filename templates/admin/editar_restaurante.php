@@ -165,17 +165,17 @@ include '../../inc/peticiones/login/sesion.php';
                                                 <p class="">Selecciona la nueva localidad del restaurante</p>
                                                 <div class="row">
                                                     <div class="col-md-11">
-                                                    <form class="mx-auto mt-3 "id="eleccion_ciudad">
-                                                        <div class="input-group mb-3">
-                                                            <select class="custom-select " name="cbx" id="cbx">
-                                                                
-                                                            </select>
-                                                            <div class="input-group-append">
-                                                                <button id="enviar" name="enviar" value="Guardar" class="btn btn-dark" type="button">Guardar solo la ciudad</button>
+                                                        <form class="mx-auto mt-3 " id="eleccion_ciudad">
+                                                            <div class="input-group mb-3">
+                                                                <select class="custom-select " name="cbx" id="cbx">
+
+                                                                </select>
+                                                                <div class="input-group-append">
+                                                                    <button id="enviar" name="enviar" value="Guardar" class="btn btn-dark" type="button">Guardar solo la ciudad</button>
+                                                                </div>
                                                             </div>
-                                                        </div>
                                                             <!--<input type="submit" id="enviar" name="enviar" value="Guardar" />-->
-                                                    </form>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </form>
@@ -217,37 +217,37 @@ include '../../inc/peticiones/login/sesion.php';
                                                     </div>
                                                     <div class="col mx-auto">
                                                         <div class="form-check form-switch">
-                                                            <input class="form-check-input" type="checkbox" id="2" >
+                                                            <input class="form-check-input" type="checkbox" id="2">
                                                             <label class="form-check-label" for="flexSwitchCheckDefault">Martes</label>
                                                         </div>
                                                     </div>
                                                     <div class="col mx-auto">
                                                         <div class="form-check form-switch">
-                                                            <input class="form-check-input" type="checkbox" id="3" >
+                                                            <input class="form-check-input" type="checkbox" id="3">
                                                             <label class="form-check-label" for="flexSwitchCheckDefault">Miercoles</label>
                                                         </div>
                                                     </div>
                                                     <div class="col mx-auto">
                                                         <div class="form-check form-switch">
-                                                            <input class="form-check-input" type="checkbox" id="4" >
+                                                            <input class="form-check-input" type="checkbox" id="4">
                                                             <label class="form-check-label" for="flexSwitchCheckDefault">Jueves</label>
                                                         </div>
                                                     </div>
                                                     <div class="col mx-auto">
                                                         <div class="form-check form-switch">
-                                                            <input class="form-check-input" type="checkbox" id="5" >
+                                                            <input class="form-check-input" type="checkbox" id="5">
                                                             <label class="form-check-label" for="flexSwitchCheckDefault">Viernes</label>
                                                         </div>
                                                     </div>
                                                     <div class="col mx-auto">
                                                         <div class="form-check form-switch">
-                                                            <input class="form-check-input" type="checkbox" id="6" >
+                                                            <input class="form-check-input" type="checkbox" id="6">
                                                             <label class="form-check-label" for="flexSwitchCheckDefault">Sabado</label>
                                                         </div>
                                                     </div>
                                                     <div class="col mx-auto">
                                                         <div class="form-check form-switch">
-                                                            <input class="form-check-input" type="checkbox" id="0" >
+                                                            <input class="form-check-input" type="checkbox" id="0">
                                                             <label class="form-check-label" for="flexSwitchCheckDefault">Domingo</label>
                                                         </div>
                                                     </div>
@@ -294,55 +294,17 @@ include '../../inc/peticiones/login/sesion.php';
                                                     <div class="col-md-12 mx-auto">
                                                         <p>Agregar una categoria</p>
                                                         <div class="input-group mb-3">
-                                                        <select placeholder="Ciudad" class="custom-select" name="cbx" id=""></select>
+                                                            <select placeholder="Ciudad" class="custom-select" name="cbx_categoria" id="cbx_categoria"></select>
                                                             <div class="input-group-append">
-                                                                <button class="btn btn-outline-dark" type="button">Agregar</button>
+                                                                <button class="btn btn-outline-dark" type="button" id="boton_agregar_categoria">Agregar</button>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <!--AQUI SE VAN A IMPRIMIR LAS CATEGORIAS-->
                                                     <h5 class="text-center mb-3">Categorías de mi restaurante</h5>
-                                                    <div class="col-md-6 col-lg-4">
-                                                        <div class="alert alert-secondary alert-dismissible fade show" role="alert">
-                                                            <small>Para llevar</small>
-                                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                                <span class="fa fa-trash" aria-hidden="true"></span>
-                                                            </button>
-                                                        </div>
+                                                    <div class="col-md-6 col-lg-4" id="contenedor_categorias">
+
                                                     </div>
-                                                    <div class="col-md-6 col-lg-4">
-                                                        <div class="alert alert-secondary alert-dismissible fade show" role="alert">
-                                                            <small>Para llevar</small>
-                                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                                <span class="fa fa-trash" aria-hidden="true"></span>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6 col-lg-4">
-                                                        <div class="alert alert-secondary alert-dismissible fade show" role="alert">
-                                                            <small>Para llevar</small>
-                                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                                <span class="fa fa-trash" aria-hidden="true"></span>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6 col-lg-4 col-xs-4">
-                                                        <div class="alert alert-secondary alert-dismissible fade show" role="alert">
-                                                            <small>Comida  china</small>
-                                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                                <span class="fa fa-trash" aria-hidden="true"></span>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6 col-lg-4 col-xs-4">
-                                                        <div class="alert alert-secondary alert-dismissible fade show" role="alert">
-                                                            <small>Comida  china</small>
-                                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                                <span class="fa fa-trash" aria-hidden="true"></span>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                    
                                                 </div>
                                                 <button type="submit" id="btn_edit_categorias" class="site-btn btn-block">Guardar Categorias</button>
 
@@ -359,7 +321,7 @@ include '../../inc/peticiones/login/sesion.php';
         </div>
         <!----CONTENIDO DE LOS FORMULARIOS--/-->
     </div>
-    
+
 
 
     <!--contenido de la plantilla -->
