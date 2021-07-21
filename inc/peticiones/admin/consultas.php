@@ -573,23 +573,29 @@ function ver_promocion(): array
     $id_restaurante = $_POST['id'];
     try {
         require '../../../conexion.php';
-        $sql = "SELECT `restaurantes`.`nombre`,`promociones`.`id_promocion`,`promociones`.`id_restaurante`,`promociones`.`imagen`,`promociones`.`descripcion`,`promociones`.`Nombre`, `promociones`.`fecha`,`promociones`.`fecha_f`,`promociones`.`horario` FROM `restaurantes`,`promociones` WHERE `restaurantes`.`id_restaurante` = `promociones`.`id_restaurante` AND `promociones`.`id_restaurante` = $id_restaurante";
+        $sql = "SELECT `restaurantes`.`nombre` as `nombre_res`,`promociones`.`id_promocion`,
+                        `promociones`.`id_restaurante`,`promociones`.`imagen`,
+                        `promociones`.`descripcion`,`promociones`.`Nombre`, `promociones`.`fecha`,
+                        `promociones`.`fecha_f`,`promociones`.`horario` 
+                FROM `restaurantes`,`promociones` 
+                WHERE `restaurantes`.`id_restaurante` = `promociones`.`id_restaurante` 
+                    AND `promociones`.`id_restaurante` = $id_restaurante";
         $consulta = mysqli_query($conn, $sql);
         $respuesta = [];
         $i = 0;
         //SI CUENTA CON RESTAURANTES
         if (mysqli_num_rows($consulta) != 0) {
             while ($row = mysqli_fetch_assoc($consulta)) {
-                $respuesta[$i]['nombre_res'] =$nombre_res;
-                $respuesta[$i]['id_promocion'] = $id;
-                $respuesta[$i]['id_restaurante'] = $id_restaurante;
-                $respuesta[$i]['imagen'] = $imagen;
-                $respuesta[$i]['descripcion'] = $descripcion;
+                $respuesta[$i]['nombre_res'] =$row["nombre_res"];
+                $respuesta[$i]['id_promocion'] = $row["id_promocion"];
+                $respuesta[$i]['id_restaurante'] = $row["id_restaurante"];
+                $respuesta[$i]['imagen'] = $row["imagen"];
+                $respuesta[$i]['descripcion'] = $row["descripcion"];
                 //$respuesta[$i]['Dias'] = $dias;
-                $respuesta[$i]['Nombre'] = $nombre;
-                $respuesta[$i]['fecha'] = $fecha_inicio;
-                $respuesta[$i]['fecha_f'] = $fecha_final;
-                $respuesta[$i]['horario'] = $horario;
+                $respuesta[$i]['Nombre'] = $row["Nombre"];
+                $respuesta[$i]['fecha'] = $row["fecha"];
+                $respuesta[$i]['fecha_f'] = $row["fecha_f"];
+                $respuesta[$i]['horario'] = $row["horario"];
                 $i++;
             }
         }

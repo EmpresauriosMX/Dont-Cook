@@ -129,10 +129,12 @@ async function config_promociones(){
             <h4 class="card-title">${nombre_res}</h4>
         </div>
         <div class="card-body">
-            <h6>${Nombre}</h6>
-            <p class="card-text"> <b>Descripcion </b>${descripcion}<br>
-            De Lunes a Jueves <br>
-            Con Horario de ${horario}</p>
+            <h5>${Nombre}</h5>
+            <p class="card-text">${descripcion}<br>
+            Horario: ${horario}</p>
+        </div>
+        <div class="card-footer">
+            
         </div>
     </div>
     `;
