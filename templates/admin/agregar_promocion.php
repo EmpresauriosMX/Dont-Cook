@@ -42,19 +42,19 @@
     <div class="row">
     
       <div class="col-lg-8 col-md-6 mx-auto">
-        <form id="demo-form" data-parsley-validate>
+        <form id="demo-form">
 
           <div class="checkout__input text-center">
               <h3 class="h3">Información de la promoción<span></span></h3>
           </div>
 
-          <div class="row">
+        <div class="row">
 
             <div class="col-lg-5 input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1"><img style="height: 20px;" src="../../src/img/iconos/promocion.png" alt=""></span>
                 </div>
-                <input type="text" id="fullname" name="fullname" class="form-control" placeholder="Nombre de la Promoción (2x1 con Don'tCook!)" aria-label="Nombre" aria-describedby="basic-addon1" required="required">
+                <input type="text" id="fullname" name="fullname" class="form-control" placeholder="Nombre de la Promoción" aria-label="Nombre" aria-describedby="basic-addon1" required="required">
             </div>
 
             <div class="col-lg-7 input-group mb-3">
@@ -63,15 +63,15 @@
                     </div>
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="formFile" lang="es" accept=".png,.jpg">
-                    <label class="custom-file-label" for="customFileLang">Imagen que representa tu promoción!(.png, .jpg)</label>
+                    <label class="custom-file-label" for="customFileLang">Imagen de tu promoción</label>
                 </div>                    
             </div>
 
-          </div>
+        </div>
 
-          <div class="checkout__input">
-              <textarea rows="3" id="message" required="required" class="form-control" name="message" data-parsley-minlength="20" data-parsley-maxlength="100" placeholder="Escribe aqui la descripción de tu promoción! (¿Qué tipo de promoción es?, ¿Qué ofreces?, ¿Hay restricciones?, etc...). Recuerda que debe llevar 20 caracteres mínimo y 100 máximo!" aria-label="Descripción Corta" aria-describedby="basic-addon1" required="required"></textarea>
-          </div>
+        <div class="checkout__input">
+            <textarea rows="3" id="message" required="required" class="form-control" name="message" data-parsley-minlength="20" data-parsley-maxlength="100" placeholder="¿Qué tipo de promoción es?, ¿Qué ofreces?, ¿Hay restricciones?, etc." aria-label="Descripción Corta" aria-describedby="basic-addon1" required="required"></textarea>
+        </div>
 
 
           <div class="card text-center">
@@ -90,54 +90,54 @@
                         </div>
                         <div class="col">
                             <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="martes" value="2">
+                                <input class="form-check-input" type="checkbox" id="martes" value="1">
                                 <input type="hidden" class="form-control" id="id_martes">
                                 <label class="form-check-label" for="flexSwitchCheckDefault">Martes</label>
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="miercoles" value="3">
+                                <input class="form-check-input" type="checkbox" id="miercoles" value="1">
                                 <input type="hidden" class="form-control" id="id_miercoles">
                                 <label class="form-check-label" for="flexSwitchCheckDefault">Miercoles</label>
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="jueves" value="4">
+                                <input class="form-check-input" type="checkbox" id="jueves" value="1">
                                 <input type="hidden" class="form-control" id="id_jueves">
                                 <label class="form-check-label" for="flexSwitchCheckDefault">Jueves</label>
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="viernes" value="5">
+                                <input class="form-check-input" type="checkbox" id="viernes" value="1">
                                 <input type="hidden" class="form-control" id="id_viernes">
                                 <label class="form-check-label" for="flexSwitchCheckDefault">Viernes</label>
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="sabado" value="6">
+                                <input class="form-check-input" type="checkbox" id="sabado" value="1">
                                 <input type="hidden" class="form-control" id="id_sabado">
                                 <label class="form-check-label" for="flexSwitchCheckDefault">Sabado</label>
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="domingo" value="7">
+                                <input class="form-check-input" type="checkbox" id="domingo" value="1">
                                 <input type="hidden" class="form-control" id="id_domingo">
                                 <label class="form-check-label" for="flexSwitchCheckDefault">Domingo</label>
                             </div>
                         </div>
-                        <div class="col">
+                        <!--div class="col">
                             <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="sabado" value="6">
-                                <input type="hidden" class="form-control" id="todos" value="8">
+                                <input type="hidden"  type="checkbox" id="sabado" value="6    ">
+                                <input class="form-check-input" type="checkbox" id="todos" value="8">
                                 <input type="hidden" class="form-control" id="id_todos">
                                 <label class="form-check-label" for="flexSwitchCheckDefault">Toda la Semana</label>
                             </div>
-                        </div>
+                        </div-->
                     </div>
                 </div>
             </div>
@@ -180,14 +180,14 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1"><img style="height: 20px;" src="../../src/img/iconos/abierto.png" alt=""></span>
                 </div>
-                <input type="time" id="horario_inicio">
+                <input class="form-control" type="time" id="horario_inicio">
             </div>
 
             <div class="col-lg-6 input-group mb-3">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1"><img style="height: 20px;" src="../../src/img/iconos/cerrado.png" alt=""></span>
+                    <span  class="input-group-text" id="basic-addon1"><img style="height: 20px;" src="../../src/img/iconos/cerrado.png" alt=""></span>
                 </div>
-                <input type="time" id="horario_conclusion">
+                <input class="form-control" type="time" id="horario_conclusion">
             </div>
 
           </div>

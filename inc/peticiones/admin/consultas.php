@@ -513,7 +513,7 @@ function agregar_promocion(): array
     $viernes = $_POST['viernes'];
     $sabado = $_POST['sabado'];
     $domingo = $_POST['domingo'];
-    $todos = $_POST['todos'];
+    //$todos = $_POST['todos'];
     $diai = $_POST['diai'];
     $diaf = $_POST['diaf'];
     $inicio = $_POST['inicio'];
@@ -522,18 +522,19 @@ function agregar_promocion(): array
     $id_res = $_POST['id_res'];
 
     try {
+        /*
         $tiene_foto = getimagesize($_FILES["foto"]["tmp_name"]);
         if ($tiene_foto) {
             $temp = explode(".", $_FILES["foto"]["name"]);
             $nueva_foto = round(microtime(true)) . '.' . end($temp);
             move_uploaded_file($_FILES["foto"]["tmp_name"], "../../../src/img/promos/" . $nueva_foto);
-        } else {
+        } else {*/
             $nueva_foto = "fondo.png";
-        }
+        //}
 
             require '../../../conexion.php';
-            $sql = "INSERT INTO promociones (id_promocion, id_restaurante, imagen, descripcion, Dias, Nombre, fecha, fecha_f, horario) 
-                             VALUES (NULL, '$id_res', '$nueva_foto', '$message', '$lunes,$martes,$miercoles,$jueves,$viernes,$sabado,$domingo,$todos', '$nombre', '$diai', '$diaf','de $inicio a $fin')";
+            $sql = "INSERT INTO promociones (id_promocion, id_restaurante, imagen, descripcion, Nombre, fecha, fecha_f, horario, lunes, martes, miercoles, jueves, viernes, sabado, domingo) 
+            VALUES (NULL, '$id_res', '$nueva_foto', '$message', '$nombre', '$diai', '$diaf','de $inicio a $fin', '$lunes' ,'$martes' ,'$miercoles','$jueves','$viernes','$sabado','$domingo')";
             $consulta = mysqli_query($conn, $sql);
 
 
@@ -549,7 +550,7 @@ function agregar_promocion(): array
                 'viernes' => $viernes ,
                 'sabado' => $sabado ,
                 'domingo' => $domingo ,
-                'todos' => $todos ,
+                //'todos' => $todos ,
                 'dia1' => $diai ,
                 'dia2' => $diaf ,
                 'incio' => $inicio ,
@@ -572,20 +573,23 @@ function ver_promocion(): array
     $id_restaurante = $_POST['id'];
     try {
         require '../../../conexion.php';
-        $sql = "SELECT * FROM `promociones` WHERE `id_restaurante` = $id_restaurante";
+        $sql = "SELECT `restaurantes`.`nombre`,`promociones`.`id_promocion`,`promociones`.`id_restaurante`,`promociones`.`imagen`,`promociones`.`descripcion`,`promociones`.`Nombre`, `promociones`.`fecha`,`promociones`.`fecha_f`,`promociones`.`horario` FROM `restaurantes`,`promociones` WHERE `restaurantes`.`id_restaurante` = `promociones`.`id_restaurante` AND `promociones`.`id_restaurante` = $id_restaurante";
         $consulta = mysqli_query($conn, $sql);
         $respuesta = [];
         $i = 0;
         //SI CUENTA CON RESTAURANTES
         if (mysqli_num_rows($consulta) != 0) {
             while ($row = mysqli_fetch_assoc($consulta)) {
-                $respuesta[$i]['descripcion'] = $row['descripcion'];
-                $respuesta[$i]['Dias'] = $row['Dias'];
-                $respuesta[$i]['Nombre'] = $row['Nombre'];
-                $respuesta[$i]['fecha'] = $row['fecha'];
-                $respuesta[$i]['fecha_f'] = $row['fecha_f'];
-                $respuesta[$i]['horario'] = $row['horario'];
-                $respuesta[$i]['imagen'] = $row['imagen'];
+                $respuesta[$i]['nombre_res'] =$nombre_res;
+                $respuesta[$i]['id_promocion'] = $id;
+                $respuesta[$i]['id_restaurante'] = $id_restaurante;
+                $respuesta[$i]['imagen'] = $imagen;
+                $respuesta[$i]['descripcion'] = $descripcion;
+                //$respuesta[$i]['Dias'] = $dias;
+                $respuesta[$i]['Nombre'] = $nombre;
+                $respuesta[$i]['fecha'] = $fecha_inicio;
+                $respuesta[$i]['fecha_f'] = $fecha_final;
+                $respuesta[$i]['horario'] = $horario;
                 $i++;
             }
         }

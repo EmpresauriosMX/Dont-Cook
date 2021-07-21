@@ -1,5 +1,6 @@
 import {mostrar_ubicacion, enviar_datos, mostrar_mensaje} from "../funciones_generales.js";
 const url = "../../inc/peticiones/admin/funciones.php";
+const btn = document.querySelector("#btn");
 var id_restaurante = "";
 //CON ESTO OBTENEMOS EL ID DEL RESTAURANTE POR LA URL
 document.addEventListener("DOMContentLoaded", () => {
@@ -9,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (restaurante) {
         //LE PASAMOS EL ID DE RESUTAURANTE
         id_restaurante = restaurante;
+        btn.addEventListener("click", promociones);
     }
     //SI NO LE PASAMOS NADA CARGARA UN MENSAJE DE ERROR
     else{
@@ -18,6 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     console.log (restaurante);
 });
+
+
+
+
 
 $(document).on('change','#lunes' ,function(e) {
   const lunes = document.querySelector("#id_lunes").value;
@@ -68,11 +74,9 @@ $(document).on('change','#todos' ,function(e) {
   console.log (todos);
 });
 
-const btn = document.querySelector("#btn");
-btn.addEventListener("click", promociones);
 
-async function promociones (){
-
+async function promociones (e){
+  e.preventDefault();
   const nombre = document.querySelector("#fullname").value;
   const foto = document.querySelector("#formFile");
   const lunes = document.querySelector("#id_lunes").value;
@@ -82,7 +86,7 @@ async function promociones (){
   const viernes = document.querySelector("#id_viernes").value;
   const sabado = document.querySelector("#id_sabado").value;
   const domingo = document.querySelector("#id_domingo").value;
-  const todos = document.querySelector("#id_todos").value;
+  //const todos = document.querySelector("#id_todos").value;
   const diai = document.querySelector("#reservation-time1").value;
   const diaf = document.querySelector("#reservation-time2").value;
   const inicio = document.querySelector("#horario_inicio").value;
@@ -102,7 +106,7 @@ async function promociones (){
   datos.append("viernes",viernes);
   datos.append("sabado",sabado);
   datos.append("domingo",domingo);
-  datos.append("todos",todos);
+  //datos.append("todos",todos);
   datos.append("diai",diai);
   datos.append("diaf",diaf);
   datos.append("inicio",inicio);
@@ -112,7 +116,6 @@ async function promociones (){
 
   const res = await enviar_datos(url, datos);
   console.log(res);
-  console.log(foto.file[0]);
+  //console.log(foto.file[0]);
   alert("Promoción Guardada Éxitosamente!");
- 
 }

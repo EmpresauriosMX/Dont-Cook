@@ -119,55 +119,25 @@ async function config_promociones(){
     var div_promociones = document.querySelector("#tabs-1");
 
 
-    res.forEach(promocion => {
-        
-        const { id_restaurante, id_promocion, descripcion, Dias, Nombre, fecha, fecha_f, horario, imagen} = promocion;
-        console.log (promocion);
-        var cadenadias = Dias;
-        var coma = ",";
-        var arrayDeCadenas = "";
-
-        function dividirCadena(cadenaADividir,separador) {
-            arrayDeCadenas = cadenaADividir.split(separador);
-    
-            for (var i=0; i < arrayDeCadenas.length; i++) {
-            }
-            
-            if(arrayDeCadenas[0] == 1){arrayDeCadenas[0] = "Lunes";}
-            if(arrayDeCadenas[1] == 2){arrayDeCadenas[1] = "Martes";}
-            if(arrayDeCadenas[2] == 3){arrayDeCadenas[2] = "Miercoles";}
-            if(arrayDeCadenas[3] == 4){arrayDeCadenas[3] = "Jueves";}
-            if(arrayDeCadenas[4] == 5){arrayDeCadenas[4] = "Viernes";}
-            if(arrayDeCadenas[5] == 6){arrayDeCadenas[5] = "Sabado";}
-            if(arrayDeCadenas[6] == 7){arrayDeCadenas[6] = "Domingo";}
-            if(arrayDeCadenas[7] == 8){arrayDeCadenas[7] = "Todos";}
-            
-        }
-        dividirCadena(cadenadias, coma);
-
-
-        promociones.innerHTML+=`
-
-            
-        <div class="card" style="width: 23rem;">
-            <img class="card-img-top" src="../../src/img/promos/${imagen}" alt="Card image cap">
-            <div class="card-img-overlay">
-                <h3 class="card-title">${Nombre}</h3>
-            </div>
-            <div class="card-body">
-                <h5 class="card-title text-center">${Nombre}</h5>
-                <p class="card-text">${descripcion}</p>
-                <h6 class="h6">Disponible los días: 
-                    <p>${arrayDeCadenas[0]}/${arrayDeCadenas[1]}/${arrayDeCadenas[2]}/${arrayDeCadenas[3]}/${arrayDeCadenas[4]}/${arrayDeCadenas[5]}/${arrayDeCadenas[6]}/${arrayDeCadenas[7]}</p>
-                </h6>
-                <h6 class="h6">Horario de disponibilidad: <p>${horario}</p></h6>
-                <h6 class="h6">Fecha de inicio: <p>${fecha}</p></h6>
-                <h6 class="h6">Fecha de vencimiento: <p>${fecha_f}</p></h6>
-            </div>
-            
+    res.forEach((element) => {
+        console.log(element);
+        const {nombre_res,Nombre,descripcion,fecha,fecha_f,horario,id_promocion,id_restaurante,imagen} = element;
+        promociones.innerHTML += `
+    <div class="card">
+        <img class="card-img-top" src="../../src/img/promos/${imagen}" alt="Card image cap">
+        <div class="card-img-overlay">
+            <h4 class="card-title">${nombre_res}</h4>
         </div>
-        `;
+        <div class="card-body">
+            <h6>${Nombre}</h6>
+            <p class="card-text"> <b>Descripcion </b>${descripcion}<br>
+            De Lunes a Jueves <br>
+            Con Horario de ${horario}</p>
+        </div>
+    </div>
+    `;
     });
+    
     console.log(id);
     div_promociones.innerHTML+=`
         <div class="row justify-content-center mt-3">
