@@ -26,7 +26,7 @@
             <div id="titulo_promociones" class="section-title mt-3">
                 <h2>Promociones de Hoy!</h2>
             </div>
-            <div id="promociones" class="card-columns">
+            <div id="contenedor_promociones" class="card-columns">
                 <!--Tarjeta de Base-->
                 <div class="card">
                     <img class="card-img-top" src="../../src/img/banner/banner-1.jpg" alt="Card image cap">

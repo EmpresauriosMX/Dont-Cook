@@ -3,6 +3,7 @@ import {Ubicacion,select_ciudad,btn_confirmar_ciudad} from "../ubicacion.js";
 
 const url = "../../inc/peticiones/restaurantes/funciones.php";
 const contenedor = document.querySelector("#contenedor_restaurantes");
+const cont_promo = document.querySelector("#contenedor_promociones");
 const titulo = document.querySelector("#titulo_restaurantes");
 const tienes_ciudad = mostrar_ubicacion().ciudad;
 
@@ -31,7 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 async function mostrar_promociones(){
-  //WE, AQUI PON LO DE PROMOCIONES ;V
+  limpiar_contenedor();
+
 }
 
 //------------TODOS LOS RESTUARANTES DE LA CIUDAD-----------
@@ -83,6 +85,7 @@ async function mostrar_restaurantes() {
 }
 
 function limpiar_contenedor() {
+  cont_promo.innerHTML = "";
   contenedor.innerHTML = "";
   titulo.innerHTML = "";
 }
