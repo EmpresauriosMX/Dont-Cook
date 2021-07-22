@@ -191,8 +191,7 @@
             </div>
 
           </div>
-
-
+          <div id="alert"></div>
           <button type="submit" id="btn"  class="site-btn btn-block">Guardar Promoción</button>
 
 

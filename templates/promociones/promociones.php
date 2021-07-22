@@ -36,6 +36,7 @@
                 <h2>Todas las promociones</h2>
             </div>
             <div id="contenido_promociones" class="card-columns">
+                <div id="alert"></div>
             </div>
             <!--?php include '../../inc/peticiones/promociones/todas_promociones.php'; ?-->
         </div>

@@ -1,4 +1,4 @@
-import {mostrar_ubicacion, enviar_datos, mostrar_mensaje} from "../funciones_generales.js";
+import {mostrar_ubicacion, enviar_datos, mostrar_mensaje, mostrar_alert} from "../funciones_generales.js";
 const url = "../../inc/peticiones/admin/funciones.php";
 const btn = document.querySelector("#btn");
 var id_restaurante = "";
@@ -117,5 +117,6 @@ async function promociones (e){
   const res = await enviar_datos(url, datos);
   console.log(res);
   //console.log(foto.file[0]);
+  mostrar_alert("success","La promoción se ha guardado exitosamente");
   alert("Promoción Guardada Éxitosamente!");
 }
