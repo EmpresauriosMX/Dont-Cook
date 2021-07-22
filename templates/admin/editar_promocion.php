@@ -207,7 +207,7 @@
   include '../componentes/footer.html';
   include '../componentes/scripts.html';
   ?>
-  <script src="../../inc/funciones/admin/agregar_promocion.js" type="module"></script>
+  <script src="../../inc/funciones/admin/editar_promocion.js" type="module"></script>
 </body>
 
 </html>

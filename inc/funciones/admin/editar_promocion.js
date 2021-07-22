@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (restaurante) {
         //LE PASAMOS EL ID DE RESUTAURANTE
         id_restaurante = restaurante;
+        mostrar_promocion(restaurante);
         btn.addEventListener("click", promociones);
     }
     //SI NO LE PASAMOS NADA CARGARA UN MENSAJE DE ERROR
@@ -21,8 +22,78 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log (restaurante);
 });
 
+async function mostrar_promocion(restaurante){
+  //aqui va tu codigo para obtener las promociones
+  const datos = new FormData();
+  var id = restaurante;
+  datos.append("id", id);
+  datos.append("accion","ver_promo_especifico");
+  //SE BUSCA EL RESTAURANTE CON SU ID
+  const res = await enviar_datos(url, datos);
+  console.log (res);
 
-
+  res.forEach((element) => {
+      console.log(element);
+      const {nombre_res,Nombre,descripcion,fecha,fecha_f,horario,id_promocion,id_restaurante,imagen, lunes, martes, miercoles, jueves, viernes, sabado, domingo} = element;
+      if(lunes == 1){ clase_l = clase_activo }
+      if(martes == 1){ clase_m = clase_activo }
+      if(miercoles == 1){ clase_mi = clase_activo }
+      if(jueves == 1){ clase_j = clase_activo }
+      if(viernes == 1){ clase_v = clase_activo }
+      if(sabado == 1){ clase_s = clase_activo }
+      if(domingo == 1){ clase_d = clase_activo }
+      promociones.innerHTML += `
+          <div class="card border-0">
+              
+              <div class="card-body">
+              <div class="card">
+                  <img class="card-img-top" src="../../src/img/promos/${imagen}" alt="Card image cap">
+                  <div class="card-img-overlay">
+                      <a href="restaurante_especifico.php?r=${id_restaurante}"><h3 class="card-title">${nombre_res}</h3> </a>
+                  </div>
+                  <div class="card-body">
+                      <h5>${Nombre}</h5>
+                      <small class="card-text"> ${descripcion}</small>
+                      <br>
+                      <small> 
+                          Con Horario <i>${horario}</i>. <br>
+                          Valido: <i>${fecha}</i> a <i>${fecha_f}</i>
+                      </small>
+                      <br>
+                      <label>Disponible: </label><br>
+                      <label class="btn btn-circle ${clase_l}">L</label>
+                      <label class="btn btn-circle ${clase_m}">M</label>
+                      <label class="btn btn-circle ${clase_mi}">M</label>
+                      <label class="btn btn-circle ${clase_j}">J</label>
+                      <label class="btn btn-circle ${clase_v}">V</label>
+                      <label class="btn btn-circle ${clase_s}">S</label>
+                      <label class="btn btn-circle ${clase_d}">D</label>
+                  </div>
+              </div>
+                      <a href=editar_promocion.php?r=${id_restaurante}" class="btn btn-dark mt-1">
+                          <i class="fa fa-edit"></i>
+                      </a>
+                      <a href="#" class="btn btn-danger mt-1">
+                          <i class="fa fa-trash"></i>
+                      </a>
+              </div>
+          </div>
+          
+          
+      `;
+  });
+  
+  console.log(id);
+  div_promociones.innerHTML+=`
+      <div class="row justify-content-center mt-3">
+          <div class="col-md-3 mt-3">
+              <a href="agregar_promocion.php?r=${id}" class="btn btn-sm primary-btn  "> Agregar promoción</a>
+          </div> 
+      </div>
+  
+`;
+  
+}
 
 
 $(document).on('change','#lunes' ,function(e) {
@@ -117,7 +188,6 @@ async function promociones (e){
   const res = await enviar_datos(url, datos);
   console.log(res);
   //console.log(foto.file[0]);
-  //mostrar_alert("success","La promoción se ha guardado exitosamente");
-  //alert("Promoción Guardada Éxitosamente!");
-  window.location = "../admin/restaurante_ver.php?r="+id_res;
+  mostrar_alert("success","La promoción se ha guardado exitosamente");
+  alert("Promoción Guardada Éxitosamente!");
 }

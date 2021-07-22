@@ -199,7 +199,7 @@ async function config_promociones(){
                         <label class="btn btn-circle ${clase_d}">D</label>
                     </div>
                 </div>
-                        <a href=editar_promocion.php?r=${id_restaurante}" class="btn btn-dark mt-1">
+                        <a href=editar_promocion.php?p=${id_promocion}" class="btn btn-dark mt-1">
                             <i class="fa fa-edit"></i>
                         </a>
                         <a href="#" class="btn btn-danger mt-1">
