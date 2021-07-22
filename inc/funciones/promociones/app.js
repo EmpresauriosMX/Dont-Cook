@@ -36,17 +36,28 @@ async function mostrar_promocion() {
   datos.append("ciudad", ciudad);
   datos.append("accion", "obtener_promociones_todos");
   const res = await enviar_datos(url, datos);
+  console.log(res);
  res.length != 0 ? llenado_contenedor_html(contenido_promociones,res) : alert ("no hay promociones");
 }
 async function mostrar_promocion_dia_actual() {
     const datos = new FormData();
     const dia_hoy = moment().format("d");
+    let dia;
+    if (dia_hoy == 0) dia = "domingos";
+    if (dia_hoy == 1) dia ="lunes";
+    if (dia_hoy == 2) dia ="martes";
+    if (dia_hoy == 3) dia ="miercoles";
+    if (dia_hoy == 4) dia ="jueves";
+    if (dia_hoy == 5) dia ="viernes";
+    if (dia_hoy == 6) dia = "sabado";
+
     const ciudad = mostrar_ubicacion().ciudad;
-    datos.append("dia", dia_hoy);
+    datos.append("dia", dia);
     datos.append("ciudad", ciudad);
+    console.log(ciudad);
     datos.append("accion", "obtener_promocion_dia");
     const res = await enviar_datos(url, datos);
-    res.length != 0 ? llenado_contenedor_html(contenido_promociones_hoy,res) : alert ("no hay promociones el dia hoy");
+    res.length != 0 ? llenado_contenedor_html(contenido_promociones_hoy,res) : alert ("no hay promociones");
   }
 
 
