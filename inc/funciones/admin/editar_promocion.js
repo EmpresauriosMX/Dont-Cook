@@ -1,16 +1,16 @@
 import {mostrar_ubicacion, enviar_datos, mostrar_mensaje, mostrar_alert} from "../funciones_generales.js";
 const url = "../../inc/peticiones/admin/funciones.php";
 const btn = document.querySelector("#btn");
-var id_restaurante = "";
+var id_promocion = "";
 //CON ESTO OBTENEMOS EL ID DEL RESTAURANTE POR LA URL
 document.addEventListener("DOMContentLoaded", () => {
     const parametrosURL = new URLSearchParams(window.location.search);
-    let restaurante = parametrosURL.get("r");
+    let promocion = parametrosURL.get("p");
     //SI LE PASAMOS UN RESTAURANTE LO BUSCARA
-    if (restaurante) {
+    if (promocion) {
         //LE PASAMOS EL ID DE RESUTAURANTE
-        id_restaurante = restaurante;
-        mostrar_promocion(restaurante);
+        id_promocion = promocion;
+        mostrar_promocion(promocion);
         btn.addEventListener("click", promociones);
     }
     //SI NO LE PASAMOS NADA CARGARA UN MENSAJE DE ERROR
@@ -19,79 +19,37 @@ document.addEventListener("DOMContentLoaded", () => {
         let contenido1 = document.querySelector("#demo-form");
         contenido1.innerHTML = "";
     }
-    console.log (restaurante);
+    console.log (promocion);
 });
 
-async function mostrar_promocion(restaurante){
+async function mostrar_promocion(promocion){
   //aqui va tu codigo para obtener las promociones
   const datos = new FormData();
-  var id = restaurante;
-  datos.append("id", id);
+  datos.append("id", promocion);
   datos.append("accion","ver_promo_especifico");
-  //SE BUSCA EL RESTAURANTE CON SU ID
+  //SE BUSCA LA PROMOCION CON SU ID
   const res = await enviar_datos(url, datos);
   console.log (res);
+  //SE EIMPRIMEN LOS DATOS DE LA PROMOCION
+  const div_nombre = document.querySelector("#fullname");
+  const div_message = document.querySelector("#message");
 
-  res.forEach((element) => {
-      console.log(element);
-      const {nombre_res,Nombre,descripcion,fecha,fecha_f,horario,id_promocion,id_restaurante,imagen, lunes, martes, miercoles, jueves, viernes, sabado, domingo} = element;
-      if(lunes == 1){ clase_l = clase_activo }
-      if(martes == 1){ clase_m = clase_activo }
-      if(miercoles == 1){ clase_mi = clase_activo }
-      if(jueves == 1){ clase_j = clase_activo }
-      if(viernes == 1){ clase_v = clase_activo }
-      if(sabado == 1){ clase_s = clase_activo }
-      if(domingo == 1){ clase_d = clase_activo }
-      promociones.innerHTML += `
-          <div class="card border-0">
-              
-              <div class="card-body">
-              <div class="card">
-                  <img class="card-img-top" src="../../src/img/promos/${imagen}" alt="Card image cap">
-                  <div class="card-img-overlay">
-                      <a href="restaurante_especifico.php?r=${id_restaurante}"><h3 class="card-title">${nombre_res}</h3> </a>
-                  </div>
-                  <div class="card-body">
-                      <h5>${Nombre}</h5>
-                      <small class="card-text"> ${descripcion}</small>
-                      <br>
-                      <small> 
-                          Con Horario <i>${horario}</i>. <br>
-                          Valido: <i>${fecha}</i> a <i>${fecha_f}</i>
-                      </small>
-                      <br>
-                      <label>Disponible: </label><br>
-                      <label class="btn btn-circle ${clase_l}">L</label>
-                      <label class="btn btn-circle ${clase_m}">M</label>
-                      <label class="btn btn-circle ${clase_mi}">M</label>
-                      <label class="btn btn-circle ${clase_j}">J</label>
-                      <label class="btn btn-circle ${clase_v}">V</label>
-                      <label class="btn btn-circle ${clase_s}">S</label>
-                      <label class="btn btn-circle ${clase_d}">D</label>
-                  </div>
-              </div>
-                      <a href=editar_promocion.php?r=${id_restaurante}" class="btn btn-dark mt-1">
-                          <i class="fa fa-edit"></i>
-                      </a>
-                      <a href="#" class="btn btn-danger mt-1">
-                          <i class="fa fa-trash"></i>
-                      </a>
-              </div>
-          </div>
-          
-          
-      `;
-  });
+  const div_lunes = document.querySelector("#lunes");
+  const div_martes = document.querySelector("#martes");
+  const div_miercoles = document.querySelector("#miercoles");
+  const div_jueves = document.querySelector("#jueves");
+  const div_viernes = document.querySelector("#viernes");
+  const div_sabado = document.querySelector("#sabado");
+  const div_domingo = document.querySelector("#domingo");
+
+  const div_fecha_inicio = document.querySelector("#reservation-time1");
+  const div_fecha_fin = document.querySelector("#reservation-time2");
+
+  const div_horario_inicio = document.querySelector("#horario_inicio");
+  const div_horario_conclusion = document.querySelector("#horario_conclusion");
   
-  console.log(id);
-  div_promociones.innerHTML+=`
-      <div class="row justify-content-center mt-3">
-          <div class="col-md-3 mt-3">
-              <a href="agregar_promocion.php?r=${id}" class="btn btn-sm primary-btn  "> Agregar promoción</a>
-          </div> 
-      </div>
-  
-`;
+  //asiganrle los  valores que tienen por defecto las promociones
+  div_nombre.value = res.Nombre;
   
 }
 

@@ -137,7 +137,6 @@ function actualiza_datos_generales(): array
     return $respuesta;
 }
 
-
 function actualiza_datos_contacto(): array
 {
     $cuenta_existente = false;
@@ -614,6 +613,53 @@ function ver_promocion(): array
         //throw $th;
     }
 }
+
+function ver_promo_especifico(): array
+{
+    $id_promocion = $_POST['id'];
+    try {
+        require '../../../conexion.php';
+        $sql = "SELECT `restaurantes`.`nombre` as `nombre_res`,`promociones`.`id_promocion`,
+                        `promociones`.`id_restaurante`,`promociones`.`imagen`,
+                        `promociones`.`descripcion`,`promociones`.`Nombre`, `promociones`.`fecha`,
+                        `promociones`.`fecha_f`,`promociones`.`horario`,
+                        `promociones`.`lunes`,`promociones`.`martes`, `promociones`.`miercoles`,
+                        `promociones`.`jueves`, `promociones`.`viernes`, `promociones`.`sabado`, 
+                        `promociones`.`domingo`
+                FROM `restaurantes`,`promociones` 
+                WHERE `restaurantes`.`id_restaurante` = `promociones`.`id_restaurante` 
+                    AND `promociones`.`id_promocion` = $id_promocion";
+        $consulta = mysqli_query($conn, $sql);
+        $respuesta = [];
+        $i = 0;
+        //SI CUENTA CON RESTAURANTES
+        if (mysqli_num_rows($consulta) != 0) {
+            $row = mysqli_fetch_assoc($consulta);
+            $respuesta = array(
+                'nombre_res' => $row["nombre_res"],
+                'id_promocion' => $row["id_promocion"],
+                'id_restaurante' => $row["id_restaurante"],
+                'imagen' => $row["imagen"],
+                'descripcion' => $row["descripcion"],
+                'Nombre' => $row["Nombre"],
+                'fecha' => $row["fecha"],
+                'fecha_f' => $row["fecha_f"],
+                'horario' => $row["horario"],
+                'lunes' => $row["lunes"],
+                'martes' => $row["martes"],
+                'miercoles' => $row["miercoles"],
+                'jueves' => $row["jueves"],
+                'viernes' => $row["viernes"],
+                'sabado' => $row["sabado"],
+                'domingo' => $row["domingo"]
+            );
+        }
+        return $respuesta;
+    } catch (\Throwable $th) {
+        //throw $th;
+    }
+}
+
 
 //categorias
 function obtener_categorias(): array

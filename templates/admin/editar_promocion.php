@@ -50,21 +50,11 @@
 
         <div class="row">
 
-            <div class="col-lg-5 input-group mb-3">
+            <div class="col-lg-12 input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1"><img style="height: 20px;" src="../../src/img/iconos/promocion.png" alt=""></span>
                 </div>
                 <input type="text" id="fullname" name="fullname" class="form-control" placeholder="Nombre de la Promoción" aria-label="Nombre" aria-describedby="basic-addon1" required="required">
-            </div>
-
-            <div class="col-lg-7 input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1"><img style="height: 20px;" src="../../src/img/iconos/imagen.png" alt=""></span>
-                    </div>
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="formFile" lang="es" accept=".png,.jpg">
-                    <label class="custom-file-label" for="customFileLang">Imagen de tu promoción</label>
-                </div>                    
             </div>
 
         </div>
