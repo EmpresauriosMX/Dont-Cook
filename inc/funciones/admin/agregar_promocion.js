@@ -3,6 +3,9 @@ const url = "../../inc/peticiones/admin/funciones.php";
 const btn = document.querySelector("#btn");
 var id_restaurante = "";
 //CON ESTO OBTENEMOS EL ID DEL RESTAURANTE POR LA URL
+let imagen_a_enviar = document.querySelector("#formFile"); //input
+let imagen_previa = document.querySelector("#img_previa");
+
 document.addEventListener("DOMContentLoaded", () => {
     const parametrosURL = new URLSearchParams(window.location.search);
     let restaurante = parametrosURL.get("r");
@@ -19,6 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
         contenido1.innerHTML = "";
     }
     console.log (restaurante);
+    imagen_a_enviar.addEventListener("change",mostrar_imagen_seleccionada);
+
 });
 
 
@@ -120,4 +125,15 @@ async function promociones (e){
   //mostrar_alert("success","La promoción se ha guardado exitosamente");
   //alert("Promoción Guardada Éxitosamente!");
   window.location = "../admin/restaurante_ver.php?r="+id_res;
+}
+
+function mostrar_imagen_seleccionada() {
+  const files = imagen_a_enviar.files[0];
+  if (files) {
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(files);
+    fileReader.addEventListener("load", function () {
+      imagen_previa.src = this.result;
+    });    
+  }
 }

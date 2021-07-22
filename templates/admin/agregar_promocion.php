@@ -64,7 +64,9 @@
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="formFile" lang="es" accept=".png,.jpg">
                     <label class="custom-file-label" for="customFileLang">Imagen de tu promoción</label>
-                </div>                    
+                </div>   
+                <img id="img_previa" src="" class="w-100 shadow-1-strong rounded mb-4" alt="" />                
+                
             </div>
 
         </div>
