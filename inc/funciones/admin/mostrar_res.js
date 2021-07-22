@@ -157,24 +157,32 @@ async function config_promociones(){
         console.log(element);
         const {nombre_res,Nombre,descripcion,fecha,fecha_f,horario,id_promocion,id_restaurante,imagen} = element;
         promociones.innerHTML += `
-    <div class="card">
-            <img class="card-img-top" src="../../src/img/promos/${imagen}" alt="Card image cap">
-            <div class="card-img-overlay">
-            <h4 class="card-title">${nombre_res}</h4>
-        </div>
-        <div class="card-body">
-            <h5>${Nombre}</h5>
-            <p class="card-text">${descripcion}<br>
-            Horario: ${horario}</p>
-        </div>
-        <div class="card-footer">
-            <a href="agregar_promocion.php" class="btn btn-dark mt-1">
-                <i class="fa fa-edit"></i>
-            </a>
-            <a href="../admin/home_admin.php" class="btn btn-danger mt-1">
-                <i class="fa fa-trash"></i>
-            </a>
-        </div>
+            <div class="card border-0">
+                
+                <div class="card-body">
+                <div class="card">
+                    <img class="card-img-top" src="../../src/img/promos/${imagen}" alt="Card image cap">
+                    <div class="card-img-overlay">
+                        <h4 class="card-title">${nombre_res}</h4>
+                    </div>
+                    <div class="card-body">
+                        <h6>${Nombre}</h6>
+                        <p class="card-text"> <b>Descripcion </b>${descripcion}<br>
+                        De Lunes a Jueves <br>
+                        Con Horario de ${horario}</p>
+                        
+                    </div>
+                </div>
+                        <a href="agregar_promocion.php?r=${id_restaurante}" class="btn btn-dark mt-1">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        <a href="../admin/home_admin.php" class="btn btn-danger mt-1">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                </div>
+            </div>
+            
+            
         `;
     });
     
