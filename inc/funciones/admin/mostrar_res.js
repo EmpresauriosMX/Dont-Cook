@@ -199,7 +199,7 @@ async function config_promociones(){
                         <label class="btn btn-circle ${clase_d}">D</label>
                     </div>
                 </div>
-                        <a href=editar_promocion.php?p=${id_promocion}" class="btn btn-dark mt-1">
+                        <a href="editar_promocion.php?p=${id_promocion}" class="btn btn-dark mt-1">
                             <i class="fa fa-edit"></i>
                         </a>
                         <a href="#" class="btn btn-danger mt-1">
@@ -216,7 +216,7 @@ async function config_promociones(){
     div_promociones.innerHTML+=`
         <div class="row justify-content-center mt-3">
             <div class="col-md-3 mt-3">
-                <a href="agregar_promocion.php?r=${id}" class="btn btn-sm primary-btn  "> Agregar promoción</a>
+                <a href="agregar_promocion.php?r=${id}" class="btn btn-sm primary-btn"> Agregar promoción</a>
             </div> 
         </div>
     
