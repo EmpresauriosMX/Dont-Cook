@@ -62,20 +62,54 @@ async function mostrar_promocion_dia_actual() {
 
 
 function llenado_contenedor_html(contenedor,res) {
+
+  let clase_activo = "btn-info";
+
+  let clase_l = "btn-light disabled";
+  let clase_m = "btn-light disabled";
+  let clase_mi = "btn-light disabled";
+  let clase_j = "btn-light disabled";
+  let clase_v = "btn-light disabled";
+  let clase_s = "btn-light disabled";
+  let clase_d = "btn-light disabled";
+
+  
     res.forEach((element) => {
         console.log(element);
-        const {nombre_res,Dias,Nombre,descripcion,fecha,fecha_f,horario,id_promocion,id_restaurante,imagen} = element;
+        
+        const {nombre_res,Nombre,descripcion,fecha,fecha_f,horario,id_promocion,id_restaurante,imagen, lunes, martes, miercoles, jueves, viernes, sabado, domingo} = element;
+
+        if(lunes == 1){ clase_l = clase_activo }
+        if(martes == 1){ clase_m = clase_activo }
+        if(miercoles == 1){ clase_mi = clase_activo }
+        if(jueves == 1){ clase_j = clase_activo }
+        if(viernes == 1){ clase_v = clase_activo }
+        if(sabado == 1){ clase_s = clase_activo }
+        if(domingo == 1){ clase_d = clase_activo }
+
         contenedor.innerHTML += `
-    <div class="card">
+        <div class="card">
         <img class="card-img-top" src="../../src/img/promos/${imagen}" alt="Card image cap">
         <div class="card-img-overlay">
-            <h4 class="card-title">${nombre_res}</h4>
+            <a href="../restaurantes/restaurante_especifico.php?r=${id_restaurante}"><h3 class="card-title">${nombre_res}</h3> </a>
         </div>
         <div class="card-body">
-            <h6>${Nombre}</h6>
-            <p class="card-text"> <b>Descripcion </b>${descripcion}<br>
-            De Lunes a Jueves <br>
-            Con Horario de ${horario}</p>
+            <h5>${Nombre}</h5>
+            <small class="card-text"> ${descripcion}</small>
+            <br>
+            <small> 
+                Con Horario <i>${horario}</i>. <br>
+                Valido: <i>${fecha}</i> a <i>${fecha_f}</i>
+            </small>
+            <br>
+            <label>Disponible: </label><br>
+            <label class="btn btn-circle ${clase_l}">L</label>
+            <label class="btn btn-circle ${clase_m}">M</label>
+            <label class="btn btn-circle ${clase_mi}">M</label>
+            <label class="btn btn-circle ${clase_j}">J</label>
+            <label class="btn btn-circle ${clase_v}">V</label>
+            <label class="btn btn-circle ${clase_s}">S</label>
+            <label class="btn btn-circle ${clase_d}">D</label>
         </div>
     </div>
     `;
