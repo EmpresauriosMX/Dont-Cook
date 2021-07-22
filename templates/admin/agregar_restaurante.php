@@ -84,7 +84,8 @@ include '../../inc/peticiones/login/sesion.php';
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="imagen" lang="es" accept=".png,.jpg">
                             <label class="custom-file-label" for="customFileLang">Selecciona el archivo de tu logotipo (.png, .jpg, .jpeg)</label>
-                        </div>                    
+                        </div>    
+                        <img id="img_previa" src="" class="w-100 shadow-1-strong rounded mb-4" alt="" />                
                     </div>
 
                     <div class="checkout__input">

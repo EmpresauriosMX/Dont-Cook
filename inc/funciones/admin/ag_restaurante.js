@@ -14,6 +14,9 @@ const select_categorias  = document.querySelector("#cbx_categoria");
 const btn_categoria = document.querySelector("#boton_agregar_categoria");
 const contenedor_categorias = document.querySelector( "#contenedor_categorias" );
 
+let imagen_a_enviar = document.querySelector("#imagen"); //input
+let imagen_previa = document.querySelector("#img_previa");
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const ubicacion = new Ubicacion();
@@ -23,6 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
   lista_dias.addEventListener("change", agregar_dia);
   btn_categoria.addEventListener("click", valor_select_categorias);
   contenedor_categorias.addEventListener("click", eliminar_categoria);
+  imagen_a_enviar.addEventListener("change",mostrar_imagen_seleccionada);
+
   obtener_categorias();
  // displayTime();
 
@@ -159,17 +164,13 @@ function eliminar_categoria (e){
     }
 }
 
-
-
-
-/*
-let contador = 0;
-
-function displayTime() {
- // var time = moment().format('HH:mm:ss');
-
-console.log("hola mundo");
-  contador += 1;
-  console.log(`este es el tiempo actual ${contador}`);
-  setTimeout(displayTime, 1000);
-}*/
+function mostrar_imagen_seleccionada() {
+    const files = imagen_a_enviar.files[0];
+    if (files) {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(files);
+      fileReader.addEventListener("load", function () {
+        imagen_previa.src = this.result;
+      });    
+    }
+}
