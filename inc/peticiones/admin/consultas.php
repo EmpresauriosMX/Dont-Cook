@@ -522,15 +522,15 @@ function agregar_promocion(): array
     $id_res = $_POST['id_res'];
 
     try {
-        /*
+        
         $tiene_foto = getimagesize($_FILES["foto"]["tmp_name"]);
         if ($tiene_foto) {
             $temp = explode(".", $_FILES["foto"]["name"]);
             $nueva_foto = round(microtime(true)) . '.' . end($temp);
             move_uploaded_file($_FILES["foto"]["tmp_name"], "../../../src/img/promos/" . $nueva_foto);
-        } else {*/
+        } else {
             $nueva_foto = "fondo.png";
-        //}
+        }
 
             require '../../../conexion.php';
             $sql = "INSERT INTO promociones (id_promocion, id_restaurante, imagen, descripcion, Nombre, fecha, fecha_f, horario, lunes, martes, miercoles, jueves, viernes, sabado, domingo) 
@@ -576,7 +576,10 @@ function ver_promocion(): array
         $sql = "SELECT `restaurantes`.`nombre` as `nombre_res`,`promociones`.`id_promocion`,
                         `promociones`.`id_restaurante`,`promociones`.`imagen`,
                         `promociones`.`descripcion`,`promociones`.`Nombre`, `promociones`.`fecha`,
-                        `promociones`.`fecha_f`,`promociones`.`horario` 
+                        `promociones`.`fecha_f`,`promociones`.`horario`,
+                        `promociones`.`lunes`,`promociones`.`martes`, `promociones`.`miercoles`,
+                        `promociones`.`jueves`, `promociones`.`viernes`, `promociones`.`sabado`, 
+                        `promociones`.`domingo`
                 FROM `restaurantes`,`promociones` 
                 WHERE `restaurantes`.`id_restaurante` = `promociones`.`id_restaurante` 
                     AND `promociones`.`id_restaurante` = $id_restaurante";
@@ -596,6 +599,13 @@ function ver_promocion(): array
                 $respuesta[$i]['fecha'] = $row["fecha"];
                 $respuesta[$i]['fecha_f'] = $row["fecha_f"];
                 $respuesta[$i]['horario'] = $row["horario"];
+                $respuesta[$i]['lunes'] = $row["lunes"];
+                $respuesta[$i]['martes'] = $row["martes"];
+                $respuesta[$i]['miercoles'] = $row["miercoles"];
+                $respuesta[$i]['jueves'] = $row["jueves"];
+                $respuesta[$i]['viernes'] = $row["viernes"];
+                $respuesta[$i]['sabado'] = $row["sabado"];
+                $respuesta[$i]['domingo'] = $row["domingo"];
                 $i++;
             }
         }

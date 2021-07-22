@@ -84,7 +84,7 @@ async function imprime_restaurante_dias(){
     datos.append("id", id_restaurante)
     datos.append("accion", "obtener_horario_restaurante_especifico");
     const res = await enviar_datos(url,datos);
-    console.log(res)
+    //console.log(res)
     res.forEach((dias) =>{ 
         const {dia,hora_inicio,hora_fin} = dias;
          const apuerta_formato_12h = moment(hora_inicio, "hh:mm").format("h:mm a");
@@ -154,76 +154,67 @@ async function apartado_promociones(){
 
 
 async function config_promociones(){
-
     //aqui va tu codigo para obtener las promociones
     const datos = new FormData();
     var id = ID_RESTAURANTE_P;
     datos.append("id", ID_RESTAURANTE_P);
     datos.append("accion","ver_promo");
     //SE BUSCA EL RESTAURANTE CON SU ID
-    const res = await enviar_datos(url, datos);
+    //aqui esta la funcion de ver restaurante
+    const url2 = "../../inc/peticiones/admin/funciones.php";
+    const res = await enviar_datos(url2, datos);
     console.log (res);
     var promociones = document.querySelector("#promos");
-
-    //apartado_promociones();
-
-    
-
-    res.forEach(promocion => {
-        
-        const { id_restaurante, id_promocion, descripcion, Dias, Nombre, fecha, fecha_f, horario, imagen} = promocion;
-        console.log (promocion);
-        console.log (Dias);
-        var cadenadias = Dias;
-        var coma = ",";
-        var arrayDeCadenas = "";
-
-        function dividirCadena(cadenaADividir,separador) {
-            arrayDeCadenas = cadenaADividir.split(separador);
-    
-            for (var i=0; i < arrayDeCadenas.length; i++) {
-                console.log ("arrayDeCadenas[" +i + "]" + "= "+ arrayDeCadenas[i] + "<br>");
-            }
+    var div_promociones = document.querySelector("#tabs-1");
+    let clase_activo = "btn-info";
+    //let clase_inactivo ="btn-light disabled";
+    let clase_l = "btn-light disabled";
+    let clase_m = "btn-light disabled";
+    let clase_mi = "btn-light disabled";
+    let clase_j = "btn-light disabled";
+    let clase_v = "btn-light disabled";
+    let clase_s = "btn-light disabled";
+    let clase_d = "btn-light disabled";
+    res.forEach((element) => {
+        console.log(element);
+        const {nombre_res,Nombre,descripcion,fecha,fecha_f,horario,id_promocion,id_restaurante,imagen, lunes, martes, miercoles, jueves, viernes, sabado, domingo} = element;
+        //console.log(lunes, martes, miercoles, jueves, viernes, sabado, domingo);
+        if(lunes == 1){ clase_l = clase_activo }
+        if(martes == 1){ clase_m = clase_activo }
+        if(miercoles == 1){ clase_mi = clase_activo }
+        if(jueves == 1){ clase_j = clase_activo }
+        if(viernes == 1){ clase_v = clase_activo }
+        if(sabado == 1){ clase_s = clase_activo }
+        if(domingo == 1){ clase_d = clase_activo }
+        promociones.innerHTML += `
+        <div class="card">
+            <img class="card-img-top" src="../../src/img/promos/${imagen}" alt="Card image cap">
+            <div class="card-img-overlay">
+                <a href="restaurante_especifico.php?r=${id_restaurante}"><h3 class="card-title">${nombre_res}</h3> </a>
+            </div>
+            <div class="card-body">
+                <h5>${Nombre}</h5>
+                <small class="card-text"> ${descripcion}</small>
+                <br>
+                <small> 
+                    Con Horario <i>${horario}</i>. <br>
+                    Valido: <i>${fecha}</i> a <i>${fecha_f}</i>
+                </small>
+                <br>
+                <label>Disponible: </label><br>
+                <label class="btn btn-circle ${clase_l}">L</label>
+                <label class="btn btn-circle ${clase_m}">M</label>
+                <label class="btn btn-circle ${clase_mi}">M</label>
+                <label class="btn btn-circle ${clase_j}">J</label>
+                <label class="btn btn-circle ${clase_v}">V</label>
+                <label class="btn btn-circle ${clase_s}">S</label>
+                <label class="btn btn-circle ${clase_d}">D</label>
+            </div>
+        </div>
             
-            if(arrayDeCadenas[0] == 1){arrayDeCadenas[0] = "Lunes";}
-            if(arrayDeCadenas[1] == 2){arrayDeCadenas[1] = "Martes";}
-            if(arrayDeCadenas[2] == 3){arrayDeCadenas[2] = "Miercoles";}
-            if(arrayDeCadenas[3] == 4){arrayDeCadenas[3] = "Jueves";}
-            if(arrayDeCadenas[4] == 5){arrayDeCadenas[4] = "Viernes";}
-            if(arrayDeCadenas[5] == 6){arrayDeCadenas[5] = "Sabado";}
-            if(arrayDeCadenas[6] == 7){arrayDeCadenas[6] = "Domingo";}
-            if(arrayDeCadenas[7] == 8){arrayDeCadenas[7] = "Todos";}
             
-        }
-        dividirCadena(cadenadias, coma);
-        console.log(arrayDeCadenas);
-
-        
-
-        promociones.innerHTML+=`
-            
-                <div class="card" style="width: 23rem;">
-                    <img class="card-img-top" src="../../src/img/promos/${imagen}" alt="Card image cap">
-                    <div class="card-img-overlay">
-                        <h3 class="card-title">${Nombre}</h3>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title text-center">${Nombre}</h5>
-                        <p class="card-text">${descripcion}</p>
-                        <h6 class="h6">Disponible los días: 
-                            <p>${arrayDeCadenas[0]}/${arrayDeCadenas[1]}/${arrayDeCadenas[2]}/${arrayDeCadenas[3]}/${arrayDeCadenas[4]}/${arrayDeCadenas[5]}/${arrayDeCadenas[6]}/${arrayDeCadenas[7]}</p>
-                        </h6>
-                        <h6 class="h6">Horario de disponibilidad: <p>${horario}</p></h6>
-                        <h6 class="h6">Fecha de inicio: <p>${fecha}</p></h6>
-                        <h6 class="h6">Fecha de vencimiento: <p>${fecha_f}</p></h6>
-                    </div>
-                    
-                </div>
-                
-
-    `;
+        `;
     });
-
 }
 
 function config_galeria(datos){
