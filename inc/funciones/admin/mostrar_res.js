@@ -29,6 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     //SI NO LE PASAMOS NADA CARGARA UN MENSAJE DE ERROR
     else{
+        const ver = document.querySelector("#ver");
+        ver.innerHTML = "";
         mostrar_mensaje("error");
     }
 });
@@ -54,6 +56,7 @@ function imprime_restaurante(datos) {
   let contenido1 = document.querySelector("#form_contenido_restaurante");
   const { id, nombre, telefono, descripcion, descripcion_larga,horario, correo, cp, direccion, ciudad, foto, fb} = datos;
 
+  const div_modal_logo = document.querySelector("#btn_modal_logo");
   const text_nombre_restaurante = document.querySelector("#nombre_restaurante");
   const text_descripcion_larga = document.querySelector("#descripcion_larga");
   const img_restaurante = document.querySelector("#img_restaurante");
@@ -63,6 +66,42 @@ function imprime_restaurante(datos) {
   const texto_direccion = document.querySelector("#direccion");
   const texto_horarios = document.querySelector("#horarios");
   const texto_correo = document.querySelector("#correo");
+
+  div_modal_logo.innerHTML = `
+    <button type="button" class="btn btn-dark btn-sm btn-block" data-toggle="modal" data-target="#editar_imagen_res${id}">
+        Cambiar logo <i class="fa fa-image"></i>
+    </button>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="editar_imagen_res${id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Editar imagen restaurante "${nombre}"</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class=" input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"><img style="height: 20px;" src="../../src/img/iconos/imagen.png" alt=""></span>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="formFile   " lang="es" accept=".png,.jpg">
+                    <label class="custom-file-label" for="customFileLang">Imagen de tu restaurante</label>
+                </div>                    
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-success btn-sm">Guardar</button>
+        </div>
+        </div>
+    </div>
+    </div>
+    
+    `
 
   text_nombre_restaurante.innerHTML = `${nombre}`;
 
@@ -199,9 +238,13 @@ async function config_promociones(){
                         <label class="btn btn-circle ${clase_d}">D</label>
                     </div>
                 </div>
-                        <a href="editar_promocion.php?p=${id_promocion}" class="btn btn-dark mt-1">
+                        <a href="editar_promocion.php?p=${id_promocion}" class="btn btn-secondary mt-1">
                             <i class="fa fa-edit"></i>
                         </a>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-secondary mt-1" data-toggle="modal" data-target="#editar_imagen_promo${id_promocion}">
+                        <i class="fa fa-image"></i>
+                        </button>
                         <a href="#" class="btn btn-danger mt-1">
                             <i class="fa fa-trash"></i>
                         </a>
@@ -209,6 +252,35 @@ async function config_promociones(){
             </div>
             
             
+
+            <!-- Modal -->
+            <div class="modal fade" id="editar_imagen_promo${id_promocion}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Editar imagen promocion "${Nombre}"</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class=" input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><img style="height: 20px;" src="../../src/img/iconos/imagen.png" alt=""></span>
+                            </div>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="formFile   " lang="es" accept=".png,.jpg">
+                            <label class="custom-file-label" for="customFileLang">Imagen de tu promoción</label>
+                        </div>                    
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-success btn-sm">Guardar</button>
+                </div>
+                </div>
+            </div>
+            </div>
         `;
     });
     
