@@ -161,7 +161,7 @@ function imprime_menu_config(datos){
     //Imprime cada una de las configuraciones 
     //config_promociones();
     apartado_promociones();
-    config_galeria();
+    //config_galeria();
     config_menu();
 }
 

@@ -132,7 +132,7 @@ function imprime_menu_config(datos){
     //Imprime cada una de las configuraciones 
     //config_promociones();
     apartado_promociones();
-    config_galeria();
+    //config_galeria();
     config_menu();
 }
 
@@ -267,11 +267,12 @@ async function config_menu(){
 res.forEach(element => {
     div_menu.innerHTML+=`
     <div class="product__details__tab__desc">
+            <h4>Menú</h4>
             <div id="editor">
                ${element.descripcion}
             </div>
 
-            <h4>imagen del menu</h4>
+            <h4>Imagen del menú</h4>
 
             <div class="row mt-3">
                 <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
