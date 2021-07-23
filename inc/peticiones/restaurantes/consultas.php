@@ -47,8 +47,7 @@ function obtener_restaurantes_categoria(): array
             require '../../../conexion.php';
             $sql = "SELECT `restaurantes`.`id_restaurante`, `restaurantes`.`nombre`, 
                 `restaurantes`.`telefono`, `restaurantes`.`foto`, `restaurantes`.`descripcion_corta`,
-                `restaurantes`.`horario`, `restaurantes`.`ciudad`, 
-                `categorias_restaurantes`.`id_categorias_restaurantes`, `categorias`.`id_categoria`, 
+                `restaurantes`.`horario`, `restaurantes`.`ciudad`, `categorias`.`id_categoria`, 
                 `categorias`.`nombre` as `nombre_categoria` FROM `categorias_restaurantes`, `categorias`, `restaurantes`
                 WHERE `categorias_restaurantes`.`id_categoria` = `categorias`.`id_categoria` and 
                 `restaurantes`.`id_restaurante` = `categorias_restaurantes`.`id_restaurante` and 
