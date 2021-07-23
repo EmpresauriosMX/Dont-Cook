@@ -201,6 +201,13 @@ async function config_promociones(){
     let clase_d = "btn-light disabled";
 
     res.forEach((element) => {
+        let clase_l = "btn-light disabled";
+        let clase_m = "btn-light disabled";
+        let clase_mi = "btn-light disabled";
+        let clase_j = "btn-light disabled";
+        let clase_v = "btn-light disabled";
+        let clase_s = "btn-light disabled";
+        let clase_d = "btn-light disabled";
         console.log(element);
         const {nombre_res,Nombre,descripcion,fecha,fecha_f,horario,id_promocion,id_restaurante,imagen, lunes, martes, miercoles, jueves, viernes, sabado, domingo} = element;
         if(lunes == 1){ clase_l = clase_activo }

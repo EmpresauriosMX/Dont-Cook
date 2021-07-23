@@ -174,6 +174,13 @@ async function config_promociones(){
     let clase_s = "btn-light disabled";
     let clase_d = "btn-light disabled";
     res.forEach((element) => {
+        let clase_l = "btn-light disabled";
+        let clase_m = "btn-light disabled";
+        let clase_mi = "btn-light disabled";
+        let clase_j = "btn-light disabled";
+        let clase_v = "btn-light disabled";
+        let clase_s = "btn-light disabled";
+        let clase_d = "btn-light disabled";
         console.log(element);
         const {nombre_res,Nombre,descripcion,fecha,fecha_f,horario,id_promocion,id_restaurante,imagen, lunes, martes, miercoles, jueves, viernes, sabado, domingo} = element;
         //console.log(lunes, martes, miercoles, jueves, viernes, sabado, domingo);
@@ -188,7 +195,7 @@ async function config_promociones(){
         <div class="card">
             <img class="card-img-top" src="../../src/img/promos/${imagen}" alt="Card image cap">
             <div class="card-img-overlay">
-                <a href="restaurante_especifico.php?r=${id_restaurante}"><h3 class="card-title">${nombre_res}</h3> </a>
+                <a href="../restaurantes/restaurante_especifico.php?r=${id_restaurante}"><h3 class="card-title">${nombre_res}</h3> </a>
             </div>
             <div class="card-body">
                 <h5>${Nombre}</h5>
