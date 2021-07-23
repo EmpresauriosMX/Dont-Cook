@@ -27,6 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
       sin_ciudad();
     } else {
       buscar_todos_los_restaurantes();
+      limpiar_contenedor();
+      titulo.innerHTML = `<h2>Todos los restaurantes de ${tienes_ciudad}</h2>`;
     }
   }
 });
@@ -51,14 +53,14 @@ async function mostar_banner_categoria(categoria) {
   //AQUI  VAN LAS CATEGORIAS, ESTA LISTA VA CRECIENDO
   //LAS CATEGORIAS SE VAN AGREGANDO AQUI CON UNA IMAGEN Y UNA FOTO
   const BANNERS = {
-    Bares: ["bar.jpg", "Bares"],
-    Cafeterías: ["coffee.jpg", "Cafeterías"],
+    "Bares": ["bar.jpg", "Bares"],
+    "Cafeterías": ["coffee.jpg", "Cafeterías"],
     "Carritos de comida": ["truck.jpg", "Carritos de comida"],
     "Comida oriental": ["oriental.jpg", "Comida oriental"],
     "Comida mexicana": ["tacos.jpg", "Comida mexicana"],
     "Comida rapida": ["fast.jpg", "Comida rapida"],
-    Mariscos: ["camaron.jpg", "Mariscos"],
-    Pizzerias: ["pizza.jpg", "Pizzerías"],
+    "Mariscos": ["camaron.jpg", "Mariscos"],
+    "Pizzerias": ["pizza.jpg", "Pizzerías"],
     "Servicio a domicilio": ["delivery.jpg", "Servicio a domicilio"],
   };
   const DEFAULT_BANNER = [
@@ -143,8 +145,6 @@ async function buscar_todos_los_restaurantes() {
 
 //plantilla para pintar  mostrar los restaurantes
 function pintar_restaurantes_html(res) {
-  limpiar_contenedor();
-  titulo.innerHTML = `<h2>Todos los restaurantes de ${tienes_ciudad}</h2>`;
 
   res.forEach((restaurante) => {
     //console.log(restaurante);
@@ -181,7 +181,7 @@ function pintar_restaurantes_html(res) {
                 </div>
                 `;
   });
-  pintar_horario_html(); //los horarios disponibles hoy
+  //pintar_horario_html(); //los horarios disponibles hoy
 }
 
 function limpiar_contenedor() {
