@@ -24,6 +24,9 @@ switch ($accion) {
     case "ver_promo_especifico":
         $resultado = ver_promo_especifico();
         break;
+    case "editar_promo":
+        $resultado = editar_promo();
+        break;
     case "obtener_categorias":
         $resultado = obtener_categorias();
         break;

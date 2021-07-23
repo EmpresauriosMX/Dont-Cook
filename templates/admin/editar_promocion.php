@@ -27,7 +27,7 @@
           <div class="row">
               <div class="col-lg-12 text-center">
                   <div class="breadcrumb__text">
-                      <h2 id="nombre_restaurante">Agregar Nueva Promoción</h2>
+                      <h2 id="nombre_restaurante">Editar la promoción</h2>
                   </div>
               </div>
           </div>
@@ -161,7 +161,7 @@
 
           <div class="checkout__input text-center">
               <h3 class="h3">Horarios de disponibilidad<span></span></h3>
-              <h5 class="h5">(Inicio/Final)<span></span></h5>
+              <h5 class="h5" id="horario_anterior">horario actual: de 12:00 a 11:00</h5>
           </div>
 
           <div class="row">

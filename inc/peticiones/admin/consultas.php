@@ -96,6 +96,7 @@ function enviar(): array
     return $respuesta;
 }
 
+
 //--------ACTUALIZACION DE DATOS EN EDIT RESTAURANTE
 function actualiza_datos_generales(): array
 {
@@ -563,6 +564,94 @@ function agregar_promocion(): array
             );
             
         }
+
+    return $respuesta;
+}
+
+function editar_promo(): array
+{
+    $nombre = $_POST['nombre'];
+    //$foto = $_POST['foto'];
+    $lunes = $_POST['lunes'];
+    $martes = $_POST['martes'];
+    $miercoles = $_POST['miercoles'];
+    $jueves = $_POST['jueves'];
+    $viernes = $_POST['viernes'];
+    $sabado = $_POST['sabado'];
+    $domingo = $_POST['domingo'];
+    //$todos = $_POST['todos'];
+    $diai = $_POST['diai'];
+    $diaf = $_POST['diaf'];
+    $inicio = $_POST['inicio'];
+    $fin = $_POST['fin'];
+    $message = $_POST['message'];
+    $id_res = $_POST['id_res'];
+    /*
+    try {
+        
+        $tiene_foto = getimagesize($_FILES["foto"]["tmp_name"]);
+        if ($tiene_foto) {
+            $temp = explode(".", $_FILES["foto"]["name"]);
+            $nueva_foto = round(microtime(true)) . '.' . end($temp);
+            move_uploaded_file($_FILES["foto"]["tmp_name"], "../../../src/img/promos/" . $nueva_foto);
+        } else {
+            $nueva_foto = "fondo.png";
+        }
+
+            require '../../../conexion.php';
+            $sql = "INSERT INTO promociones (id_promocion, id_restaurante, imagen, descripcion, Nombre, fecha, fecha_f, horario, lunes, martes, miercoles, jueves, viernes, sabado, domingo) 
+            VALUES (NULL, '$id_res', '$nueva_foto', '$message', '$nombre', '$diai', '$diaf','de $inicio a $fin', '$lunes' ,'$martes' ,'$miercoles','$jueves','$viernes','$sabado','$domingo')";
+            $consulta = mysqli_query($conn, $sql);
+
+
+            $respuesta = array(
+                'respuesta' => "Ingresaron datos",
+                'nombre' => $nombre ,
+                'id_res' => $id_res ,
+                'foto' => $nueva_foto ,
+                'lunes' => $lunes ,
+                'martes' => $martes ,
+                'miercoles' => $miercoles ,
+                'jueves' => $jueves ,
+                'viernes' => $viernes ,
+                'sabado' => $sabado ,
+                'domingo' => $domingo ,
+                //'todos' => $todos ,
+                'dia1' => $diai ,
+                'dia2' => $diaf ,
+                'incio' => $inicio ,
+                'fin' => $fin ,
+                'message' => $message
+            );
+
+        } catch (\Throwable $th) {
+            $respuesta = array(
+                'respuesta' => $th
+            );
+            
+        }
+
+    return $respuesta;
+    */
+}
+
+function verifica_cuenta_interno($id_res): array
+{
+    $cuenta_existente = false;
+    //-----------SE ABRE LA SESIÓN DEL USUARIO
+    session_start();
+    $id_user = $_SESSION['id'];
+    //$cuenta_existente = $id_user ? 'true' : 'false';
+    if ($id_user != "") { //si la variable de sesión está vacia entonces se redirige al login
+        //header("location: ../../../index.html");
+        $cuenta_existente = true;
+    }
+
+    $respuesta = array(
+        'cuenta_existente' => $cuenta_existente,
+        'id_cuenta_activa' => $id_user
+    );
+
 
     return $respuesta;
 }

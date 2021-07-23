@@ -2,6 +2,7 @@ import {mostrar_ubicacion, enviar_datos, mostrar_mensaje, mostrar_alert} from ".
 const url = "../../inc/peticiones/admin/funciones.php";
 const btn = document.querySelector("#btn");
 var id_promocion = "";
+var id_res;
 //CON ESTO OBTENEMOS EL ID DEL RESTAURANTE POR LA URL
 document.addEventListener("DOMContentLoaded", () => {
     const parametrosURL = new URLSearchParams(window.location.search);
@@ -30,6 +31,8 @@ async function mostrar_promocion(promocion){
   //SE BUSCA LA PROMOCION CON SU ID
   const res = await enviar_datos(url, datos);
   console.log (res);
+  id_res = res.id_restaurante;
+  console.log(id_res);
   //SE EIMPRIMEN LOS DATOS DE LA PROMOCION
   const div_nombre = document.querySelector("#fullname");
   const div_message = document.querySelector("#message");
@@ -50,7 +53,21 @@ async function mostrar_promocion(promocion){
   
   //asiganrle los  valores que tienen por defecto las promociones
   div_nombre.value = res.Nombre;
+  div_message.value = res.descripcion;
+  if(res.lunes == 1){div_lunes.checked = true;}
+  if(res.martes == 1){div_martes.checked = true;}
+  if(res.miercoles == 1){div_miercoles.checked = true;}
+  if(res.jueves == 1){div_jueves.checked = true;}
+  if(res.viernes == 1){div_viernes.checked = true;}
+  if(res.sabado == 1){div_sabado.checked = true;}
+  if(res.domingo == 1){div_domingo.checked = true;}
   
+  div_fecha_inicio.value = res.fecha;
+  div_fecha_fin.value = res.fecha_f;
+  let horario_unido = res.horario;
+  let dividido = horario_unido.split(' ');
+  div_horario_inicio.value = dividido[1];
+  div_horario_conclusion.value = dividido[3];
 }
 
 
@@ -107,7 +124,6 @@ $(document).on('change','#todos' ,function(e) {
 async function promociones (e){
   e.preventDefault();
   const nombre = document.querySelector("#fullname").value;
-  const foto = document.querySelector("#formFile");
   const lunes = document.querySelector("#id_lunes").value;
   const martes = document.querySelector("#id_martes").value;
   const miercoles = document.querySelector("#id_miercoles").value;
@@ -115,7 +131,6 @@ async function promociones (e){
   const viernes = document.querySelector("#id_viernes").value;
   const sabado = document.querySelector("#id_sabado").value;
   const domingo = document.querySelector("#id_domingo").value;
-  //const todos = document.querySelector("#id_todos").value;
   const diai = document.querySelector("#reservation-time1").value;
   const diaf = document.querySelector("#reservation-time2").value;
   const inicio = document.querySelector("#horario_inicio").value;
@@ -125,9 +140,8 @@ async function promociones (e){
 
   const datos = new FormData();
 
-  datos.append("accion","agregar_promo");
+  datos.append("accion","editar_promo");
   datos.append("nombre",nombre);
-  datos.append("foto", foto.files[0]);
   datos.append("lunes",lunes);
   datos.append("martes",martes);
   datos.append("miercoles",miercoles);
@@ -135,7 +149,6 @@ async function promociones (e){
   datos.append("viernes",viernes);
   datos.append("sabado",sabado);
   datos.append("domingo",domingo);
-  //datos.append("todos",todos);
   datos.append("diai",diai);
   datos.append("diaf",diaf);
   datos.append("inicio",inicio);
@@ -144,8 +157,5 @@ async function promociones (e){
   datos.append("id_res",id_res);
 
   const res = await enviar_datos(url, datos);
-  console.log(res);
-  //console.log(foto.file[0]);
-  mostrar_alert("success","La promoción se ha guardado exitosamente");
-  alert("Promoción Guardada Éxitosamente!");
+  window.location = "../admin/restaurante_ver.php?r="+id_res;
 }
