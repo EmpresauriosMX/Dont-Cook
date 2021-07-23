@@ -37,8 +37,15 @@ async function mostrar_promocion() {
   datos.append("accion", "obtener_promociones_todos");
   const res = await enviar_datos(url, datos);
   //console.log(res);
-  res.length != 0 ? llenado_contenedor_html(contenido_promociones,res) : mostrar_alert("danger","No hay promociones");
+  res.length != 0 ? llenado_contenedor_html(contenido_promociones,res) : ninguna_promocion();
 }
+
+function ninguna_promocion(){
+  const div_todo = document.querySelector("#contenedor");
+  div_todo.innerHTML = "";
+  mostrar_mensaje("sin_promociones");
+}
+
 async function mostrar_promocion_dia_actual() {
     const datos = new FormData();
     const dia_hoy = moment().format("d");
@@ -57,7 +64,7 @@ async function mostrar_promocion_dia_actual() {
     //console.log(ciudad);
     datos.append("accion", "obtener_promocion_dia");
     const res = await enviar_datos(url, datos);
-    res.length != 0 ? llenado_contenedor_html(contenido_promociones_hoy,res) : mostrar_alert("danger","No hay promociones");
+    res.length != 0 ? llenado_contenedor_html(contenido_promociones_hoy,res) : mostrar_mensaje("sin_promociones_hoy");
   }
 
 

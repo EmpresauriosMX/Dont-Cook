@@ -83,6 +83,24 @@ export function mostrar_mensaje(mensaje) {
                                       </div>  
                                   </div> 
                               </div>`,
+    sin_promociones_hoy: `<div class="row">
+                                  <div class="col-md-4 mx-auto">
+                                      <img src="../../src/img/ilustrations/no_1.svg" class="img-fluid" alt="Responsive image">
+                                      <h5 class="text-center text-muted mt-3">No hay promociones hoy :(
+                                      </h5>
+                                      <div class="col text-center mt-3">
+                                      </div>  
+                                  </div> 
+                              </div>`,
+    sin_promociones: `<div class="row">
+                                  <div class="col-md-4 mx-auto">
+                                      <img src="../../src/img/ilustrations/empty.svg" class="img-fluid" alt="Responsive image">
+                                      <h5 class="text-center text-muted mt-3">No hay promociones :(
+                                      </h5>
+                                      <div class="col text-center mt-3">
+                                      </div>  
+                                  </div> 
+                              </div>`,
   };
   const muestra = MENSAJES_POR_MOSTRAR[mensaje];
   div.innerHTML += muestra;
