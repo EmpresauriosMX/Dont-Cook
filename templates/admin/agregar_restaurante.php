@@ -136,7 +136,7 @@ include '../../inc/peticiones/login/sesion.php';
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1"><img style="height: 20px;" src="../../src/img/iconos/correo.png" alt=""></span>
                             </div>
-                            <input type="text" id="email" name="email" class="form-control" placeholder="Correo electronico" aria-label="Correo" aria-describedby="basic-addon1" required="required">
+                            <input type="text" id="email" name="email" class="form-control" placeholder="Correo electronico" aria-label="Correo" aria-describedby="basic-addon1">
                         </div>
 
                     </div>
