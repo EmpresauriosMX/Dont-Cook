@@ -36,7 +36,7 @@ async function mostrar_promocion() {
   datos.append("ciudad", ciudad);
   datos.append("accion", "obtener_promociones_todos");
   const res = await enviar_datos(url, datos);
-  console.log(res);
+  //console.log(res);
   res.length != 0 ? llenado_contenedor_html(contenido_promociones,res) : mostrar_alert("danger","No hay promociones");
 }
 async function mostrar_promocion_dia_actual() {
@@ -54,7 +54,7 @@ async function mostrar_promocion_dia_actual() {
     const ciudad = mostrar_ubicacion().ciudad;
     datos.append("dia", dia);
     datos.append("ciudad", ciudad);
-    console.log(ciudad);
+    //console.log(ciudad);
     datos.append("accion", "obtener_promocion_dia");
     const res = await enviar_datos(url, datos);
     res.length != 0 ? llenado_contenedor_html(contenido_promociones_hoy,res) : mostrar_alert("danger","No hay promociones");
@@ -82,7 +82,7 @@ function llenado_contenedor_html(contenedor,res) {
       let clase_v = "btn-light disabled";
       let clase_s = "btn-light disabled";
       let clase_d = "btn-light disabled";
-        console.log(element);
+        //console.log(element);
         
         const {nombre_res,Nombre,descripcion,fecha,fecha_f,horario,id_promocion,id_restaurante,imagen, lunes, martes, miercoles, jueves, viernes, sabado, domingo} = element;
 

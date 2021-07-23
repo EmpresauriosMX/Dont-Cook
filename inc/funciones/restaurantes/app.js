@@ -121,9 +121,9 @@ async function cargar_restaurantes_categoria(categoria) {
   datos.append("ciudad", ciudad);
   datos.append("categoria", categoria);
   datos.append("accion", "obtener_restaurantes_categoria");
-  console.log(ciudad, categoria);
+  //console.log(ciudad, categoria);
   const res = await enviar_datos(url, datos);
-  console.log(res);
+  ///console.log(res);
   if (res.respuesta) {
     mostrar_mensaje("error");
   } else {
@@ -138,8 +138,8 @@ async function buscar_todos_los_restaurantes() {
   datos.append("ciudad", ciudad);
   datos.append("accion", "obtener_restaurantes");
   const res = await enviar_datos(url, datos);
-  console.log("todos los resutantes");
-  console.log(res);
+  //console.log("todos los resutantes");
+  //console.log(res);
   pintar_restaurantes_html(res);
 }
 
@@ -201,7 +201,7 @@ async function pintar_horario_html() {
   datos.append("accion", "obtener_horarios");
 
   const res = await enviar_datos(url, datos);
-  console.log(res);
+  //console.log(res);
   res.forEach((horario) => {
     const { id, apertura, cierre, servicio_domicilio } = horario;
 
