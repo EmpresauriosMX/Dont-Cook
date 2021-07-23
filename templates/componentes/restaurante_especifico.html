@@ -306,4 +306,36 @@
     -->
         <!--</div>-->
     </form>
+            <!-- Modal -->
+<input type="hidden" class="cambio_imagen">;
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Editar imagen restaurante</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class=" input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"><img style="height: 20px;" src="../../src/img/iconos/imagen.png" alt=""></span>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="imagen_cambio" lang="es" accept=".png,.jpg">
+                    <label class="custom-file-label" for="customFileLang">Imagen de tu restaurante</label>
+                </div>                    
+            </div>
+            <img id="img_previa_cambio" src="" class="w-100 shadow-1-strong rounded mb-4" alt="" />
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button id="guardar_la_nueva_imagen" type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>

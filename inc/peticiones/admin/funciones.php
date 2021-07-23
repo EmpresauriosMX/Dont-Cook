@@ -57,6 +57,15 @@ switch ($accion) {
     case 'mostrar_menu':
         $resultado = mostrar_menu();
         break;
+    case 'cambiar_imagen_menu':
+        $resultado = cambiar_imagen_menu();
+        break;
+        case 'cambiar_imagen_restaurante':
+        $resultado = cambiar_imagen_restaurante();
+        break;
+    case 'cambiar_imagen_promocion':
+        $resultado = cambiar_imagen_promocion();
+        break;
 }
 
 

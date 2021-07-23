@@ -3,12 +3,24 @@ const url = "../../inc/peticiones/admin/funciones.php";
 var id_restaurante = "";
 var ID_RESTAURANTE_P = "";
 var enviar_menu = document.querySelector("#enviar_el_menu");
+let id_envio_cambio ;
+
 
 
 //imagen previa
 let imagen_a_enviar = document.querySelector("#imagen"); //input
 let imagen_previa = document.querySelector("#img_previa");
 
+let imagen_a_enviar_cambio = document.querySelector("#imagen_cambio"); //input
+let imagen_previa_cambio = document.querySelector("#img_previa_cambio");
+
+
+const btn_modal_guardar_imagen = document.querySelector("#guardar_la_nueva_imagen");
+
+const datos_cambio_imagen = {
+    'tipo': "" ,
+    'id': ""
+}
 
 var quill = new Quill('#editor', {
     theme: 'snow'
@@ -19,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const parametrosURL = new URLSearchParams(window.location.search);
     let restaurante = parametrosURL.get("r");
     enviar_menu.addEventListener("click",jssave);
+    imagen_a_enviar_cambio.addEventListener('change',mostrar_imagen_seleccionada_cambio);
     imagen_a_enviar.addEventListener("change",mostrar_imagen_seleccionada);
     //SI LE PASAMOS UN RESTAURANTE LO BUSCARA
     if (restaurante) {
@@ -33,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ver.innerHTML = "";
         mostrar_mensaje("error");
     }
+    btn_modal_guardar_imagen.addEventListener("click",cambiar_imagen );
 });
 
 async function mostrar_restaurante(id){
@@ -68,40 +82,12 @@ function imprime_restaurante(datos) {
   const texto_correo = document.querySelector("#correo");
 
   div_modal_logo.innerHTML = `
-    <button type="button" class="btn btn-dark btn-sm btn-block" data-toggle="modal" data-target="#editar_imagen_res${id}">
+    <button type="button" class="btn btn-dark btn-sm btn-block cambio_imagen restaurante" data-id_cambio =${id} data-toggle="modal" data-target="#exampleModal">
         Cambiar logo <i class="fa fa-image"></i>
     </button>
     
-    <!-- Modal -->
-    <div class="modal fade" id="editar_imagen_res${id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Editar imagen restaurante "${nombre}"</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <div class=" input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1"><img style="height: 20px;" src="../../src/img/iconos/imagen.png" alt=""></span>
-                    </div>
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="formFile   " lang="es" accept=".png,.jpg">
-                    <label class="custom-file-label" for="customFileLang">Imagen de tu restaurante</label>
-                </div>                    
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-success btn-sm">Guardar</button>
-        </div>
-        </div>
-    </div>
-    </div>
-    
-    `
+    `;
+
 
   text_nombre_restaurante.innerHTML = `${nombre}`;
 
@@ -249,46 +235,14 @@ async function config_promociones(){
                             <i class="fa fa-edit"></i>
                         </a>
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-secondary mt-1" data-toggle="modal" data-target="#editar_imagen_promo${id_promocion}">
+                        <button type="button" class="btn btn-secondary mt-1 cambio_imagen promocion" data-id_cambio =${id_promocion} data-toggle="modal" data-target="#exampleModal">
                         <i class="fa fa-image"></i>
                         </button>
                         <a href="#" class="btn btn-danger mt-1">
                             <i class="fa fa-trash"></i>
                         </a>
                 </div>
-            </div>
-            
-            
-
-            <!-- Modal -->
-            <div class="modal fade" id="editar_imagen_promo${id_promocion}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Editar imagen promocion "${Nombre}"</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class=" input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1"><img style="height: 20px;" src="../../src/img/iconos/imagen.png" alt=""></span>
-                            </div>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="formFile   " lang="es" accept=".png,.jpg">
-                            <label class="custom-file-label" for="customFileLang">Imagen de tu promoción</label>
-                        </div>                    
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-success btn-sm">Guardar</button>
-                </div>
-                </div>
-            </div>
-            </div>
-        `;
+            </div>`;
     });
     
     console.log(id);
@@ -300,7 +254,10 @@ async function config_promociones(){
         </div>
     
 `;
-    
+var elements = document.getElementsByClassName("cambio_imagen");
+for(var i = 0; i < elements.length; i++){
+  elements[i].addEventListener('click',modal_editar_imagen);
+}
 }
 
 function config_galeria(datos){
@@ -386,5 +343,56 @@ async function jssave() {
         console.log(data);
     } catch (error) {
         console.log(error);
+    }
+}
+
+
+
+//cambiar las imagenes
+
+function modal_editar_imagen(e) {
+  e.preventDefault();
+  if (e.target.classList.contains("restaurante")) {
+    datos_cambio_imagen.id = parseInt(e.target.dataset.id_cambio);
+    datos_cambio_imagen.tipo = "cambiar_imagen_restaurante";
+    console.log(datos_cambio_imagen)
+  }
+  if (e.target.classList.contains("menu")) {
+    datos_cambio_imagen.id = parseInt(e.target.dataset.id_cambio);
+    datos_cambio_imagen.tipo = "cambiar_imagen_menu";
+    console.log(datos_cambio_imagen)
+  }
+  if (e.target.classList.contains("promocion")) {
+    datos_cambio_imagen.id = parseInt(e.target.dataset.id_cambio);
+    datos_cambio_imagen.tipo = "cambiar_imagen_promocion";
+    console.log(datos_cambio_imagen)
+  }
+}
+
+
+async function cambiar_imagen() {
+    console.log(`ya se va a enviar la informacion ${datos_cambio_imagen.id}, ${datos_cambio_imagen.tipo}`)
+    const datos = new FormData();
+    datos.append("imagen", imagen_a_enviar_cambio.files[0]);
+    datos.append("id", datos_cambio_imagen.id);
+    datos.append("accion", `${datos_cambio_imagen.tipo}`);
+    const url = "../../inc/peticiones/admin/funciones.php";
+    try {
+        const res = await fetch(url, { method: "POST", body: datos });
+        const data = await res.json();
+        console.log(data);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+function mostrar_imagen_seleccionada_cambio() {
+    const files = imagen_a_enviar_cambio.files[0];
+    if (files) {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(files);
+      fileReader.addEventListener("load", function () {
+        imagen_previa_cambio.src = this.result;
+      });    
     }
 }

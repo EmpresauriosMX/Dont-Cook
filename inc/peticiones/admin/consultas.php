@@ -586,7 +586,7 @@ function editar_promo(): array
     $fin = $_POST['fin'];
     $message = $_POST['message'];
     $id_res = $_POST['id_res'];
-    /*
+    
     try {
         
         $tiene_foto = getimagesize($_FILES["foto"]["tmp_name"]);
@@ -632,7 +632,7 @@ function editar_promo(): array
         }
 
     return $respuesta;
-    */
+    
 }
 
 function verifica_cuenta_interno($id_res): array
@@ -871,3 +871,129 @@ function mostrar_menu(): array
     }
     return $respuesta;
 }
+function cambiar_imagen_menu(): array
+{
+    $id = (int)$_POST['id'];
+    try {
+
+        require '../../../conexion.php';
+        $selecionar = "SELECT imagen FROM menus WHERE id_restaurante = $id";
+        $resultado_seleccionar = mysqli_query($conn, $selecionar);
+        $foto_db = mysqli_fetch_array($resultado_seleccionar);
+        $ruta_foto_db = "../../../src/img/menus/" . $foto_db['imagen'];
+
+        //guardar la imagen recibida en forma de espera
+        $tiene_imagen = getimagesize($_FILES["imagen"]["tmp_name"]);
+        if ($tiene_imagen) {
+            $temp = explode(".", $_FILES["imagen"]["name"]);
+            $nueva_imagen = round(microtime(true)) . '.' . end($temp);
+        } else {
+            $nueva_imagen = "fondo.png";
+        }
+        if ($foto_db) { //existe la imagen y es difrente al fondo
+            if ($foto_db['imagen'] != "fondo.png") {
+                unlink($ruta_foto_db);
+            }
+            $sql = "UPDATE `menus` SET `imagen`='$nueva_imagen' WHERE id_restaurante = $id";
+        } 
+        move_uploaded_file($_FILES["imagen"]["tmp_name"], "../../../src/img/menus/" . $nueva_imagen);
+
+         mysqli_query($conn, $sql);
+
+        $respuesta = array(
+            'recibo' => $texto,
+            'id_recibido' => $id,
+            'nueva_imagen' => $nueva_imagen
+        );
+    } catch (\Throwable $th) {
+    }
+
+    return $respuesta;
+};
+
+function cambiar_imagen_promocion(): array
+{
+    $id = (int)$_POST['id'];
+    try {
+        require '../../../conexion.php';
+
+        $selecionar = "SELECT imagen FROM promociones WHERE id_promocion = $id";
+        $resultado_seleccionar = mysqli_query($conn, $selecionar);
+        $foto_db = mysqli_fetch_array($resultado_seleccionar);
+        $ruta_foto_db = "../../../src/img/promos/" . $foto_db['imagen'];
+        //guardar la imagen recibida en forma de espera
+        $tiene_imagen = getimagesize($_FILES["imagen"]["tmp_name"]);
+        if ($tiene_imagen) {
+            $temp = explode(".", $_FILES["imagen"]["name"]);
+            $nueva_imagen = round(microtime(true)) . '.' . end($temp);
+        } else {
+            $nueva_imagen = "fondo.png";
+        }
+        if ($foto_db) { //existe la imagen y es difrente al fondo
+            if ($foto_db['imagen'] != "fondo.png") {
+                unlink($ruta_foto_db);
+            }
+            $sql = "UPDATE `promociones` SET `imagen`='$nueva_imagen' WHERE id_promocion = $id";
+        }
+        move_uploaded_file($_FILES["imagen"]["tmp_name"], "../../../src/img/promos/" . $nueva_imagen);
+
+        mysqli_query($conn, $sql);
+
+
+        $respuesta = array(
+            'se cambioa el texto' => $selecionar,
+            'tiene foto' => $resultado_seleccionar,
+            'fotodb' => $foto_db,
+            'id_recibido' => $id,
+            'nueva_imagen' => $ruta_foto_db
+        );
+    } catch (\Throwable $th) {
+    }
+
+    return $respuesta;
+};
+
+
+function cambiar_imagen_restaurante(): array
+{
+    $id = (int)$_POST['id'];
+    try {
+        require '../../../conexion.php';
+
+        $selecionar = "SELECT foto FROM restaurantes WHERE id_restaurante = $id";
+        $resultado_seleccionar = mysqli_query($conn, $selecionar);
+        $foto_db = mysqli_fetch_array($resultado_seleccionar);
+        $ruta_foto_db = "../../../src/img/restaurantes/" . $foto_db['foto'];
+        //guardar la imagen recibida en forma de espera
+        $tiene_imagen = getimagesize($_FILES["imagen"]["tmp_name"]);
+        if ($tiene_imagen) {
+            $temp = explode(".", $_FILES["imagen"]["name"]);
+            $nueva_imagen = round(microtime(true)) . '.' . end($temp);
+        } else {
+            $nueva_imagen = "fondo.png";
+        }
+        if ($foto_db) { //existe la imagen y es difrente al fondo
+            if ($foto_db['foto'] != "fondo.png") {
+                unlink($ruta_foto_db);
+            }
+            $sql = "UPDATE `restaurantes` SET `foto`='$nueva_imagen' WHERE id_restaurante = $id";
+        }
+        move_uploaded_file($_FILES["imagen"]["tmp_name"], "../../../src/img/restaurantes/" . $nueva_imagen);
+
+        mysqli_query($conn, $sql);
+
+
+        $respuesta = array(
+            'se cambioa el texto' => $selecionar,
+            'tiene foto' => $resultado_seleccionar,
+            'fotodb' => $foto_db,
+            'id_recibido' => $id,
+            'nueva_imagen' => $ruta_foto_db
+        );
+    } catch (\Throwable $th) {
+    }
+
+    return $respuesta;
+};
+
+  
