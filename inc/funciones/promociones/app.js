@@ -64,8 +64,14 @@ async function mostrar_promocion_dia_actual() {
     //console.log(ciudad);
     datos.append("accion", "obtener_promocion_dia");
     const res = await enviar_datos(url, datos);
-    res.length != 0 ? llenado_contenedor_html(contenido_promociones_hoy,res) : mostrar_mensaje("sin_promociones_hoy");
-  }
+    res.length != 0 ? llenado_contenedor_html(contenido_promociones_hoy,res) : sin_promos_hoy();
+}
+
+function sin_promos_hoy(){
+  const titulo_promos_hoy = document.querySelector("#titulo_promos_hoy");
+  titulo_promos_hoy.innerHTML = "";
+  mostrar_mensaje("sin_promociones_hoy");
+}
 
 
 function llenado_contenedor_html(contenedor,res) {
