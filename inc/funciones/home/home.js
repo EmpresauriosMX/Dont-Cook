@@ -5,6 +5,7 @@ const url = "../../inc/peticiones/restaurantes/funciones.php";
 const contenedor = document.querySelector("#contenedor_restaurantes");
 const cont_promo = document.querySelector("#contenedor_promociones");
 const titulo = document.querySelector("#titulo_restaurantes");
+const titulo_promo = document.querySelector("#titulo_promociones");
 const tienes_ciudad = mostrar_ubicacion().ciudad;
 
 //AQUI CARGA SI TIENE UNA CIUDAD REGISTRADA O NO
@@ -33,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function mostrar_promociones(){
   limpiar_contenedor();
+  //titulo_promo.innerHTML = `<h2>Promociones de Hoy!</h2>  `;
 
 }
 
