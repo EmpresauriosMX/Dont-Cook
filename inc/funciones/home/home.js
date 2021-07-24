@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function mostrar_promociones(){
   limpiar_contenedor();
-  titulo_promo.innerHTML = `<h2>Promociones de Hoy!</h2>  `;
+  titulo_promo.innerHTML = `<h2>Promociones de hoy</h2>  `;
 
 }
 
