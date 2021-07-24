@@ -1,4 +1,5 @@
 import {mostrar_ubicacion, enviar_datos, mostrar_mensaje} from "../funciones_generales.js";
+const div_mostrar = document.querySelector("#mostrar");
 const url = "../../inc/peticiones/restaurantes/funciones.php";
 var id_restaurante = "";
 var ID_RESTAURANTE_P = "";
@@ -16,7 +17,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     //SI NO LE PASAMOS NADA CARGARA UN MENSAJE DE ERROR
     else{
-        mostrar_mensaje("error");
+        const div_error = document.querySelector("#mensaje");
+        let contenido1 = document.querySelector("#form_contenido1");
+        contenido1.innerHTML = "";
+        mostrar_mensaje("error", div_error);
     }
 });
 
@@ -49,14 +53,19 @@ function imprime_restaurante(datos){
     const img_restaurante = document.querySelector("#img_restaurante");
     const facebook = document.querySelector("#facebook");
     const texto_telefono = document.querySelector("#telefono");
+    const texto_telefono_movil = document.querySelector("#telefono_movil");
     const texto_direccion = document.querySelector("#direccion");
     const texto_correo = document.querySelector("#correo");
+
+
   
     text_nombre_restaurante.innerHTML = `${nombre}`;
   
     text_descripcion_larga.innerHTML = `${descripcion_larga}`;
   
     texto_telefono.innerHTML = `${telefono}`;
+    texto_telefono_movil.innerHTML = `llamar a: ${telefono}`;
+    texto_telefono_movil.setAttribute("href", `tel:${telefono}`);
   
     texto_direccion.innerHTML = `${ciudad}, ${direccion}, ${cp}`;
   
