@@ -625,6 +625,30 @@ function editar_promo(): array
     
 }
 
+
+function eliminar_promocion(): array
+{
+    $id_promocion = $_POST['id'];   
+    try {
+            require '../../../conexion.php';
+            $sql = "DELETE FROM `promociones` WHERE `id_promocion` = $id_promocion";
+            $consulta = mysqli_query($conn, $sql);
+            $respuesta = array(
+                'respuesta' => "ok",
+                'id' => $id_promocion
+            );
+
+        } catch (\Throwable $th) {
+            $respuesta = array(
+                'respuesta' => $th
+            );
+            
+        }
+
+    return $respuesta;
+    
+}
+
 function verifica_cuenta_interno($id_res): array
 {
     $cuenta_existente = false;

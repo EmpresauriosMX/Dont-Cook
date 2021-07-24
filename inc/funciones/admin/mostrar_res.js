@@ -1,4 +1,5 @@
 import {mostrar_ubicacion, enviar_datos, mostrar_mensaje} from "../funciones_generales.js";
+window.eliminar_promocion = eliminar_promocion;
 const url = "../../inc/peticiones/admin/funciones.php";
 var id_restaurante = "";
 var ID_RESTAURANTE_P = "";
@@ -23,6 +24,7 @@ const datos_cambio_imagen = {
     'id': ""
 }
 
+
 var quill = new Quill('#editor', {
     theme: 'snow'
 });
@@ -45,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
     else{
         const ver = document.querySelector("#ver");
         ver.innerHTML = "";
-        mostrar_mensaje("error");
+        mostrar_mensaje("error", ver);
     }
     btn_modal_guardar_imagen.addEventListener("click",cambiar_imagen );
 });
@@ -66,6 +68,7 @@ async function mostrar_restaurante(id){
         mostrar_mensaje("error");
     }
 }
+
 
 function imprime_restaurante(datos) {
   let contenido1 = document.querySelector("#form_contenido_restaurante");
@@ -153,6 +156,18 @@ function imprime_menu_config(datos){
 }
 
 
+
+async function eliminar_promocion(id){
+    //console.log(id);
+    const datos = new FormData();
+    datos.append("id", id);
+    datos.append("accion", "eliminar_promocion");
+    const res = await enviar_datos(url, datos);
+    //console.log(res);
+    div_promociones.innerHTML="";
+    config_promociones();
+}
+
 async function config_promociones(){
 
     //aqui va tu codigo para obtener las promociones
@@ -226,16 +241,16 @@ async function config_promociones(){
                             <button type="button" class="btn btn-secondary mt-1 cambio_imagen promocion" data-id_cambio =${id_promocion} data-toggle="modal" data-target="#exampleModal">
                             <i class="fa fa-image"></i>
                             </button>
-                            <a href="#" class="btn btn-danger mt-1">
+                            <i type="button" onclick="eliminar_promocion(${id_promocion});" class="btn btn-danger mt-1">
                                 <i class="fa fa-trash"></i>
-                            </a>
+                            </i>
                     </div>
                 </div>`;
         });
         btn_agregar_promo(id);
     }
     else{
-        console.log("sin promos");
+        //console.log("sin promos");
         mostrar_mensaje("sin_promociones" ,btn_promo);
         btn_agregar_promo(id);
         
@@ -249,6 +264,7 @@ async function config_promociones(){
     elements[i].addEventListener('click',modal_editar_imagen);
     }
 }
+
 
 
 function btn_agregar_promo(id){

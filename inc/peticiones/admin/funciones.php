@@ -27,6 +27,9 @@ switch ($accion) {
     case "editar_promo":
         $resultado = editar_promo();
         break;
+    case "eliminar_promocion":
+        $resultado = eliminar_promocion();
+        break;
     case "obtener_categorias":
         $resultado = obtener_categorias();
         break;
