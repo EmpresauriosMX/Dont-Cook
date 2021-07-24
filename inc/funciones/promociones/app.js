@@ -109,10 +109,11 @@ function llenado_contenedor_html(contenedor,res) {
 
         contenedor.innerHTML += `
         <div class="card">
-        <img class="card-img-top" src="../../src/img/promos/${imagen}" alt="Card image cap">
-        <div class="card-img-overlay">
+          <div class="card-header border-secondary">
             <a href="../restaurantes/restaurante_especifico.php?r=${id_restaurante}"><h3 class="card-title">${nombre_res}</h3> </a>
-        </div>
+          </div>
+        <img class="card-img-top" src="../../src/img/promos/${imagen}" alt="Card image cap">
+  
         <div class="card-body">
             <h5>${Nombre}</h5>
             <small class="card-text"> ${descripcion}</small>
