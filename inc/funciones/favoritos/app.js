@@ -16,7 +16,7 @@ async function mostrarServicios(){
   //VALIDACION DE UN LOG ANTERIOR
     if (cuenta_activa){
       //EXISTE UNA CUENTA
-        console.log("existe una cuenta");
+        //console.log("existe una cuenta");
       //AL EXISTIR UNA CUENTA SE VALIDA PUEDEN HABER FAVORITOS
       //OS WE, AQUI PONES EL CODIGO DE CARGAR FAVORITOS
       cargar_favoritos();
@@ -26,7 +26,7 @@ async function mostrarServicios(){
       //mostrar el mensaje de no existe una cuenta 
         let mensaje = "sin_cuenta";
         mostrar_mensaje(mensaje);
-        console.log("no existe una cuenta");
+        //console.log("no existe una cuenta");
     }
 }
 

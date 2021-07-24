@@ -78,7 +78,7 @@ async function mostrar_restaurante(id){
   datos.append("accion","info_restaurantes");
   //SE BUSCA EL RESTAURANTE CON SU ID
   const res = await enviar_datos(url, datos);
-  console.log(res);
+  //console.log(res);
   //SI SE ENCUENTRA EL RESTAURANTE SE IMPRIME
   if(!res.respuesta){
       imprime_restaurante(res);
@@ -133,12 +133,12 @@ async function imprime_restaurante(restaurante){
   
   //INFORMACION DE HORARIO
   const res_horario = await obtener_horario_restaurante(id);
-  console.log(res_horario);
+  //console.log(res_horario);
   if(res_horario.respuesta != "sin_horario"){
     res_horario.forEach((respuesta) => {
-      console.log(respuesta);
+      //console.log(respuesta);
       const {id_fechas, dia, hora_inicio, hora_fin} = respuesta;
-        console.log(dia);
+        //console.log(dia);
         const dia_div = document.getElementById(dia.toString());
         dia_div.checked = true;
       });
@@ -168,7 +168,7 @@ async function obtener_horario_restaurante(restaurante){
 */
 async function editar_datos_generales(e){
   e.preventDefault();
-  console.log("editar datos general");
+  //console.log("editar datos general");
   //VARIABLE
   const nombre = document.querySelector("#nombre").value;
   const desc_corta = document.querySelector("#desc_corta").value;
@@ -184,7 +184,7 @@ async function editar_datos_generales(e){
   datos.append("servicio", servicio_domicilio);
   datos.append("accion", "actualiza_datos_generales");
   const res = await enviar_datos(url, datos);
-  console.log(res);
+  //console.log(res);
   if(res.respuesta = "ok"){
     let div_alert2 = document.querySelector("#alert2");
     mostrar_alert("success", "Los datos generales han sido actualizados", div_alert2);
@@ -193,7 +193,7 @@ async function editar_datos_generales(e){
 
 async function editar_datos_contato(e){
   e.preventDefault();
-  console.log("editar datos contacto");
+  //console.log("editar datos contacto");
   //VARIABLE
   const telefono = document.querySelector("#telefono").value;
   const email = document.querySelector("#email").value;
@@ -208,7 +208,7 @@ async function editar_datos_contato(e){
   datos.append("insta", instagram);
   datos.append("accion", "actualiza_datos_contacto");
   const res = await enviar_datos(url, datos);
-  console.log(res);
+  //console.log(res);
   if(res.respuesta = "ok"){
     let div_alert2 = document.querySelector("#alert2");
     mostrar_alert("success", "Los datos generales han sido actualizados", div_alert2);
@@ -217,7 +217,7 @@ async function editar_datos_contato(e){
 
 async function editar_datos_ciudad(e){
   e.preventDefault();
-  console.log("editar datos ciudad");
+  //console.log("editar datos ciudad");
   //VARIABLE
   const direccion = document.querySelector("#direccion").value;
   const codigo_postal = document.querySelector("#cp").value;
@@ -230,7 +230,7 @@ async function editar_datos_ciudad(e){
   datos.append("ciudad", ciudad);
   datos.append("accion", "actualiza_datos_ciudad");
   const res = await enviar_datos(url, datos);
-  console.log(res);
+  //console.log(res);
   if(res.respuesta = "ok"){
     let div_alert2 = document.querySelector("#alert2");
     mostrar_alert("success", "Los datos generales han sido actualizados", div_alert2);
@@ -239,7 +239,7 @@ async function editar_datos_ciudad(e){
 
 async function editar_datos_horario(e){
   e.preventDefault();
-  console.log("editar datos horario");
+  //console.log("editar datos horario");
   //VARIABLE
   const dias_validos = preparar_dias_a_enviar();
 
@@ -252,7 +252,7 @@ async function editar_datos_horario(e){
   datos.append("horarios", array_horarios);
   datos.append("accion", "actualiza_datos_horario");
   const res = await enviar_datos(url, datos);
-  console.log(res);
+  //console.log(res);
   if(res.respuesta = "ok"){
     let div_alert2 = document.querySelector("#alert2");
     mostrar_alert("success", "Los datos generales han sido actualizados", div_alert2);
@@ -261,7 +261,7 @@ async function editar_datos_horario(e){
 
 async function editar_datos_categorias(e){
   e.preventDefault();
-  console.log("editar datos categoria");
+  //console.log("editar datos categoria");
   //VARIABLE
   const array_categorias  = JSON.stringify(categorias);
 
@@ -271,7 +271,7 @@ async function editar_datos_categorias(e){
   datos.append("categorias", array_categorias);
   datos.append("accion", "actualiza_datos_categoria");
   const res = await enviar_datos(url, datos);
-  console.log(res);
+  //console.log(res);
   if(res.respuesta = "ok"){
     let div_alert2 = document.querySelector("#alert2");
     mostrar_alert("success", "Los datos generales han sido actualizados", div_alert2);
@@ -293,7 +293,7 @@ function agregar_dia(e) { // obtiene el dia que se selecciona de los selects y l
       estado: true,
     });
   }
-  console.table(fechas);
+  //console.table(fechas);
 }
 
 function preparar_dias_a_enviar() {
@@ -313,7 +313,7 @@ async function obtener_categorias() {
   datos.append("accion", "obtener_categorias");
 
   const res = await enviar_datos(url, datos);
-  console.log(res);
+  //console.log(res);
   res.forEach((e) => {
     select_categorias.innerHTML += `<option value=${e.id} name="ciudad">${e.nombre}</option>  `;
   });
@@ -325,7 +325,7 @@ function valor_select_categorias() {
     const opcion_id = select_categorias.value;
     var opcion_texto = select_categorias.options[select_categorias.selectedIndex].text;
    categorias.push({ id:parseInt(opcion_id), nombre: opcion_texto } );
-   console.log(categorias);
+   //console.log(categorias);
 
    categorias_html();
 }
@@ -351,11 +351,11 @@ function eliminar_categoria (e){
   if (e.target.classList.contains('fa-trash') || e.target.classList.contains('close') ) {
     const id = e.target.id;
     const is_categoria = categorias.findIndex((Element) => Element.id == id);
-  console.log(is_categoria);
-  console.log(id);
+  //console.log(is_categoria);
+  //console.log(id);
       if (is_categoria != -1) {
         categorias.splice(is_categoria,1)
       } 
-      console.log(categorias);
+      //console.log(categorias);
     }
 }

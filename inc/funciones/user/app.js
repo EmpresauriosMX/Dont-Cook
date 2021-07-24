@@ -23,7 +23,7 @@ async function mostrarServicios(){
     //VALIDACION DE UN LOG ANTERIOR
     if (cuenta_activa){
         //EXISTE UNA CUENTA
-        console.log("existe una cuenta");
+        //console.log("existe una cuenta");
         imprime_user_card();
     }
     else{
@@ -31,7 +31,7 @@ async function mostrarServicios(){
         //mostrar el mensaje de no existe una cuenta 
         let mensaje = "sin_cuenta";
         mostrar_mensaje(mensaje);
-        console.log("no existe una cuenta");
+        //console.log("no existe una cuenta");
     }
 }
 
@@ -39,7 +39,7 @@ async function imprime_user_card(){
     const datos = new FormData();
     datos.append("accion","user_data");
     const res = await enviar_datos(url, datos);
-    console.log(res);
+    //console.log(res);
     const {nombres, apellidos, correo, edad, usuario} = res;
     let div_user_card = document.querySelector("#user_card");
     div_user_card.innerHTML= `

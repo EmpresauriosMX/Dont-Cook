@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let contenido1 = document.querySelector("#demo-form");
         contenido1.innerHTML = "";
     }
-    console.log (restaurante);
+    //console.log (restaurante);
     imagen_a_enviar.addEventListener("change",mostrar_imagen_seleccionada);
 
 });
@@ -34,49 +34,49 @@ $(document).on('change','#lunes' ,function(e) {
   const lunes = document.querySelector("#id_lunes").value;
   if(this.checked) $('#id_lunes').val(this.value);
   else $('#id_lunes').val("");
-  console.log (lunes);
+  //console.log (lunes);
 });
 $(document).on('change','#martes' ,function(e) {
   const martes = document.querySelector("#id_martes").value;
   if(this.checked) $('#id_martes').val(this.value);
   else $('#id_martes').val("");
-  console.log (martes);
+  //console.log (martes);
 });
 $(document).on('change','#miercoles' ,function(e) {
   const miercoles = document.querySelector("#id_miercoles").value;
   if(this.checked) $('#id_miercoles').val(this.value);
   else $('#id_miercoles').val("");
-  console.log (miercoles);
+  //console.log (miercoles);
 });
 $(document).on('change','#jueves' ,function(e) {
   const jueves = document.querySelector("#id_jueves").value;
   if(this.checked) $('#id_jueves').val(this.value);
   else $('#id_jueves').val("");
-  console.log (jueves);
+  //console.log (jueves);
 });
 $(document).on('change','#viernes' ,function(e) {
   const viernes = document.querySelector("#id_viernes").value;
   if(this.checked) $('#id_viernes').val(this.value);
   else $('#id_viernes').val("");
-  console.log (viernes);
+  //console.log (viernes);
 });
 $(document).on('change','#sabado' ,function(e) {
   const sabado = document.querySelector("#id_sabado").value;
   if(this.checked) $('#id_sabado').val(this.value);
   else $('#id_sabado').val("");
-  console.log (sabado);
+  //console.log (sabado);
 });
 $(document).on('change','#domingo' ,function(e) {
   const domingo = document.querySelector("#id_domingo").value;
   if(this.checked) $('#id_domingo').val(this.value);
   else $('#id_domingo').val("");
-  console.log (domingo);
+  //console.log (domingo);
 });
 $(document).on('change','#todos' ,function(e) {
   const todos = document.querySelector("#id_todos").value;
   if(this.checked) $('#id_todos').val(this.value);
   else $('#id_todos').val("");
-  console.log (todos);
+  //console.log (todos);
 });
 
 
@@ -120,7 +120,7 @@ async function promociones (e){
   datos.append("id_res",id_res);
 
   const res = await enviar_datos(url, datos);
-  console.log(res);
+  //console.log(res);
   //console.log(foto.file[0]);
   //mostrar_alert("success","La promoción se ha guardado exitosamente");
   //alert("Promoción Guardada Éxitosamente!");

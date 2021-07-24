@@ -16,7 +16,7 @@ async function mostrarServicios(){
     //VALIDACION DE UN LOG ANTERIOR
     if (cuenta_activa){
         //EXISTE UNA CUENTA
-        console.log("existe una cuenta");
+        //console.log("existe una cuenta");
         //AL EXISTIR UNA CUENTA SE VALIDA SI HAY RESTAURANTES
         cargar_restaurantes();
     }
@@ -25,7 +25,7 @@ async function mostrarServicios(){
         //mostrar el mensaje de no existe una cuenta 
         let mensaje = "sin_cuenta";
         mostrar_mensaje(mensaje);
-        console.log("no existe una cuenta");
+        //console.log("no existe una cuenta");
     }
 }
 
@@ -33,10 +33,10 @@ async function mostrarServicios(){
     async function cargar_restaurantes(){
         //e.preventDefault();
         const datos = new FormData();
-        console.log("ahora puedo buscar restaurantes");
+        //console.log("ahora puedo buscar restaurantes");
         datos.append("accion","busca_restaurantes");
         const res = await enviar_datos(url, datos);
-        console.log(res);
+        //console.log(res);
         //SI NO CUENTA CON RESTAURANTES
         if(res.respuesta == "sin_restaurantes"){
             let mensaje = "sin_restaurante";

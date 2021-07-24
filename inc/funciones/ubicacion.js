@@ -20,7 +20,7 @@ constructor(){
     mostrar(datos) {
       select_ciudad.innerHTML += `<option value="0">Seleccionar</option>`;
       datos.forEach((estado) => {
-        console.log(estado);
+        //console.log(estado);
         select_ciudad.innerHTML += `
            <option value="${estado.id}" name="ciudad">${estado.nombre}</option>  
           `;

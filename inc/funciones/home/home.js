@@ -104,7 +104,7 @@ async function pintar_horario_html() {
   datos.append("accion", "obtener_horarios");
 
   const res = await enviar_datos(url, datos);
-  console.log(res);
+  //console.log(res);
   res.forEach((horario) => {
     const { id, apertura, cierre, servicio_domicilio } = horario;
     const lista = document.querySelector(`#restaurante_horario_${id}`);

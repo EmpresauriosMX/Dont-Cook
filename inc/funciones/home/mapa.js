@@ -102,7 +102,7 @@ const busqueda_gps = (x, y) => {
 
   function onLocationFound(e) {
     var radius = e.accuracy / 2;
-    console.log(e.latlng);
+    //console.log(e.latlng);
     L.marker(e.latlng)
       .addTo(map)
       .bindPopup("You are within " + radius + " meters from this point")

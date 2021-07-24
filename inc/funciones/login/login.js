@@ -19,6 +19,6 @@ async function registro_usuario(e) {
 
   const peticion_bd = await enviar_datos(url, datos);
 
-  console.log(peticion_bd);
+  //console.log(peticion_bd);
   peticion_bd.respuesta === "correcto" ? window.location = '../home/home.php' : alert(`${peticion_bd.respuesta}`)
 }

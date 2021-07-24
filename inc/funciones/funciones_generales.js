@@ -4,7 +4,7 @@ export async function enviar_datos(url, datos) {
     const data = await res.json();
     return data;
   } catch (error) {
-    console.log(error);
+    //console.log(error);
   }
 }
 
@@ -25,7 +25,7 @@ export async function existe_cuenta() {
   datos.append("accion", "verifica_cuenta");
 
   const res = await enviar_datos(url, datos);
-  console.log(res);
+  //console.log(res);
   const cuenta = res.cuenta_existente;
   return cuenta;
 }

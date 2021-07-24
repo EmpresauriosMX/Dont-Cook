@@ -35,7 +35,7 @@ function registro_usuario(e) {
     datos.append("accion", "registrar");
   
     enviar_datos(url, datos).then((re) =>{
-      console.log(re);
+      //console.log(re);
       limpiar_campos();
       alert("Usuario Registrado Exitosamente!");
     } );

@@ -117,7 +117,7 @@ async function obtener_categorias() {
   datos.append("accion", "obtener_categorias");
 
   const res = await enviar_datos(url, datos);
-  console.log(res);
+  //console.log(res);
   res.forEach((e) => {
     select_categorias.innerHTML += `<option value=${e.id} name="ciudad">${e.nombre}</option>  `;
   });
@@ -129,7 +129,7 @@ function valor_select_categorias() {
     const opcion_id = select_categorias.value;
     var opcion_texto = select_categorias.options[select_categorias.selectedIndex].text;
    categorias.push({ id:parseInt(opcion_id), nombre: opcion_texto } );
-   console.log(categorias);
+   //console.log(categorias);
 
    categorias_html();
 }
@@ -155,12 +155,12 @@ function eliminar_categoria (e){
   if (e.target.classList.contains('fa-trash') || e.target.classList.contains('close') ) {
     const id = e.target.id;
     const is_categoria = categorias.findIndex((Element) => Element.id == id);
-  console.log(is_categoria);
-  console.log(id);
+  //console.log(is_categoria);
+  //console.log(id);
       if (is_categoria != -1) {
         categorias.splice(is_categoria,1)
       } 
-      console.log(categorias);
+      //console.log(categorias);
     }
 }
 

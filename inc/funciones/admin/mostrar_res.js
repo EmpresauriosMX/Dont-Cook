@@ -55,7 +55,7 @@ async function mostrar_restaurante(id){
     datos.append("accion","info_restaurantes");
     //SE BUSCA EL RESTAURANTE CON SU ID
     const res = await enviar_datos(url, datos);
-    console.log(res);
+    //console.log(res);
     //SI SE ENCUENTRA EL RESTAURANTE SE IMPRIME
     if(!res.respuesta){
         imprime_restaurante(res);
@@ -173,7 +173,7 @@ async function config_promociones(){
     datos.append("accion","ver_promo");
     //SE BUSCA EL RESTAURANTE CON SU ID
     const res = await enviar_datos(url, datos);
-    console.log (res);
+    //console.log (res);
     var promociones = document.querySelector("#promos");
     var div_promociones = document.querySelector("#tabs-1");
     let clase_activo = "btn-info";
@@ -194,7 +194,7 @@ async function config_promociones(){
         let clase_v = "btn-light disabled";
         let clase_s = "btn-light disabled";
         let clase_d = "btn-light disabled";
-        console.log(element);
+        //console.log(element);
         const {nombre_res,Nombre,descripcion,fecha,fecha_f,horario,id_promocion,id_restaurante,imagen, lunes, martes, miercoles, jueves, viernes, sabado, domingo} = element;
         if(lunes == 1){ clase_l = clase_activo }
         if(martes == 1){ clase_m = clase_activo }
@@ -340,9 +340,9 @@ async function jssave() {
         const res = await fetch(url, { method: "POST", body: datos });
         const data = await res.json();
         alert("su menu se ha agregado");
-        console.log(data);
+        //console.log(data);
     } catch (error) {
-        console.log(error);
+        //console.log(error);
     }
 }
 
@@ -355,23 +355,23 @@ function modal_editar_imagen(e) {
   if (e.target.classList.contains("restaurante")) {
     datos_cambio_imagen.id = parseInt(e.target.dataset.id_cambio);
     datos_cambio_imagen.tipo = "cambiar_imagen_restaurante";
-    console.log(datos_cambio_imagen)
+    //console.log(datos_cambio_imagen)
   }
   if (e.target.classList.contains("menu")) {
     datos_cambio_imagen.id = parseInt(e.target.dataset.id_cambio);
     datos_cambio_imagen.tipo = "cambiar_imagen_menu";
-    console.log(datos_cambio_imagen)
+    //console.log(datos_cambio_imagen)
   }
   if (e.target.classList.contains("promocion")) {
     datos_cambio_imagen.id = parseInt(e.target.dataset.id_cambio);
     datos_cambio_imagen.tipo = "cambiar_imagen_promocion";
-    console.log(datos_cambio_imagen)
+    //console.log(datos_cambio_imagen)
   }
 }
 
 
 async function cambiar_imagen() {
-    console.log(`ya se va a enviar la informacion ${datos_cambio_imagen.id}, ${datos_cambio_imagen.tipo}`)
+    //console.log(`ya se va a enviar la informacion ${datos_cambio_imagen.id}, ${datos_cambio_imagen.tipo}`)
     const datos = new FormData();
     datos.append("imagen", imagen_a_enviar_cambio.files[0]);
     datos.append("id", datos_cambio_imagen.id);
@@ -380,9 +380,9 @@ async function cambiar_imagen() {
     try {
         const res = await fetch(url, { method: "POST", body: datos });
         const data = await res.json();
-        console.log(data);
+        //console.log(data);
     } catch (error) {
-        console.log(error);
+        //console.log(error);
     }
 }
 
