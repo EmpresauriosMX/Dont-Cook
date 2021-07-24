@@ -75,11 +75,9 @@ function registro_restaurante(e) {
 
   datos.append("accion", "registrar_restaurante");
   alert("Restaurante Guardado Éxitosamente");
-  enviar_datos(url, datos).then((re));
- 
-  
-  
-}
+  enviar_datos(url, datos).then((res) =>window.location = `restaurante_ver.php?r=${res.nuevo_id}`);
+
+}//window.location = `editar_restaurante.php?r=${res}`
 
 
 

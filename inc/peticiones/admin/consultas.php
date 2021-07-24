@@ -79,7 +79,7 @@ function enviar(): array
                 'imagen' => $nueva_imagen,
                 'estado' => 'correcto',
                 'id' => mysqli_insert_id($conn),
-                'nuevo id' => $nuevo_id,
+                'nuevo_id' => $nuevo_id,
                 'servicio' => $serv_domicilio,
                 'fechas' => $_POST['horarios'],
                 'categoria' => $_POST['categorias']

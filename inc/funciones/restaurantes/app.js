@@ -181,7 +181,7 @@ function pintar_restaurantes_html(res) {
                 </div>
                 `;
   });
-  //pintar_horario_html(); //los horarios disponibles hoy
+  pintar_horario_html(); //los horarios disponibles hoy
 }
 
 function limpiar_contenedor() {
