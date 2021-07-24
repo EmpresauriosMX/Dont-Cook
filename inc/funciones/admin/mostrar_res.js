@@ -154,6 +154,7 @@ function imprime_menu_config(datos){
 
 
 async function config_promociones(){
+
     //aqui va tu codigo para obtener las promociones
     const datos = new FormData();
     var id = ID_RESTAURANTE_P;
@@ -163,13 +164,6 @@ async function config_promociones(){
     const res = await enviar_datos(url, datos);
      
     if(res.sin_promo != true){
-
-        div_promociones.innerHTML+=`
-        <div class="product__details__tab__desc">
-            <div id="promos" class="card-columns mt-3 ">
-            </div>
-        </div>
-        `;
         let clase_activo = "btn-info";
         //let clase_inactivo ="btn-light disabled";
         let clase_l = "btn-light disabled";
@@ -238,6 +232,7 @@ async function config_promociones(){
                     </div>
                 </div>`;
         });
+        btn_agregar_promo(id);
     }
     else{
         console.log("sin promos");
