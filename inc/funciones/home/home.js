@@ -205,7 +205,7 @@ function llenado_contenedor_html(contenedor,res) {
           <div class="card-header border-secondary">
             <a href="../restaurantes/restaurante_especifico.php?r=${id_restaurante}"><h3 class="card-title">${nombre_res}</h3> </a>
           </div>
-        <img class="card-img-top" src="../../src/img/promos/${imagen}" alt="Card image cap">
+          <a href="../restaurantes/restaurante_especifico.php?r=${id_restaurante}"><img class="card-img-top" src="../../src/img/promos/${imagen}" alt="Card image cap"></a>
   
         <div class="card-body">
             <h5>${Nombre}</h5>
