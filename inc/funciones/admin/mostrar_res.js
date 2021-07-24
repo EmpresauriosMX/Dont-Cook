@@ -245,7 +245,7 @@ async function config_promociones(){
             </div>`;
     });
     
-    console.log(id);
+    //console.log(id);
     div_promociones.innerHTML+=`
         <div class="row justify-content-center mt-3">
             <div class="col-md-3 mt-3">
