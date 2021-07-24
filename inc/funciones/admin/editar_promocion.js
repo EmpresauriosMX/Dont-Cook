@@ -124,19 +124,37 @@ $(document).on('change','#todos' ,function(e) {
 async function promociones (e){
   e.preventDefault();
   const nombre = document.querySelector("#fullname").value;
-  const lunes = document.querySelector("#id_lunes").value;
+  /*var lunes = document.querySelector("#id_lunes").value;
   const martes = document.querySelector("#id_martes").value;
   const miercoles = document.querySelector("#id_miercoles").value;
   const jueves = document.querySelector("#id_jueves").value;
   const viernes = document.querySelector("#id_viernes").value;
   const sabado = document.querySelector("#id_sabado").value;
   const domingo = document.querySelector("#id_domingo").value;
+  */
+  var lunes;
+  var martes;
+  var miercoles;
+  var jueves;
+  var viernes;
+  var sabado;
+  var domingo;
+
   const diai = document.querySelector("#reservation-time1").value;
   const diaf = document.querySelector("#reservation-time2").value;
   const inicio = document.querySelector("#horario_inicio").value;
   const fin = document.querySelector("#horario_conclusion").value;
   const message = document.querySelector("#message").value;
-  const id_res = id_restaurante;
+
+  if(document.getElementById('lunes').checked){ lunes = 1;}else{ lunes = 0}
+  if(document.getElementById('martes').checked){  martes = 1;}else{ martes = 0}
+  if(document.getElementById('miercoles').checked){   miercoles = 1;}else{ miercoles = 0}
+  if(document.getElementById('jueves').checked){  jueves = 1;}else{ jueves = 0}
+  if(document.getElementById('viernes').checked){  viernes = 1;}else{ viernes = 0}
+  if(document.getElementById('sabado').checked){  sabado = 1;}else{ sabado = 0}
+  if(document.getElementById('domingo').checked){  domingo = 1;}else{ domingo = 0}
+
+  console.log(lunes, martes, miercoles, jueves, viernes, sabado, domingo);
 
   const datos = new FormData();
 
@@ -154,8 +172,9 @@ async function promociones (e){
   datos.append("inicio",inicio);
   datos.append("fin",fin);
   datos.append("message",message);
-  datos.append("id_res",id_res);
+  datos.append("id_promocion",id_promocion);
 
   const res = await enviar_datos(url, datos);
+  console.log(res);
   window.location = "../admin/restaurante_ver.php?r="+id_res;
 }

@@ -572,6 +572,7 @@ function editar_promo(): array
 {
     $nombre = $_POST['nombre'];
     //$foto = $_POST['foto'];
+    $id_promocion = $_POST['id_promocion'];
     $lunes = $_POST['lunes'];
     $martes = $_POST['martes'];
     $miercoles = $_POST['miercoles'];
@@ -585,30 +586,19 @@ function editar_promo(): array
     $inicio = $_POST['inicio'];
     $fin = $_POST['fin'];
     $message = $_POST['message'];
-    $id_res = $_POST['id_res'];
     
     try {
-        
-        $tiene_foto = getimagesize($_FILES["foto"]["tmp_name"]);
-        if ($tiene_foto) {
-            $temp = explode(".", $_FILES["foto"]["name"]);
-            $nueva_foto = round(microtime(true)) . '.' . end($temp);
-            move_uploaded_file($_FILES["foto"]["tmp_name"], "../../../src/img/promos/" . $nueva_foto);
-        } else {
-            $nueva_foto = "fondo.png";
-        }
-
             require '../../../conexion.php';
-            $sql = "INSERT INTO promociones (id_promocion, id_restaurante, imagen, descripcion, Nombre, fecha, fecha_f, horario, lunes, martes, miercoles, jueves, viernes, sabado, domingo) 
-            VALUES (NULL, '$id_res', '$nueva_foto', '$message', '$nombre', '$diai', '$diaf','de $inicio a $fin', '$lunes' ,'$martes' ,'$miercoles','$jueves','$viernes','$sabado','$domingo')";
+            $sql = "UPDATE `promociones` SET `descripcion`='$message',`Nombre`='$nombre',
+                    `fecha`='$diai',`fecha_f`='$diaf',`horario`='de $inicio a $fin',`lunes`='$lunes',
+                    `martes`='$martes',`miercoles`='$miercoles',`jueves`='$jueves',`viernes`='$viernes',
+                    `sabado`='$sabado',`domingo`='$domingo' WHERE `id_promocion` = $id_promocion";
             $consulta = mysqli_query($conn, $sql);
 
 
             $respuesta = array(
                 'respuesta' => "Ingresaron datos",
                 'nombre' => $nombre ,
-                'id_res' => $id_res ,
-                'foto' => $nueva_foto ,
                 'lunes' => $lunes ,
                 'martes' => $martes ,
                 'miercoles' => $miercoles ,
@@ -621,7 +611,7 @@ function editar_promo(): array
                 'dia2' => $diaf ,
                 'incio' => $inicio ,
                 'fin' => $fin ,
-                'message' => $message
+                'message' => $message   
             );
 
         } catch (\Throwable $th) {

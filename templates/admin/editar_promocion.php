@@ -161,7 +161,7 @@
 
           <div class="checkout__input text-center">
               <h3 class="h3">Horarios de disponibilidad<span></span></h3>
-              <h5 class="h5" id="horario_anterior">horario actual: de 12:00 a 11:00</h5>
+              <h5 class="h5" id="horario_anterior">(Inicio / Final)</h5>
           </div>
 
           <div class="row">
