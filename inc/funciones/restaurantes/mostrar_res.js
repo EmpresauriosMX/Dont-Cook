@@ -46,66 +46,128 @@ async function mostrar_restaurante(id){
 
 function imprime_restaurante(datos){
     let contenido1 = document.querySelector("#form_contenido1");
-    const { id_restaurante, nombre, telefono, descripcion, fb, inst, descripcion_larga, horario, correo, cp, direccion, ciudad,foto} = datos;
+    const { id_restaurante, nombre, telefono, descripcion, facebook, instagram, descripcion_larga, horario, correo, cp, direccion, ciudad,foto} = datos;
 
+    //espacio donde seran puesto los datos
     const text_nombre_restaurante = document.querySelector("#nombre_restaurante");
     const text_descripcion_larga = document.querySelector("#descripcion_larga");
+    const text_descripcion_corta = document.querySelector("#descripcion_corta");
     const img_restaurante = document.querySelector("#img_restaurante");
-    const facebook = document.querySelector("#facebook");
+    const text_facebook = document.querySelector("#facebook");
+    const text_instagram = document.querySelector("#instagram");
     const texto_telefono = document.querySelector("#telefono");
     const texto_telefono_movil = document.querySelector("#telefono_movil");
     const texto_direccion = document.querySelector("#direccion");
     const texto_correo = document.querySelector("#correo");
 
+    const contenido_telefono = document.querySelector("#contenido_telefono");
+    const contenido_direccion = document.querySelector("#contenido_direccion");
+    
+    const contenido_correo = document.querySelector("#contenido_correo");
+    
+    
+    
+    //validando campos vacios
+    if(telefono == null){
+        contenido_telefono.innerHTML = "";
+        $(contenido_telefono).removeClass();
+    }
+    else{texto_telefono.innerHTML = `${telefono}`;
+        texto_telefono_movil.innerHTML = `llamar a: ${telefono}`;
+        texto_telefono_movil.setAttribute("href", `tel:${telefono}`);
+    }
 
-  
+    if(direccion == null){
+        contenido_direccion.innerHTML = "";
+        $(contenido_direccion).removeClass();
+    }
+    else{
+        texto_direccion.innerHTML = `${ciudad}, ${direccion}, ${cp}`;
+    }
+    
+    if(correo == null){
+        contenido_correo.innerHTML = "";
+        $(contenido_correo).removeClass();
+    }
+    else{
+        texto_correo.innerHTML = `${correo}`;
+    }
+    
+    if(facebook == null || facebook == ""){
+        text_facebook.innerHTML = "";
+        console.log(facebook);
+    }
+    else{
+        text_facebook.setAttribute("href", `${facebook}`);
+    }
+    
+    if(instagram == null || instagram == ""){
+        text_instagram.innerHTML = "";
+    }
+    else{
+        text_instagram.setAttribute("href", `${instagram}`);
+    }
+
     text_nombre_restaurante.innerHTML = `${nombre}`;
-  
     text_descripcion_larga.innerHTML = `${descripcion_larga}`;
-  
-    texto_telefono.innerHTML = `${telefono}`;
-    texto_telefono_movil.innerHTML = `llamar a: ${telefono}`;
-    texto_telefono_movil.setAttribute("href", `tel:${telefono}`);
-  
-    texto_direccion.innerHTML = `${ciudad}, ${direccion}, ${cp}`;
-  
-    texto_correo.innerHTML = `${correo}`;
-  
-    img_restaurante.setAttribute("src", `../../src/img/restaurantes/${foto}`);
-    facebook.setAttribute("href", `${fb}`);
+    text_descripcion_corta.innerHTML = `${descripcion}`;
+
+    let imagen_real = foto
+    if(imagen_real == null){
+        imagen_real = "fondo.png"
+    }
+    img_restaurante.setAttribute("src", `../../src/img/restaurantes/${imagen_real}`);
+    
     imprime_restaurante_categorias();
     imprime_restaurante_dias();
 }
 
 async function imprime_restaurante_categorias(){
     const text_categorias = document.querySelector("#categorias");
+    const contenido_categorias = document.querySelector("#contenido_categorias");
     const datos = new FormData();
     datos.append("id", id_restaurante)
     datos.append("accion", "obtener_categorias_restaurante_especifico");
     const res = await enviar_datos(url,datos);
-    res.forEach((categoria) => text_categorias.innerHTML += `${categoria.nombre} /`);
+    if(res.length > 0){
+        //console.log(res);
+        res.forEach((categoria) => text_categorias.innerHTML += `${categoria.nombre} -`);
+    }
+    else{   
+        //console.log(res);
+        contenido_categorias.innerHTML = "";
+        $(contenido_categorias).removeClass();
+    }
+    
 }
 
 async function imprime_restaurante_dias(){
     const text_dias = document.querySelector("#dias");
     const texto_horarios = document.querySelector("#horarios");
+    const contenido_horario = document.querySelector("#contenido_horario");
+    const contenido_dias = document.querySelector("#contenido_dias");
 
     const datos = new FormData();
     datos.append("id", id_restaurante)
     datos.append("accion", "obtener_horario_restaurante_especifico");
     const res = await enviar_datos(url,datos);
     //console.log(res)
-    res.forEach((dias) =>{ 
-        const {dia,hora_inicio,hora_fin} = dias;
-         const apuerta_formato_12h = moment(hora_inicio, "hh:mm").format("h:mm a");
-         const cierre_formato_12h = moment(hora_fin, "hh:mm").format("h:mm a");
-        const dia_semana = moment(dia, "d").format("dddd");
-
-
-         text_dias.innerHTML += `${dia_semana} /`;
-         texto_horarios.innerHTML = `${apuerta_formato_12h} - ${cierre_formato_12h}`;
-
-});
+    if(res.length > 0){
+        res.forEach((dias) =>{ 
+            const {dia,hora_inicio,hora_fin} = dias;
+            const apuerta_formato_12h = moment(hora_inicio, "hh:mm").format("h:mm a");
+            const cierre_formato_12h = moment(hora_fin, "hh:mm").format("h:mm a");
+            const dia_semana = moment(dia, "d").format("dddd");
+            text_dias.innerHTML += `${dia_semana} - `;
+            texto_horarios.innerHTML = `${apuerta_formato_12h} - ${cierre_formato_12h}`;
+        });
+    }
+    else{
+        contenido_horario.innerHTML = "";
+        $(contenido_horario).removeClass()   
+        contenido_dias.innerHTML = "";
+        $(contenido_dias).removeClass();
+    }
 }
 
 

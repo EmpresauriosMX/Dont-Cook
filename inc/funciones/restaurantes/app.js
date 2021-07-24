@@ -156,7 +156,7 @@ function pintar_restaurantes_html(res) {
     contenedor.innerHTML += `
                 <div class="blog-card col-md-12 col-sm-12 col-xs-12 col-lg-5 mx-auto">
                     <div class="meta">
-                        <div class="photo" style="background-image: url(../../src/img/restaurantes/${imagen}"></div>
+                        <div class="photo" style="background-image: url(../../src/img/restaurantes/${imagen_real}"></div>
                         <!--ul class="details"-->
                             <!--li class="author">Correo: <a href="#">${correo}</a></li-->
                             <!--li class=""-->

@@ -71,47 +71,40 @@ async function mostrar_restaurante(id){
 
 
 function imprime_restaurante(datos) {
-  let contenido1 = document.querySelector("#form_contenido_restaurante");
-  const { id, nombre, telefono, descripcion, descripcion_larga,horario, correo, cp, direccion, ciudad, foto, fb} = datos;
+    let contenido1 = document.querySelector("#form_contenido_restaurante");
+    const { id, nombre, telefono, descripcion, descripcion_larga,horario, correo, cp, direccion, ciudad, foto, fb} = datos;
 
-  const div_modal_logo = document.querySelector("#btn_modal_logo");
-  const text_nombre_restaurante = document.querySelector("#nombre_restaurante");
-  const text_descripcion_larga = document.querySelector("#descripcion_larga");
-  const img_restaurante = document.querySelector("#img_restaurante");
-  const facebook = document.querySelector("#facebook");
-  const enlace_editar_restaurante = document.querySelector("#editar");
-  const texto_telefono = document.querySelector("#telefono");
-  const texto_direccion = document.querySelector("#direccion");
-  const texto_horarios = document.querySelector("#horarios");
-  const texto_correo = document.querySelector("#correo");
-
-  div_modal_logo.innerHTML = `
+    const div_modal_logo = document.querySelector("#btn_modal_logo");
+    const text_nombre_restaurante = document.querySelector("#nombre_restaurante");
+    const text_descripcion_larga = document.querySelector("#descripcion_larga");
+    const img_restaurante = document.querySelector("#img_restaurante");
+    const facebook = document.querySelector("#facebook");
+    const enlace_editar_restaurante = document.querySelector("#editar");
+    const texto_telefono = document.querySelector("#telefono");
+    const texto_direccion = document.querySelector("#direccion");
+    const texto_horarios = document.querySelector("#horarios");
+    const texto_correo = document.querySelector("#correo");
+    div_modal_logo.innerHTML = `
     <button type="button" class="btn btn-dark btn-sm btn-block cambio_imagen restaurante" data-id_cambio =${id} data-toggle="modal" data-target="#exampleModal">
         Cambiar logo <i class="fa fa-image"></i>
     </button>
     
     `;
+    text_nombre_restaurante.innerHTML = `${nombre}`;
+    text_descripcion_larga.innerHTML = `${descripcion_larga}`;
+    
+    texto_telefono.innerHTML = `${telefono}`;
+    texto_direccion.innerHTML = `${ciudad}, ${direccion}, ${cp}`;
+    texto_horarios.innerHTML = `${horario}`;
+    texto_correo.innerHTML = `${correo}`;
 
+    img_restaurante.setAttribute("src", `../../src/img/restaurantes/${foto}`);
+    facebook.setAttribute("href", `${fb}`);
+    enlace_editar_restaurante.setAttribute("href",`editar_restaurante.php?r=${id}`);
 
-  text_nombre_restaurante.innerHTML = `${nombre}`;
-
-  text_descripcion_larga.innerHTML = `${descripcion_larga}`;
-
-  texto_telefono.innerHTML = `${telefono}`;
-
-  texto_direccion.innerHTML = `${ciudad}, ${direccion}, ${cp}`;
-
-  texto_horarios.innerHTML = `${horario}`;
-
-  texto_correo.innerHTML = `${correo}`;
-
-  img_restaurante.setAttribute("src", `../../src/img/restaurantes/${foto}`);
-  facebook.setAttribute("href", `${fb}`);
-  enlace_editar_restaurante.setAttribute("href",`editar_restaurante.php?r=${id}`);
-
-  const url_datos_externos = "../../inc/peticiones/restaurantes/funciones.php";
-  imprime_restaurante_categorias(url_datos_externos);
-  imprime_restaurante_dias(url_datos_externos);
+    const url_datos_externos = "../../inc/peticiones/restaurantes/funciones.php";
+    imprime_restaurante_categorias(url_datos_externos);
+    imprime_restaurante_dias(url_datos_externos);
 
 }
 async function imprime_restaurante_categorias(url_externo){

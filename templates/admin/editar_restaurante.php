@@ -185,6 +185,7 @@ include '../../inc/peticiones/login/sesion.php';
                                         <p>Código postal</p>
                                         <input placeholder="Codigo Postal" id="cp" name="cp" type="text" class="checkout__input__add" required="required">
                                     </div>
+                                    <div id="alert3"></div>
 
                                     <br>
                                     <button type="submit" id="btn_edit_ubicacion" class="site-btn btn-block">Guardar la dirección</button>
