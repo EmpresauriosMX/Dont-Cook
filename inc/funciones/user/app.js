@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //FUNCIONES QUE SE DEBEN DE CARGAR AL INICIO
 
     function ir_restaurantes() {
-        window.location.href ="../restaurantes/restaurantes.php";
+        window.location.href ="../home/home.php";
     }
 async function mostrarServicios(){
     var cuenta_activa = false;
