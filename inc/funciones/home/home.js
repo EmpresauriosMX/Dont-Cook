@@ -8,8 +8,14 @@ const titulo = document.querySelector("#titulo_restaurantes");
 const titulo_promo = document.querySelector("#titulo_promociones");
 const tienes_ciudad = mostrar_ubicacion().ciudad;
 
+
 //AQUI CARGA SI TIENE UNA CIUDAD REGISTRADA O NO
 document.addEventListener("DOMContentLoaded", () => {
+  if (screen.width < 1024){ 
+    //document.write ("Pequeña")
+    const hero = document.querySelector("#hero");
+    hero.classList.add("hero-normal");
+  }
   if (!tienes_ciudad) {
     //MUESTRA EL MENSAJE DE QUE NO TIENE UNA CIUDAD
     mostrar_mensaje("sin_ciudad");
@@ -34,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function mostrar_promociones(){
   limpiar_contenedor();
-  //titulo_promo.innerHTML = `<h2>Promociones de Hoy!</h2>  `;
+  titulo_promo.innerHTML = `<h2>Promociones de Hoy!</h2>  `;
 
 }
 
@@ -46,7 +52,7 @@ async function mostrar_restaurantes() {
   datos.append("ciudad", ciudad);
   datos.append("accion", "obtener_restaurantes");
   const res = await enviar_datos(url, datos);
-  titulo.innerHTML = `<h2>Todos los restaurantes de ${ciudad}</h2>`;
+  titulo.innerHTML = `<h2>Restaurantes de ${ciudad}</h2>`;
   res.forEach((restaurante) => {
     //.log(restaurante);
     const {id, nombre, lugar, horario, descripcion, imagen, correo, fb, insta } = restaurante;
