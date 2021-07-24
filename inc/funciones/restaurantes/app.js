@@ -149,19 +149,25 @@ function pintar_restaurantes_html(res) {
   res.forEach((restaurante) => {
     //console.log(restaurante);
     const { id, nombre, lugar, horario, descripcion, imagen, correo, fb, insta } = restaurante;
+    let imagen_real = imagen
+    if(imagen_real == null){
+      imagen_real = "fondo.png"
+    }
     contenedor.innerHTML += `
                 <div class="blog-card col-md-12 col-sm-12 col-xs-12 col-lg-5 mx-auto">
                     <div class="meta">
                         <div class="photo" style="background-image: url(../../src/img/restaurantes/${imagen}"></div>
-                        <ul class="details">
-                            <li class="author">Correo: <a href="#">${correo}</a></li>
-                            <li class="tags">
+                        <!--ul class="details"-->
+                            <!--li class="author">Correo: <a href="#">${correo}</a></li-->
+                            <!--li class=""-->
+                            <!--ul-->
+                              <!--i class="fa fa-facebook"></i> <a href="${fb}">Facebook</a>
+                            </ul>
                             <ul>
-                                <li>Facebook: <a href="${fb}">${fb}</a></li>
-                                <li>Instagram: <a href="${insta}">${insta}</a></li>
+                              <i class="fa fa-instagram"></i> <a href="${insta}">Instagram</a>
                             </ul>
                             </li>
-                        </ul>
+                        </ul-->
                     </div>
                     <div class="description">
                         <h4>${nombre}</b></h4> 
