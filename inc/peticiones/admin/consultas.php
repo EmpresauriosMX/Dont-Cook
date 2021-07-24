@@ -697,6 +697,11 @@ function ver_promocion(): array
                 $i++;
             }
         }
+        else{
+            $respuesta = array(
+                'sin_promo' => true
+            );
+        }
         return $respuesta;
     } catch (\Throwable $th) {
         //throw $th;

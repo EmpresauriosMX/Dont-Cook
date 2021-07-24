@@ -22,7 +22,7 @@
     <?php
         include '../componentes/restaurante_especifico.html';
     ?>
-    <div id="mensaje"></div>
+    
 
 
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>

@@ -30,7 +30,7 @@ export async function existe_cuenta() {
   return cuenta;
 }
 
-export function mostrar_mensaje(mensaje) {
+export function mostrar_mensaje(mensaje, div_esp) {
   let div = document.querySelector("#mensaje");
   let restaurantes = document.querySelector("#restaurantes");
 
@@ -101,9 +101,26 @@ export function mostrar_mensaje(mensaje) {
                                       </div>  
                                   </div> 
                               </div>`,
+    sin_menu: `<div class="row">
+                                  <div class="col-md-4 mx-auto">
+                                      <img src="../../src/img/ilustrations/menu.svg" class="img-fluid" alt="Responsive image">
+                                      <h5 class="text-center text-muted mt-3">No hay un menú :(
+                                      </h5>
+                                      <div class="col text-center mt-3">
+                                      </div>  
+                                  </div> 
+                              </div>`,
   };
   const muestra = MENSAJES_POR_MOSTRAR[mensaje];
-  div.innerHTML += muestra;
+  if(div_esp == ""){
+    div.innerHTML += muestra;
+    console.log(div_esp);
+  }
+  else{
+    div_esp.innerHTML += muestra;
+    console.log(div_esp);
+  }
+  
 }
 
 export function mostrar_alert(tipo, mensaje ,div) {

@@ -4,8 +4,9 @@ var id_restaurante = "";
 var ID_RESTAURANTE_P = "";
 var enviar_menu = document.querySelector("#enviar_el_menu");
 let id_envio_cambio ;
-
-
+var promociones = document.querySelector("#promos");
+var btn_promo = document.querySelector("#btn-promo");
+var div_promociones = document.querySelector("#contenido_promociones");   
 
 //imagen previa
 let imagen_a_enviar = document.querySelector("#imagen"); //input
@@ -127,7 +128,7 @@ async function imprime_restaurante_dias(url_externo){
     datos.append("id", id_restaurante)
     datos.append("accion", "obtener_horario_restaurante_especifico");
     const res = await enviar_datos(url_externo,datos);
-    console.log(res)
+    //console.log(res)
     res.forEach((dias) =>{ 
         const {dia,hora_inicio,hora_fin} = dias;
          const apuerta_formato_12h = moment(hora_inicio, "hh:mm").format("h:mm a");
@@ -145,25 +146,12 @@ function imprime_menu_config(datos){
     let div_config = document.querySelector("#form_segundo_contenido");
     const { id_restaurante, nombre, telefono, descripcion, descripcion_larga, horario, correo, cp, direccion, ciudad} = datos;
     //Imprime cada una de las configuraciones 
-    //config_promociones();
-    apartado_promociones();
+    config_promociones();
+    //apartado_promociones();
     //config_galeria();
     config_menu();
 }
 
-async function apartado_promociones(){
-
-    var div_promociones = document.querySelector("#tabs-1");
-    div_promociones.innerHTML+=`
-        <div class="product__details__tab__desc">
-            <div id="promos" class="card-columns mt-3 ">
-
-            </div>
-        </div>
-    `;
-    config_promociones();
-
-}
 
 async function config_promociones(){
     //aqui va tu codigo para obtener las promociones
@@ -173,20 +161,17 @@ async function config_promociones(){
     datos.append("accion","ver_promo");
     //SE BUSCA EL RESTAURANTE CON SU ID
     const res = await enviar_datos(url, datos);
-    //console.log (res);
-    var promociones = document.querySelector("#promos");
-    var div_promociones = document.querySelector("#tabs-1");
-    let clase_activo = "btn-info";
-    //let clase_inactivo ="btn-light disabled";
-    let clase_l = "btn-light disabled";
-    let clase_m = "btn-light disabled";
-    let clase_mi = "btn-light disabled";
-    let clase_j = "btn-light disabled";
-    let clase_v = "btn-light disabled";
-    let clase_s = "btn-light disabled";
-    let clase_d = "btn-light disabled";
+     
+    if(res.sin_promo != true){
 
-    res.forEach((element) => {
+        div_promociones.innerHTML+=`
+        <div class="product__details__tab__desc">
+            <div id="promos" class="card-columns mt-3 ">
+            </div>
+        </div>
+        `;
+        let clase_activo = "btn-info";
+        //let clase_inactivo ="btn-light disabled";
         let clase_l = "btn-light disabled";
         let clase_m = "btn-light disabled";
         let clase_mi = "btn-light disabled";
@@ -194,71 +179,93 @@ async function config_promociones(){
         let clase_v = "btn-light disabled";
         let clase_s = "btn-light disabled";
         let clase_d = "btn-light disabled";
-        //console.log(element);
-        const {nombre_res,Nombre,descripcion,fecha,fecha_f,horario,id_promocion,id_restaurante,imagen, lunes, martes, miercoles, jueves, viernes, sabado, domingo} = element;
-        if(lunes == 1){ clase_l = clase_activo }
-        if(martes == 1){ clase_m = clase_activo }
-        if(miercoles == 1){ clase_mi = clase_activo }
-        if(jueves == 1){ clase_j = clase_activo }
-        if(viernes == 1){ clase_v = clase_activo }
-        if(sabado == 1){ clase_s = clase_activo }
-        if(domingo == 1){ clase_d = clase_activo }
-        promociones.innerHTML += `
-            <div class="card border-0">
-                
-                <div class="card-body">
-                <div class="card">
-                    <img class="card-img-top" src="../../src/img/promos/${imagen}" alt="Card image cap">
-                    <div class="card-img-overlay">
-                        <a href="../restaurantes/restaurante_especifico.php?r=${id_restaurante}"><h3 class="card-title">${nombre_res}</h3> </a>
-                    </div>
+
+        res.forEach((element) => {
+            let clase_l = "btn-light disabled";
+            let clase_m = "btn-light disabled";
+            let clase_mi = "btn-light disabled";
+            let clase_j = "btn-light disabled";
+            let clase_v = "btn-light disabled";
+            let clase_s = "btn-light disabled";
+            let clase_d = "btn-light disabled";
+            //console.log(element);
+            const {nombre_res,Nombre,descripcion,fecha,fecha_f,horario,id_promocion,id_restaurante,imagen, lunes, martes, miercoles, jueves, viernes, sabado, domingo} = element;
+            if(lunes == 1){ clase_l = clase_activo }
+            if(martes == 1){ clase_m = clase_activo }
+            if(miercoles == 1){ clase_mi = clase_activo }
+            if(jueves == 1){ clase_j = clase_activo }
+            if(viernes == 1){ clase_v = clase_activo }
+            if(sabado == 1){ clase_s = clase_activo }
+            if(domingo == 1){ clase_d = clase_activo }
+            promociones.innerHTML += `
+                <div class="card border-0">
+                    
                     <div class="card-body">
-                        <h5>${Nombre}</h5>
-                        <small class="card-text"> ${descripcion}</small>
-                        <br>
-                        <small> 
-                            Con Horario <i>${horario}</i>. <br>
-                            Valido: <i>${fecha}</i> a <i>${fecha_f}</i>
-                        </small>
-                        <br>
-                        <label>Disponible: </label><br>
-                        <label class="btn btn-circle ${clase_l}">L</label>
-                        <label class="btn btn-circle ${clase_m}">M</label>
-                        <label class="btn btn-circle ${clase_mi}">M</label>
-                        <label class="btn btn-circle ${clase_j}">J</label>
-                        <label class="btn btn-circle ${clase_v}">V</label>
-                        <label class="btn btn-circle ${clase_s}">S</label>
-                        <label class="btn btn-circle ${clase_d}">D</label>
+                    <div class="card">
+                        <img class="card-img-top" src="../../src/img/promos/${imagen}" alt="Card image cap">
+                        <div class="card-img-overlay">
+                            <a href="../restaurantes/restaurante_especifico.php?r=${id_restaurante}"><h3 class="card-title">${nombre_res}</h3> </a>
+                        </div>
+                        <div class="card-body">
+                            <h5>${Nombre}</h5>
+                            <small class="card-text"> ${descripcion}</small>
+                            <br>
+                            <small> 
+                                Con Horario <i>${horario}</i>. <br>
+                                Valido: <i>${fecha}</i> a <i>${fecha_f}</i>
+                            </small>
+                            <br>
+                            <label>Disponible: </label><br>
+                            <label class="btn btn-circle ${clase_l}">L</label>
+                            <label class="btn btn-circle ${clase_m}">M</label>
+                            <label class="btn btn-circle ${clase_mi}">M</label>
+                            <label class="btn btn-circle ${clase_j}">J</label>
+                            <label class="btn btn-circle ${clase_v}">V</label>
+                            <label class="btn btn-circle ${clase_s}">S</label>
+                            <label class="btn btn-circle ${clase_d}">D</label>
+                        </div>
                     </div>
-                </div>
-                        <a href="editar_promocion.php?p=${id_promocion}" class="btn btn-secondary mt-1">
-                            <i class="fa fa-edit"></i>
-                        </a>
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-secondary mt-1 cambio_imagen promocion" data-id_cambio =${id_promocion} data-toggle="modal" data-target="#exampleModal">
-                        <i class="fa fa-image"></i>
-                        </button>
-                        <a href="#" class="btn btn-danger mt-1">
-                            <i class="fa fa-trash"></i>
-                        </a>
-                </div>
-            </div>`;
-    });
+                            <a href="editar_promocion.php?p=${id_promocion}" class="btn btn-secondary mt-1">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-secondary mt-1 cambio_imagen promocion" data-id_cambio =${id_promocion} data-toggle="modal" data-target="#exampleModal">
+                            <i class="fa fa-image"></i>
+                            </button>
+                            <a href="#" class="btn btn-danger mt-1">
+                                <i class="fa fa-trash"></i>
+                            </a>
+                    </div>
+                </div>`;
+        });
+    }
+    else{
+        console.log("sin promos");
+        mostrar_mensaje("sin_promociones" ,btn_promo);
+        btn_agregar_promo(id);
+        
+    }
+    //console.log (res);
     
     //console.log(id);
+    
+    var elements = document.getElementsByClassName("cambio_imagen");
+    for(var i = 0; i < elements.length; i++){
+    elements[i].addEventListener('click',modal_editar_imagen);
+    }
+}
+
+
+function btn_agregar_promo(id){
     div_promociones.innerHTML+=`
         <div class="row justify-content-center mt-3">
             <div class="col-md-3 mt-3">
                 <a href="agregar_promocion.php?r=${id}" class="btn btn-sm primary-btn"> Agregar promoción</a>
             </div> 
         </div>
-    
-`;
-var elements = document.getElementsByClassName("cambio_imagen");
-for(var i = 0; i < elements.length; i++){
-  elements[i].addEventListener('click',modal_editar_imagen);
+        `;
 }
-}
+
 
 function config_galeria(datos){
     let div_galeria = document.querySelector("#tabs-2");
