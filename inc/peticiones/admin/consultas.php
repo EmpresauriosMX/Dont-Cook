@@ -872,6 +872,11 @@ function mostrar_menu(): array
                 $i++;
             }
         }
+        else{
+            $respuesta = array(
+                'sin_menu' => true
+            );
+        }
     } catch (\Throwable $th) {
     }
     return $respuesta;

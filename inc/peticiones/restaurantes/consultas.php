@@ -251,6 +251,11 @@ function obtener_menu(): array
                 $i++;
             }
         }
+        else{
+            $respuesta = array(
+                'sin_menu' => true
+            );
+        }
         return $respuesta;
     } catch (\Throwable $th) {
         //throw $th;

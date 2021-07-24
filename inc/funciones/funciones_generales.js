@@ -101,7 +101,7 @@ export function mostrar_mensaje(mensaje, div_esp) {
                                       </div>  
                                   </div> 
                               </div>`,
-    sin_menu: `<div class="row">
+    sin_menu: `<div class="row mt-4">
                                   <div class="col-md-4 mx-auto">
                                       <img src="../../src/img/ilustrations/menu.svg" class="img-fluid" alt="Responsive image">
                                       <h5 class="text-center text-muted mt-3">No hay un menú :(

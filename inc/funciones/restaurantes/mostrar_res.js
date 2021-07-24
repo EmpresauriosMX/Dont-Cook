@@ -222,7 +222,6 @@ async function config_promociones(){
     else{
         console.log("sin promos");
         mostrar_mensaje("sin_promociones" ,btn_promo);
-        btn_agregar_promo(id);
         
     }
     //console.log (res);
@@ -292,28 +291,33 @@ async function config_menu(){
     datos.append("accion","obtener_menu");
     
     const res = await enviar_datos(url,datos);
-    console.log(res); 
-    
-res.forEach(element => {
-    div_menu.innerHTML+=`
-    <div class="product__details__tab__desc">
-            <h4>Menú</h4>
-            <div id="editor">
-               ${element.descripcion}
-            </div>
-
-            <h4>Imagen del menú</h4>
-
-            <div class="row mt-3">
-                <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-
-                    <img src="../../src/img/menus/${element.imagen}" class="w-100 shadow-1-strong rounded mb-4" alt="" />
+    console.log(res);
+    if(res.sin_menu != true){
+        res.forEach(element => {
+            div_menu.innerHTML+=`
+            <div class="product__details__tab__desc">
+                    <h4>Menú</h4>
+                    <div id="editor">
+                       ${element.descripcion}
+                    </div>
+        
+                    <h4>Imagen del menú</h4>
+        
+                    <div class="row mt-3">
+                        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+        
+                            <img src="../../src/img/menus/${element.imagen}" class="w-100 shadow-1-strong rounded mb-4" alt="" />
+                        </div>
+                  
+        
+                    </div>
                 </div>
-          
+        `;
+        });
+    } 
+    else{
+        mostrar_mensaje("sin_menu", div_menu)
+    }
 
-            </div>
-        </div>
-`;
-});
 
 }
