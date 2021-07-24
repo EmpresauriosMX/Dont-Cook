@@ -2,11 +2,17 @@ import { enviar_datos, mostrar_ubicacion, mostrar_mensaje } from "../funciones_g
 import {Ubicacion,select_ciudad,btn_confirmar_ciudad} from "../ubicacion.js";
 
 const url = "../../inc/peticiones/restaurantes/funciones.php";
+
+const url_promocion = "../../inc/peticiones/promociones/funciones.php";
+
 const contenedor = document.querySelector("#contenedor_restaurantes");
 const cont_promo = document.querySelector("#contenedor_promociones");
 const titulo = document.querySelector("#titulo_restaurantes");
 const titulo_promo = document.querySelector("#titulo_promociones");
 const tienes_ciudad = mostrar_ubicacion().ciudad;
+
+
+const contenedor_promociones_hoy = document.querySelector("#contenedor_promociones");
 
 
 //AQUI CARGA SI TIENE UNA CIUDAD REGISTRADA O NO
@@ -35,7 +41,10 @@ document.addEventListener("DOMContentLoaded", () => {
     //BRO, A QUIEN LE TOQUE PROGRAMAR EL HOME AQUI HAY DOS FUNCIONES EN LOS CUALES PUEDES PROGRAMAR
     mostrar_restaurantes();
     mostrar_promociones();
-  }      
+    mostrar_promocion_dia_actual();
+
+  }     
+   
 });
 
 async function mostrar_promociones(){
@@ -137,58 +146,93 @@ async function pintar_horario_html() {
   });
 }
 
+async function mostrar_promocion_dia_actual() {
+  const datos = new FormData();
+  const dia_hoy = moment().format("d");
+  let dia;
+  if (dia_hoy == 0) dia = "domingos";
+  if (dia_hoy == 1) dia ="lunes";
+  if (dia_hoy == 2) dia ="martes";
+  if (dia_hoy == 3) dia ="miercoles";
+  if (dia_hoy == 4) dia ="jueves";
+  if (dia_hoy == 5) dia ="viernes";
+  if (dia_hoy == 6) dia = "sabado";
 
-
-/*
-
-document.addEventListener("DOMContentLoaded", () => {
-  const ubicacion = new Ubicacion();
-  console.log(ubicacion);
-  select_ciudad.addEventListener("change", ubicacion.obtener);
-  btn_confirmar_ciudad.addEventListener("click", ubicacion.guardar);
-  ubicacion.buscar();
-  alert(mostrar_ubicacion().ciudad);
-});
-*/
-
-/* obtener la ubicacion por gps y coompararlo con otras coordenadas
-navigator.geolocation.getCurrentPosition(haz_algo,veremos);
-
-function haz_algo(position) {
- const latitude = position.coords.latitude;
- const longitude = position.coords.longitude;
- const latitude_otro = 20.496082883576054;
- const longitude_otro =  -86.93836456398587;
- console.log(`esta la latitud : ${latitude}
-              esta es la longitud : ${longitude}`);
- calculo_distania (latitude,longitude,latitude_otro,longitude_otro)
+  const ciudad = mostrar_ubicacion().ciudad;
+  datos.append("dia", dia);
+  datos.append("ciudad", ciudad);
+  //console.log(ciudad);
+  datos.append("accion", "obtener_promocion_dia");
+  const res = await enviar_datos(url_promocion, datos);
+  res.length != 0 ? llenado_contenedor_html(contenedor_promociones_hoy,res) : sin_promos_hoy();
 }
 
-function veremos() {
-  output.innerHTML = "Unable to retrieve your location";
-};
+function llenado_contenedor_html(contenedor,res) {
 
-function calculo_distania(lat1,lng1 ,lat2,lng2) {
-  let R = 6378137;
-  let dLat = degreesToRadians(lat2 - lat1);
-  let dLong = degreesToRadians(lng2 - lng1);
-  let a = Math.sin(dLat / 2)
-          *
-          Math.sin(dLat / 2)
-          +
-          Math.cos(degreesToRadians(lat1))
-          *
-          Math.cos(degreesToRadians(lat1))
-          *
-          Math.sin(dLong / 2)
-          *
-          Math.sin(dLong / 2);
+  let clase_activo = "btn-info";
 
-  let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  let distance = R * c;
-  console.log(`esta es la distancia entre los 2 puntos ${distance * 0.001}`);
+  let clase_l = "btn-light disabled";
+  let clase_m = "btn-light disabled";
+  let clase_mi = "btn-light disabled";
+  let clase_j = "btn-light disabled";
+  let clase_v = "btn-light disabled";
+  let clase_s = "btn-light disabled";
+  let clase_d = "btn-light disabled";
+
+  
+    res.forEach((element) => {
+      let clase_l = "btn-light disabled";
+      let clase_m = "btn-light disabled";
+      let clase_mi = "btn-light disabled";
+      let clase_j = "btn-light disabled";
+      let clase_v = "btn-light disabled";
+      let clase_s = "btn-light disabled";
+      let clase_d = "btn-light disabled";
+        //console.log(element);
+        
+        const {nombre_res,Nombre,descripcion,fecha,fecha_f,horario,id_promocion,id_restaurante,imagen, lunes, martes, miercoles, jueves, viernes, sabado, domingo} = element;
+
+        if(lunes == 1){ clase_l = clase_activo }
+        if(martes == 1){ clase_m = clase_activo }
+        if(miercoles == 1){ clase_mi = clase_activo }
+        if(jueves == 1){ clase_j = clase_activo }
+        if(viernes == 1){ clase_v = clase_activo }
+        if(sabado == 1){ clase_s = clase_activo }
+        if(domingo == 1){ clase_d = clase_activo }
+
+        contenedor.innerHTML += `
+        <div class="card">
+          <div class="card-header border-secondary">
+            <a href="../restaurantes/restaurante_especifico.php?r=${id_restaurante}"><h3 class="card-title">${nombre_res}</h3> </a>
+          </div>
+        <img class="card-img-top" src="../../src/img/promos/${imagen}" alt="Card image cap">
+  
+        <div class="card-body">
+            <h5>${Nombre}</h5>
+            <small class="card-text"> ${descripcion}</small>
+            <br>
+            <small> 
+                Con Horario <i>${horario}</i>. <br>
+                Valido: <i>${fecha}</i> a <i>${fecha_f}</i>
+            </small>
+            <br>
+            <label>Disponible: </label><br>
+            <label class="btn btn-circle ${clase_l}">L</label>
+            <label class="btn btn-circle ${clase_m}">M</label>
+            <label class="btn btn-circle ${clase_mi}">M</label>
+            <label class="btn btn-circle ${clase_j}">J</label>
+            <label class="btn btn-circle ${clase_v}">V</label>
+            <label class="btn btn-circle ${clase_s}">S</label>
+            <label class="btn btn-circle ${clase_d}">D</label>
+        </div>
+    </div>
+    `;
+      });
+    
 }
 
-function degreesToRadians(degrees){
-  return degrees * Math.PI / 180;
-}*/
+function sin_promos_hoy(){
+  const titulo_promos_hoy = document.querySelector("#titulo_promos_hoy");
+  titulo_promos_hoy.innerHTML = "";
+  mostrar_mensaje("sin_promociones_hoy");
+}

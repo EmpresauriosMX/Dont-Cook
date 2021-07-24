@@ -48,6 +48,7 @@
         </div>
     </section>
     <!--Fin de todo de home-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!--contenido de la plantilla -->
     <script src="../../inc/funciones/home/home.js" type="module"></script>
     <!--script src="../../inc/funciones/home/categorias.js" type="module"></script-->
