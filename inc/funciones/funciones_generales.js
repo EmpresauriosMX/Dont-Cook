@@ -31,7 +31,6 @@ export async function existe_cuenta() {
 }
 
 export function mostrar_mensaje(mensaje, div_esp) {
-  let div = document.querySelector("#mensaje");
   let restaurantes = document.querySelector("#restaurantes");
 
   const MENSAJES_POR_MOSTRAR = {
@@ -112,13 +111,14 @@ export function mostrar_mensaje(mensaje, div_esp) {
                               </div>`,
   };
   const muestra = MENSAJES_POR_MOSTRAR[mensaje];
-  if(div_esp == ""){
-    div.innerHTML += muestra;
-    console.log(div_esp);
+  if(div_esp){
+    div_esp.innerHTML += muestra;
+    //console.log(div_esp);
   }
   else{
-    div_esp.innerHTML += muestra;
-    console.log(div_esp);
+    const div = document.querySelector("#mensaje");
+    div.innerHTML += muestra;
+    //console.log("entro en esta vacio");
   }
   
 }
