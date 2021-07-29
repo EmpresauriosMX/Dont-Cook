@@ -211,7 +211,7 @@ async function editar_datos_contato(e){
   //console.log(res);
   if(res.respuesta = "ok"){
     let div_alert2 = document.querySelector("#alert2");
-    mostrar_alert("success", "Los datos generales han sido actualizados", div_alert2);
+    mostrar_alert("success", "Los datos de contacto han sido actualizados", div_alert2);
   }
 }
 
@@ -233,7 +233,7 @@ async function editar_datos_ciudad(e){
   //console.log(res);
   if(res.respuesta = "ok"){
     let div_alert2 = document.querySelector("#alert2");
-    mostrar_alert("success", "Los datos generales han sido actualizados", div_alert2);
+    mostrar_alert("success", "Los datos de ciudad han sido actualizados", div_alert2);
   }
 }
 
@@ -255,7 +255,7 @@ async function editar_datos_horario(e){
   //console.log(res);
   if(res.respuesta = "ok"){
     let div_alert2 = document.querySelector("#alert2");
-    mostrar_alert("success", "Los datos generales han sido actualizados", div_alert2);
+    mostrar_alert("success", "Los datos de horario han sido actualizados", div_alert2);
   }
 }
 
@@ -274,7 +274,7 @@ async function editar_datos_categorias(e){
   //console.log(res);
   if(res.respuesta = "ok"){
     let div_alert2 = document.querySelector("#alert2");
-    mostrar_alert("success", "Los datos generales han sido actualizados", div_alert2);
+    mostrar_alert("success", "Los datos de categorias han sido actualizados", div_alert2);
   }
 
 }
