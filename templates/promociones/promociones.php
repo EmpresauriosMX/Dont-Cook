@@ -19,25 +19,27 @@
     <!--Todo de home-->
 
     <section class="categories">
-        <div id="mensaje"></div>
-        <div id="contenedor" class="container">
+        
+        <div  class="container">
+            <div id="mensaje"></div>
+            <div id="contenedor">
+                <!--Tarjetas de promociones-->
+                <div id="titulo_promos_hoy" class="section-title mt-3">
+                    <h2>Promociones de Hoy!</h2>
+                </div>
+                <div id="contenido_promociones_hoy" class="card-columns">
+                    <!--Fin de tarjetas de promociones-->
+                </div>
+                <!--TODAS LAS PROMOCIONES-->
+                <!--Tarjetas de promociones-->
+                <div id="titulo_promociones_todas" class="section-title mt-3">
+                    <h2>Todas las promociones</h2>
+                </div>
+                <div id="contenido_promociones" class="card-columns">
+                    <div id="alert"></div>
+                </div>
+            </div>
             <br>
-            <!--Tarjetas de promociones-->
-            <div id="titulo_promos_hoy" class="section-title mt-3">
-                <h2>Promociones de Hoy!</h2>
-            </div>
-            <div id="contenido_promociones_hoy" class="card-columns">
-                <!--Fin de tarjetas de promociones-->
-            </div>
-            <!--TODAS LAS PROMOCIONES-->
-            <!--Tarjetas de promociones-->
-            <div id="titulo_promociones_todas" class="section-title mt-3">
-                <h2>Todas las promociones</h2>
-            </div>
-            <div id="contenido_promociones" class="card-columns">
-                <div id="alert"></div>
-            </div>
-            <!--?php include '../../inc/peticiones/promociones/todas_promociones.php'; ?-->
         </div>
     </section>
     <!--Fin de todo de home-->
