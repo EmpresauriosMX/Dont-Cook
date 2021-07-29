@@ -140,7 +140,6 @@ include '../../inc/peticiones/login/sesion.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div id="alert2"></div>
                                     <br>
                                     <button type="submit" id="btn_edit_contacto" class="site-btn btn-block">Guardar</button>
                                 </div>
@@ -307,11 +306,13 @@ include '../../inc/peticiones/login/sesion.php';
 
                                                     </div>
                                                 </div>
+
                                                 <button type="submit" id="btn_edit_categorias" class="site-btn btn-block">Guardar Categorias</button>
 
                                             </form>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         </form>
@@ -320,10 +321,10 @@ include '../../inc/peticiones/login/sesion.php';
             </div>
             <!--INFORMACION DE LAS CATEGORIAS--/-->
         </div>
+        <div id="alert2"></div>
+
         <!----CONTENIDO DE LOS FORMULARIOS--/-->
     </div>
-
-
 
     <!--contenido de la plantilla -->
     <?php
