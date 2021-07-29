@@ -83,7 +83,7 @@ export function mostrar_mensaje(mensaje, div_esp) {
                                   </div> 
                               </div>`,
     sin_promociones_hoy: `<div class="row">
-                                  <div class="col-md-2 mx-auto">
+                                  <div class="col-md-1 mx-auto">
                                       <img src="../../src/img/ilustrations/no_1.svg" class="img-fluid" alt="Responsive image">
                                       <h5 class="text-center text-muted mt-3">No hay promociones hoy :(
                                       </h5>
