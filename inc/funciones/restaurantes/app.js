@@ -222,11 +222,11 @@ async function pintar_horario_html() {
         lista.innerHTML = `
         <div class = "text-success">
         <i class="fa fa-car"></i>
-           De ${apuerta_formato_12h} a ${cierre_formato_12h} </div> `;
+        Abierto de ${apuerta_formato_12h} a ${cierre_formato_12h} </div> `;
       } else {
         lista.innerHTML = `
         <!--div class = "text-warning">Sin Servicio a Domicilio! :/</div-->
-        <small class = "text-success">De ${apertura} a ${cierre} </small> `;
+        <small class = "text-success">Abierto de ${apertura} a ${cierre} </small> `;
       }
     }
   });

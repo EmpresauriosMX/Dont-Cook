@@ -133,6 +133,7 @@ async function pintar_horario_html() {
     if (lista) {
       lista.innerHTML = "";
       if (servicio_domicilio === 1) {
+        console.log(servicio_domicilio);
         lista.innerHTML = `
         <small class = "text-success">
         <i class="fa fa-car"></i>
@@ -140,7 +141,7 @@ async function pintar_horario_html() {
       } else {
         lista.innerHTML = `
         <!--small class = "text-warning">Sin servicio a domicilio</small-->
-        <small class = "text-success">De ${apertura} a ${cierre} </small> `;
+        <small class = "text-success">Abierto de ${apertura} a ${cierre} </small> `;
       }
     }
   });
