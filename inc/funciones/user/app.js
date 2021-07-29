@@ -60,9 +60,9 @@ async function imprime_user_card(){
                     </li> 
                 </ul>
                 <ul class='values'>
-                    <li>${correo}</li>
-                    <li>${usuario}</li>
-                    <li>${tienes_ciudad}</li>
+                    <li style="overflow-wrap: break-word;">${correo}</li>
+                    <li style="overflow-wrap: break-word;">${usuario}</li>
+                    <li style="overflow-wrap: break-word;">${tienes_ciudad}</li>
                 </ul>
             </div>
             <div class="mx-auto">

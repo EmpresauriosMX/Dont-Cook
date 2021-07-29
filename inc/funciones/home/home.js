@@ -232,7 +232,7 @@ function llenado_contenedor_html(contenedor,res) {
 }
 
 function sin_promos_hoy(){
-  const titulo_promos_hoy = document.querySelector("#titulo_promos_hoy");
+  const titulo_promos_hoy = document.querySelector("#contenido_promociones_hoy");
   titulo_promos_hoy.innerHTML = "";
   mostrar_mensaje("sin_promociones_hoy");
 }

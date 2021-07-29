@@ -229,14 +229,14 @@ include '../../inc/peticiones/login/sesion.php';
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1"><img style="height: 20px;" src="../../src/img/iconos/abierto.png" alt=""></span>
                             </div>
-                            <input type="time" id="horario_abrir">
+                            <input class="form-control" type="time" id="horario_abrir">
                         </div>
 
                         <div class="col-lg-6 input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1"><img style="height: 20px;" src="../../src/img/iconos/cerrado.png" alt=""></span>
                             </div>
-                            <input type="time" id="horario_cerrar">
+                            <input class="form-control" type="time" id="horario_cerrar">
                         </div>
 
                     </div>

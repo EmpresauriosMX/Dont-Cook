@@ -51,7 +51,7 @@ async function mostrarServicios(){
                 <div class="blog-card col-md-12 col-sm-12 col-xs-12 col-lg-5 mx-auto">
                     <div class="meta">
                         <div class="photo" style="background-image: url(../../src/img/restaurantes/${foto}"></div>
-                        <ul class="details">
+                        <!--ul class="details">
                             <li class="author"><a href="#">Correo@mail.com</a></li>
                             <li class="tags">
                             <ul>
@@ -60,7 +60,7 @@ async function mostrarServicios(){
                                 <li><a href="#">Twitter</a></li>
                             </ul>
                             </li>
-                        </ul>
+                        </ul-->
                     </div>
                     <div class="description">
                         <h4>${nombre}</b></h4>

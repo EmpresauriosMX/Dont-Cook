@@ -20,18 +20,13 @@
             include '../../templates/componentes/categorias.html';
         ?>
             <div id="mensaje" class="mt-3"></div>
-
-
-            <!--Tarjetas de promociones-->
-            <div id="titulo_promociones" class="section-title mt-3">
-
+            <div id="contenido_promociones_hoy">
+                <!--Tarjetas de promociones-->
+                <div id="titulo_promociones" class="section-title mt-3"></div>
+                <div id="contenedor_promociones" class="card-columns"></div>
+                <!--Fin de tarjetas de promociones-->
             </div>
-            <div id="contenedor_promociones" class="card-columns">
-                
-
-                
-            </div>
-            <!--Fin de tarjetas de promociones-->
+            
 
             <!--RESTAURANTES-->
             <div id="titulo_restaurantes" class="section-title mt-3">

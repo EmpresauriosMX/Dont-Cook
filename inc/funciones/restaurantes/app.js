@@ -60,7 +60,9 @@ async function mostar_banner_categoria(categoria) {
     "Comida mexicana": ["tacos.jpg", "Comida mexicana"],
     "Comida rapida": ["fast.jpg", "Comida rapida"],
     "Mariscos": ["camaron.jpg", "Mariscos"],
-    "Pizzerias": ["pizza.jpg", "Pizzerías"],
+    "Pizzerías": ["pizza.jpg", "Pizzerías"],
+    "Panaderías": ["panaderia.jpg", "Panaderías"],
+    "Pastelerías": ["pasteleria.jpg", "Pastelerías"],
     "Servicio a domicilio": ["delivery.jpg", "Servicio a domicilio"],
   };
   const DEFAULT_BANNER = [
