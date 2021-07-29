@@ -139,7 +139,7 @@ async function pintar_horario_html() {
           De ${apertura} a ${cierre} </small> `;
       } else {
         lista.innerHTML = `
-        <small class = "text-warning">Sin servicio a domicilio</small>
+        <!--small class = "text-warning">Sin servicio a domicilio</small-->
         <small class = "text-success">De ${apertura} a ${cierre} </small> `;
       }
     }
