@@ -25,7 +25,8 @@ function sin_ciudad() {
   const titulo_promociones_todas = document.querySelector(
     "#titulo_promociones_todas"
   );
-  ninguna_promocion();
+  const div_todo = document.querySelector("#contenedor");
+  div_todo.innerHTML = "";
   //contenido_promociones.innerHTML = "";
   // titulo_promociones_todas.innerHTML = "";
   //titulo_promociones.innerHTML = ``;
