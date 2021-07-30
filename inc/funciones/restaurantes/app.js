@@ -218,9 +218,7 @@ async function pintar_horario_html() {
     const lista = document.querySelector(`#restaurante_horario_${id}`);
     if (lista) {
       lista.innerHTML = "";
-      console.log(res);
-      if (servicio_domicilio == "1") {
-        console.log("si");
+      if (servicio_domicilio === "1") {
         lista.innerHTML = `
         <div class = "text-success">
         <i class="fa fa-car"></i>
