@@ -219,7 +219,8 @@ async function pintar_horario_html() {
     if (lista) {
       lista.innerHTML = "";
       console.log(res);
-      if (servicio_domicilio == 1) {
+      if (servicio_domicilio == "1") {
+        console.log("si");
         lista.innerHTML = `
         <div class = "text-success">
         <i class="fa fa-car"></i>
