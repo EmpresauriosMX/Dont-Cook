@@ -20,7 +20,7 @@
             <h2>Aviso de privacidad simplificado</h2>
         </div>
         <div class="card-body">
-            <h5 class="card-text">Daniel Gonzalez, Saul Góngora, Luis Tzun, Osly Rodriguez mejores conocidos como Don't Cook, con domicilio en Quintana Roo, México son los responsables del uso y protección de sus datos personales, y al respecto le informamos lo siguiente:</h5>
+            <h5 class="card-text">Daniel Gonzalez, Saul Góngora, Luis Tzun, Osly Rodriguez mejores conocidos como Don't Cook, son los responsables del uso y protección de sus datos personales, y al respecto le informamos lo siguiente:</h5>
             <h3 class="card-title">¿Para qué fines utilizaremos sus datos personales?</h3>
             <h5 class="card-text">Los datos personales que recabamos de usted, los utilizaremos para las siguientes finalidades que son necesarias para el servicio que solicita:</h5>
             <h3 class="card-tittle">¿Dónde puedo consultar el aviso de privacidad integral?</h3>
@@ -29,7 +29,7 @@
 
         </div>
         <div class="card-footer text-muted">
-            <h5 class="card-text text-center">Última actualización de este aviso de privacidad: 10/07/2021</h5>
+            <h5 class="card-text text-center">Última actualización de este aviso de privacidad: 29/07/2021</h5>
         </div>
     </div>
 <br>
@@ -38,7 +38,7 @@
             <h2>Aviso de privacidad integral</h2>
         </div>
         <div class="card-body">
-            <h5 class="card-text">Daniel Gonzalez, Saul Góngora, Luis Tzun, Osly Rodriguez mejores conocidos como Don't Cook, con domicilio en Solidaridad, Quintana Roo, México y portal de internet <a href="../home/home.php">dontcook.mx</a> , son los responsables del uso y protección de sus datos personales, y al respecto le informamos lo siguiente:</h5>
+            <h5 class="card-text">Daniel Gonzalez, Saul Góngora, Luis Tzun, Osly Rodriguez mejores conocidos como Don't Cook y portal de internet <a href="../home/home.php">dontcook.mx</a> , son los responsables del uso y protección de sus datos personales, y al respecto le informamos lo siguiente:</h5>
             
             <h3 class="card-title text-center">¿Para qué fines utilizaremos sus datos personales?</h3>
             <h5 class="card-text">Los datos personales que recabamos de usted, los utilizaremos para las siguientes finalidades que son necesarias para el servicio que solicita:</h5>
@@ -61,7 +61,8 @@
             <h5 class="card-text">· Domicilio.</h5>
             <h5 class="card-text">· Teléfono.</h5>
             <h5 class="card-text">· Correo electrónico usado en este sitio web.</h5>
-            <h5 class="card-text">· Copia de una identificación oficial adjunta.</h5>
+            <h5 class="card-text">· Datos de restaurante del propietario.</h5>
+            <h5 class="card-text">· Imagenes correspondientes de los restaurantes.</h5>
             <h5 class="card-text">· Asunto «Derechos ARCO»</h5>
 
             <h5 class="card-text">Descripción el objeto del escrito, los cuales pueden ser de manera enunciativa más no limitativa los siguientes: Revocación del consentimiento para tratar sus datos personales; y/o notificación del uso indebido del tratamiento de sus datos personales; y/o ejercitar sus derechos ARCO, con una descripción clara y precisa de los datos a aceder, rectificar, cancelar o bien,oponerse. En caso de rectificación de datos personales, deberá indicar la modificación exacta y anexar la documentación soporte; es importante en caso de revocación del consentimiento, que tenga en cuenta que no en todos los casos podremos atender su solicitud o concluir el uso de forma inmediata, ya que es posible que por alguna obligación legal requiramos seguir tratando sus datos personales. Asimismo, usted deberá considerar que para ciertos fines, la revocación de su consentimiento implicará que no le podamos seguir prestando el servicio que nos solicitó, o la conclusión de su relación con nosotros.</h5>
@@ -81,7 +82,7 @@
 
         </div>
         <div class="card-footer text-muted">
-            <h5 class="card-text text-center">Última actualización de este aviso de privacidad: 10/07/2021</h5>
+            <h5 class="card-text text-center">Última actualización de este aviso de privacidad: 29/07/2021</h5>
         </div>
     </div>
 </container>
