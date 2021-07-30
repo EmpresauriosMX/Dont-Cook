@@ -218,6 +218,7 @@ async function pintar_horario_html() {
     const lista = document.querySelector(`#restaurante_horario_${id}`);
     if (lista) {
       lista.innerHTML = "";
+      console.log(res);
       if (servicio_domicilio === 1) {
         lista.innerHTML = `
         <div class = "text-success">
@@ -226,7 +227,7 @@ async function pintar_horario_html() {
       } else {
         lista.innerHTML = `
         <!--div class = "text-warning">Sin Servicio a Domicilio! :/</div-->
-        <small class = "text-success">Abierto de ${apertura} a ${cierre} </small> `;
+        <small class = "text-success">Abierto de ${apuerta_formato_12h} a ${cierre_formato_12h} </small> `;
       }
     }
   });
