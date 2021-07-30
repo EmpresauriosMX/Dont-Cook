@@ -17,7 +17,7 @@
 <container>
     <div class="card text-center m-5">
         <div class="card-header">
-            <h1>Aviso de privacidad simplificado</h1>
+            <h2>Aviso de privacidad simplificado</h2>
         </div>
         <div class="card-body">
             <h5 class="card-text">Daniel Gonzalez, Saul Góngora, Luis Tzun, Osly Rodriguez mejores conocidos como Don't Cook, con domicilio en Quintana Roo, México son los responsables del uso y protección de sus datos personales, y al respecto le informamos lo siguiente:</h5>
@@ -35,7 +35,7 @@
 <br>
     <div class="card m-5">
         <div class="card-header text-center">
-            <h1>Aviso de privacidad integral</h1>
+            <h2>Aviso de privacidad integral</h2>
         </div>
         <div class="card-body">
             <h5 class="card-text">Daniel Gonzalez, Saul Góngora, Luis Tzun, Osly Rodriguez mejores conocidos como Don't Cook, con domicilio en Solidaridad, Quintana Roo, México y portal de internet <a href="../home/home.php">dontcook.mx</a> , son los responsables del uso y protección de sus datos personales, y al respecto le informamos lo siguiente:</h5>

@@ -15,7 +15,7 @@
 <!--contenido de la plantilla -->
 
 <container class="container">
-    <h2>ACERCA DE NOSOTROS</h2>
+    <h3>ACERCA DE NOSOTROS</h3>
     <div class="card m-5">
         
         <div class="card-body">
