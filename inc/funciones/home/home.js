@@ -132,7 +132,7 @@ async function pintar_horario_html() {
     const lista = document.querySelector(`#restaurante_horario_${id}`);
     if (lista) {
       lista.innerHTML = "";
-      console.log(servicio_domicilio);
+      //console.log(servicio_domicilio);
       if (servicio_domicilio === 1) {
         
         lista.innerHTML = `
