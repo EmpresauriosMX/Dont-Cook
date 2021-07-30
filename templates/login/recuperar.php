@@ -19,6 +19,10 @@
                     <input type="submit" value="Enviar">
                 </form>
                 <p></p>
+                <div class="login">
+                    <p>¿No tienes una cuenta?<a href="registro.php"> Registrate</a></p>
+                    <p>¿Tienes cuenta? <a href="login.php">Inicia Sesion</a></p>
+                </div>
             </div>
         </div>
 

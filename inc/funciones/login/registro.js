@@ -35,11 +35,12 @@ function registro_usuario(e) {
     datos.append("accion", "registrar");
   
     enviar_datos(url, datos).then((re) =>{
-      console.log(re);
+      //console.log(re);
       limpiar_campos();
+      alert("Usuario Registrado Exitosamente!");
     } );
   }else{
-    alert("las contraseñas no son iguales");
+    alert("Las Contraseñas No Son Iguales, Intentalo De Nuevo");
   }
  
 }
@@ -53,7 +54,7 @@ async function validar_usuario() {
 const resolve = await enviar_datos(url,datos);
 
 if (resolve.respuesta === true ){ 
-  alert("este usuario ya esta en uso"); 
+  alert("Este Usuario Ya Esta En Uso"); 
   usuario_input.value = "";
 } ;
 

@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //FUNCIONES QUE SE DEBEN DE CARGAR AL INICIO
 
     function ir_restaurantes() {
-        window.location.href ="../restaurantes/restaurantes.php";
+        window.location.href ="../home/home.php";
     }
 async function mostrarServicios(){
     var cuenta_activa = false;
@@ -23,7 +23,7 @@ async function mostrarServicios(){
     //VALIDACION DE UN LOG ANTERIOR
     if (cuenta_activa){
         //EXISTE UNA CUENTA
-        console.log("existe una cuenta");
+        //console.log("existe una cuenta");
         imprime_user_card();
     }
     else{
@@ -31,7 +31,7 @@ async function mostrarServicios(){
         //mostrar el mensaje de no existe una cuenta 
         let mensaje = "sin_cuenta";
         mostrar_mensaje(mensaje);
-        console.log("no existe una cuenta");
+        //console.log("no existe una cuenta");
     }
 }
 
@@ -39,37 +39,37 @@ async function imprime_user_card(){
     const datos = new FormData();
     datos.append("accion","user_data");
     const res = await enviar_datos(url, datos);
-    console.log(res);
+    //console.log(res);
     const {nombres, apellidos, correo, edad, usuario} = res;
     let div_user_card = document.querySelector("#user_card");
     div_user_card.innerHTML= `
         <div class="col-md-6 col-sm-12" id='card'>
-            <img alt='user-image' id='userImage' src='https://randomuser.me/api/portraits/men/62.jpg'>
+            <img alt='user-image' id='userImage' src='https://blog.cpanel.com/wp-content/uploads/2019/08/user-01.png'>
             <br>
             <h4 id='playerName'>${nombres} ${apellidos}</h4>
             <div id='states'>
                 <ul class='info'>
                     <li>
-                        Correo
+                        Correo:
                     </li>
                     <li>
-                        Edad
+                        Usuario:
                     </li>
                     <li>
-                        Ubicación
+                        Ubicación:
                     </li> 
                 </ul>
                 <ul class='values'>
-                    <li>${correo}</li>
-                    <li>${edad}</li>
-                    <li>${tienes_ciudad}</li>
+                    <li style="overflow-wrap: break-word;">${correo}</li>
+                    <li style="overflow-wrap: break-word;">${usuario}</li>
+                    <li style="overflow-wrap: break-word;">${tienes_ciudad}</li>
                 </ul>
             </div>
-            <div class=" mx-auto">
-                <a href='#' class='btn btn-dark mt-1'>
+            <div class="mx-auto">
+                <!--<a href='#' class='btn btn-dark mt-1'>
                     <i class='fa fa-edit'></i>
                     Editar
-                </a>
+                </a>-->
                 <a href='../admin/home_admin.php' class='btn btn-dark mt-1'>
                     <i class='fa fa-home'></i>
                     Mis restaurantes

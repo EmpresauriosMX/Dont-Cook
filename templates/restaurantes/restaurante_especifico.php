@@ -39,8 +39,11 @@
         include '../componentes/res_especifico.html';
      ?>
     <!--Fin contenido de la plantilla -->
-   
-    <script src="../../inc/funciones/restaurantes/mostrar_res.js" type="module"></script>
+    <!--script src="../../inc/funciones/home/categorias.js" type="module"></script-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/locale/es.js"></script>
+        <script src="../../inc/funciones/restaurantes/mostrar_res.js" type="module"></script>
     <br>
     <?php 
     include '../componentes/footer.html';

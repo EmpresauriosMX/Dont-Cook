@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 async function registro_usuario(e) {
   e.preventDefault();
   const usuario = document.querySelector("#usuario").value;
-const contraseña = document.querySelector("#contraseña").value;
+  const contraseña = document.querySelector("#contraseña").value;
   const url = "../../inc/peticiones/login/funciones.php";
   const datos = new FormData();
   datos.append("user", usuario);
@@ -19,8 +19,6 @@ const contraseña = document.querySelector("#contraseña").value;
 
   const peticion_bd = await enviar_datos(url, datos);
 
-  console.log(peticion_bd);
+  //console.log(peticion_bd);
   peticion_bd.respuesta === "correcto" ? window.location = '../home/home.php' : alert(`${peticion_bd.respuesta}`)
 }
-
-

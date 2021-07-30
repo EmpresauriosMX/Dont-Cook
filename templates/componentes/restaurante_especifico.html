@@ -1,81 +1,178 @@
-<div class="container">
-
+<div class="container" id="ver">
     <form action="" id="form_contenido_restaurante" name="form_contenido_restaurante">
-        
         <div class="section-title mt-3">
             <h2>Mis restaurantes</h2>
         </div>
         <!--<div class="containter">-->
-            <!--
-            <div class="row">
-                <div class="col-lg-6 col-md-6">
-                    <div class="product__details__pic">
-                        <div class="product__details__pic__item">
-                            <img id="img_restaurante" class="product__details__pic__item--large" src="../../src/img/restaurants/pikalogodarkmode.png" alt="">
+
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <div class="product__details__pic">
+                    <div class="product__details__pic__item">
+                        <img id="img_restaurante" class="img-fluid" alt="" />
+                        <div id="btn_modal_logo">
+
                         </div>
-    
-                    </div>
-                </div>
-    
-                <div class="col-lg-6 col-md-6">
-                    <div class="product__details__text">
-                        <h1 id="nombre_restaurante">PikaTako</h1>
-    
-                        <p id="descripcion_larga">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim, vel. Voluptates nulla aut impedit, in commodi sit, eum nam facere laboriosam ut praesentium aperiam nihil ipsam? Est, nemo aut? Tempore.</p>
-                        <div class="row mx-auto">
-                            <a id="facebook" href="#" class="fa fa-facebook btn site-btn mx-auto ml-2"></a>
-                            <a id="instagram" href="#" class="fa fa-instagram btn site-btn mx-auto ml-2"></a>
-                            <a id="favorito" href="#" class="fa fa-heart btn site-btn mx-auto ml-2"></a>
-                            <a id="editar" href="agregar_restaurante.php" class="fa fa-edit btm btn site-btn mx-auto ml-2"></a>
-                        </div>
-                        <br>
-    
-                    </div>
-                </div>
-
-            </div>
-
-
-
-            <br><br>
-            <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                    <div class="contact__widget">
-                        <span class="icon_phone"></span>
-                        <h4>Telefono</h4>
-                        <p id="telefono">+01-3-8888-6868</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                    <div class="contact__widget">
-                        <span class="icon_pin_alt"></span>
-                        <h4>Dirección</h4>
-                        <p id="direccion">60-49 Road 11378 New York</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                    <div class="contact__widget">
-                        <span class="icon_clock_alt"></span>
-                        <h4>Horarios</h4>
-                        <p id="horarios">10:00 am to 23:00 pm</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                    <div class="contact__widget">
-                        <span class="icon_mail_alt"></span>
-                        <h4>Correo</h4>
-                        <p id="correo">hello@colorlib.com</p>
+                        
                     </div>
                 </div>
             </div>
-            -->
+
+            <div class="col-lg-6 col-md-6">
+                <div class="product__details__text">
+                    <h1 id="nombre_restaurante"></h1>
+
+                    <p id="descripcion_larga"></p>
+                    <div class="row mx-auto">
+                        <a id="facebook" target="blank" id="face" href="#" class="fa fa-facebook btn site-btn mx-auto ml-2"></a>
+                        <a id="instagram" href="#" id="insta" class="fa fa-instagram btn site-btn mx-auto ml-2"></a>
+                        <!--<a id="favorito" href="#" class="fa fa-heart btn site-btn mx-auto ml-2"></a>-->
+                        <a id="editar" class="fa fa-edit btm btn site-btn mx-auto ml-2"></a>
+                    </div>
+                    <br />
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                <div class="contact__widget">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
+                        <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                    </svg>
+                    <h4>Telefono</h4>
+                    <p id="telefono"></p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                <div class="contact__widget">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                    </svg>
+                    <h4>Dirección</h4>
+                    <p id="direccion"></p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                <div class="contact__widget">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                        <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                    </svg>
+                    <h4>Horarios</h4>
+                    <p id="horarios"></p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                <div class="contact__widget">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                        <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
+                    </svg>
+                    <h4>Correo</h4>
+                    <p id="correo"></p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-6 text-center">
+                <div class="contact__widget">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-calendar3" viewBox="0 0 16 16">
+                    <path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"/>
+                    <path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                </svg>
+                    <h4>Días habiles</h4>
+                    <p id="dias"></p>
+                </div>
+            </div>
             
-            
-            
-    </form>
-    
-    <form action="" id="form_segundo_contenido" name="form_segundo_contenido">
+            <div class="col-lg-4 col-md-4 col-sm-6 text-center">
+                <div class="contact__widget">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-card-list" viewBox="0 0 16 16">
+                    <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                    <path d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
+                </svg>
+                    <h4>Categorias</h4>
+                    <p id="categorias"></p>
+                </div>
+            </div>
         
+        </div>
+    </form>
+
+    <form action="" id="form_segundo_contenido" name="form_segundo_contenido">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="product__details__tab">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab"
+                                aria-selected="true">Promociones</a>
+                        </li>
+                        <!--<li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab"
+                                aria-selected="false">Galeria</a>
+                        </li>-->
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab" aria-selected="false">Menús y platillos</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content">
+                        
+                        <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                            <div id="btn-promo" class="mt-3"> </div>
+                            <div id="contenido_promociones">
+                                <div class="product__details__tab__desc">
+                                    <div id="promos" class="card-columns mt-3 ">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="tab-pane" id="tabs-2" role="tabpanel"></div>
+                        <div class="tab-pane" id="tabs-3" role="tabpanel">
+                            <div class="product__details__tab__desc">
+                                <h3 class="section-title">Agrega tu menú en forma de texto!</h3>
+                                <br />
+                                <div id="editor">
+                                </div>
+                                <br />
+                                <div>
+                                </div>
+                                <br />
+
+                                <h5 class="section-title">O si prefieres agrega imagenes de tu menú o platillos!</h5>
+
+                                <div class="row ">
+                                    <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+                                        <img id="img_previa" src="" class="w-100 shadow-1-strong rounded mb-4" alt="" />
+                                    </div>
+                                    <div class="col-md-3 col-sm-6 col-lg-4 ">
+                                        <div class="card border-0">
+                                            <div class="card-body text-center">
+                                                <form action="../../inc/peticiones/admin/upload.php" method="post" enctype="multipart/form-data">
+                                                    <input type="file" class="custom-file-input" id="imagen" lang="es" accept=".png,.jpg">
+                                                    <label class="custom-file-label" for="customFileLang">seleccionar imagen</label>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-5 mt-1 mx-auto">
+                                    <button type="button" id="enviar_el_menu" value="contenido" class="btn site-btn btn-block">
+                                        Guardar menú
+                                    </button>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
         <!--
         <div class="row">
             <div class="col-lg-12">
@@ -130,6 +227,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                         
 
                         
@@ -223,7 +321,36 @@
     -->
         <!--</div>-->
     </form>
+            <!-- Modal -->
+<input type="hidden" class="cambio_imagen">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Editar imagen restaurante</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class=" input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"><img style="height: 20px;" src="../../src/img/iconos/imagen.png" alt=""></span>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="imagen_cambio" lang="es" accept=".png,.jpg">
+                    <label class="custom-file-label" for="customFileLang">Imagen de tu restaurante</label>
+                </div>                    
+            </div>
+            <img id="img_previa_cambio" src="" class="w-100 shadow-1-strong rounded mb-4" alt="" />
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button id="guardar_la_nueva_imagen" type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </div>
-
-        

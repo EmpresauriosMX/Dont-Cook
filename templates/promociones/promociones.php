@@ -2,71 +2,51 @@
 <html lang="zxx">
 
 <head>
-    <?php 
+    <?php
     include '../../templates/componentes/header.html';
     ?>
 </head>
+
 <body>
     <?php
     include '../../templates/componentes/head.html';
     include '../../templates/componentes/navegacion.html';
     ?>
 
-<!--contenido de la plantilla -->
+    <!--contenido de la plantilla -->
     <div class="container">
     </div>
     <!--Todo de home-->
-    
-    <section class="categories">
-        <div class="container">
-            <br>
-            <!-- Fin slider de categorias -->
 
-            <!--Tarjetas de promociones-->
-            <div class="section-title mt-3">
-                <h2>Promociones de Hoy!</h2>
+    <section class="categories">
+        
+        <div  class="container">
+            <div id="mensaje"></div>
+            <div id="contenedor">
+                <!--Tarjetas de promociones-->
+                <div id="titulo_promos_hoy" class="section-title mt-3">
+                    <h2>Promociones de Hoy!</h2>
+                </div>
+                <div id="contenido_promociones_hoy" class="card-columns">
+                    <!--Fin de tarjetas de promociones-->
+                </div>
+                <!--TODAS LAS PROMOCIONES-->
+                <!--Tarjetas de promociones-->
+                <div id="titulo_promociones_todas" class="section-title mt-3">
+                    <h2>Todas las promociones</h2>
+                </div>
+                <div id="contenido_promociones" class="card-columns">
+                    <div id="alert"></div>
+                </div>
             </div>
-            <div class="card-columns">
-                <?php
-                    $day = date("l");
-                    switch ($day) {
-                        case "Sunday":
-                            include '../../inc/peticiones/promociones/promociones_domingo.php';
-                        break;
-                        case "Monday":
-                            include '../../inc/peticiones/promociones/promociones_lunes.php';
-                        break;
-                        case "Tuesday":
-                            include '../../inc/peticiones/promociones/promociones_martes.php';
-                        break;
-                        case "Wednesday":
-                            include '../../inc/peticiones/promociones/promociones_miercoles.php';
-                        break;
-                        case "Thursday":
-                            include '../../inc/peticiones/promociones/promociones_jueves.php';
-                        break;
-                        case "Friday":
-                            include '../../inc/peticiones/promociones/promociones_viernes.php';
-                        break;
-                        case "Saturday":
-                            include '../../inc/peticiones/promociones/promociones_sabado.php';
-                        break;
-                    }
-                ?>
-                <!--Fin de tarjetas de promociones-->
-            </div>
-            <!--TODAS LAS PROMOCIONES-->
-            <!--Tarjetas de promociones-->
-            <div class="section-title mt-3">
-                <h2>Todas las promociones</h2>
-            </div>
-            <?php include '../../inc/peticiones/promociones/todas_promociones.php'; ?>
+            <br>
         </div>
     </section>
     <!--Fin de todo de home-->
-    <script src="../../inc/funciones/home/categorias.js" type="module"></script>
-<!--contenido de la plantilla -->
-    <?php 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../../inc/funciones/promociones/app.js" type="module"></script>
+    <!--contenido de la plantilla -->
+    <?php
     include '../../templates/componentes/footer.html';
     include '../../templates/componentes/scripts.html';
     ?>

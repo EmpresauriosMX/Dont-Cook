@@ -22,33 +22,25 @@
     <?php
         include '../componentes/restaurante_especifico.html';
     ?>
-    <div id="mensaje"></div>
+    
 
+
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <?php
         include '../componentes/footer.html';
         include '../componentes/scripts.html';
     ?>
 </body>
-
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/locale/es.js"></script>
 <script src="../../inc/funciones/admin/mostrar_res.js" type="module"></script>
+<!--<script src="../../inc/funciones/admin/subir_menu.js"></script>-->
 
 <!-- Include the Quill library -->
-<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
 
 
 <!-- Initialize Quill editor-->
-<script>
-    var quill = new Quill('#editor', {
-        theme: 'snow'
-    });
-
-    function jssave() {
-
-        let contenido = quill.container.firstChild.innerHTML;
-        fetch("../../inc/peticiones/admin/menu.php?contenido=" + contenido);
-        alert("El menú se a guardado");
-
-    }
-</script>
 
 </html>

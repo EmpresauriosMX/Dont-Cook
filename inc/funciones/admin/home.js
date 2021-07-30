@@ -16,7 +16,7 @@ async function mostrarServicios(){
     //VALIDACION DE UN LOG ANTERIOR
     if (cuenta_activa){
         //EXISTE UNA CUENTA
-        console.log("existe una cuenta");
+        //console.log("existe una cuenta");
         //AL EXISTIR UNA CUENTA SE VALIDA SI HAY RESTAURANTES
         cargar_restaurantes();
     }
@@ -25,7 +25,7 @@ async function mostrarServicios(){
         //mostrar el mensaje de no existe una cuenta 
         let mensaje = "sin_cuenta";
         mostrar_mensaje(mensaje);
-        console.log("no existe una cuenta");
+        //console.log("no existe una cuenta");
     }
 }
 
@@ -33,10 +33,10 @@ async function mostrarServicios(){
     async function cargar_restaurantes(){
         //e.preventDefault();
         const datos = new FormData();
-        console.log("ahora puedo buscar restaurantes");
+        //console.log("ahora puedo buscar restaurantes");
         datos.append("accion","busca_restaurantes");
         const res = await enviar_datos(url, datos);
-        console.log(res);
+        //console.log(res);
         //SI NO CUENTA CON RESTAURANTES
         if(res.respuesta == "sin_restaurantes"){
             let mensaje = "sin_restaurante";
@@ -51,7 +51,7 @@ async function mostrarServicios(){
                 <div class="blog-card col-md-12 col-sm-12 col-xs-12 col-lg-5 mx-auto">
                     <div class="meta">
                         <div class="photo" style="background-image: url(../../src/img/restaurantes/${foto}"></div>
-                        <ul class="details">
+                        <!--ul class="details">
                             <li class="author"><a href="#">Correo@mail.com</a></li>
                             <li class="tags">
                             <ul>
@@ -60,21 +60,20 @@ async function mostrarServicios(){
                                 <li><a href="#">Twitter</a></li>
                             </ul>
                             </li>
-                        </ul>
+                        </ul-->
                     </div>
                     <div class="description">
                         <h4>${nombre}</b></h4>
-                        <h5>Abierto / Cerrado</h5>
                         <p class=""><small class="text-muted">${descripcion}</small></p>
                             <div class="row">
                                 
                             </div>
                         <div class="read-more mt-2">
-                            <button type="button" class="btn btn-outline-secondary btn-sm">
-                                <span class="fa fa-heart">
+                            <a href="editar_restaurante.php?r=${id_restaurante}" class="btn btn-outline-danger btn-sm">
+                                <span class="fa fa-edit">
                                 </span>
-                                Favorito
-                            </button>
+                                Editar
+                            </a>
                             <a href="restaurante_ver.php?r=${id_restaurante}" class="btn btn-outline-secondary btn-sm">
                                 <span class="fa fa-eye" ></span> Visitar
                             </a>
@@ -84,7 +83,7 @@ async function mostrarServicios(){
                 `;
             });
             div_restaurantes.innerHTML += `
-                <div class="row mx-auto mt-3">
+                <div class="row justify-content-center mt-3">
                     <div class="col-md-3 ">
                         <a href="agregar_restaurante.php" class="btn btn-sm primary-btn  "> Agregar restaurante</a>
                     </div> 
