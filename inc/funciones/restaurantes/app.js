@@ -61,6 +61,8 @@ async function mostar_banner_categoria(categoria) {
     "Comida rapida": ["fast.jpg", "Comida rapida"],
     "Mariscos": ["camaron.jpg", "Mariscos"],
     "Pizzerías": ["pizza.jpg", "Pizzerías"],
+    "Heladería": ["helado.jpg", "Heladería"],
+    "Otros": ["otros.jpg", "Otros"],
     "Panaderías": ["panaderia.jpg", "Panaderías"],
     "Pastelerías": ["pasteleria.jpg", "Pastelerías"],
     "Servicio a domicilio": ["delivery.jpg", "Servicio a domicilio"],
