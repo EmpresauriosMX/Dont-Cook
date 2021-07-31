@@ -14,9 +14,9 @@ async function mostrar_usuarios() {
   const datos = new FormData();
   datos.append("accion", "mostrar_usuarios");
   const res = await enviar_datos(url, datos);
-  console.log(res);
+const reverso = res.reverse();  
   limpiar_html();
-  usuarios_html(res);
+  usuarios_html(reverso);
 
 }
 

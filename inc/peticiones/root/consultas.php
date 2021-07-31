@@ -37,7 +37,7 @@ function enviar(): array
 
 function mostrar_usuarios(): array
 {
-        $sql = "SELECT id_usuario,nombres,apellidos,correo,usuario,estado FROM usuarios";
+        $sql = "SELECT id_usuario,nombres,apellidos,correo,usuario,estado FROM usuarios  ORDER BY usuarios.id_usuario ASC";
     try {
         require '../../../conexion.php';
         $stmt = $conn->prepare($sql);
