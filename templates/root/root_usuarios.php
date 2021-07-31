@@ -23,7 +23,7 @@ include '../../inc/peticiones/login/sesion.php';
         <div class="section-title mt-3">
             <h2>Todas los usuarios</h2>
         </div>
-        <div class="card-columns mt-3">
+        <div class="">
             <table class="table">
                 <thead>
                     <tr>
