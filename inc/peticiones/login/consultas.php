@@ -46,36 +46,37 @@ function buscar_usuario(): array
         require '../../../conexion.php';
         $usuario = $_POST['user'];
         $contraseña_recibida = $_POST['password'];
-        $stmt = $conn->prepare("SELECT id_usuario,correo,usuario,contraseña FROM usuarios WHERE usuario = ?");
+        $stmt = $conn->prepare("SELECT id_usuario,correo,usuario,contraseña, estado FROM usuarios WHERE usuario = ?");
         $stmt->bind_param('s', $usuario);
         $stmt->execute();
 
         // Loguear el usuario
-        $stmt->bind_result($id_usuario, $correo_usuario, $nombre_usuario, $contraseña_usuario);
+        $stmt->bind_result($id_usuario, $correo_usuario, $nombre_usuario, $contraseña_usuario, $estado);
         $stmt->fetch();
 
         if ($nombre_usuario) {
-            if (password_verify($contraseña_recibida, $contraseña_usuario)) {
-                session_start(); //datos de la session
-                $_SESSION['nombre'] = $usuario;
-                $_SESSION['id'] = $id_usuario;
-                $_SESSION['login'] = true;
-
-                $respuesta = array(
-                    'respuesta' => 'correcto',
-                    'id' => $id_usuario,
-                    'nombre' => $nombre_usuario,
-                    'corre0' => $correo_usuario,
-                    'contra' => $contraseña_usuario,
-                    'otra_contra' => $contraseña_recibida,
-                    'usuarioooo' => $usuario
-                );
-            } else {
-                $respuesta = array(
-                    'respuesta' => 'Contraseña Incorrecta'
-                    
-                );
+            if ($estado === 1) {
+                if (password_verify($contraseña_recibida, $contraseña_usuario)) {
+                    session_start(); //datos de la session
+                    $_SESSION['nombre'] = $usuario;
+                    $_SESSION['id'] = $id_usuario;
+                    $_SESSION['login'] = true;
+    
+                    $respuesta = array(
+                        'respuesta' => 'correcto'
+                    );
+                } else {
+                    $respuesta = array(
+                        'respuesta' => 'Contraseña Incorrecta'
+                        
+                    );
+                }
+            }else {
+               $respuesta = array (
+                   'respuesta' => 'espere a que sea validado su usario por un adminsitrador esto puede dar unos minutos'
+               );
             }
+         
         }else{
             $respuesta = array(
                 'respuesta' => "El Usuario No Existe, Registrate Como Nuevo!"
