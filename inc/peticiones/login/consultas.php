@@ -55,26 +55,20 @@ function buscar_usuario(): array
         $stmt->fetch();
 
         if ($nombre_usuario) {
-            if ($estado === 1) {
-                if (password_verify($contraseña_recibida, $contraseña_usuario)) {
-                    session_start(); //datos de la session
-                    $_SESSION['nombre'] = $usuario;
-                    $_SESSION['id'] = $id_usuario;
-                    $_SESSION['login'] = true;
-    
-                    $respuesta = array(
-                        'respuesta' => 'correcto'
-                    );
-                } else {
-                    $respuesta = array(
-                        'respuesta' => 'Contraseña Incorrecta'
-                        
-                    );
-                }
-            }else {
-               $respuesta = array (
-                   'respuesta' => 'espere a que sea validado su usario por un adminsitrador esto puede dar unos minutos'
-               );
+            if (password_verify($contraseña_recibida, $contraseña_usuario)) {
+                session_start(); //datos de la session
+                $_SESSION['nombre'] = $usuario;
+                $_SESSION['id'] = $id_usuario;
+                $_SESSION['login'] = true;
+
+                $respuesta = array(
+                    'respuesta' => 'correcto'
+                );
+            } else {
+                $respuesta = array(
+                    'respuesta' => 'Contraseña Incorrecta'
+                    
+                );
             }
          
         }else{

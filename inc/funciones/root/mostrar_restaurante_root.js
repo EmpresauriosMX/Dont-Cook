@@ -19,6 +19,9 @@ let imagen_previa_cambio = document.querySelector("#img_previa_cambio");
 
 const btn_modal_guardar_imagen = document.querySelector("#guardar_la_nueva_imagen");
 
+
+const contenedor_restaurantes = document.querySelector("#contenedor_restaurante");
+
 const datos_cambio_imagen = {
     'tipo': "" ,
     'id': ""
@@ -34,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const parametrosURL = new URLSearchParams(window.location.search);
     let restaurante = parametrosURL.get("r");
     enviar_menu.addEventListener("click",jssave);
+    contenedor_restaurantes.addEventListener("click",editar_estado);
     imagen_a_enviar_cambio.addEventListener('change',mostrar_imagen_seleccionada_cambio);
     imagen_a_enviar.addEventListener("change",mostrar_imagen_seleccionada);
     //SI LE PASAMOS UN RESTAURANTE LO BUSCARA
@@ -52,6 +56,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     btn_modal_guardar_imagen.addEventListener("click",cambiar_imagen );
 });
+
+
+async function editar_estado(e) {
+  console.log(e.target);
+  if (e.target.classList.contains("btn_cambiar")) {
+
+    const cambio_estado = 1;
+
+    const datos = new FormData();
+    datos.append("estado", cambio_estado);
+    datos.append("id_restaurante", id_restaurante);
+    datos.append("accion", "cambiar_estado_restaurante");
+    const res = await enviar_datos(url, datos);
+    window.location.href ="../root/root_restaurantes_pendientes.php";
+}
+}
 
 async function mostrar_restaurante(id){
     const datos = new FormData();

@@ -14,12 +14,11 @@ async function mostrar_usuarios() {
   const datos = new FormData();
   datos.append("accion", "mostrar_restaurantes_pendientes");
   const res = await enviar_datos(url, datos);
-const reverso = res.reverse();  
+  const reverso = res.reverse();
   limpiar_html();
   usuarios_html(reverso);
-
 }
-
+/*
 async function editar_estado(e) {
     console.log(e.target);
     if (e.target.classList.contains("btn_cambiar")) {
@@ -40,14 +39,10 @@ async function editar_estado(e) {
 
     
     }
-}
+}*/
 
 function usuarios_html(datos) {
-    let clase_pintar = "";
-
-    console.log(datos);
     datos.forEach((restaurante) => {
-        console.log(restaurante);
     const {id, nombre, /*lugar, horario,*/ descripcion, imagen, estado } = restaurante;
     let imagen_real = imagen
     if(imagen_real == null){
@@ -70,16 +65,11 @@ function usuarios_html(datos) {
                         <p class=""><small class="text-muted">${descripcion}</small></p>
                         <div class="row">
                             <div class="read-more mt-2">
-                                <input class="btn btn-primary btn_cambiar" data-estado="${estado}" data-id="${id}" type="button" value="cambiar estado">
                                 <a href="root_restaurante_ver.php?r=${id}" class="btn btn-outline-secondary btn-sm">
                                     <span class="fa fa-eye" ></span> Visitar
                                 </a>
-                            </div>
-                            
-                                
-                            
+                            </div>   
                         </div>  
-                        
                     </div>
                 </div>
                 `;
