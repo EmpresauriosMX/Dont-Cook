@@ -68,16 +68,18 @@ function usuarios_html(datos) {
                         <h4>${nombre}</b></h4>
                         <h5>Abierto / Cerrado</h5>
                         <p class=""><small class="text-muted">${descripcion}</small></p>
-                            <div class="row">
-                                
+                        <div class="row">
+                            <div class="read-more mt-2">
+                                <input class="btn btn-primary btn_cambiar" data-estado="${estado}" data-id="${id}" type="button" value="cambiar estado">
+                                <a href="root_restaurante_ver.php?r=${id}" class="btn btn-outline-secondary btn-sm">
+                                    <span class="fa fa-eye" ></span> Visitar
+                                </a>
                             </div>
-                        <div class="read-more mt-2">
+                            
+                                
+                            
+                        </div>  
                         
-                            <input class="btn btn-primary btn_cambiar" data-estado="${estado}" data-id="${id}" type="button" value="cambiar estado">
-                            <a href="root_restaurante_ver.php?r=${id}" class="btn btn-outline-secondary btn-sm">
-                                <span class="fa fa-eye" ></span> Visitar
-                            </a>
-                        </div>
                     </div>
                 </div>
                 `;
