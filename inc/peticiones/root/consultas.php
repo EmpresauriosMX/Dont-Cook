@@ -412,7 +412,6 @@ function ver_promo_especifico(): array
     }
 }
 
-
 //categorias
 function obtener_categorias(): array
 {
@@ -424,6 +423,20 @@ function obtener_categorias(): array
         $stmt->execute();
 
         $stmt->bind_result($id, $nombre);
+
+        $respuesta = [];
+        $i = 0;
+
+        while ($stmt->fetch()) {
+            $respuesta[$i]['id'] = $id;
+            $respuesta[$i]['nombre'] = $nombre;
+            $i++;
+        }
+        $stmt->close();
+    } catch (\Throwable $th) {
+    }
+    return $respuesta;
+}
 
 function mostrar_restaurantes_pendientes(): array
 {
@@ -708,5 +721,3 @@ function cambiar_estado_restaurante(): array
     }
     return $respuesta;
 }
-
-?>
