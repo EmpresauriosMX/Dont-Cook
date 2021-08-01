@@ -74,7 +74,7 @@ function usuarios_html(datos) {
                         <div class="read-more mt-2">
                         
                             <input class="btn btn-primary btn_cambiar" data-estado="${estado}" data-id="${id}" type="button" value="cambiar estado">
-                            <a href="restaurante_especifico.php?r=${id}" class="btn btn-outline-secondary btn-sm">
+                            <a href="root_restaurante_ver.php?r=${id}" class="btn btn-outline-secondary btn-sm">
                                 <span class="fa fa-eye" ></span> Visitar
                             </a>
                         </div>

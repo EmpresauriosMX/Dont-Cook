@@ -710,7 +710,7 @@ function cambiar_estado_restaurante(): array
             $sql = "UPDATE restaurantes SET verificador = $estado WHERE restaurantes.id_restaurante = $restaurante";
             mysqli_query($conn, $sql);
             $respuesta = array(
-                'respuesta' => "ok",
+                'respuesta' => "ok"
             );
             
         } catch (\Throwable $th) {
