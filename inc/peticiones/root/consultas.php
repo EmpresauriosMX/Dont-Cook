@@ -496,7 +496,7 @@ function actualiza_datos_generales(): array
             $sql = "UPDATE `restaurantes` 
                     SET `nombre`='$nombre',`descripcion_corta`='$des_corta',
                         `des_larga`='$des_larga',`serv_dom`= $serv_domicilio 
-                        WHERE `id_propietario` = $id_user and `id_restaurante` = $id_res";
+                        WHERE `id_restaurante` = $id_res";
             $consulta = mysqli_query($conn, $sql);
             $respuesta = [];
             $respuesta = array(
@@ -536,7 +536,7 @@ function actualiza_datos_contacto(): array
             $sql = "UPDATE `restaurantes` 
                     SET `telefono`='$telefono',`correo`='$email',
                         `fb`='$face',`inst`='$insta' 
-                    WHERE  `id_propietario` = $id_user and `id_restaurante` = $id_res";
+                    WHERE `id_restaurante` = $id_res";
             $consulta = mysqli_query($conn, $sql);
             $respuesta = [];
             $respuesta = array(
@@ -570,7 +570,7 @@ function actualiza_datos_ciudad(): array
             $sql = "UPDATE `restaurantes` 
                     SET `ciudad`='$ciudad',`direccion`='$direccion',
                         `codigo_postal`='$codigo_postal'
-                    WHERE  `id_propietario` = $id_user and `id_restaurante` = $id_res";
+                    WHERE  `id_restaurante` = $id_res";
             $consulta = mysqli_query($conn, $sql);
             $respuesta = [];
             $respuesta = array(

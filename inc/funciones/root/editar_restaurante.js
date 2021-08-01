@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
       //obtener las dias a escoger
       lista_dias.addEventListener("change", agregar_dia);
 
-      btn_confirmar_ciudad.addEventListener("click", ir_restaurantes)
+      //btn_confirmar_ciudad.addEventListener("click", ir_restaurantes)
 
       //form_edit_general.addEventListener("submit", editar_datos_generales);
 

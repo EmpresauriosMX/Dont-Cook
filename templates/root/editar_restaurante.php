@@ -170,7 +170,7 @@ include '../../inc/peticiones/login/sesion.php';
 
                                                                 </select>
                                                                 <div class="input-group-append">
-                                                                    <button id="enviar" name="enviar" value="Guardar" class="btn btn-dark" type="button">Guardar solo la ciudad</button>
+                                                                    <!--button id="enviar" name="enviar" value="Guardar" class="btn btn-dark" type="button">Guardar solo la ciudad</button-->
                                                                 </div>
                                                             </div>
                                                             <!--<input type="submit" id="enviar" name="enviar" value="Guardar" />-->
