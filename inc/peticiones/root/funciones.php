@@ -12,6 +12,12 @@ switch ($accion) {
     case "cambiar_estado_usuario":
         $resultado = cambiar_estado_usuario();
         break;
+    case "mostrar_restaurantes_pendientes":
+        $resultado = mostrar_restaurantes_pendientes();
+        break;
+    case "cambiar_estado_restaurante":
+        $resultado = cambiar_estado_restaurante();
+        break;
 }
 
 

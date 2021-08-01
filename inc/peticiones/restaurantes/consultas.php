@@ -4,9 +4,9 @@ function obtener_restaurantes(): array
 {
     $ciudad = $_POST['ciudad'];
     if (isset($ciudad)) {
-        $sql = "SELECT id_restaurante,nombre,descripcion_corta,horario,ciudad,foto,correo,fb,inst FROM restaurantes WHERE ciudad = '$ciudad'";
+        $sql = "SELECT id_restaurante,nombre,descripcion_corta,horario,ciudad,foto,correo,fb,inst FROM restaurantes WHERE ciudad = '$ciudad' AND verificador = 1";
     }else {
-        $sql = "SELECT id_restaurante,nombre,descripcion_corta,horario,ciudad,foto,correo,fb,inst FROM restaurantes";
+        $sql = "SELECT id_restaurante,nombre,descripcion_corta,horario,ciudad,foto,correo,fb,inst FROM restaurantes WHERE verificador = 1";
     }
     try {
         require '../../../conexion.php';
@@ -51,7 +51,7 @@ function obtener_restaurantes_categoria(): array
                 `categorias`.`nombre` as `nombre_categoria` FROM `categorias_restaurantes`, `categorias`, `restaurantes`
                 WHERE `categorias_restaurantes`.`id_categoria` = `categorias`.`id_categoria` and 
                 `restaurantes`.`id_restaurante` = `categorias_restaurantes`.`id_restaurante` and 
-                `categorias`.`nombre` = '$categoria' and `restaurantes`.`ciudad` = '$ciudad'";
+                `categorias`.`nombre` = '$categoria' and `restaurantes`.`ciudad` = '$ciudad' and restaurantes.verificador = 1";
                 $consulta = mysqli_query($conn, $sql);
             $respuesta = [];
             $i = 0;
@@ -132,7 +132,7 @@ function res_especifico(): array
     $id_restaurante = $_POST['id'];
         try {
             require '../../../conexion.php';
-            $sql = "SELECT * FROM `restaurantes` WHERE `id_restaurante` = $id_restaurante";
+            $sql = "SELECT * FROM `restaurantes` WHERE `id_restaurante` = $id_restaurante AND verificador = 1";
             $consulta = mysqli_query($conn, $sql);
             $respuesta = [];
             //SI CUENTA CON RESTAURANTES
@@ -175,7 +175,7 @@ function obtener_horarios(): array
 
     $sql = "SELECT restaurantes.id_restaurante,restaurantes.serv_dom,fechas.dia,fechas.hora_inicio,fechas.hora_fin
      FROM restaurantes,fechas WHERE fechas.id_restaurante = restaurantes.id_restaurante
-      AND fechas.dia = $dia AND restaurantes.ciudad ='$ciudad' ";
+      AND fechas.dia = $dia AND restaurantes.ciudad ='$ciudad' and restaurantes.verificador = 1 ";
 
     try {
         require '../../../conexion.php';
