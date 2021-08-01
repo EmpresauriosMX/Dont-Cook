@@ -3,6 +3,9 @@ $accion = $_POST['accion'];
 require 'consultas.php';
 
 switch ($accion) {
+    case "info_categorias":
+        $resultado = info_categorias();
+        break;
     case "registrar_categoria":
         $resultado = enviar();
         break;
@@ -74,6 +77,7 @@ switch ($accion) {
     case "cambiar_estado_restaurante":
         $resultado = cambiar_estado_restaurante();
         break;
+    
 }
 
 
