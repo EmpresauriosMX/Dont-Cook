@@ -49,20 +49,20 @@ function usuarios_html(datos) {
     datos.forEach((restaurante) => {
         console.log(restaurante);
     const {id, nombre, /*lugar, horario,*/ descripcion, imagen, estado } = restaurante;
+    let imagen_real = imagen
+    if(imagen_real == null){
+      imagen_real = "fondo.png"
+    }
+    if(estado === 1){
+        var clase = "success";
+    }
+    else{
+        var clase = "danger";
+    }
     contenedor_restaurantes.innerHTML += `
-                <div class="blog-card col-md-12 col-sm-12 col-xs-12 col-lg-5 mx-auto">
+                <div class="blog-card bg-${clase} col-md-12 col-sm-12 col-xs-12 col-lg-5 mx-auto">
                     <div class="meta">
-                        <div class="photo" style="background-image: url(../../src/img/restaurantes/${imagen}"></div>
-                        <ul class="details">
-                            <li class="author"><a href="#">Correo@mail.com</a></li>
-                            <li class="tags">
-                            <ul>
-                                <li><a href="#">Facebook</a></li>
-                                <li><a href="#">Instagram</a></li>
-                                <li><a href="#">Twitter</a></li>
-                            </ul>
-                            </li>
-                        </ul>
+                        <div class="photo" style="background-image: url(../../src/img/restaurantes/${imagen_real}"></div>
                     </div>
                     <div class="description">
                         <h4>${nombre}</b></h4>

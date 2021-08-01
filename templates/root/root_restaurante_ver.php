@@ -20,7 +20,7 @@
     
     <!--contenido de la plantilla -->
     <?php
-        include '../componentes/restaurante_especifico.html';
+        include '../componentes/root_restaurante_especifico.html';
     ?>
     
 
