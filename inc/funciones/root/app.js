@@ -1,4 +1,4 @@
-//import { enviar_datos,} from "../funciones_generales.js";
+import {enviar_datos} from "../funciones_generales.js";
 
 const url = "../../inc/peticiones/root/funciones.php";
 const contenido_agregar = document.querySelector("#form_agregar");
@@ -7,6 +7,7 @@ const contenido_mostrar = document.querySelector("#form_categoria");
 
 document.addEventListener("DOMContentLoaded", () => {
     contenido_agregar.addEventListener("submit",guardar);
+    mostrar_categoria();
 });
 
 async function guardar(){
@@ -44,20 +45,22 @@ async function mostrar_categoria(){
 
 
 
-async function imprime_categorias() {
+async function imprime_categorias(res) {
     let contenido1 = document.querySelector("#carta_categoria");
 
     res.forEach((element) => {
 
         const {id,  nombre} = element;
         console.log(element);
-        contenido1.innerHTML = `
+        contenido1.innerHTML += `
+        <div  class="card">
             <img class="card-img-top" src="../../src/img/banner/banner_dc5.png" alt="Card image cap">
             <div class="card-body"></div>
                 <h5 name="nombre" id="nombre" class="card-title">${nombre}</h5>
                 <button class="btn btn-dark btn-lg btn-block">Editar</button> 
                 <button class="btn btn-danger btn-lg btn-block">Eliminar</button>    
             </div>
+        </div>
         `;
 
     });

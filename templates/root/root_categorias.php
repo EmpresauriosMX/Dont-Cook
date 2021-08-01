@@ -37,11 +37,8 @@
 
 <form id="form_categoria" name="form_categoria" action="">
     <div class="container mt-5">
-        <div class="card-columns">
+        <div id="carta_categoria" name="carta_categoria" class="card-columns">
 
-            <div id="carta_categoria" name="carta_categoria" class="card">
-                
-            </div>
             
         </div>
    </div>
