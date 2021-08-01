@@ -101,8 +101,8 @@ function imprime_restaurante(datos) {
     texto_correo.innerHTML = `${correo}`;
 
     img_restaurante.setAttribute("src", `../../src/img/restaurantes/${foto}`);
-    facebook.setAttribute("href", `${fb}`);
-    enlace_editar_restaurante.setAttribute("href",`editar_restaurante.php?r=${id}`);
+    //facebook.setAttribute("href", `${fb}`);
+    //enlace_editar_restaurante.setAttribute("href",`../admin/editar_restaurante.php?r=${id}`);
 
     const url_datos_externos = "../../inc/peticiones/restaurantes/funciones.php";
     imprime_restaurante_categorias(url_datos_externos);
