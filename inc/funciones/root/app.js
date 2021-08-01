@@ -28,11 +28,43 @@ async function guardar(){
 
 }
 
+async function mostrar_categoria(){
+    const datos = new FormData();
+    datos.append("accion","info_categorias");
+    const res = await enviar_datos(url, datos);
+    console.log(res);
+    //SI SE ENCUENTRA EL RESTAURANTE SE IMPRIME
+    if(!res.respuesta){
+        imprime_categorias(res);
+    }
+    else{
+        mostrar_mensaje("error");
+    }
+}
 
-/*
- res.forEach(respuesta => {
-        const {nombre} = respuesta;
-        div_restaurantes.innerHTML += `
-        
+
+
+async function imprime_categorias() {
+    let contenido1 = document.querySelector("#carta_categoria");
+
+    res.forEach((element) => {
+
+        const {id,  nombre} = element;
+        console.log(element);
+        contenido1.innerHTML = `
+            <img class="card-img-top" src="../../src/img/banner/banner_dc5.png" alt="Card image cap">
+            <div class="card-body"></div>
+                <h5 name="nombre" id="nombre" class="card-title">${nombre}</h5>
+                <button class="btn btn-dark btn-lg btn-block">Editar</button> 
+                <button class="btn btn-danger btn-lg btn-block">Eliminar</button>    
+            </div>
         `;
-    });*/
+
+    });
+    
+    
+
+    //img_restaurante.setAttribute("src", `../../src/img/restaurantes/${foto}`);
+    
+
+}
