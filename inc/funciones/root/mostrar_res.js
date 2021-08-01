@@ -267,7 +267,7 @@ function btn_agregar_promo(id){
     div_promociones.innerHTML+=`
         <div class="row justify-content-center mt-3">
             <div class="col-md-3 mt-3">
-                <a href="agregar_promocion.php?r=${id}" class="btn btn-sm primary-btn"> Agregar promoción</a>
+                <a href="../admin/agregar_promocion.php?r=${id}" class="btn btn-sm primary-btn"> Agregar promoción</a>
             </div> 
         </div>
         `;
@@ -325,9 +325,12 @@ async function llenado_menu(){
     datos.append("accion", "mostrar_menu");
     const res = await enviar_datos(url, datos);
     const veamos = document.querySelector(".ql-editor");
-
-    veamos.innerHTML =`${res[0].descripcion}`;
-    imagen_previa.src = `../../src/img/menus/${res[0].imagen}`;
+    console.log(res);
+    if(!res.sin_menu){
+        veamos.innerHTML =`${res[0].descripcion}`;
+        imagen_previa.src = `../../src/img/menus/${res[0].imagen}`;
+    }
+    
 }
 
 function mostrar_imagen_seleccionada() {

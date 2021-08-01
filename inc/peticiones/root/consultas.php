@@ -107,7 +107,7 @@ function info_restaurante(): array
         $id_restaurante = $_POST['id'];
         try {
             require '../../../conexion.php';
-            $sql = "SELECT * FROM `restaurantes` WHERE `id_propietario` = $id_user";
+            $sql = "SELECT * FROM `restaurantes` WHERE `id_restaurante` = $id_restaurante";
             $consulta = mysqli_query($conn, $sql);
             $respuesta = [];
             //SI CUENTA CON RESTAURANTES
