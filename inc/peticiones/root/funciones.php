@@ -68,6 +68,11 @@ switch ($accion) {
         break;
     case 'cambiar_imagen_promocion':
         $resultado = cambiar_imagen_promocion();
+    case "mostrar_restaurantes_pendientes":
+        $resultado = mostrar_restaurantes_pendientes();
+        break;
+    case "cambiar_estado_restaurante":
+        $resultado = cambiar_estado_restaurante();
         break;
 }
 

@@ -40,6 +40,8 @@
         
         include '../componentes/scripts.html';
     ?>
+        <script src="../../inc/funciones/root/restaurantes_pendientes.js" type="module"></script>
+
 </body>
 
 </html>

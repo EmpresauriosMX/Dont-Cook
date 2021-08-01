@@ -425,12 +425,27 @@ function obtener_categorias(): array
 
         $stmt->bind_result($id, $nombre);
 
+function mostrar_restaurantes_pendientes(): array
+{
+        $sql = "SELECT id_restaurante,nombre,foto,descripcion_corta,verificador FROM restaurantes WHERE verificador = 0  ORDER BY restaurantes.id_restaurante ASC";
+    try {
+        require '../../../conexion.php';
+        $stmt = $conn->prepare($sql);
+        //$stmt->bind_param('s', $usuario);
+        $stmt->execute();
+
+        // Loguear el usuario
+        $stmt->bind_result($id,$nombre, $imagen, $descripcion, $estado);
+
         $respuesta = [];
         $i = 0;
 
         while ($stmt->fetch()) {
             $respuesta[$i]['id'] = $id;
             $respuesta[$i]['nombre'] = $nombre;
+            $respuesta[$i]['imagen'] = $imagen;
+            $respuesta[$i]['descripcion'] = $descripcion;
+            $respuesta[$i]['estado'] = $estado;
             $i++;
         }
         $stmt->close();
@@ -666,5 +681,32 @@ function cambiar_imagen_restaurante(): array
 
   
 
+function cambiar_estado_restaurante(): array
+{
+    $cuenta_existente = false;
+    session_start();
+    $id_user = $_SESSION['id'];
+    if ($id_user != "") { 
+        $cuenta_existente = true;
+    }
+    if ($cuenta_existente) {
+        $estado = (int) $_POST['estado'];
+        $restaurante =(int) $_POST['id_restaurante'];
+        try {
+            require '../../../conexion.php';
+            $sql = "UPDATE restaurantes SET verificador = $estado WHERE restaurantes.id_restaurante = $restaurante";
+            mysqli_query($conn, $sql);
+            $respuesta = array(
+                'respuesta' => "ok",
+            );
+            
+        } catch (\Throwable $th) {
+            $respuesta = array(
+                'respuesta' => $th
+            );
+        }
+    }
+    return $respuesta;
+}
 
 ?>
