@@ -93,6 +93,40 @@ function cambiar_estado_usuario(): array
     return $respuesta;
 }
 
+function horario_restaurante(): array
+{   
+        $id_restaurante = $_POST['id'];
+        try {
+            require '../../../conexion.php';
+            $sql = "SELECT * FROM `fechas` WHERE `id_restaurante` = $id_restaurante";
+            $consulta = mysqli_query($conn, $sql);
+            $respuesta = [];
+            $i = 0;
+            //SI CUENTA CON RESTAURANTES
+            if (mysqli_num_rows($consulta) != 0) {
+                while ($row = mysqli_fetch_assoc($consulta)) {
+                    $respuesta[$i]['id_restaurante'] = $row['id_restaurante'];
+                    $respuesta[$i]['id_fechas'] = $row['id_fechas'];
+                    $respuesta[$i]['dia'] = $row['dia'];
+                    $respuesta[$i]['hora_inicio'] = $row['hora_inicio'];
+                    $respuesta[$i]['hora_fin'] = $row['hora_fin'];
+                    $i++;
+                }
+            } else {
+                //SI NO CUENTA CON RESTAURANTES
+                $respuesta = array(
+                    'respuesta' => "sin_horario",
+                    'consulta' => mysqli_num_rows($consulta)
+                );
+            }
+        } catch (\Throwable $th) {
+            $respuesta = array(
+                'respuesta' => "entro al catch "
+            );
+        }
+    return $respuesta;
+}
+
 function info_restaurante(): array
 {
     $cuenta_existente = false;
@@ -437,6 +471,217 @@ function obtener_categorias(): array
     }
     return $respuesta;
 }
+
+//--------ACTUALIZACION DE DATOS EN EDIT RESTAURANTE
+function actualiza_datos_generales(): array
+{
+    $cuenta_existente = false;
+    //-----------SE ABRE LA SESIÓN DEL USUARIO
+    session_start();
+    $id_user = $_SESSION['id'];
+    //$cuenta_existente = $id_user ? 'true' : 'false';
+    if ($id_user != "") { //si la variable de sesión está vacia entonces se redirige al login
+        $cuenta_existente = true;
+    }
+    //SE VALIDA DE QUE TENGA UNA CUENTA EXISTENTE
+    if ($cuenta_existente) {
+        $id_res = $_POST['id'];
+        $nombre = $_POST['nombre'];
+        $des_corta = $_POST['desc_corta'];
+        $des_larga = $_POST['desc_larga'];
+        $serv_domicilio = (int) $_POST['servicio'];
+        try {
+            //ACTUALIZACION DEL RESTAURANTE GENERAL
+            require '../../../conexion.php';
+            $sql = "UPDATE `restaurantes` 
+                    SET `nombre`='$nombre',`descripcion_corta`='$des_corta',
+                        `des_larga`='$des_larga',`serv_dom`= $serv_domicilio 
+                        WHERE `id_propietario` = $id_user and `id_restaurante` = $id_res";
+            $consulta = mysqli_query($conn, $sql);
+            $respuesta = [];
+            $respuesta = array(
+                'respuesta' => "ok",
+            );
+            
+        } catch (\Throwable $th) {
+            $respuesta = array(
+                'respuesta' => $th
+            );
+            return $respuesta;
+        }
+    }
+    return $respuesta;
+}
+
+function actualiza_datos_contacto(): array
+{
+    $cuenta_existente = false;
+    //-----------SE ABRE LA SESIÓN DEL USUARIO
+    session_start();
+    $id_user = $_SESSION['id'];
+    //$cuenta_existente = $id_user ? 'true' : 'false';
+    if ($id_user != "") { //si la variable de sesión está vacia entonces se redirige al login
+        $cuenta_existente = true;
+    }
+    //SE VALIDA DE QUE TENGA UNA CUENTA EXISTENTE
+    if ($cuenta_existente) {
+        $id_res = $_POST['id'];
+        $telefono = $_POST['telefono'];
+        $email = $_POST['email'];
+        $face = $_POST['face'];
+        $insta = $_POST['insta'];
+        try {
+            //ACTUALIZACION DEL RESTAURANTE GENERAL
+            require '../../../conexion.php';
+            $sql = "UPDATE `restaurantes` 
+                    SET `telefono`='$telefono',`correo`='$email',
+                        `fb`='$face',`inst`='$insta' 
+                    WHERE  `id_propietario` = $id_user and `id_restaurante` = $id_res";
+            $consulta = mysqli_query($conn, $sql);
+            $respuesta = [];
+            $respuesta = array(
+                'respuesta' => "ok",
+            );
+            
+        } catch (\Throwable $th) {
+            $respuesta = array(
+                'respuesta' => $th
+            );
+            return $respuesta;
+        }
+    }
+    return $respuesta;
+}
+function actualiza_datos_ciudad(): array
+{
+    $cuenta_existente = false;
+    session_start();
+    $id_user = $_SESSION['id'];
+    if ($id_user != "") { 
+        $cuenta_existente = true;
+    }
+    if ($cuenta_existente) {
+        $id_res = $_POST['id'];
+        $direccion = $_POST['direccion'];
+        $codigo_postal = $_POST['codigo_postal'];
+        $ciudad = $_POST['ciudad'];
+        try {
+            require '../../../conexion.php';
+            $sql = "UPDATE `restaurantes` 
+                    SET `ciudad`='$ciudad',`direccion`='$direccion',
+                        `codigo_postal`='$codigo_postal'
+                    WHERE  `id_propietario` = $id_user and `id_restaurante` = $id_res";
+            $consulta = mysqli_query($conn, $sql);
+            $respuesta = [];
+            $respuesta = array(
+                'respuesta' => "ok",
+            );
+            
+        } catch (\Throwable $th) {
+            $respuesta = array(
+                'respuesta' => $th
+            );
+            return $respuesta;
+        }
+    }
+    return $respuesta;
+}
+
+function actualiza_datos_horario(): array
+{
+    $cuenta_existente = false;
+    session_start();
+    $id_user = $_SESSION['id'];
+    if ($id_user != "") { 
+        $cuenta_existente = true;
+    }
+    if ($cuenta_existente) {
+
+        
+        $id_res = (int) $_POST['id'];
+        try {
+            require '../../../conexion.php';
+            $selecionar = "SELECT  * FROM `fechas` WHERE id_restaurante = $id_res";
+            $resultado_seleccionar = mysqli_query($conn, $selecionar);  
+            $row = mysqli_fetch_assoc($resultado_seleccionar);   
+
+            if ($row) {
+                $sentencia_eliminar = "DELETE FROM `fechas` WHERE id_restaurante = $id_res";
+                mysqli_query($conn, $sentencia_eliminar);  
+                $respuestaaaaaa = true;
+            }else {
+                $respuestaaaaaa = false;
+            }
+
+            $ingresar_horario = $conn->prepare("INSERT INTO fechas ( id_restaurante, dia, hora_inicio, hora_fin) VALUES (?,?,?,?)");
+            $ingresar_horario->bind_param('iiss', $id_res, $dia, $inicio, $fin);
+
+            $fechas = json_decode($_POST['horarios']);
+            foreach ($fechas as $value) {
+                $dia = (int) $value->id_dia;
+                $inicio = $value->hora_inicio;
+                $fin = $value->hora_fin;
+                $ingresar_horario->execute();
+            }
+            $respuesta = array(
+                'nombre' => $respuestaaaaaa,
+            );
+            
+        } catch (\Throwable $th) {
+            $respuesta = array(
+                'respuesta' => $th
+            );
+        }
+    }
+    return $respuesta;
+}
+function actualiza_datos_categoria(): array
+{
+    $cuenta_existente = false;
+    session_start();
+    $id_user = $_SESSION['id'];
+    if ($id_user != "") { 
+        $cuenta_existente = true;
+    }
+    if ($cuenta_existente) {
+
+        
+        $id_res = (int) $_POST['id'];
+        try {
+            require '../../../conexion.php';
+            $selecionar = "SELECT  * FROM `categorias_restaurantes` WHERE id_restaurante = $id_res";
+            $resultado_seleccionar = mysqli_query($conn, $selecionar);  
+            $row = mysqli_fetch_assoc($resultado_seleccionar);   
+
+            if ($row) {
+                $sentencia_eliminar = "DELETE FROM `categorias_restaurantes` WHERE id_restaurante = $id_res";
+                mysqli_query($conn, $sentencia_eliminar);  
+                $respuestaaaaaa = true;
+            }else {
+                $respuestaaaaaa = false;
+            }
+            $ingresar_categoria = $conn->prepare("INSERT INTO categorias_restaurantes ( id_categoria, id_restaurante) VALUES (?,?)");
+            $ingresar_categoria->bind_param('ii', $id_categoria, $id_res);
+
+            $categorias = json_decode($_POST['categorias']);
+
+            foreach ($categorias as $value) {
+                $id_categoria = (int) $value -> id;
+                $ingresar_categoria->execute();
+            }
+            $respuesta = array(
+                'nombre' => $respuestaaaaaa,
+            );
+            
+        } catch (\Throwable $th) {
+            $respuesta = array(
+                'respuesta' => $th
+            );
+        }
+    }
+    return $respuesta;
+}
+//--------ACTUALIZACION DE DATOS EN EDIT RESTAURANTE
 
 function mostrar_restaurantes_pendientes(): array
 {
