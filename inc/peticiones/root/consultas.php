@@ -966,3 +966,32 @@ function cambiar_estado_restaurante(): array
     }
     return $respuesta;
 }
+
+
+function info_categorias(): array
+{
+    
+    try {
+        require '../../../conexion.php';
+
+        $sql = "SELECT * FROM `categorias` ";
+        $consulta = mysqli_query($conn, $sql);
+        $respuesta = [];
+        $i = 0;
+        //SI CUENTA CON RESTAURANTES
+        if (mysqli_num_rows($consulta) != 0) {
+            while ($row = mysqli_fetch_assoc($consulta)) {
+                $respuesta[$i]['id_categoria'] = $row['id_categoria'];
+                $respuesta[$i]['nombre'] = $row['nombre'];
+                $i++;
+            }
+        }
+        else{
+            $respuesta = array(
+                'error' => true
+            );
+        }
+    } catch (\Throwable $th) {
+    }
+    return $respuesta;
+}
