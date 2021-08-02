@@ -65,26 +65,33 @@ function obtener_promocion_dia(): array
 
         $respuesta = [];
         $i = 0;
-
-        while ($stmt->fetch()) {
-            $respuesta[$i]['nombre_res'] =$nombre_res;
-            $respuesta[$i]['id_promocion'] = $id;
-            $respuesta[$i]['id_restaurante'] = $id_restaurante;
-            $respuesta[$i]['imagen'] = $imagen;
-            $respuesta[$i]['descripcion'] = $descripcion;
-            $respuesta[$i]['Nombre'] = $nombre;
-            $respuesta[$i]['fecha'] = $fecha_inicio;
-            $respuesta[$i]['fecha_f'] = $fecha_final;
-            $respuesta[$i]['horario'] = $horario;
-            $respuesta[$i]['lunes'] = $lunes ;
-            $respuesta[$i]['martes'] = $martes ;
-            $respuesta[$i]['miercoles'] = $miercoles ;
-            $respuesta[$i]['jueves'] = $jueves ;
-            $respuesta[$i]['viernes'] = $viernes ;
-            $respuesta[$i]['sabado'] = $sabado ;
-            $respuesta[$i]['domingo'] = $domingo ;
-            $i++;
+        if (mysqli_num_rows($consulta) != 0) {
+            while ($stmt->fetch()) {
+                $respuesta[$i]['nombre_res'] =$nombre_res;
+                $respuesta[$i]['id_promocion'] = $id;
+                $respuesta[$i]['id_restaurante'] = $id_restaurante;
+                $respuesta[$i]['imagen'] = $imagen;
+                $respuesta[$i]['descripcion'] = $descripcion;
+                $respuesta[$i]['Nombre'] = $nombre;
+                $respuesta[$i]['fecha'] = $fecha_inicio;
+                $respuesta[$i]['fecha_f'] = $fecha_final;
+                $respuesta[$i]['horario'] = $horario;
+                $respuesta[$i]['lunes'] = $lunes ;
+                $respuesta[$i]['martes'] = $martes ;
+                $respuesta[$i]['miercoles'] = $miercoles ;
+                $respuesta[$i]['jueves'] = $jueves ;
+                $respuesta[$i]['viernes'] = $viernes ;
+                $respuesta[$i]['sabado'] = $sabado ;
+                $respuesta[$i]['domingo'] = $domingo ;
+                $i++;
+            }
+        } else {
+            //SI NO CUENTA CON RESTAURANTES
+            $respuesta = array(
+                'respuesta' => "sin_promos"
+            );
         }
+        
         $stmt->close();
     } catch (\Throwable $th) {
     }
