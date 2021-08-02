@@ -40,6 +40,9 @@ async function mostrar_restaurante(id){
         imprime_menu_config(res);
     }
     else{
+        const div_error = document.querySelector("#mensaje");
+        let contenido1 = document.querySelector("#form_contenido1");
+        contenido1.innerHTML = "";
         mostrar_mensaje("error");
     }
 }

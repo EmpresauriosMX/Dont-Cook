@@ -152,25 +152,33 @@ async function mostrar_promocion_dia_actual() {
   const datos = new FormData();
   const dia_hoy = moment().format("d");
   let dia;
-  if (dia_hoy == 0) dia = "domingos";
+  if (dia_hoy == 0) dia = "domingo";
   if (dia_hoy == 1) dia ="lunes";
   if (dia_hoy == 2) dia ="martes";
   if (dia_hoy == 3) dia ="miercoles";
   if (dia_hoy == 4) dia ="jueves";
   if (dia_hoy == 5) dia ="viernes";
   if (dia_hoy == 6) dia = "sabado";
-
+console.log(`fecha de hoy ${dia}`)
   const ciudad = mostrar_ubicacion().ciudad;
   datos.append("dia", dia);
   datos.append("ciudad", ciudad);
   //console.log(ciudad);
   datos.append("accion", "obtener_promocion_dia");
   const res = await enviar_datos(url_promocion, datos);
-  res.length != 0 ? llenado_contenedor_html(contenedor_promociones_hoy,res) : sin_promos_hoy();
+  console.log(res);
+  //(res.respuesta != "sin_promos"
+  if (res == undefined) {
+    sin_promos_hoy();  
+  }else{
+    res.length != 0 ? llenado_contenedor_html(contenedor_promociones_hoy,res) : sin_promos_hoy();  
+  }
+
+  
 }
 
 function llenado_contenedor_html(contenedor,res) {
-
+console.log("aaqui entro");
   let clase_activo = "btn-info";
 
   let clase_l = "btn-light disabled";
@@ -234,6 +242,7 @@ function llenado_contenedor_html(contenedor,res) {
 }
 
 function sin_promos_hoy(){
+  console.log("aquie entro ahoraa")
   const titulo_promos_hoy = document.querySelector("#contenido_promociones_hoy");
   titulo_promos_hoy.innerHTML = "";
   mostrar_mensaje("sin_promociones_hoy");

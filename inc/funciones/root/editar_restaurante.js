@@ -1,7 +1,7 @@
 import { enviar_datos, mostrar_ubicacion, mostrar_mensaje , mostrar_alert} from "../funciones_generales.js";
 import { Ubicacion, select_ciudad, btn_confirmar_ciudad, obj} from "../ubicacion.js";
 
-const url = "../../inc/peticiones/admin/funciones.php";
+const url = "../../inc/peticiones/root/funciones.php";
 var id_res;
 const fechas = [];
 const categorias = [];
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
       //obtener las dias a escoger
       lista_dias.addEventListener("change", agregar_dia);
 
-      btn_confirmar_ciudad.addEventListener("click", ir_restaurantes)
+      //btn_confirmar_ciudad.addEventListener("click", ir_restaurantes)
 
       //form_edit_general.addEventListener("submit", editar_datos_generales);
 
@@ -79,7 +79,7 @@ async function mostrar_restaurante(id){
   datos.append("accion","info_restaurantes");
   //SE BUSCA EL RESTAURANTE CON SU ID
   const res = await enviar_datos(url, datos);
-  //console.log(res);
+  console.log(res);
   //SI SE ENCUENTRA EL RESTAURANTE SE IMPRIME
   if(!res.respuesta){
       imprime_restaurante(res);
@@ -134,7 +134,7 @@ async function imprime_restaurante(restaurante){
   
   //INFORMACION DE HORARIO
   const res_horario = await obtener_horario_restaurante(id);
-  //console.log(res_horario);
+  console.log(res_horario);
   if(res_horario.respuesta != "sin_horario"){
     res_horario.forEach((respuesta) => {
       //console.log(respuesta);
@@ -185,7 +185,7 @@ async function editar_datos_generales(e){
   datos.append("servicio", servicio_domicilio);
   datos.append("accion", "actualiza_datos_generales");
   const res = await enviar_datos(url, datos);
-  //console.log(res);
+  console.log(res);
   if(res.respuesta = "ok"){
     let div_alert2 = document.querySelector("#alert2");
     mostrar_alert("success", "Los datos generales han sido actualizados", div_alert2);

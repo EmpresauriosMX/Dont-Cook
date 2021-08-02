@@ -33,13 +33,15 @@ function sin_ciudad() {
 }
 
 async function mostrar_promocion() {
+
   const datos = new FormData();
   const ciudad = mostrar_ubicacion().ciudad;
   datos.append("ciudad", ciudad);
   datos.append("accion", "obtener_promociones_todos");
   const res = await enviar_datos(url, datos);
   //console.log(res);
-  res.length != 0 ? llenado_contenedor_html(contenido_promociones,res) : ninguna_promocion();
+
+    res.length != 0 ? llenado_contenedor_html(contenido_promociones,res) : sin_promos_hoy();  
 }
 
 function ninguna_promocion(){
@@ -52,7 +54,7 @@ async function mostrar_promocion_dia_actual() {
     const datos = new FormData();
     const dia_hoy = moment().format("d");
     let dia;
-    if (dia_hoy == 0) dia = "domingos";
+    if (dia_hoy == 0) dia = "domingo";
     if (dia_hoy == 1) dia ="lunes";
     if (dia_hoy == 2) dia ="martes";
     if (dia_hoy == 3) dia ="miercoles";
@@ -66,7 +68,11 @@ async function mostrar_promocion_dia_actual() {
     //console.log(ciudad);
     datos.append("accion", "obtener_promocion_dia");
     const res = await enviar_datos(url, datos);
-    res.length != 0 ? llenado_contenedor_html(contenido_promociones_hoy,res) : sin_promos_hoy();
+    if (res == undefined) {
+      sin_promos_hoy();  
+    }else{
+      res.length != 0 ? llenado_contenedor_html(contenedor_promociones_hoy,res) : sin_promos_hoy();  
+    }
 }
 
 function sin_promos_hoy(){
@@ -138,4 +144,11 @@ function llenado_contenedor_html(contenedor,res) {
     `;
       });
     
+}
+
+
+function limpiar_contenedor() {
+  cont_promo.innerHTML = "";
+  contenedor.innerHTML = "";
+  titulo.innerHTML = "";
 }

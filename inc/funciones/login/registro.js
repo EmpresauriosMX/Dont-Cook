@@ -38,6 +38,7 @@ function registro_usuario(e) {
       //console.log(re);
       limpiar_campos();
       alert("Usuario Registrado Exitosamente!");
+      window.location = '../login/login.php'
     } );
   }else{
     alert("Las Contraseñas No Son Iguales, Intentalo De Nuevo");

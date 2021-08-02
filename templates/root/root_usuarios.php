@@ -1,5 +1,5 @@
 <?php
-include '../../inc/peticiones/login/sesion.php';
+include '../../inc/peticiones/login/session_root.php';
 ?>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -21,24 +21,24 @@ include '../../inc/peticiones/login/sesion.php';
         <!--TODAS LAS PROMOCIONES-->
         <!--Tarjetas de promociones-->
         <div class="section-title mt-3">
-            <h2>Todas los usuarios</h2>
+            <h2>Todos los usuarios</h2>
         </div>
         <div class="">
             <table class="table">
                 <thead>
-                    <tr>
+                    <tr class="text-center">
                         <th scope="col">#</th>
                         <th scope="col">nombre</th>
                         <th scope="col">apellido</th>
                         <th scope="col">correo</th>
                         <th scope="col">usuario</th>
                         <th scope="col">estado</th>
-                        <th scope="col">editar_estado</th>
+                        <th scope="col">editar estado</th>
 
 
                     </tr>
                 </thead>
-                <tbody id="contenedor_usuarios">
+                <tbody class="text-center" id="contenedor_usuarios">
        
                 </tbody>
             </table>

@@ -1,13 +1,40 @@
-//import { enviar_datos,} from "../funciones_generales.js";
+import {enviar_datos} from "../funciones_generales.js";
 
 const url = "../../inc/peticiones/root/funciones.php";
 const contenido_agregar = document.querySelector("#form_agregar");
 const contenido_mostrar = document.querySelector("#form_categoria");
 
+const contenedor_eliminar = document.querySelector("#contenedor_eliminar");
+const contenedor_editar = document.querySelector("#contenedor_editar");
+
+let imagen_a_enviar = document.querySelector("#imagen"); //input
+let imagen_previa = document.querySelector("#img_previa");
 
 document.addEventListener("DOMContentLoaded", () => {
     contenido_agregar.addEventListener("submit",guardar);
+    mostrar_categoria();
+    contenedor_eliminar.addEventListener("click",eliminar);
+    contenedor_editar.addEventListener("click",editar);
 });
+
+
+async function eliminar(){
+    const datos = new FormData();
+    const res = await enviar_datos(url, datos);
+    console.log(res);
+
+    let nombre = document.querySelector("#nombre").value;
+
+    datos.append("nombre", nombre);
+    datos.append("accion","eliminar_categorias");
+
+    enviar_datos(url, datos).then((res) =>alert("Categoria Actualizada"));
+
+}
+
+async function editar(){
+    
+}
 
 async function guardar(){
 
@@ -28,11 +55,45 @@ async function guardar(){
 
 }
 
+async function mostrar_categoria(){
+    const datos = new FormData();
+    datos.append("accion","info_categorias");
+    const res = await enviar_datos(url, datos);
+    console.log(res);
+    //SI SE ENCUENTRA EL RESTAURANTE SE IMPRIME
+    if(!res.respuesta){
+        imprime_categorias(res);
+    }
+    else{
+        mostrar_mensaje("error");
+    }
+}
 
-/*
- res.forEach(respuesta => {
-        const {nombre} = respuesta;
-        div_restaurantes.innerHTML += `
-        
+
+
+async function imprime_categorias(res) {
+    let contenido1 = document.querySelector("#carta_categoria");
+
+    res.forEach((element) => {
+
+        const {id,  nombre} = element;
+        console.log(element);
+        contenido1.innerHTML += `
+        <div  class="card">
+            <img class="card-img-top" src="../../src/img/banner/banner_dc5.png" alt="Card image cap">
+            <div class="card-body"></div>
+                <h5 name="nombre" id="nombre" class="card-title text-center">${nombre}</h5>
+                    <button id="contenedor_editar" class="btn btn-dark btn-lg btn-block">Editar</button> 
+                    <button id="contenedor_eliminar" class="btn btn-danger btn-lg btn-block">Eliminar</button>
+            </div>
+        </div>
         `;
-    });*/
+
+    });
+    
+    
+
+    //img_restaurante.setAttribute("src", `../../src/img/restaurantes/${foto}`);
+    
+
+}
