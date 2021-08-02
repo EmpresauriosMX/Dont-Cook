@@ -65,7 +65,7 @@ function obtener_promocion_dia(): array
 
         $respuesta = [];
         $i = 0;
-        if (mysqli_num_rows($consulta) != 0) {
+        if ($stmt->affected_rows != 0) {
             while ($stmt->fetch()) {
                 $respuesta[$i]['nombre_res'] =$nombre_res;
                 $respuesta[$i]['id_promocion'] = $id;

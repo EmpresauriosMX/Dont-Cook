@@ -152,7 +152,7 @@ async function mostrar_promocion_dia_actual() {
   const datos = new FormData();
   const dia_hoy = moment().format("d");
   let dia;
-  if (dia_hoy == 0) dia = "domingos";
+  if (dia_hoy == 0) dia = "domingo";
   if (dia_hoy == 1) dia ="lunes";
   if (dia_hoy == 2) dia ="martes";
   if (dia_hoy == 3) dia ="miercoles";
