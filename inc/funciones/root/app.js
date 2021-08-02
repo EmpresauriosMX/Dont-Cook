@@ -19,7 +19,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 async function eliminar(){
-    
+    const datos = new FormData();
+    const res = await enviar_datos(url, datos);
+    console.log(res);
+
+    let nombre = document.querySelector("#nombre").value;
+
+    datos.append("nombre", nombre);
+    datos.append("accion","eliminar_categorias");
+
+    enviar_datos(url, datos).then((res) =>alert("Categoria Actualizada"));
+
 }
 
 async function editar(){
@@ -72,7 +82,7 @@ async function imprime_categorias(res) {
         <div  class="card">
             <img class="card-img-top" src="../../src/img/banner/banner_dc5.png" alt="Card image cap">
             <div class="card-body"></div>
-                <h5 name="nombre" id="nombre" class="card-title">${nombre}</h5>
+                <h5 name="nombre" id="nombre" class="card-title text-center">${nombre}</h5>
                     <button id="contenedor_editar" class="btn btn-dark btn-lg btn-block">Editar</button> 
                     <button id="contenedor_eliminar" class="btn btn-danger btn-lg btn-block">Eliminar</button>
             </div>
