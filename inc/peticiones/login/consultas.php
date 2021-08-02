@@ -46,12 +46,12 @@ function buscar_usuario(): array
         require '../../../conexion.php';
         $usuario = $_POST['user'];
         $contraseña_recibida = $_POST['password'];
-        $stmt = $conn->prepare("SELECT id_usuario,correo,usuario,contraseña, estado FROM usuarios WHERE usuario = ?");
+        $stmt = $conn->prepare("SELECT id_usuario,correo,usuario,contraseña, estado,tipo_usuario FROM usuarios WHERE usuario = ?");
         $stmt->bind_param('s', $usuario);
         $stmt->execute();
 
         // Loguear el usuario
-        $stmt->bind_result($id_usuario, $correo_usuario, $nombre_usuario, $contraseña_usuario, $estado);
+        $stmt->bind_result($id_usuario, $correo_usuario, $nombre_usuario, $contraseña_usuario, $estado, $tipo_usuario);
         $stmt->fetch();
 
         if ($nombre_usuario) {
@@ -59,6 +59,7 @@ function buscar_usuario(): array
                 session_start(); //datos de la session
                 $_SESSION['nombre'] = $usuario;
                 $_SESSION['id'] = $id_usuario;
+                $_SESSION['tipo_usuario'] = $tipo_usuario;
                 $_SESSION['login'] = true;
 
                 $respuesta = array(

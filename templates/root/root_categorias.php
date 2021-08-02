@@ -1,5 +1,5 @@
 <?php
-    include '../../inc/peticiones/login/sesion.php';
+    include '../../inc/peticiones/login/session_root.php';
 ?>
 <!DOCTYPE html>
 <html lang="zxx">
