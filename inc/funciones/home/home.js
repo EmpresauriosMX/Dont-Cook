@@ -132,17 +132,15 @@ async function pintar_horario_html() {
     const lista = document.querySelector(`#restaurante_horario_${id}`);
     if (lista) {
       lista.innerHTML = "";
-      //console.log(servicio_domicilio);
       if (servicio_domicilio === 1) {
-        
         lista.innerHTML = `
         <small class = "text-success">
         <i class="fa fa-car"></i>
           De ${apertura} a ${cierre} </small> `;
       } else {
         lista.innerHTML = `
-        <!--small class = "text-warning">Sin servicio a domicilio</small-->
-        <small class = "text-success">Abierto de ${apertura} a ${cierre} </small> `;
+        <small class = "text-warning">Sin servicio a domicilio</small>
+        <small class = "text-success">De ${apertura} a ${cierre} </small> `;
       }
     }
   });
@@ -166,10 +164,7 @@ async function mostrar_promocion_dia_actual() {
   //console.log(ciudad);
   datos.append("accion", "obtener_promocion_dia");
   const res = await enviar_datos(url_promocion, datos);
-  if(res.respuesta != "sin_promos"){
-    res.length != 0 ? llenado_contenedor_html(contenedor_promociones_hoy,res) : sin_promos_hoy();  
-  }
-  
+  res.length != 0 ? llenado_contenedor_html(contenedor_promociones_hoy,res) : sin_promos_hoy();
 }
 
 function llenado_contenedor_html(contenedor,res) {
