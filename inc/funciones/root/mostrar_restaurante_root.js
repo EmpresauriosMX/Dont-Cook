@@ -100,7 +100,7 @@ function imprime_restaurante(datos) {
     const text_nombre_restaurante = document.querySelector("#nombre_restaurante");
     const text_descripcion_larga = document.querySelector("#descripcion_larga");
     const img_restaurante = document.querySelector("#img_restaurante");
-    const facebook = document.querySelector("#facebook");
+    const editar_btn = document.querySelector("#btn_editar");
     const enlace_editar_restaurante = document.querySelector("#editar");
     const texto_telefono = document.querySelector("#telefono");
     const texto_direccion = document.querySelector("#direccion");
@@ -121,7 +121,7 @@ function imprime_restaurante(datos) {
     texto_correo.innerHTML = `${correo}`;
 
     img_restaurante.setAttribute("src", `../../src/img/restaurantes/${foto}`);
-    //facebook.setAttribute("href", `${fb}`);
+    editar_btn.setAttribute("href", `../root/editar_restaurante.php?r=${id}`);
     //enlace_editar_restaurante.setAttribute("href",`../admin/editar_restaurante.php?r=${id}`);
 
     const url_datos_externos = "../../inc/peticiones/restaurantes/funciones.php";
