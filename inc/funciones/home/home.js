@@ -166,7 +166,10 @@ async function mostrar_promocion_dia_actual() {
   //console.log(ciudad);
   datos.append("accion", "obtener_promocion_dia");
   const res = await enviar_datos(url_promocion, datos);
-  res.length != 0 ? llenado_contenedor_html(contenedor_promociones_hoy,res) : sin_promos_hoy();
+  if(res.respuesta){
+    res.length != 0 ? llenado_contenedor_html(contenedor_promociones_hoy,res) : sin_promos_hoy();  
+  }
+  
 }
 
 function llenado_contenedor_html(contenedor,res) {
