@@ -71,7 +71,7 @@ async function mostrar_promocion_dia_actual() {
     if (res == undefined) {
       sin_promos_hoy();  
     }else{
-      res.length != 0 ? llenado_contenedor_html(contenedor_promociones_hoy,res) : sin_promos_hoy();  
+      res.length != 0 ? llenado_contenedor_html(contenedor_promociones_hoy,res) : console.log("s_p");  
     }
 }
 
