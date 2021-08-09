@@ -41,7 +41,7 @@ async function mostrar_promocion() {
   const res = await enviar_datos(url, datos);
   //console.log(res);
 
-    res.length != 0 ? llenado_contenedor_html(contenido_promociones,res) : sin_promos_hoy();  
+    res.length != 0 ? llenado_contenedor_html(contenido_promociones,res) : ninguna_promocion();  
 }
 
 function ninguna_promocion(){
